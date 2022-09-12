@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_reading" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Introduction to mathematical arguments</title>
+  <p>To prepare for class, we read (most of) the first portion of
+  <q>Introduction to mathematical arguments</q> by Michael Hutchings,
+  which is posted on Canvas. Here are some of the things in the
+  reading I want to emphasize or say more about.
+  <dl>
+    <li>
+      <title>If&#8230;then</title>
+      <p>We need some more vocab here. When considering <sq>if
+      <m>p</m>, then <m>q</m></sq>, we call <m>p</m> the
+      <term>hypothesis</term> and <m>q</m> the
+      <term>conclusion</term>. Critical to our understanding later is
+      that there is <em>exactly one circumstance</em> in which an
+      if&#8230;then statement (sometimes called an
+      <term>implication</term> or a <term>conditional
+      statement</term>) is false: the hypothesis <m>p</m> is true and
+      the conclusion <m>q</m> is false.</p>
+    </li>
+    <li>
+      <title>If and only if</title>
+      <p>This sort of statement is also called a <term>biconditional
+      statement</term>. We usually prove <m>p\Leftrightarrow q</m> by
+      proving <m>p\Rightarrow q</m> and separately that
+      <m>q\Rightarrow p</m>.
+      </p>
+    </li>
+    <li>
+      <title>Negating statements</title>
+      <p>We could get really deep into the weeds of something called
+      truth tables for this, but to be honest, we just don't have the
+      time for that. (It's also excruciatingly dull to do it.)
+      However, I don't want some of these things to seem magical. One
+      way to approach the negation of a statement is that the negation
+      is true in exactly the circumstance(s) where the original
+      statement is false. Let's take a look at a couple of important
+      ones. 
+      <ul>
+	<li><m>p</m> and <m>q</m>: This is true exactly when both are
+	true. Thus, this is false when at least one statement is
+	false. Hence, the negation is true when at least one statement
+	is true. To shuffle the <q>not</q> around a bit, that means we
+	need at least one of <q>not <m>p</m></q> and <q>not
+	<m>q</m></q> to be true, so the negation is (not <m>p</m>) and
+	(not <m>q</m>).</li>
+	<li>
+	  <m>p</m> or <m>q</m>: This is true when at least one is
+	  true. Thus, this is false exactly when both statements are
+	  false. In this case, both <q>not <m>p</m></q> and <q>not
+	  <m>q</m></q> are true, so the negation is (not <m>p</m>) and
+	  (not <m>q</m>).
+	</li>
+	<li>
+	  <m>p\Rightarrow q</m>: This false exactly when <m>p</m> is
+	  true and <m>q</m> is false. Thus, the negation is true in
+	  exactly this situation, which requires that both <m>p</m>
+	  and (not <m>q</m>) be true, so <m>p</m> and (not <m>q</m>)
+	  is the negation. We will see why this is important when we
+	  do proof by contradiction later on.
+	</li>
+      </ul>
+      </p>
+    </li>
+    <li>
+      <title>A note about quantifier symbols</title>
+      <p>In this class, you will <em>never</em> use the symbols
+      <m>\exists</m> or <m>\forall</m> in work submitted for
+      grading. Never. If you do, you will not get full credit for the
+      problem. As far as I am concerned, there are two settings where
+      these symbols are useful: in courses in mathematical logic (MATH
+      571, for instance) and in scratch work where a complicated
+      statement is being negated. Once the scratchwork is done, you
+      carefully write things using the proper words.</p>
+    </li>
+    <li>
+      <title>Theorem statements</title>
+      <p>
+	A statement that is true and for which we have a proof is a
+	<term>theorem</term>. As we go on, we will talk about related
+	words such as <q>proposition</q>, <q>lemma</q>, and
+	<q>corollary</q>, but those are all words that describe the
+	role of a theorem. You can't go wrong by calling a true
+	statement a thorem, so we will stick with that for the time
+	being. Hutchings's essay somewhat silently transitions from
+	statements of theorems that look like <q>For every integer
+	<m>x</m>, if <m>x</m> is odd, then <m>x+1</m> is even.</q> to
+	theorem statements that look like <q>If <m>x</m> is an odd
+	integer, then <m>x+1</m> is even.</q> When you see a theorem
+	that appears to have a variable that doesn't have a quantifier
+	attached, such as <m>x</m> in my second example, you assume a
+	<q>for all</q> quantifier on that variable out in front of the
+	implication. Mainly a convenience of mathematical writing.
+      </p>
+    </li>
+  </dl>
+  </p>
+</section>
+

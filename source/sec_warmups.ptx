@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_warmups" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Warmup Problems</title>
+  <worksheet>
+    <title>Warmup Problems</title>
+    <introduction>
+    <p>The questions on this handout will help give an overview of
+    where linear algebra begins.</p>
+    </introduction>
+    <page>
+
+    <activity workspace="4cm">
+    <task xml:id="task_warmups_simult">
+    <p>Solve:
+    <md>
+      <mrow>3x_1-2x_2\amp= 6</mrow>
+      <mrow>-x_1+x_2\amp= 1</mrow>
+    </md>
+    </p>
+    </task>
+
+    <task>
+      <statement>
+	<p>Draw a graph of the solution set of the equation: <m>3x_1-2x_2=6</m>.
+	</p>
+      </statement>
+      <hint>
+	<p>If a solution has <m>x_1=a</m>, what is <m>x_2</m> or viceversa?
+	</p>
+      </hint>
+    </task>
+
+    <task>
+      <p>Draw a graph of the solution set of the equation:
+      <m>-x_1+x_2=1</m>.</p>
+    </task>
+
+    <task>
+      <p>Graph the solution sets from the two previous steps
+  together. How does your answer to <xref
+  ref="task_warmups_simult">part</xref> compare to your graph?
+      </p>
+    </task>
+</activity>
+    </page>
+    <page>
+<activity workspace="5cm">
+  <statement>
+    <p>Solve:
+  <md>
+    <mrow>2x_1-2x_2\amp=6</mrow>
+    <mrow>-x_1+x_2\amp=1 </mrow>
+  </md>
+    </p>
+  </statement>
+</activity>
+
+<activity workspace="5cm">
+  <statement>
+  <p>Solve:
+  <md>
+    <mrow>2x_1-2x_2\amp=-2</mrow>
+    <mrow>-x_1+x_2\amp=1</mrow>
+  </md>
+  </p>
+  </statement>
+</activity>
+
+<investigation workspace="3cm">
+  <statement>
+  <p>Wait&#8230;what just happened? Explain the results of the previous
+  two activities. What do the graphs of the corresponding solution sets
+  look like in relation to the graphs of the equations?
+  </p>
+  </statement>
+</investigation>
+
+<investigation workspace="3cm">
+  <statement>
+  <p>What are the possible intersections of two lines? Clearly state
+  your conjecture.
+  </p>
+  </statement>
+</investigation>
+
+<p>Throughout this course we will be doing many of the same things you
+did in the previous questions, but we will do them in a more general
+setting that will allow us to solve <em>many</em> new and old
+problems.</p>
+    </page>
+  </worksheet>
+</section>
+
