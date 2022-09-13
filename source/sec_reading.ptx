@@ -43,7 +43,7 @@
 	false. Hence, the negation is true when at least one statement
 	is true. To shuffle the <q>not</q> around a bit, that means we
 	need at least one of <q>not <m>p</m></q> and <q>not
-	<m>q</m></q> to be true, so the negation is (not <m>p</m>) and
+	<m>q</m></q> to be true, so the negation is (not <m>p</m>) or
 	(not <m>q</m>).</li>
 	<li>
 	  <m>p</m> or <m>q</m>: This is true when at least one is

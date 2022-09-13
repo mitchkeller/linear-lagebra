@@ -2,6 +2,7 @@
 
 <section xml:id="sec_proof_practice" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Writing First Proofs</title>
+  <introduction>
   <p>
     Let's first look at a sample proof. We'll use a theorem (not
     labelled as such) from Hutchings's notes.
@@ -24,6 +25,7 @@
       </p>
     </proof>
   </theorem>
+  </introduction>
   <worksheet>
     <title>Practicing Writing Proofs</title>
     <page>
