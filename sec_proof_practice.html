@@ -78,10 +78,10 @@ window.MathJax = {
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_reading.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_what_is_proof.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_reading.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_what_is_proof.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch_solving_sys.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_reading.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_what_is_proof.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_reading.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_what_is_proof.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch_solving_sys.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -105,12 +105,15 @@ window.MathJax = {
 <li><a href="sec_proof_practice.html" data-scroll="sec_proof_practice" class="active">Writing First Proofs</a></li>
 </ul>
 </li>
+<li class="link">
+<a href="ch_solving_sys.html" data-scroll="ch_solving_sys" class="internal"><span class="codenumber">2</span> <span class="title">Getting Started</span></a><ul><li><a href="sec_solving_linear_systems.html" data-scroll="sec_solving_linear_systems" class="internal">Solving Linear Systems</a></li></ul>
+</li>
 </ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_proof_practice"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.2</span> <span class="title">Writing First Proofs</span>
 </h2>
-<p id="p-21">Let's first look at a sample proof. We'll use a theorem (not labelled as such) from Hutchings's notes.</p>
+<section class="introduction" id="introduction-2"><p id="p-21">Let's first look at a sample proof. We'll use a theorem (not labelled as such) from Hutchings's notes.</p>
 <article class="theorem theorem-like" id="theorem-1"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.1</span><span class="period">.</span>
 </h3>
@@ -121,7 +124,7 @@ window.MathJax = {
 x+1 = (2k+1)+1 = 2k+2 = 2(k+1)\text{.}
 \end{equation*}
 </div>
-<p class="continuation">Let <span class="process-math">\(m=k+1\text{.}\)</span> Since <span class="process-math">\(k\)</span> is an integer, <span class="process-math">\(m\)</span> is also an integer. Thus, we have that <span class="process-math">\(x+1=2m\text{,}\)</span> where <span class="process-math">\(m\)</span> is an integer. This is exactly what it means for <span class="process-math">\(x+1\)</span> to be even.</p></article><section class="worksheet" id="worksheet-2"><h3 class="heading hide-type">
+<p class="continuation">Let <span class="process-math">\(m=k+1\text{.}\)</span> Since <span class="process-math">\(k\)</span> is an integer, <span class="process-math">\(m\)</span> is also an integer. Thus, we have that <span class="process-math">\(x+1=2m\text{,}\)</span> where <span class="process-math">\(m\)</span> is an integer. This is exactly what it means for <span class="process-math">\(x+1\)</span> to be even.</p></article></section><section class="worksheet" id="worksheet-2"><h3 class="heading hide-type">
 <span class="type">Worksheet</span> <span class="codenumber"></span> <span class="title">Practicing Writing Proofs</span><div class="print-links">
 <a href="worksheet-2-a4.html" class="a4">A4</a><a href="worksheet-2-letter.html" class="us">US</a>
 </div>
@@ -136,7 +139,7 @@ x+1 = (2k+1)+1 = 2k+2 = 2(k+1)\text{.}
 <article class="activity project-like" id="activity-6"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.3</span><span class="period">.</span>
 </h4>
-<div class="introduction" id="introduction-2"><p id="p-26">We want to prove the theorem “If <span class="process-math">\(c,a,r\in\mathbb{R}\)</span> such that <span class="process-math">\(c\neq 0\)</span> and <span class="process-math">\(r\neq a/c\text{,}\)</span> then there exists a unique <span class="process-math">\(x\in\mathbb{R}\)</span> such that <span class="process-math">\((ax+1)/(cx) =
+<div class="introduction" id="introduction-3"><p id="p-26">We want to prove the theorem “If <span class="process-math">\(c,a,r\in\mathbb{R}\)</span> such that <span class="process-math">\(c\neq 0\)</span> and <span class="process-math">\(r\neq a/c\text{,}\)</span> then there exists a unique <span class="process-math">\(x\in\mathbb{R}\)</span> such that <span class="process-math">\((ax+1)/(cx) =
 r\text{.}\)</span>”</p></div>
 <article class="task exercise-like" id="task-5"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <p id="p-27">The first step in a uniqueness proof is to demonstrate that such a beast exists. One pattern for doing this is by coming up with a formula for the thing (here <span class="process-math">\(x\)</span>) that we need to have exist and showing that <span class="process-math">\(x\)</span> does what it's supposed to. <em class="alert">The process of how you come with the <span class="process-math">\(x\)</span> is scratchwork that doesn't go in the proof!</em>. Thus, we want to start by finding a formula for <span class="process-math">\(x\)</span> so that <span class="process-math">\((ax+1)/(cx) = r\text{.}\)</span> Use familiar algebra skills to do it. What you write up for your proof is going to look like “Let <span class="process-math">\(x=\cdots\text{.}\)</span> Now substituting and simplifying, we see:” starting with <span class="process-math">\((ax+1)/(cx)\)</span> and simplifying to get <span class="process-math">\(r\text{.}\)</span></p>
@@ -149,7 +152,7 @@ r\text{.}\)</span> Now you use algebra to show that <span class="process-math">\
 <div class="workspace" data-space="5cm"></div></article></article></section><section class="onepage" id="page-5"><article class="activity project-like" id="activity-7"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.4</span><span class="period">.</span>
 </h4>
-<div class="introduction" id="introduction-3"><p id="p-30">Pick and choose amongst the following for more practice.</p></div>
+<div class="introduction" id="introduction-4"><p id="p-30">Pick and choose amongst the following for more practice.</p></div>
 <article class="task exercise-like" id="task-8"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <p id="p-31">If <span class="process-math">\(n\)</span> is even, then <span class="process-math">\(n^2\)</span> is even.</p>
 <div class="workspace" data-space="5cm"></div></article><article class="task exercise-like" id="task-9"><h5 class="heading"><span class="codenumber">(b)</span></h5>
