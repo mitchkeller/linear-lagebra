@@ -23,9 +23,9 @@ The term <m>a_{ij}</m> is the <term>coefficient</term> of the
 equation. In these notes, we will only consider real values for the
 coefficients of our linear systems, i.e. <m>a_{ij} \in
 \mathbb{R}</m>. A <term>solution</term> is a choice of variable values
-that satisfies \underline{all} equations in the system. A solution is
-\emph{not} a particular variable value but must include a choice for
-\underline{all} variables in the system. The \textbf{solution set} for
+that satisfies<em>all</em> equations in the system. A solution is
+<em>not</em> a particular variable value but must include a choice for
+<em>all</em> variables in the system. The <term>solution set</term> for
 a system of equations is the set of all possible solutions. We will
 have many ways to describe solutions to a system this semester but
 they all specify the values of <m>x_1</m>, <m>x_2</m>, ..., and
@@ -245,7 +245,12 @@ A rectangular matrix is in <term>row echelon form</term> if it has the following
   </statement>
 </definition>
 
-<p>The leading entry in a nonzero row of the row echelon form is called a <term>pivot</term>. The column in which a pivot occurs is called a <term>pivot column</term> and the corresponding variable is a <term>basic variable</term> or <term>pivot variable</term>. A variable corresponding to a column in which the coefficient matrix does \underline{not} have a pivot are called <term>free variables</term>. While the echelon form is needed to find where pivots will occur, we will sometimes refer to pivot positions of a matrix even when the matrix is not in echelon form.</p>
+<p>The leading entry in a nonzero row of the row echelon form is
+called a <term>pivot</term>. The column in which a pivot occurs is
+called a <term>pivot column</term> and the corresponding variable is a
+<term>basic variable</term> or <term>pivot variable</term>. A variable
+corresponding to a column in which the coefficient matrix does
+<em>not</em> have a pivot are called <term>free variables</term>. While the echelon form is needed to find where pivots will occur, we will sometimes refer to pivot positions of a matrix even when the matrix is not in echelon form.</p>
 
 <theorem>
   <statement>
