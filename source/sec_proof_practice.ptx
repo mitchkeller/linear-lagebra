@@ -26,16 +26,32 @@
     </proof>
   </theorem>
   </introduction>
+
   <worksheet>
     <title>Practicing Writing Proofs</title>
     <page>
-
     <activity workspace="10cm">
       <statement>
 	Prove the theorem <q>If <m>x</m> is an odd integer and
 	<m>y</m> is an odd integer, then <m>xy</m> is an odd integer.</q>
       </statement>
+      <solution>
+	<p>Let <m>x</m> and <m>y</m>be odd integers. Hence there exist
+	integers <m>k</m> and <m>n</m> such that <m>x=2k+1</m> and
+	<m>y=2n+1</m>. Multiplying, we have
+	<me>xy=(2k+1)(2n+1) = 4kn+2k+2n+1 = 2(2kn+k+n)+1</me>.
+	Since <m>k</m> and <m>n</m> are integers, we know that
+	<m>2kn+k+n</m> is an integer. Thus, we see that <m>xy</m> is
+	an odd integer.
+	</p>
+
+	<p>(Note that it would be completely reasonable to do
+	something like let <m>m=2kn+k+n</m> if you wanted to make the
+	form of an odd integer clearer, but I think this proof would
+	be fine as written.)</p>
+      </solution>
 </activity>
+
 <activity workspace="12cm">
   <statement>
     <p>Prove the theorem <q>For every integer <m>x</m>, <m>x+4</m> is
@@ -43,6 +59,20 @@
     requires proving two separate implications. Identify them before
     writing your proofs!)</p>
   </statement>
+  <solution>
+    <p><m>(\Rightarrow)</m> Let <m>x+4</m> be an odd integer. Hence
+    there exists an integer <m>n</m> such that <m>x+4=2n+1</m>. By
+    adding three to both sides of this equation, we have <m>x+7 =
+    2n+4</m>. Factoring the right-hand side gives <m>x+7 =
+    2(n+2)</m>. Hence, since <m>x+7</m> is twice an integer, we have
+    proved that <m>x+7</m> is even.</p>
+    <p><m>(\Leftarrow)</m> Let <m>x+7</m> be an even integer. This
+    means that there is an integer such that
+    <m>x+7=2m</m>. Subtracting <m>3</m> from both sides gives
+    <m>x+4=2m-3</m>. A bit more algebra shows that <m>x+4 = 2m-4+1 =
+    2(m-2)+1</m>. Thus, we have proved that <m>x+4</m> is an odd integer.
+    </p>
+  </solution>
 </activity>
 
     </page>

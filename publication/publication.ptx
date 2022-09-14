@@ -65,7 +65,7 @@
     <!-- ***************************************************** -->
   </html>
   <common>
-    <exercise-project statement="yes" hint="yes" answer="no" solution="no" />
+    <exercise-project statement="yes" hint="yes" answer="no" solution="yes" />
     <exercise-divisional statement="yes" hint="yes" answer="no" solution="no" />
 
   </common>
