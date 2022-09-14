@@ -116,8 +116,8 @@ window.MathJax = {
 <section class="subsection" id="subsection-1"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Elementary Operations</span>
 </h3>
-<p id="p-35">Our first discussion of linear algebra will cover the ideas of efficiently solving a system of linear equations and matrix operations.</p>
-<p id="p-36">A system of <span class="process-math">\(m\)</span> linear equations in <span class="process-math">\(n\)</span> variables can be written:</p>
+<p id="p-39">Our first discussion of linear algebra will cover the ideas of efficiently solving a system of linear equations and matrix operations.</p>
+<p id="p-40">A system of <span class="process-math">\(m\)</span> linear equations in <span class="process-math">\(n\)</span> variables can be written:</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \begin{array}{rcrcrcrcr}
@@ -133,7 +133,7 @@ a_{m1} x_1  \amp +\amp  a_{m2} x_2 \amp +\amp  ... \amp +\amp   a_{mn}x_n \amp =
 <article class="activity project-like" id="activity-8"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.1</span><span class="period">.</span>
 </h4>
-<p id="p-37">Is <span class="process-math">\((1,2,3)\)</span> a solution to the following system?</p>
+<p id="p-41">Is <span class="process-math">\((1,2,3)\)</span> a solution to the following system?</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \begin{array}{rcrcrcrcr}
@@ -142,15 +142,15 @@ a_{m1} x_1  \amp +\amp  a_{m2} x_2 \amp +\amp  ... \amp +\amp   a_{mn}x_n \amp =
 x_1   \amp  \amp        \amp +\amp  7 x_3 \amp =\amp  0
 \end{array}
 \end{equation*}
-</div></article><p id="p-38">The previous problem shows how easy it is to check if a set of variable values is a solution. However, <em class="emphasis">finding</em> a solution or the set of all solutions is harder but very important to many problems. Generally speaking, the process of finding the solution set for a system of equations is to trade the system of equations you have for an <dfn class="terminology">equivalent</dfn> system (a system with the same solution set).</p>
+</div></article><p id="p-42">The previous problem shows how easy it is to check if a set of variable values is a solution. However, <em class="emphasis">finding</em> a solution or the set of all solutions is harder but very important to many problems. Generally speaking, the process of finding the solution set for a system of equations is to trade the system of equations you have for an <dfn class="terminology">equivalent</dfn> system (a system with the same solution set).</p>
 <article class="activity project-like" id="activity-9"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2</span><span class="period">.</span>
 </h4>
-<div class="introduction" id="introduction-5"><p id="p-39">For each pair of equations given, state whether <span class="process-math">\(E_1\)</span> is equivalent to <span class="process-math">\(E_2\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-5"><p id="p-43">For each pair of equations given, state whether <span class="process-math">\(E_1\)</span> is equivalent to <span class="process-math">\(E_2\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-12"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-40"><span class="process-math">\(E_1: x^2-1=0\)</span> and <span class="process-math">\(E_2: x-1=0\)</span></p></article><article class="task exercise-like" id="task-13"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<p id="p-41"><span class="process-math">\(E_1: x^2-2x+1=0\)</span> and <span class="process-math">\(E_2: x-1=0\)</span></p></article><article class="task exercise-like" id="task-14"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<p id="p-42"><span class="process-math">\(E_1: e^x=1\)</span> and <span class="process-math">\(E_2: x^3+x^2+x=0\)</span></p></article></article><p id="p-43">Hopefully it will be easier to explicitly write the solution set of the new equivalent system. An <dfn class="terminology">elementary operation</dfn> on a system of equations is an operation of the form:</p>
+<p id="p-44"><span class="process-math">\(E_1: x^2-1=0\)</span> and <span class="process-math">\(E_2: x-1=0\)</span></p></article><article class="task exercise-like" id="task-13"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-45"><span class="process-math">\(E_1: x^2-2x+1=0\)</span> and <span class="process-math">\(E_2: x-1=0\)</span></p></article><article class="task exercise-like" id="task-14"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-46"><span class="process-math">\(E_1: e^x=1\)</span> and <span class="process-math">\(E_2: x^3+x^2+x=0\)</span></p></article></article><p id="p-47">Hopefully it will be easier to explicitly write the solution set of the new equivalent system. An <dfn class="terminology">elementary operation</dfn> on a system of equations is an operation of the form:</p>
 <ol class="decimal">
 <li id="li-9"><p id="p-derived-li-9">multiplying an equation by a non-zero scalar</p></li>
 <li id="li-10"><p id="p-derived-li-10">switching two equations</p></li>
@@ -160,7 +160,7 @@ x_1   \amp  \amp        \amp +\amp  7 x_3 \amp =\amp  0
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.3</span><span class="period">.</span>
 </h4>
 <div class="introduction" id="introduction-6">
-<p id="p-44">For this question, we will consider the following system of linear equations:</p>
+<p id="p-48">For this question, we will consider the following system of linear equations:</p>
 <div class="displaymath process-math" data-contains-math-knowls="" id="md-4">
 \begin{align*}
 a_1 x_1+a_2x_2+a_3x_3\amp =a_4\\
@@ -169,11 +169,11 @@ b_1 x_1+b_2x_2+b_3x_3\amp =b_4
 </div>
 </div>
 <article class="task exercise-like" id="task-15"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-45">Multiply the second equation in our system by negative three and state the <em class="emphasis">new</em> system of equations.</p></article><article class="task exercise-like" id="task-16"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<p id="p-46">Write a few sentences about why the new system of equations given in the previous part is equivalent to the original system.</p></article><article class="task exercise-like" id="task-17"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<p id="p-47">Write a few sentences about why switching the order in which equations are presented in a system does not change the set of solutions.</p></article><article class="task exercise-like" id="task-18"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<p id="p-48">Write out the equation obtained by multiplying the second equation in the original system by a non-zero scalar (which we will call <span class="process-math">\(k\)</span>) and adding to the first equation.</p></article><article class="task exercise-like" id="task-19"><h5 class="heading"><span class="codenumber">(e)</span></h5>
-<p id="p-49">Replace the second equation in the original system with your answer to the previous part, which we will call System 2. Prove that System 2 is equivalent to the original system. In other words, you need to show that <span class="process-math">\((c_1,c_2,c_3)\)</span> is a solution of the equations <span class="process-math">\(S_1\text{:}\)</span></p>
+<p id="p-49">Multiply the second equation in our system by negative three and state the <em class="emphasis">new</em> system of equations.</p></article><article class="task exercise-like" id="task-16"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-50">Write a few sentences about why the new system of equations given in the previous part is equivalent to the original system.</p></article><article class="task exercise-like" id="task-17"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-51">Write a few sentences about why switching the order in which equations are presented in a system does not change the set of solutions.</p></article><article class="task exercise-like" id="task-18"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p id="p-52">Write out the equation obtained by multiplying the second equation in the original system by a non-zero scalar (which we will call <span class="process-math">\(k\)</span>) and adding to the first equation.</p></article><article class="task exercise-like" id="task-19"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<p id="p-53">Replace the second equation in the original system with your answer to the previous part, which we will call System 2. Prove that System 2 is equivalent to the original system. In other words, you need to show that <span class="process-math">\((c_1,c_2,c_3)\)</span> is a solution of the equations <span class="process-math">\(S_1\text{:}\)</span></p>
 <div class="displaymath process-math" data-contains-math-knowls="" id="md-5">
 \begin{align*}
 a_1 x_1+a_2x_2+a_3x_3\amp =a_4\\
@@ -183,7 +183,7 @@ b_1 x_1+b_2x_2+b_3x_3\amp =b_4
 <p class="continuation"><em class="emphasis">if and only if</em> <span class="process-math">\((c_1,c_2,c_3)\)</span> is a solution to System 2.</p></article></article><article class="exercise exercise-like" id="ex_solve_sys_prac"><h4 class="heading">
 <span class="type">Exercise</span><span class="space"> </span><span class="codenumber">2.1</span><span class="period">.</span>
 </h4>
-<div class="introduction" id="introduction-7"><p id="p-50">Solve the following systems just using elementary operations. Remember to show your work.</p></div>
+<div class="introduction" id="introduction-7"><p id="p-54">Solve the following systems just using elementary operations. Remember to show your work.</p></div>
 <article class="task exercise-like" id="task-20"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="displaymath process-math" data-contains-math-knowls="" id="md-6">
 \begin{align*}
@@ -205,9 +205,9 @@ x+4y+3z\amp =20
 2x+y+z\amp =10\\
 x+4y+3z\amp=10
 \end{align*}
-</div></article></article><p id="p-54">A system of equations is <dfn class="terminology">consistent</dfn> if there exists at least one solution to the system. In other words, a consistent system of equations has a nonempty solution set. A system that is not consistent is said to be <dfn class="terminology">inconsistent</dfn>.</p>
-<p id="p-55">In <a href="" class="xref" data-knowl="./knowl/ex_solve_sys_prac.html" title="Exercise 2.1">Exercise 2.1</a>, note that you didn't change anything but the <em class="emphasis">coefficients</em> in the system of equations as you traded one system for another. Some of the coefficients probably became zero, but you didn't really eliminate any variables or consider a totally different problem. We will use matrices to efficiently store, and manipulate the coefficients in a system of linear equations, since they are all that matter for now. Matrices will have <em class="emphasis">many</em> uses in this and other courses, and we will use capital letters like <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> to denote matrices. Matrices will be rectangular arrays with the same number of entries in each row and the same number of entries in each column. The size of a matrix is given (in order) as the number of rows by the number of columns, so a <span class="process-math">\(3\)</span> by <span class="process-math">\(2\)</span> matrix has <span class="process-math">\(3\)</span> rows and <span class="process-math">\(2\)</span> columns.</p>
-<p id="p-56">In order to specify what <dfn class="terminology">entry</dfn> we are referring to in a matrix, we need an ordered pair of indices telling us the number of the row and number of the column to look in respectively. For instance, if</p>
+</div></article></article><p id="p-58">A system of equations is <dfn class="terminology">consistent</dfn> if there exists at least one solution to the system. In other words, a consistent system of equations has a nonempty solution set. A system that is not consistent is said to be <dfn class="terminology">inconsistent</dfn>.</p>
+<p id="p-59">In <a href="" class="xref" data-knowl="./knowl/ex_solve_sys_prac.html" title="Exercise 2.1">Exercise 2.1</a>, note that you didn't change anything but the <em class="emphasis">coefficients</em> in the system of equations as you traded one system for another. Some of the coefficients probably became zero, but you didn't really eliminate any variables or consider a totally different problem. We will use matrices to efficiently store, and manipulate the coefficients in a system of linear equations, since they are all that matter for now. Matrices will have <em class="emphasis">many</em> uses in this and other courses, and we will use capital letters like <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> to denote matrices. Matrices will be rectangular arrays with the same number of entries in each row and the same number of entries in each column. The size of a matrix is given (in order) as the number of rows by the number of columns, so a <span class="process-math">\(3\)</span> by <span class="process-math">\(2\)</span> matrix has <span class="process-math">\(3\)</span> rows and <span class="process-math">\(2\)</span> columns.</p>
+<p id="p-60">In order to specify what <dfn class="terminology">entry</dfn> we are referring to in a matrix, we need an ordered pair of indices telling us the number of the row and number of the column to look in respectively. For instance, if</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 B=\begin{bmatrix} 1\amp 5\amp 0\\\heartsuit\amp
@@ -215,10 +215,10 @@ B=\begin{bmatrix} 1\amp 5\amp 0\\\heartsuit\amp
 \end{equation*}
 </div>
 <p class="continuation">then the <span class="process-math">\((3,2)\)</span> entry of <span class="process-math">\(B\)</span> is in the third row and 2nd column. You could also write this as <span class="process-math">\(B_{3,2}= \circledR\text{.}\)</span> The <dfn class="terminology"><span class="process-math">\(i\)</span>-th row</dfn> of a matrix <span class="process-math">\(A\)</span> will be denoted <span class="process-math">\(row_i(A)\)</span> and the <dfn class="terminology"><span class="process-math">\(j\)</span>-th column</dfn> will be denoted <span class="process-math">\(column_j(A)\text{.}\)</span></p>
-<p id="p-57">In order to distinguish <dfn class="terminology">vectors</dfn> (as being more than just <span class="process-math">\(n\)</span> by <span class="process-math">\(1\)</span> matrices), we will use the arrow notation and lower case symbols like <span class="process-math">\(\vec{u}\)</span> and <span class="process-math">\(\vec{v}\)</span> to denote vectors. Unless otherwise stated, we will use column vectors. For instance, if <span class="process-math">\(\vec{v} =\begin{bmatrix}v_1\\
+<p id="p-61">In order to distinguish <dfn class="terminology">vectors</dfn> (as being more than just <span class="process-math">\(n\)</span> by <span class="process-math">\(1\)</span> matrices), we will use the arrow notation and lower case symbols like <span class="process-math">\(\vec{u}\)</span> and <span class="process-math">\(\vec{v}\)</span> to denote vectors. Unless otherwise stated, we will use column vectors. For instance, if <span class="process-math">\(\vec{v} =\begin{bmatrix}v_1\\
 v_2\\\vdots\\ v_m\end{bmatrix}\text{,}\)</span> then the second <dfn class="terminology">component</dfn> of <span class="process-math">\(\vec{v}\)</span> is the scalar <span class="process-math">\(v_2\text{.}\)</span> The size of a vector in <span class="process-math">\(\mathbb{R}^n\)</span> is the number of components the vector has. In Chapter 2, we will deal with a <em class="emphasis">much</em> more general notion of vectors that will <em class="emphasis">not</em> have components like vectors in <span class="process-math">\(\mathbb{R}^n\text{.}\)</span></p>
-<p id="p-58">The <dfn class="terminology">coefficient matrix</dfn> of a linear system of <span class="process-math">\(m\)</span> equations in <span class="process-math">\(n\)</span> variables is a <span class="process-math">\(m\)</span> by <span class="process-math">\(n\)</span> matrix whose <span class="process-math">\((i,j)\)</span> entry is the coefficient of the <span class="process-math">\(j\)</span>-th variable, <span class="process-math">\(x_j\text{,}\)</span> in the <span class="process-math">\(i\)</span>-th equation of the system. The <dfn class="terminology">augmented matrix</dfn> of a linear system of <span class="process-math">\(m\)</span> equations in <span class="process-math">\(n\)</span> variables is a <span class="process-math">\(m\)</span> by <span class="process-math">\((n+1)\)</span> matrix whose first <span class="process-math">\(n\)</span> columns are the coefficient matrix of the system and the last column is the constant terms from the right side of each equation.</p>
-<p id="p-59">The system</p>
+<p id="p-62">The <dfn class="terminology">coefficient matrix</dfn> of a linear system of <span class="process-math">\(m\)</span> equations in <span class="process-math">\(n\)</span> variables is a <span class="process-math">\(m\)</span> by <span class="process-math">\(n\)</span> matrix whose <span class="process-math">\((i,j)\)</span> entry is the coefficient of the <span class="process-math">\(j\)</span>-th variable, <span class="process-math">\(x_j\text{,}\)</span> in the <span class="process-math">\(i\)</span>-th equation of the system. The <dfn class="terminology">augmented matrix</dfn> of a linear system of <span class="process-math">\(m\)</span> equations in <span class="process-math">\(n\)</span> variables is a <span class="process-math">\(m\)</span> by <span class="process-math">\((n+1)\)</span> matrix whose first <span class="process-math">\(n\)</span> columns are the coefficient matrix of the system and the last column is the constant terms from the right side of each equation.</p>
+<p id="p-63">The system</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \begin{array}{rcrcrcrcr}
@@ -247,14 +247,14 @@ a_{21}\amp  a_{22}\amp  ... \amp   a_{2n} \amp |\amp b_2\\
 a_{m1}\amp  a_{m2} \amp  ... \amp   a_{mn} \amp |\amp b_m \end{bmatrix}
 \end{equation*}
 </div>
-<p id="p-60">For some properties of the system of equations, we need only look at the coefficient matrix but others will need the augmented matrix. It is important to know the difference and be able to state which corresponding matrix you are using in your work.</p>
+<p id="p-64">For some properties of the system of equations, we need only look at the coefficient matrix but others will need the augmented matrix. It is important to know the difference and be able to state which corresponding matrix you are using in your work.</p>
 <article class="activity project-like" id="activity-11"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.4</span><span class="period">.</span>
 </h4>
-<div class="introduction" id="introduction-8"><p id="p-61">Consider the various systems that have appeared earlier in this section when answering the following questions. That means each question will have several answers. Clearly indicate which earlier system each belongs to.</p></div>
+<div class="introduction" id="introduction-8"><p id="p-65">Consider the various systems that have appeared earlier in this section when answering the following questions. That means each question will have several answers. Clearly indicate which earlier system each belongs to.</p></div>
 <article class="task exercise-like" id="task-23"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-62">What is the coefficient matrix for the previous systems?</p></article><article class="task exercise-like" id="task-24"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<p id="p-63">What is the augmented matrix for the previous systems?</p></article></article><p id="p-64">The elementary operations on equations outlined above will correspond to elementary row operations on matrices as well. Specifically, an <dfn class="terminology">elementary row operation</dfn> on a matrix is an operation of the form:</p>
+<p id="p-66">What is the coefficient matrix for the previous systems?</p></article><article class="task exercise-like" id="task-24"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-67">What is the augmented matrix for the previous systems?</p></article></article><p id="p-68">The elementary operations on equations outlined above will correspond to elementary row operations on matrices as well. Specifically, an <dfn class="terminology">elementary row operation</dfn> on a matrix is an operation of the form:</p>
 <ul class="disc">
 <li id="li-12"><p id="p-derived-li-12">multiplying a row by a non-zero scalar</p></li>
 <li id="li-13"><p id="p-derived-li-13">switching two rows</p></li>
@@ -264,43 +264,43 @@ a_{m1}\amp  a_{m2} \amp  ... \amp   a_{mn} \amp |\amp b_m \end{bmatrix}
 <article class="definition definition-like" id="definition-1"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2</span><span class="period">.</span>
 </h4>
-<p id="p-65">A rectangular matrix is in <dfn class="terminology">row echelon form</dfn> if it has the following three properties:</p>
+<p id="p-69">A rectangular matrix is in <dfn class="terminology">row echelon form</dfn> if it has the following three properties:</p>
 <ul class="disc">
 <li id="li-15"><p id="p-derived-li-15">All nonzero rows are above any rows of all zeros.</p></li>
 <li id="li-16"><p id="p-derived-li-16">Each <dfn class="terminology">leading entry</dfn> (being the first non-zero entry) of a row is in a column to the right of the leading entry of the row above it.</p></li>
 <li id="li-17"><p id="p-derived-li-17">All entries in a column below a leading entry are zeros.</p></li>
 </ul>
-<p id="p-66">If a matrix in row echelon form satisfies the following additional properties, then we say the matrix is in <dfn class="terminology">reduced row echelon form</dfn>:</p>
+<p id="p-70">If a matrix in row echelon form satisfies the following additional properties, then we say the matrix is in <dfn class="terminology">reduced row echelon form</dfn>:</p>
 <ul class="disc">
 <li id="li-18"><p id="p-derived-li-18">The leading entry in each nonzero row is 1.</p></li>
 <li id="li-19"><p id="p-derived-li-19">Each leading 1 is the only nonzero entry in its column.</p></li>
-</ul></article><p id="p-67">The leading entry in a nonzero row of the row echelon form is called a <dfn class="terminology">pivot</dfn>. The column in which a pivot occurs is called a <dfn class="terminology">pivot column</dfn> and the corresponding variable is a <dfn class="terminology">basic variable</dfn> or <dfn class="terminology">pivot variable</dfn>. A variable corresponding to a column in which the coefficient matrix does <em class="emphasis">not</em> have a pivot are called <dfn class="terminology">free variables</dfn>. While the echelon form is needed to find where pivots will occur, we will sometimes refer to pivot positions of a matrix even when the matrix is not in echelon form.</p>
+</ul></article><p id="p-71">The leading entry in a nonzero row of the row echelon form is called a <dfn class="terminology">pivot</dfn>. The column in which a pivot occurs is called a <dfn class="terminology">pivot column</dfn> and the corresponding variable is a <dfn class="terminology">basic variable</dfn> or <dfn class="terminology">pivot variable</dfn>. A variable corresponding to a column in which the coefficient matrix does <em class="emphasis">not</em> have a pivot are called <dfn class="terminology">free variables</dfn>. While the echelon form is needed to find where pivots will occur, we will sometimes refer to pivot positions of a matrix even when the matrix is not in echelon form.</p>
 <article class="theorem theorem-like" id="theorem-2"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.3</span><span class="period">.</span>
 </h4>
-<p id="p-68">The reduced row echelon form of a rectangular matrix is unique.</p></article><p id="p-69">It is important to note that the row echelon form of a matrix is <em class="emphasis">not</em> unique.</p>
+<p id="p-72">The reduced row echelon form of a rectangular matrix is unique.</p></article><p id="p-73">It is important to note that the row echelon form of a matrix is <em class="emphasis">not</em> unique.</p>
 <article class="activity project-like" id="activity-12"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.5</span><span class="period">.</span>
 </h4>
-<div class="introduction" id="introduction-9"><p id="p-70">Give an example of a matrix <span class="process-math">\(M\)</span> that has the following properties. If such a matrix cannot exist, explain why.</p></div>
+<div class="introduction" id="introduction-9"><p id="p-74">Give an example of a matrix <span class="process-math">\(M\)</span> that has the following properties. If such a matrix cannot exist, explain why.</p></div>
 <article class="task exercise-like" id="task-25"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-71"><span class="process-math">\(M\)</span> satisfies the first two properties of row echelon form but does not satisfy the third.</p></article><article class="task exercise-like" id="task-26"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<p id="p-72"><span class="process-math">\(M\)</span> satisfies the first and third properties of row echelon form but does not satisfy the second.</p></article><article class="task exercise-like" id="task-27"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<p id="p-73"><span class="process-math">\(M\)</span> satisfies the second and third properties of row echelon form but does not satisfy the first.</p></article><article class="task exercise-like" id="task-28"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<p id="p-74"><span class="process-math">\(M\)</span> satisfies the three properties of row echelon form but does not satisfy the first property of reduced row echelon form.</p></article><article class="task exercise-like" id="task-29"><h5 class="heading"><span class="codenumber">(e)</span></h5>
-<p id="p-75"><span class="process-math">\(M\)</span> satisfies the properties of row echelon form and the first property of reduced row echelon form but does not satisfy the second property of reduced row echelon form.</p></article></article><article class="exercise exercise-like" id="exercise-2"><h4 class="heading">
+<p id="p-75"><span class="process-math">\(M\)</span> satisfies the first two properties of row echelon form but does not satisfy the third.</p></article><article class="task exercise-like" id="task-26"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-76"><span class="process-math">\(M\)</span> satisfies the first and third properties of row echelon form but does not satisfy the second.</p></article><article class="task exercise-like" id="task-27"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-77"><span class="process-math">\(M\)</span> satisfies the second and third properties of row echelon form but does not satisfy the first.</p></article><article class="task exercise-like" id="task-28"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p id="p-78"><span class="process-math">\(M\)</span> satisfies the three properties of row echelon form but does not satisfy the first property of reduced row echelon form.</p></article><article class="task exercise-like" id="task-29"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<p id="p-79"><span class="process-math">\(M\)</span> satisfies the properties of row echelon form and the first property of reduced row echelon form but does not satisfy the second property of reduced row echelon form.</p></article></article><article class="exercise exercise-like" id="exercise-2"><h4 class="heading">
 <span class="type">Exercise</span><span class="space"> </span><span class="codenumber">2.4</span><span class="period">.</span>
 </h4>
-<p id="p-76">List out all possible row echelon forms of 3 by 4 matrices using the symbols <span class="process-math">\(\blacksquare\)</span> for a pivot, <span class="process-math">\(*\)</span> for a non-pivot entry (possibly <span class="process-math">\(0\)</span>), and <span class="process-math">\(0\)</span> (when an entry <em class="emphasis">must</em> be <span class="process-math">\(0\)</span>). For each of these, list out which variables are pivot variables and which are free variables.</p>
+<p id="p-80">List out all possible row echelon forms of 3 by 4 matrices using the symbols <span class="process-math">\(\blacksquare\)</span> for a pivot, <span class="process-math">\(*\)</span> for a non-pivot entry (possibly <span class="process-math">\(0\)</span>), and <span class="process-math">\(0\)</span> (when an entry <em class="emphasis">must</em> be <span class="process-math">\(0\)</span>). For each of these, list out which variables are pivot variables and which are free variables.</p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-2" id="hint-2"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-2"><div class="hint solution-like"><p id="p-77">There are 15 possible.</p></div></div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-2" id="hint-2"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-2"><div class="hint solution-like"><p id="p-81">There are 15 possible.</p></div></div>
 </div></article><article class="exercise exercise-like" id="exercise-3"><h4 class="heading">
 <span class="type">Exercise</span><span class="space"> </span><span class="codenumber">2.5</span><span class="period">.</span>
 </h4>
-<p id="p-78">List out all possible reduced row echelon forms of 3 by 4 matrices using the symbols <span class="process-math">\(\blacksquare\)</span> for a pivot, <span class="process-math">\(*\)</span> for a non-pivot entry (possibly <span class="process-math">\(0\)</span>), and <span class="process-math">\(0\)</span> (when an entry <em class="emphasis">must</em> be <span class="process-math">\(0\)</span>). What value must the <span class="process-math">\(\blacksquare\)</span> entries be? For each of these, list out which variables are pivot variables and which are free variables.</p></article><article class="exercise exercise-like" id="exercise-4"><h4 class="heading">
+<p id="p-82">List out all possible reduced row echelon forms of 3 by 4 matrices using the symbols <span class="process-math">\(\blacksquare\)</span> for a pivot, <span class="process-math">\(*\)</span> for a non-pivot entry (possibly <span class="process-math">\(0\)</span>), and <span class="process-math">\(0\)</span> (when an entry <em class="emphasis">must</em> be <span class="process-math">\(0\)</span>). What value must the <span class="process-math">\(\blacksquare\)</span> entries be? For each of these, list out which variables are pivot variables and which are free variables.</p></article><article class="exercise exercise-like" id="exercise-4"><h4 class="heading">
 <span class="type">Exercise</span><span class="space"> </span><span class="codenumber">2.6</span><span class="period">.</span>
 </h4>
-<div class="introduction" id="introduction-10"><p id="p-79">Solve each of the following systems by converting to an augmented matrix and using elementary row operations to reduce the augmented matrix to reduced row echelon form. With each reduced row echelon form, put a box around all pivot entries. Use the system of equations corresponding to the reduced row echelon form to write out the solution set for each system.</p></div>
+<div class="introduction" id="introduction-10"><p id="p-83">Solve each of the following systems by converting to an augmented matrix and using elementary row operations to reduce the augmented matrix to reduced row echelon form. With each reduced row echelon form, put a box around all pivot entries. Use the system of equations corresponding to the reduced row echelon form to write out the solution set for each system.</p></div>
 <article class="task exercise-like" id="task-30"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="displaymath process-math" data-contains-math-knowls="" id="md-9">
 \begin{align*}

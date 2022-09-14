@@ -131,36 +131,57 @@ x+1 = (2k+1)+1 = 2k+2 = 2(k+1)\text{.}
 </h3>
 <section class="onepage" id="page-3"><article class="activity project-like" id="activity-4"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.1</span><span class="period">.</span>
-</h4>Prove the theorem “If <span class="process-math">\(x\)</span> is an odd integer and <span class="process-math">\(y\)</span> is an odd integer, then <span class="process-math">\(xy\)</span> is an odd integer.”<div class="workspace" data-space="10cm"></div></article><article class="activity project-like" id="activity-5"><h4 class="heading">
+</h4>Prove the theorem “If <span class="process-math">\(x\)</span> is an odd integer and <span class="process-math">\(y\)</span> is an odd integer, then <span class="process-math">\(xy\)</span> is an odd integer.”<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like">
+<p id="p-24">Let <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span>be odd integers. Hence there exist integers <span class="process-math">\(k\)</span> and <span class="process-math">\(n\)</span> such that <span class="process-math">\(x=2k+1\)</span> and <span class="process-math">\(y=2n+1\text{.}\)</span> Multiplying, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+xy=(2k+1)(2n+1) = 4kn+2k+2n+1 = 2(2kn+k+n)+1\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Since <span class="process-math">\(k\)</span> and <span class="process-math">\(n\)</span> are integers, we know that <span class="process-math">\(2kn+k+n\)</span> is an integer. Thus, we see that <span class="process-math">\(xy\)</span> is an odd integer.</p>
+<p id="p-25">(Note that it would be completely reasonable to do something like let <span class="process-math">\(m=2kn+k+n\)</span> if you wanted to make the form of an odd integer clearer, but I think this proof would be fine as written.)</p>
+</div></div>
+</div>
+<div class="workspace" data-space="10cm"></div></article><article class="activity project-like" id="activity-5"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.2</span><span class="period">.</span>
 </h4>
-<p id="p-24">Prove the theorem “For every integer <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(x+4\)</span> is odd if and only if <span class="process-math">\(x+7\)</span> is even.” (Recall that this requires proving two separate implications. Identify them before writing your proofs!)</p>
-<div class="workspace" data-space="12cm"></div></article></section><section class="onepage" id="page-4"><p id="p-25">Another type of theorem that we are sometimes called upon to prove is a <dfn class="terminology">uniqueness theorem</dfn>. In such a case, we must prove that the thing in question exists as well as prove that there is only one such thing. The next activity walks you through the structure of such an argument.</p>
+<p id="p-26">Prove the theorem “For every integer <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(x+4\)</span> is odd if and only if <span class="process-math">\(x+7\)</span> is even.” (Recall that this requires proving two separate implications. Identify them before writing your proofs!)</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like">
+<p id="p-27"><span class="process-math">\((\Rightarrow)\)</span> Let <span class="process-math">\(x+4\)</span> be an odd integer. Hence there exists an integer <span class="process-math">\(n\)</span> such that <span class="process-math">\(x+4=2n+1\text{.}\)</span> By adding three to both sides of this equation, we have <span class="process-math">\(x+7 =
+2n+4\text{.}\)</span> Factoring the right-hand side gives <span class="process-math">\(x+7 =
+2(n+2)\text{.}\)</span> Hence, since <span class="process-math">\(x+7\)</span> is twice an integer, we have proved that <span class="process-math">\(x+7\)</span> is even.</p>
+<p id="p-28"><span class="process-math">\((\Leftarrow)\)</span> Let <span class="process-math">\(x+7\)</span> be an even integer. This means that there is an integer such that <span class="process-math">\(x+7=2m\text{.}\)</span> Subtracting <span class="process-math">\(3\)</span> from both sides gives <span class="process-math">\(x+4=2m-3\text{.}\)</span> A bit more algebra shows that <span class="process-math">\(x+4 = 2m-4+1 =
+2(m-2)+1\text{.}\)</span> Thus, we have proved that <span class="process-math">\(x+4\)</span> is an odd integer.</p>
+</div></div>
+</div>
+<div class="workspace" data-space="12cm"></div></article></section><section class="onepage" id="page-4"><p id="p-29">Another type of theorem that we are sometimes called upon to prove is a <dfn class="terminology">uniqueness theorem</dfn>. In such a case, we must prove that the thing in question exists as well as prove that there is only one such thing. The next activity walks you through the structure of such an argument.</p>
 <article class="activity project-like" id="activity-6"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.3</span><span class="period">.</span>
 </h4>
-<div class="introduction" id="introduction-3"><p id="p-26">We want to prove the theorem “If <span class="process-math">\(c,a,r\in\mathbb{R}\)</span> such that <span class="process-math">\(c\neq 0\)</span> and <span class="process-math">\(r\neq a/c\text{,}\)</span> then there exists a unique <span class="process-math">\(x\in\mathbb{R}\)</span> such that <span class="process-math">\((ax+1)/(cx) =
+<div class="introduction" id="introduction-3"><p id="p-30">We want to prove the theorem “If <span class="process-math">\(c,a,r\in\mathbb{R}\)</span> such that <span class="process-math">\(c\neq 0\)</span> and <span class="process-math">\(r\neq a/c\text{,}\)</span> then there exists a unique <span class="process-math">\(x\in\mathbb{R}\)</span> such that <span class="process-math">\((ax+1)/(cx) =
 r\text{.}\)</span>”</p></div>
 <article class="task exercise-like" id="task-5"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-27">The first step in a uniqueness proof is to demonstrate that such a beast exists. One pattern for doing this is by coming up with a formula for the thing (here <span class="process-math">\(x\)</span>) that we need to have exist and showing that <span class="process-math">\(x\)</span> does what it's supposed to. <em class="alert">The process of how you come with the <span class="process-math">\(x\)</span> is scratchwork that doesn't go in the proof!</em>. Thus, we want to start by finding a formula for <span class="process-math">\(x\)</span> so that <span class="process-math">\((ax+1)/(cx) = r\text{.}\)</span> Use familiar algebra skills to do it. What you write up for your proof is going to look like “Let <span class="process-math">\(x=\cdots\text{.}\)</span> Now substituting and simplifying, we see:” starting with <span class="process-math">\((ax+1)/(cx)\)</span> and simplifying to get <span class="process-math">\(r\text{.}\)</span></p>
+<p id="p-31">The first step in a uniqueness proof is to demonstrate that such a beast exists. One pattern for doing this is by coming up with a formula for the thing (here <span class="process-math">\(x\)</span>) that we need to have exist and showing that <span class="process-math">\(x\)</span> does what it's supposed to. <em class="alert">The process of how you come with the <span class="process-math">\(x\)</span> is scratchwork that doesn't go in the proof!</em>. Thus, we want to start by finding a formula for <span class="process-math">\(x\)</span> so that <span class="process-math">\((ax+1)/(cx) = r\text{.}\)</span> Use familiar algebra skills to do it. What you write up for your proof is going to look like “Let <span class="process-math">\(x=\cdots\text{.}\)</span> Now substituting and simplifying, we see:” starting with <span class="process-math">\((ax+1)/(cx)\)</span> and simplifying to get <span class="process-math">\(r\text{.}\)</span></p>
 <div class="workspace" data-space="5cm"></div></article><article class="task exercise-like" id="task-6"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<p id="p-28">Next, we have to show that our <span class="process-math">\(x\)</span> is unique. To do so, you assume that <span class="process-math">\(x_1,x_2\in\mathbb{R}\)</span> both have the property required. Namely, that  <span class="process-math">\((ax_1+1)/(cx_1) =
+<p id="p-32">Next, we have to show that our <span class="process-math">\(x\)</span> is unique. To do so, you assume that <span class="process-math">\(x_1,x_2\in\mathbb{R}\)</span> both have the property required. Namely, that  <span class="process-math">\((ax_1+1)/(cx_1) =
 r\)</span> and <span class="process-math">\((ax_1+1)/(cx_2) =
 r\text{.}\)</span> Now you use algebra to show that <span class="process-math">\(x_1=x_2\text{,}\)</span> which means that the <span class="process-math">\(x\)</span> you came up with originally really is unique.</p>
 <div class="workspace" data-space="5cm"></div></article><article class="task exercise-like" id="task-7"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<p id="p-29">What you have above likely has a lot of scratchwork in it. Rewrite things neatly to have a nice paragraph that proves the theorem.</p>
+<p id="p-33">What you have above likely has a lot of scratchwork in it. Rewrite things neatly to have a nice paragraph that proves the theorem.</p>
 <div class="workspace" data-space="5cm"></div></article></article></section><section class="onepage" id="page-5"><article class="activity project-like" id="activity-7"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.4</span><span class="period">.</span>
 </h4>
-<div class="introduction" id="introduction-4"><p id="p-30">Pick and choose amongst the following for more practice.</p></div>
+<div class="introduction" id="introduction-4"><p id="p-34">Pick and choose amongst the following for more practice.</p></div>
 <article class="task exercise-like" id="task-8"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-31">If <span class="process-math">\(n\)</span> is even, then <span class="process-math">\(n^2\)</span> is even.</p>
+<p id="p-35">If <span class="process-math">\(n\)</span> is even, then <span class="process-math">\(n^2\)</span> is even.</p>
 <div class="workspace" data-space="5cm"></div></article><article class="task exercise-like" id="task-9"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<p id="p-32">If <span class="process-math">\(n\)</span> and <span class="process-math">\(m\)</span> are even, then <span class="process-math">\(nm\)</span> is even. (What do you notice about your proof?)</p>
+<p id="p-36">If <span class="process-math">\(n\)</span> and <span class="process-math">\(m\)</span> are even, then <span class="process-math">\(nm\)</span> is even. (What do you notice about your proof?)</p>
 <div class="workspace" data-space="5cm"></div></article><article class="task exercise-like" id="task-10"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<p id="p-33">Prove or disprove: If <span class="process-math">\(n\)</span> is odd, then there exists an integer <span class="process-math">\(m\)</span> such that <span class="process-math">\(n^2=8m+1\text{.}\)</span> (If you decide the statement is true and prove it, can you prove that <span class="process-math">\(m\)</span> is unique?)</p>
+<p id="p-37">Prove or disprove: If <span class="process-math">\(n\)</span> is odd, then there exists an integer <span class="process-math">\(m\)</span> such that <span class="process-math">\(n^2=8m+1\text{.}\)</span> (If you decide the statement is true and prove it, can you prove that <span class="process-math">\(m\)</span> is unique?)</p>
 <div class="workspace" data-space="5cm"></div></article><article class="task exercise-like" id="task-11"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<p id="p-34">For every integer <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(n^2\)</span> is an odd integer, then <span class="process-math">\(n\)</span> is an odd integer.</p>
+<p id="p-38">For every integer <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(n^2\)</span> is an odd integer, then <span class="process-math">\(n\)</span> is an odd integer.</p>
 <div class="workspace" data-space="5cm"></div></article></article></section></section></section></div></main>
 </div>
 </body>
