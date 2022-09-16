@@ -29,7 +29,7 @@
 
   <worksheet>
     <title>Practicing Writing Proofs</title>
-    <page>
+<!--    <page>-->
     <activity workspace="10cm">
       <statement>
 	Prove the theorem <q>If <m>x</m> is an odd integer and
@@ -75,8 +75,8 @@
   </solution>
 </activity>
 
-    </page>
-    <page>
+<!--    </page>
+    <page>-->
       <p>Another type of theorem that we are sometimes called upon to
       prove is a <term>uniqueness theorem</term>. In such a case, we
       must prove that the thing in question exists as well as prove
@@ -110,7 +110,7 @@
       <p>Next, we have to show that our <m>x</m> is unique. To do so,
       you assume that <m>x_1,x_2\in\mathbb{R}</m> both have the
       property required. Namely, that  <m>(ax_1+1)/(cx_1) =
-    r</m> and <m>(ax_1+1)/(cx_2) =
+    r</m> and <m>(ax_2+1)/(cx_2) =
     r</m>. Now you use algebra to show that <m>x_1=x_2</m>, which
       means that the <m>x</m> you came up with originally really is unique.</p>
     </statement>
@@ -123,7 +123,7 @@
     </statement>
   </task>
 </activity>
-    </page>
+<!--    </page>-->
     <page>
       <activity workspace="5cm">
 	<introduction>

@@ -353,30 +353,50 @@ corresponding to a column in which the coefficient matrix does
     <p><md>
       <mrow>7x-11y-2z\amp =3</mrow>
       <mrow>8x-2y+3z\amp =1</mrow>
+    </md>
+    </p>
+  </task>
+  <task>
+    <p><md>
       <mrow>3r-5s+t\amp =2</mrow>
       <mrow>-6r+10s-2t\amp =3</mrow>
     </md>
     </p>
   </task>
 </exercise>
+
+
+<investigation>
+  <statement>
+    <p>Once you have the augmented matrix for a system of linear
+    equations in reduced row-echelon form, how do you use it to
+    determine the solution set for the system? Write a step-by-step
+    procedure that is general enough to be used on any system of
+    linear equations. Be aware of any implicit assumptions you're
+    making (and try to avoid them).
+    </p>
+  </statement>
+</investigation>
+<p>
+Two of the most important questions we will consider this semester are:
+<ol>
+  <li>Is the system consistent?</li>
+  <li>If a solution exists, is the solution unique?</li>
+</ol>
+</p>
+
+
+<investigation>
+  <statement>
+    <p>Look back at your results so far and try to figure out what
+    properties of the system (or corresponding matrices) will help us
+    answer question 1 and which properties of the system will help us
+    answer question 2. Write a conjecture about each question.
+    </p>
+  </statement>
+</investigation>
   </subsection>
 <!--
-\begin{question}
-Once you have the augmented matrix for a system of linear equations in reduced row-echelon form, how do you use it to determine the solution set for the system? Write a step-by-step procedure that is general enough to be used on any system of linear equations. Be aware of any implicit assumptions you're making (and try to avoid them).
-%Given an augmented matrix <m>[A|b]</m> and its row reduced echelon form <m>[A'|b']</m>, write a procedure (set of steps) to give the solution set to the corresponding systems of equations. Make sure you are clear in writing out your steps.
-
-%Are there any ways in which your procedure will fail to work? Are there any systems whose augmented matrices will not have a reduced row echelon form?
-\end{question}
-
-
-
-Two of the most important questions we will consider this semester are:
-
-1) Is the system consistent?
-
-2) If a solution exists, is the solution unique?
-
-\begin{question} Look back at your results so far and try to figure out what properties of the system (or corresponding matrices) will help us answer question 1 and which properties of the system will help us answer question 2. Write a conjecture about each question. \end{question}
 
 The space below is for you to write a statement of the theorem that the class decides is the best for determining consistency and uniqueness.
 \begin{theorem}
