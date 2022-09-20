@@ -136,7 +136,7 @@ system of equations is an operation of the form:
   </md>
     </p>
   </task>
-  <task>
+  <task xml:id="task_system">
     <p>
       <md><mrow>3x-2y-z\amp =0</mrow>
       <mrow>2x+y+z\amp =10</mrow>
@@ -293,7 +293,7 @@ corresponding to a column in which the coefficient matrix does
   </task>
 </activity>
 
-<exercise>
+<exercise xml:id="ex_3x4_REF">
   <statement>
     <p>List out all possible row echelon forms of 3 by 4 matrices
     using the symbols <m>\blacksquare</m> for a pivot, <m>*</m> for a
@@ -304,7 +304,7 @@ corresponding to a column in which the coefficient matrix does
   <hint><p>There are 15 possible.</p></hint>
 </exercise>
 
-<exercise>
+<exercise xml:id="ex_3x4_RREF">
   <statement>
     <p>List out all possible reduced row echelon forms of 3 by 4
     matrices using the symbols <m>\blacksquare</m> for a pivot,
@@ -316,7 +316,7 @@ corresponding to a column in which the coefficient matrix does
   </statement>
 </exercise>
 
-<exercise>
+<exercise xml:id="ex_five_systems">
   <introduction>
     <p>Solve each of the following systems by converting to an
     augmented matrix and using elementary row operations to reduce the
@@ -395,84 +395,137 @@ Two of the most important questions we will consider this semester are:
     </p>
   </statement>
 </investigation>
+
+<p>In class, we came up with statements of the following two theorems:</p>
+
+<theorem xml:id="thm_consistency">
+  <title>Consistency Theorem</title>
+  <statement>
+    <p>A system of equations is consistent if and only if the row
+    echelon form of its augmented matrix has no pivot entries in the
+    rightmost column. Equivalently, a system of equations is
+    inconsistent if and only if the row echelon form of its <em>augmented</em>
+    matrix has a pivot entry in the rightmost column.</p>
+  </statement>
+</theorem>
+
+<theorem xml:id="thm_uniqueness">
+  <title>Uniqueness Theorem</title>
+  <statement>
+    <p>A system of <m>m</m> equations with <m>n</m> variables has a
+    unique solution if and only if its <em>augmented</em> matrix has <m>n</m>
+    pivot entries and no pivot entry in the rightmost column.</p>
+  </statement>
+</theorem>
+
+<p>For the moment, proving these theorems is beyond our proof-writing
+skills. We may return to proving these theorems at a later stage,
+however.</p>
+
+<activity>
+  <statement>
+    <p>Using the statement of the <xref ref="thm_consistency"
+    text="title" /> and <xref ref="thm_uniqueness" text="title" />,
+    treat each of your answers to <xref ref="ex_3x4_REF" /> as an <em>augmented</em> matrix of a linear system of equations and state:
+    <ol>
+<li>whether each corresponding system of equations will be consistent, inconsistent, or you can't tell.</li>
+<li>whether each corresponding system of equations will have a unique
+solution, multiple solutions, no solutions, or you can't tell.</li>
+    </ol>
+    </p>
+  </statement>
+</activity>
+
+<activity>
+  <statement>
+    <p>Using the statement of the <xref ref="thm_consistency"
+    text="title" /> and <xref ref="thm_uniqueness" text="title" />,
+    treat each of your answers to <xref ref="ex_3x4_REF" /> as a <em>coefficient</em> matrix of a linear system of equations and state:
+    <ol>
+<li>whether each corresponding system of equations will be consistent, inconsistent, or you can't tell.</li>
+<li>whether each corresponding system of equations will have a unique
+solution, multiple solutions, no solutions, or you can't tell.</li>
+    </ol>
+    </p>
+  </statement>
+  <hint>
+    <p>You will probably need to restate the theorems or think about
+    how coefficient matrices are different to augmented matrices!</p>
+  </hint>
+</activity>
+
+
+<paragraphs>
+  <title>Geometric Interpretation of a Solution Set</title>
+
+<p>Recall from earlier, that the solution set of a linear equation in two variables was a line in <m>\mathbb{R}^2</m> (the plane) and that the solution set of a system of two equations in two variables was possibly a point, a line, or empty. Similarly, the solution set for a linear equation in three variables will be a plane in 3-space (<m>\mathbb{R}^3</m>).</p>
+
+<activity>
+  <p>
+    <ol>
+      <li>List out all the possible ways two planes can intersect in a three dimensional space.</li>
+      <li>List out all the possible ways three planes can intersect in a three dimensional space.</li>
+      <li>List out all the possible ways four planes can intersect in a three dimensional space.</li>
+      <li>List out all the possible ways five planes can intersect in a three dimensional space.</li>
+    </ol>
+  </p>
+</activity>
+
+<p>We don't usually draw what a solution set of a linear equation in four variables looks like because drawing in four dimensions is difficult. The graph os a single linear equation in four variables would be called a hyperplane in <m>4</m>-space. Although we don't draw <m>m</m> hyperplanes in <m>n</m>-space, the intersections of hyperplanes will work very similarly to the pictures we can draw in 3-space (also known as <m>\mathbb{R}^3</m>).</p>
+
+<investigation>
+  <p>Why does the graph of a linear equation in <m>n</m> variables need to be a flat <m>n-1</m> dimensional hyperplane?</p>
+</investigation>
+
+<p>We can use the open source computer algebra system SageMath to plot
+things, and we can even do it right here in the course notes. Click
+the button to plot a plane below.</p>
+
+<sage>
+  <input>
+    var('x,y');
+    plot3d(3*x-2*y,(x,-10,10),(y,-10,10),color='red')
+  </input>
+</sage>
+
+<p>Plotting the equations, <m>3x-2y-z=0</m>, <m>2x+y+z=10</m>, and
+<m>x+4y+3z=20</m> in red, yellow, and green respectively gives:</p>
+
+<sage>
+  <input>
+    var('x,y');
+    p1=plot3d(3*x-2*y,(x,-10,10),(y,-10,10),color='red')
+    p2=plot3d(10-2*x-y,(x,-10,10),(y,-10,10),color='yellow')
+    p3=plot3d((1/3)*(20-x-4*y),(x,-10,10),(y,-10,10),color='green')
+    show(p1+p2+p3)
+  </input>
+</sage>
+
+<investigation>
+  <p>Does your answer to <xref ref="task_system" /> make sense with
+  this plot? Explain.</p>
+</investigation>
+
+
+<exercise>
+  <statement>
+    <p>For each of the systems in <xref ref="ex_five_systems" />, use
+    SageMath to draw a plot of each of the equations in the system and
+    write a sentence for each system about why the plot and your
+    answer to <xref ref="ex_five_systems" /> make sense.
+    </p>
+  </statement>
+  <hint>
+    <p>You can edit the code block above and click the button again,
+    and it will update the graph.</p>
+  </hint>
+</exercise>
+
+<p>If you remember parametric equations of lines and planes in space from multivariable calculus, then we will return to those ideas soon</p>
+
+</paragraphs>
+
   </subsection>
-<!--
 
-The space below is for you to write a statement of the theorem that the class decides is the best for determining consistency and uniqueness.
-\begin{theorem}
-Classwide statement of consistency theorem:
-\vspace{2.5in}
-
-\end{theorem}
-
-\begin{theorem}
-Classwide statement of uniqueness theorem:
-\vspace{2.5in}
-
-\end{theorem}
-
-The following two proofs are difficult and one of the reasons we will be resubmitting proofs.
-\begin{annotation}
-\endnote{This ends up being a great place to talk about being careful about what exactly is being said. In student work, you will often see phrases like “matrix is unique” or “matrix is consistent”.  This is a great time to talk to students about kinds of objects and the properties of an object type. For instance, a matrix cannot be consistent but a system of equations can be. A matrix can be unique but more often than not the student means that the associated system of equations has a unique solution. One of the great these junior level courses is getting students into the habit of editing their work with precision.
-
-It is not uncommon for the class to have to work and rephrase even their best attempts at the consistency and uniqueness theorems. I will allow them to change these theorems later in the course if they see why they need to.
-
-The next two questions can be left out. The proofs are rarely completed by any but the most persistent students and require a facility with proof techniques that many students have seen but not internalized yet. Hand-waving versions of the proofs can be presented fairly easily. Your mileage may vary.}
-\end{annotation}
-\bq Prove the classwide statement of the consistency theorem.
-\eq
-\bq Prove the classwide statement of the uniqueness theorem.
-\eq
-\bq Using the statement of the classwide uniqueness and consistency theorems, treat each of your answers to Question \ref{q5} as a \underline{coefficient} matrix of a linear system of equations and state:
-\begin{enumerate}
-\item whether each corresponding system of equations will be consistent, inconsistent, or you can't tell.
-\item whether each corresponding system of equations will have a unique solution, multiple solutions, no solutions, or you can't tell.
-\end{enumerate}
-\eq
-\bq Using the statement of the classwide uniqueness and consistency theorems, treat each of your answers to Question \ref{q5} as an \underline{augmented} matrix of a linear system of equations and state:
-\begin{enumerate}
-\item whether each corresponding system of equations will be consistent, inconsistent, or you can't tell.
-\item whether each corresponding system of equations will have a unique solution, multiple solutions, no solutions, or you can't tell.
-\end{enumerate}
-\eq
-
-\subsection{Geometric Interpretation of a Solution Set}
-
-Recall from Questions 2 through 8, that the solution set of a linear equation in two variables was a line in <m>\mathbb{R}^2</m> (the plane) and that the solution set of a system of two equations in two variables was possibly a point, a line, or empty. Similarly, the solution set for a linear equation in three variables will be a plane in 3-space (</m>\mathbb{R}^3</m>).
-
-\begin{question}\be
-\item List out all the possible ways two planes can intersect in a three dimensional space.
-\item List out all the possible ways three planes can intersect in a three dimensional space.
-\item List out all the possible ways four planes can intersect in a three dimensional space.
-\item List out all the possible ways five planes can intersect in a three dimensional space.
-\begin{annotation}
-\endnote{This question usually precipitates a discussion of what intersection means. Some students will say that you are considering the intersection of all the objects in a collection and others may say that you can consider anywhere that at least two of the objects have in common. I like to use this as motivation for why we are using IBL and talking about things “everyone already knows.” I like to mention how having seen a topic is different than having made sense of definition and examples.}
-\end{annotation}
-\ee
-\end{question}
-
-We don't usually draw what a solution set of a linear equation in four variables looks like because drawing in four dimensions is difficult. The graph os a single linear equation in four variables would be called a hyperplane in <m>4</m>-space. Although we don't draw <m>m</m> hyperplanes in <m>n</m>-space, the intersections of hyperplanes will work very similarly to the pictures we can draw in 3-space (also known as <m>\mathbb{R}^3</m>).
-
-\bq Why does the graph of a linear equation in <m>n</m> variables need to be a flat <m>n-1</m> dimensional hyperplane?
-\eq
-
-Recall that the following commands will plot the plane given by <m>3x-2y-z=0</m> in Sage:
-
-\verb" var('x,y'); "
-
-\verb"plot3d(3*x-2*y,(x,-10,10),(y,-10,10),color='red') "
-
-Plotting the equations, <m>3x-2y-z=0</m>, <m>2x+y+z=10</m>, and <m>x+4y+3z=20</m> in red, yellow, and green respectively gives:
-
-%\begin{center}\includegraphics[scale=1.5]{3planeplot.png}\end{center}
-
-\begin{question} Does your answer to Question \ref{q1} part b make sense with this plot? Explain.
-\end{question}
-
-\bq For each of the systems in Question \ref{q3}, use Sage to draw a plot of each of the equations in the system and write a sentence for each system about why the plot and your answer to Question \ref{q3} make sense.
-\eq
-
-If you remember parametric equations of lines and planes in space from multivariable calculus, then we will return to those ideas in Section \ref{s1}.
--->
  </section>
 
