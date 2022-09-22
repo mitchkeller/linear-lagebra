@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Vector and Matrix Equations</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Linear Algebra">
+<meta property="book:author" content="Mitchel T. Keller">
+<meta property="book:author" content="Nicholas Long">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand\Rn{$\mathbb{R}^n$}
+\newcommand\Rm{$\mathbb{R}^m$}
+\newcommand\R{$\mathbb{R}$}
+\newcommand\colvec[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Linear Algebra:</span> <span class="subtitle">Notes for MATH 341</span></a></h1>
+<p class="byline">Mitchel T. Keller, Nicholas Long</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_solving_linear_systems.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_solving_sys.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_solving_linear_systems.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_solving_sys.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="meta_frontmatter-preface.html" data-scroll="meta_frontmatter-preface" class="internal">Preface</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_starting.html" data-scroll="ch_starting" class="internal"><span class="codenumber">0</span> <span class="title">Getting Started</span></a><ul>
+<li><a href="sec_setting_stage.html" data-scroll="sec_setting_stage" class="internal">Setting the Stage</a></li>
+<li><a href="sec_sandwiches.html" data-scroll="sec_sandwiches" class="internal">What is a sandwich?</a></li>
+<li><a href="sec_warmups.html" data-scroll="sec_warmups" class="internal">Warmup Problems</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_what_is_proof.html" data-scroll="ch_what_is_proof" class="internal"><span class="codenumber">1</span> <span class="title">Getting Started</span></a><ul>
+<li><a href="sec_reading.html" data-scroll="sec_reading" class="internal">Introduction to mathematical arguments</a></li>
+<li><a href="sec_proof_practice.html" data-scroll="sec_proof_practice" class="internal">Writing First Proofs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_solving_sys.html" data-scroll="ch_solving_sys" class="internal"><span class="codenumber">2</span> <span class="title">Solving Systems</span></a><ul>
+<li><a href="sec_solving_linear_systems.html" data-scroll="sec_solving_linear_systems" class="internal">Solving Linear Systems</a></li>
+<li><a href="sec_vector_matrix_eqns.html" data-scroll="sec_vector_matrix_eqns" class="active">Vector and Matrix Equations</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_vector_matrix_eqns"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">Vector and Matrix Equations</span>
+</h2>
+<p id="p-109">Recall that two vectors in <span class="process-math">\(\mathbb{R}^n\)</span> are equal if and only if all of their components are equal.</p>
+<article class="investigation project-like" id="q41"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.13</span><span class="period">.</span>
+</h3>
+<p id="p-110">Prove that the system of equations given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\begin{array}{rcrcrcrcr}
+a_{11} x_1  \amp +\amp  a_{12} x_2 \amp +\amp  ... \amp +\amp   a_{1n}x_n \amp =\amp  b_1 \\ % -1  3
+a_{21} x_1  \amp +\amp  a_{22} x_2 \amp +\amp  ... \amp +\amp   a_{2n}x_n \amp =\amp  b_2 \\
+\vdots  \amp  \amp  \vdots \amp  \amp   \amp  \amp   \vdots \amp \amp  \vdots \\
+a_{m1} x_1  \amp +\amp  a_{m2} x_2 \amp +\amp  ... \amp +\amp   a_{mn}x_n \amp =\amp  b_m
+\end{array}
+\end{equation*}
+</div>
+<p class="continuation">has the same set of solutions as the vector equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x_1 \begin{bmatrix}a_{11}\\a_{21}\\\vdots\\a_{m1}\end{bmatrix}+x_2 \begin{bmatrix}a_{12}\\a_{22}\\\vdots\\a_{m2}\end{bmatrix}+ \cdots x_n \begin{bmatrix}a_{1n}\\a_{2n}\\\vdots\\a_{mn}\end{bmatrix}=\begin{bmatrix}b_1\\b_2\\\vdots\\b_m\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">In other words, prove that <span class="process-math">\((c_1,c_2,...,c_n)\)</span> is a solution to the vector equation iff <span class="process-math">\((c_1,c_2,...,c_n)\)</span> is a solution to the system of linear equations. Make sure you clearly connect the ideas in your proof and do not make an argument that these equations look similar.</p></article><article class="investigation project-like" id="investigation-8"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.14</span><span class="period">.</span>
+</h3>
+<p id="p-111">Solve the following vector equation directly:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x_1 \colvec{1\\1}+x_2 \colvec{-1\\1} = \colvec{3\\-4}
+\end{equation*}
+</div></article><article class="investigation project-like" id="investigation-9"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.15</span><span class="period">.</span>
+</h3>
+<p id="p-112">Give an example of a vector <span class="process-math">\(\colvec{a\\b\\c}\)</span> such that the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x_1\colvec{1\\1\\0}+x_2 \colvec{0\\0\\1}=\colvec{a\\b\\c}
+\end{equation*}
+</div>
+<p class="continuation">has no solution or explain why no such vector exists.</p></article><article class="investigation project-like" id="investigation-10"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.16</span><span class="period">.</span>
+</h3>
+<p id="p-113">Give an example of a vector <span class="process-math">\(\colvec{a\\b\\c}\)</span> such that the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x_1\colvec{1\\1\\0}+x_2 \colvec{0\\0\\1}=\colvec{a\\b\\c}
+\end{equation*}
+</div>
+<p class="continuation">has exactly 1 solution or explain why no such vector exists.</p></article><article class="investigation project-like" id="investigation-11"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.17</span><span class="period">.</span>
+</h3>
+<p id="p-114">Give an example of a vector <span class="process-math">\(\colvec{a\\b\\c}\)</span> such that the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x_1\colvec{1\\1\\0}+x_2 \colvec{0\\0\\1}+x_3 \colvec{1\\1\\1}=\colvec{a\\b\\c}
+\end{equation*}
+</div>
+<p class="continuation">has exactly 1 solution or explain why no such vector exists.</p></article><article class="investigation project-like" id="investigation-12"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.18</span><span class="period">.</span>
+</h3>
+<p id="p-115">Give an example of a vector <span class="process-math">\(\colvec{a\\b\\c}\)</span> such that the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x_1\colvec{1\\1\\0}+x_2 \colvec{0\\0\\1}+x_3 \colvec{1\\1\\1}=\colvec{a\\b\\c}
+\end{equation*}
+</div>
+<p class="continuation">has no solutions or explain why no such vector exists.</p></article><article class="investigation project-like" id="investigation-13"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.19</span><span class="period">.</span>
+</h3>
+<p id="p-116">Give an example of a vector <span class="process-math">\(\colvec{a\\b\\c}\)</span> such that the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x_1\colvec{1\\1\\0}+x_2 \colvec{0\\0\\1}+x_3 \colvec{a\\b\\c}=\colvec{7\\0\\-2}
+\end{equation*}
+</div>
+<p class="continuation">has exactly 1 solution or explain why no such vector exists.</p></article><article class="definition definition-like" id="definition-2"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.10</span><span class="period">.</span>
+</h3>
+<p id="p-117">A <dfn class="terminology">linear combination</dfn> of a set <span class="process-math">\(S\)</span> is a vector of the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{i=1}^n c_i \vec{v_i} = c_1 \vec{v_1} + c_2
+\vec{v_2}+...+c_k \vec{v_k}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\vec{v}_i \in S\)</span> and <span class="process-math">\(c_i \in \mathbb{R}\text{.}\)</span> Note that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{i=1}^n c_i
+\vec{v_i}
+\end{equation*}
+</div>
+<p class="continuation">will not usually be in <span class="process-math">\(S\)</span> even though <span class="process-math">\(\vec{v}_i \in S\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-14"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.20</span><span class="period">.</span>
+</h3>
+<p id="p-118">Can you write <span class="process-math">\(\vec{b}=\colvec{2\\2\\4}\)</span> as a linear combination of <span class="process-math">\(\vec{v_1}=\colvec{2\\1\\1}\)</span> and <span class="process-math">\(\vec{v_2}=\colvec{2\\-1\\1}\text{?}\)</span> Justify your answer.</p></article><article class="investigation project-like" id="investigation-15"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.21</span><span class="period">.</span>
+</h3>
+<p id="p-119">Repeat the previous problem for <span class="process-math">\(\vec{b}=\colvec{2\\0\\0}\)</span> and <span class="process-math">\(\vec{b}=\colvec{2\\3\\-1}\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-16"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.22</span><span class="period">.</span>
+</h3>
+<p id="p-120">Can you write <span class="process-math">\(\vec{b}=\colvec{2\\0\\4}\)</span> as a linear combination of <span class="process-math">\(\vec{v_1}=\colvec{1\\1\\1}\)</span> and <span class="process-math">\(\vec{v_2}=\colvec{-1\\1\\1}\text{?}\)</span> Justify your answer.</p></article><article class="definition definition-like" id="definition-3"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.11</span><span class="period">.</span>
+</h3>
+<p id="p-121">We define a <dfn class="terminology">matrix-vector product</dfn> as follows: If <span class="process-math">\(A\)</span> is a <span class="process-math">\(m\)</span> by <span class="process-math">\(n\)</span> matrix,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A=\begin{bmatrix} a_{11} \amp  a_{12} \amp  ... \amp   a_{1n} \\
+a_{21}\amp  a_{22}\amp  ... \amp   a_{2n} \\
+\vdots  \amp  \vdots \amp    \amp   \vdots   \\
+a_{m1}\amp  a_{m2} \amp  ... \amp   a_{mn}  \end{bmatrix}
+\end{equation*}
+</div>
+<p class="continuation">and <span class="process-math">\(\vec{x}=\colvec{x_1\\x_2\\\vdots\\x_n} \in \mathbb{R}^n\text{,}\)</span> then the <dfn class="terminology">matrix-vector product</dfn> is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A\vec{x} = x_1 \colvec{a_{11}\\a_{21}\\\vdots\\a_{m1}}+x_2 \colvec{a_{12}\\a_{22}\\\vdots\\a_{m2}}+ \cdots x_n \colvec{a_{1n}\\a_{2n}\\\vdots\\a_{mn}}
+\end{equation*}
+</div>
+<p class="continuation"><span class="process-math">\(\mathbb{R}^m\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-17"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.23</span><span class="period">.</span>
+</h3>
+<p id="p-122">If <span class="process-math">\(A\)</span> is a <span class="process-math">\(m\)</span> by <span class="process-math">\(n\)</span> matrix, then <span class="process-math">\(A\vec{x} \in \mathbb{R}^\diamondsuit\)</span> for what value of <span class="process-math">\(\diamondsuit\text{?}\)</span></p></article><p id="p-123">It should not surprise you that you can multiply a scalar multiple of a vector by a matrix by factoring out the scalar. In mathematical notation, <span class="process-math">\(A (k \vec{v}) = k (A\vec{v})\text{.}\)</span> Additionally, you can apply the scalar multiplication to the matrix. In other words, <span class="process-math">\(A (k
+\vec{v}) = k (A\vec{v}) = (kA)\vec{v}\text{.}\)</span> These kind of manipulations will be discussed more when we work with matrix operations later, but you may find these facts useful in your work right now. You should take time to write out the details of any of these arithmetic ideas that you think would be useful in your work.</p>
+<article class="investigation project-like" id="investigation-18"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.24</span><span class="period">.</span>
+</h3>
+<article class="task exercise-like" id="task-35"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-124">Write out the <span class="process-math">\(k\)</span>-th component of the resulting vector of the product</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\begin{bmatrix} a_{11} \amp  a_{12} \amp  ... \amp   a_{1n} \\
+a_{21}\amp  a_{22}\amp  ... \amp   a_{2n} \\
+\vdots  \amp  \vdots \amp    \amp   \vdots   \\
+a_{m1}\amp  a_{m2} \amp  ... \amp   a_{mn}  \end{bmatrix}
+\colvec{x_1\\x_2\\\vdots\\x_n}
+\end{equation*}
+</div></article><article class="task exercise-like" id="task-36"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-125">How can you express the result of the matrix-vector product in terms of <span class="process-math">\(\vec{x}\)</span> and the rows of <span class="process-math">\(A\text{?}\)</span></p></article><article class="task exercise-like" id="task-37"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-126">How can you express the result of the matrix-vector product in terms of <span class="process-math">\(\vec{x}\)</span> and the column of <span class="process-math">\(A\text{?}\)</span></p></article></article><p id="p-127">Based on the above definition of the matrix vector product, if</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/q41.html">
+\begin{equation*}
+A=\begin{bmatrix} a_{11} \amp  a_{12} \amp  ... \amp   a_{1n} \\
+a_{21}\amp  a_{22}\amp  ... \amp   a_{2n} \\
+\vdots  \amp  \vdots \amp    \amp   \vdots   \\
+a_{m1}\amp  a_{m2} \amp  ... \amp   a_{mn}  \end{bmatrix}
+\end{equation*}
+</div>
+<p class="continuation">and <span class="process-math">\(\vec{b}= \colvec{b_1\\b_2\\\vdots\\b_m}\text{,}\)</span> then by <a href="" class="xref" data-knowl="./knowl/q41.html" title="Question 2.13">Question 2.13</a>, <span class="process-math">\(A\vec{x} = \vec{b}\)</span> has the same solution set as the system</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/q41.html">
+\begin{equation*}
+\begin{array}{rcrcrcrcr}
+a_{11} x_1  \amp +\amp  a_{12} x_2 \amp +\amp  ... \amp +\amp   a_{1n}x_n \amp =\amp  b_1 \\ % -1  3
+a_{21} x_1  \amp +\amp  a_{22} x_2 \amp +\amp  ... \amp +\amp   a_{2n}x_n \amp =\amp  b_2 \\
+\vdots  \amp  \amp  \vdots \amp  \amp   \amp  \amp   \vdots \amp \amp  \vdots \\
+a_{m1} x_1  \amp +\amp  a_{m2} x_2 \amp +\amp  ... \amp +\amp   a_{mn}x_n \amp =\amp  b_m
+\end{array}
+\end{equation*}
+</div>
+<article class="investigation project-like" id="investigation-19"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.25</span><span class="period">.</span>
+</h3>
+<div class="introduction" id="introduction-11"><p id="p-128">Write each of the following as a matrix equation, a vector equation, and system of equations. You need to write out the exact corresponding vector equation, matrix equation, and system of equations, <em class="emphasis">not</em> some equivalent form.</p></div>
+<article class="task exercise-like" id="task-38"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-129"><span class="process-math">\(\begin{bmatrix} 1 \amp  2\amp  3\\4\amp 5\amp 6\\7\amp 8\amp
+9 \end{bmatrix} \colvec{x_1\\x_2\\x_3} =\colvec{a\\b\\c}\)</span></p></article><article class="task exercise-like" id="task-39"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-130"><span class="process-math">\(a_1 \colvec{1\\2\\5}+\colvec{3\\0\\-1}+a_2 \colvec{-1\\0\\2}
+=\colvec{4\\5\\0}\)</span></p></article><article class="task exercise-like" id="task-40"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-14">
+\begin{align*}
+2x_1+3x_2\phantom{+3x_3}\amp =7\\
+-x_1+x_2+4x_3\amp =0\\
+5x_1-6x_2-x_3\amp =2
+\end{align*}
+</div></article></article></section></div></main>
+</div>
+</body>
+</html>
