@@ -5,7 +5,7 @@
 <chapter xml:id="ch_solving_sys" xmlns:xi="http://www.w3.org/2001/XInclude">
 
 <!-- Change title when you have one: -->
-  <title>Getting Started</title>
+  <title>Solving Systems</title>
   <!-- If the chapter has sections, there may be an introduction -->
   <!-- before those sections. Note the <p> tags around content.  -->
 
@@ -14,6 +14,7 @@
   <!-- That way it is easy to include the section in a different -->
   <!-- chapter later if you change your mind about the order.    -->
   <xi:include href="./sec_solving_linear_systems.ptx" />
+  <xi:include href="./sec_vector_matrix_eqns.ptx" />
 <!--  <xi:include href="./sec_proof_practice.ptx" />-->
   <!--<xi:include href="./sec_first-examples.ptx" />-->
 

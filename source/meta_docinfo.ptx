@@ -21,6 +21,7 @@
 \newcommand\Rn{$\mathbb{R}^n$}
 \newcommand\Rm{$\mathbb{R}^m$}
 \newcommand\R{$\mathbb{R}$}
+\newcommand\colvec[1]{\begin{bmatrix}#1\end{bmatrix}}
 </macros>
 
 <!-- If you put any latex-image elements you can include preambles  -->
