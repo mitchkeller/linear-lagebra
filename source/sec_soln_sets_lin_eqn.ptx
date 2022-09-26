@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec_soln_sets_lin_eqn" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Solution Sets of Linear Systems</title>
+
+<p>In this section, we will talk about efficient and clear ways to
+express the set of solutions to a linear system of equations.</p>
+
+<theorem><p>If a system of linear equations has two distinct solutions, then the system has infinitely many solutions.
+</p></theorem>
+
+<investigation xml:id="q12"><p>For each of the systems in <xref
+ref="ex_five_systems" />, use the reduced row echelon form to solve for each pivot (basic) variable in terms of the free variables and constant terms. By substituting in your new expressions for the pivot variables into the vector <m>\colvec{x_1\\x_2\\\vdots\\x_n}</m>, you will get a vector solely in terms of the free variables. You can now write the solution set as a linear combination of vectors with each free variable as a coefficient. For instance, if a system had free variables <m>x_2</m> and <m>x_5</m>, then the parametric form would look like <m>\vec{u}+x_2 \vec{v}+ x_5 \vec{w}</m>. This is called the <term>parametric form</term> of the solution set for the system, and is really a linear combination of the vectors <m>\vec{u}</m>, <m>\vec{v}</m>, and <m>\vec{w}</m> in the example.
+</p></investigation>
+
+<investigation xml:id="q4"><introduction><p> Solve each of the following
+systems and present your solution set in parametric form.
+</p>
+</introduction>
+<task><statement><p><md>
+<mrow>3x_1-2x_2\amp =0</mrow>
+<mrow>2x_1-2x_2\amp =0</mrow>
+<mrow>-x_1+x_2\amp =0</mrow>
+</md></p></statement></task>
+<task><statement><p><md>
+<mrow>3x_1-2x_2\amp =0</mrow>
+<mrow>2x_1-2x_2\amp =0</mrow>
+<mrow>-x_1+x_2\amp =0</mrow>
+</md></p></statement></task>
+<task><statement><p><md>
+<mrow>4x-y+3z\amp =0</mrow>
+<mrow>3x-y+2z\amp =0</mrow>
+</md></p></statement></task>
+<task><statement><p><md>
+<mrow>x-11y-2z\amp =0</mrow>
+<mrow>8x-2y+3z\amp =0</mrow>
+</md></p></statement></task>
+<task><statement><p><md>
+<mrow>3r-5s+t\amp =0</mrow>
+<mrow>-6r+10s-2t\amp =0</mrow>
+</md>
+</p></statement></task>
+</investigation>
+<definition>
+  <statement>
+    <p>A system of linear equations is <term>homogeneous</term> if the
+    matrix form of the system, <m>A\vec{x} =\vec{b}</m> has <m>\vec{b}
+    =\vec{0}=\colvec{0\\\vdots\\0}</m>. If <m>\vec{b} \neq
+    \vec{0}</m>, then the corresponding system is
+    <term>nonhomogeneous</term>.
+    </p>
+  </statement>
+</definition>
+
+<investigation xml:id="q7"><p>Using your answers to <xref ref="q12" />
+and <xref ref="q4" /> as a guide, state and prove a theorem that
+discusses how the solution set to a homogeneous system is related to
+the solution set of the non-homogenous system.  </p></investigation>
+
+<investigation><p> <em>State and prove</em> a theorem that describes
+under what conditions of the matrix <m>A</m> the system
+<m>A\vec{x}=\vec{b}</m> will have a solution for every
+<m>\vec{b}</m>. Essentially, you need to fill in the blank of the
+following statement: If <fillin characters="40" />, then <m>A\vec{x}=\vec{b}</m> will have a solution for every <m>\vec{b} \in \mathbb{R}^m</m>.
+</p></investigation>
+
+<definition>
+  <statement>
+    <p>The <term>column space of a matrix</term> <m>A</m>, denoted
+    <m>Col(A)</m> is the set of vectors that can be written as a
+    linear combination of the columns of <m>A</m>. If <m>A</m> is
+    <m>m</m> by <m>n</m>, then <m>Col(A)=\{\vec{b} \in \mathbb{R}^m \mid
+    A\vec{x} =\vec{b} \mbox{ for some } \vec{x} \in \mathbb{R}^n
+    \}</m>.
+    </p>
+  </statement>
+</definition>
+
+<theorem>
+  <statement>
+    <p>The pivot columns of a matrix <m>A</m> generate
+    <m>Col(A)</m>. This means that if <m>\vec{v} \in Col(A)</m>, then
+    <m>\vec{v}</m> can be written as a linear combination using only
+    the pivot columns of <m>A</m>.
+    </p>
+  </statement>
+</theorem>
+
+<p>Note that this theorem uses the pivot columns of <m>A</m> and
+<em>not</em> the pivot columns of the <em>echelon form</em> of
+<m>A</m>. Even though you need the echelon form to figure out which
+columns have pivots, you should use the appropriate columns of
+<m>A</m> in your linear combination.</p>
+
+
+<definition>
+  <statement>
+    <p>The <term>null space of a matrix</term>, denoted <m>Null(A)</m>, is
+    the set of vectors that when multiplied by the matrix give the
+    zero vector. In other words, <m>Null(A)</m> is the solution set of
+    the homogeneous equation <m>A\vec{x}=\vec{0}</m>.
+    </p>
+  </statement>
+</definition>
+
+<investigation><p> Let <m>A=\begin{bmatrix} 1\amp 2\amp 3 \\4\amp
+5\amp 6 \end{bmatrix}</m>. Describe the sets <m>Col(A)</m> and
+<m>Null(A)</m> using a parametric form.  </p></investigation>
+
+<investigation><p> Let <m>A=\begin{bmatrix} 1\amp 2\\ 3\amp 4\\5\amp 6 \end{bmatrix}</m>. Describe the sets <m>Col(A)</m> and <m>Null(A)</m> using a parametric form.
+</p></investigation>
+
+<p>For matrices <m>A</m> and <m>B</m>, we will use the notation
+<m>A\thicksim B</m>, which you produce in <latex /> using
+<c>A\thicksim B</c> in math mode, to denote that <m>B</m> can be
+obtained from <m>A</m> by performing a sequence of row operations.</p>
+
+<investigation><p> Let <me>A=\begin{bmatrix} -3\amp 6\amp -1\amp 1\amp -7\amp 0 \\1\amp -2\amp 2\amp 3\amp -1\amp 0 \\2\amp -4\amp 5\amp 8\amp -8\amp 0 \end{bmatrix}  \thicksim \begin{bmatrix} 1\amp -2\amp 0\amp -1\amp 0\amp 0\\0\amp 0\amp 1\amp 2\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 1\amp 0 \end{bmatrix}</me>
+What is the reduced row echelon form of <m>\begin{bmatrix} -3\amp -1\amp 1 \\1\amp 2\amp 3 \\2\amp 5\amp 8\end{bmatrix}</m>? You should use the information given above and <em>not</em> a lot of calculations.
+</p></investigation>
+
+<investigation><p> Let <me>A=\begin{bmatrix} -3\amp 6\amp -1\amp 1\amp -7 \\1\amp -2\amp 2\amp 3\amp -1 \\2\amp -4\amp 5\amp 8\amp -8 \end{bmatrix} \thicksim \begin{bmatrix} 1\amp -2\amp 0\amp -1\amp 0\\0\amp 0\amp 1\amp 2\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 1 \end{bmatrix}</me>
+Describe <m>Col(A)</m> and <m>Null(A)</m> using a parametric form using as <em>few</em> vectors as possible.
+</p></investigation>
+
+<investigation><p> Under what conditions on a <m>m</m> by <m>n</m> matrix, <m>A</m>, will <m>Col(A)</m> be all of <m>\mathbb{R}^m</m>?
+</p></investigation>
+
+<p>Remember that <m>Col(A)</m> and <m>Null(A)</m> are usually very different sets, in fact, they aren't always in the same parent set. If <m>A</m> is a <m>m</m> by <m>n</m> matrix, then <m>Col(A)</m> is in <m>\mathbb{R}^{\spadesuit}</m> and <m>Null(A)</m> is in <m>\mathbb{R}^{\clubsuit}</m>, for what values of <m>\clubsuit</m> and <m>\spadesuit</m>?</p>
+
+<investigation><p> Find an example of a <m>2</m> by <m>2</m> matrix where <m>Col(A)</m> is the same set as <m>Null(A)</m>.
+</p></investigation>
+
+<investigation><introduction><p> Given a matrix <m>A</m> with echelon
+form <m>\begin{bmatrix} \blacksquare\amp *\amp *\amp *\\0\amp 0\amp
+\blacksquare\amp * \\ 0\amp 0\amp 0\amp 0 \end{bmatrix}</m>:</p>
+</introduction>
+<task><statement><p>What is the minimum number of vectors that will be
+needed to give the parametric form of <m>Col(A)</m>?
+</p>
+</statement></task>
+<task><statement><p>What is the minimum number of vectors that will be needed to give the parametric form of <m>Null(A)</m>?</p></statement></task>
+<task><statement><p><m>Col(A)</m> is a subset of <m>\mathbb{R}^\spadesuit</m> for what value of <m>\spadesuit</m>?</p></statement></task>
+<task><statement><p><m>Null(A)</m> is a subset of
+<m>\mathbb{R}^\spadesuit</m> for what value of <m>\spadesuit</m>?
+</p></statement></task>
+</investigation>
+
+<investigation><introduction><p> Given a matrix <m>A</m> with echelon form <m>\begin{bmatrix} 0\amp \blacksquare\amp *\amp *\amp *\\0\amp 0\amp 0\amp \blacksquare\amp * \\ 0\amp 0\amp 0\amp 0\amp 0 \end{bmatrix}</m>:</p>
+</introduction>
+<task><statement><p>What is the minimum number of vectors that will be needed to give the parametric form of <m>Col(A)</m>?</p></statement></task>
+<task><statement><p>What is the minimum number of vectors that will be needed to give the parametric form of <m>Null(A)</m>?</p></statement></task>
+<task><statement><p><m>Col(A)</m> is a subset of <m>\mathbb{R}^\spadesuit</m> for what value of <m>\spadesuit</m>?</p></statement></task>
+<task><statement><p><m>Null(A)</m> is a subset of <m>\mathbb{R}^\spadesuit</m> for what value of <m>\spadesuit</m>?</p></statement></task>
+</investigation>
+<investigation xml:id="q10"><p> Write a sentence to explain your answer to each part of the following question. Given a matrix <m>A</m>, how many vectors will be needed to give the parametric form of
+<ul>
+  <li><m>Col(A)</m></li>
+  <li><m>Null(A)</m></li>
+</ul>
+</p></investigation>
+<investigation><p> Can every vector in <m>\mathbb{R}^3</m> be written as a linear combination of the columns of <m>A = \begin{bmatrix} 1\amp 5\amp -2\amp 0 \\ -3\amp 1\amp 9\amp -5 \\ 4\amp 8\amp -1\amp 7 \end{bmatrix}</m>? Justify your answer.
+</p></investigation>
+ </section>
+

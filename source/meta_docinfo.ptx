@@ -22,6 +22,8 @@
 \newcommand\Rm{$\mathbb{R}^m$}
 \newcommand\R{$\mathbb{R}$}
 \newcommand\colvec[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newlength{\workspacestrutwidth}
+\setlength{\workspacestrutwidth}{0pt}
 </macros>
 
 <!-- If you put any latex-image elements you can include preambles  -->

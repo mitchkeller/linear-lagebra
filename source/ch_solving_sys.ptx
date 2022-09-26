@@ -15,6 +15,7 @@
   <!-- chapter later if you change your mind about the order.    -->
   <xi:include href="./sec_solving_linear_systems.ptx" />
   <xi:include href="./sec_vector_matrix_eqns.ptx" />
+  <xi:include href="./sec_soln_sets_lin_eqn.ptx" />
 <!--  <xi:include href="./sec_proof_practice.ptx" />-->
   <!--<xi:include href="./sec_first-examples.ptx" />-->
 
