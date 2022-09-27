@@ -114,21 +114,40 @@ that you think would be useful in your work.
 
 <investigation>
   <task>
+    <statement>
     <p>Write out the <m>k</m>-th component of the resulting vector of the product <me> \begin{bmatrix} a_{11} \amp  a_{12} \amp  ... \amp   a_{1n} \\
   a_{21}\amp  a_{22}\amp  ... \amp   a_{2n} \\
   \vdots  \amp  \vdots \amp    \amp   \vdots   \\
   a_{m1}\amp  a_{m2} \amp  ... \amp   a_{mn}  \end{bmatrix}
   \colvec{x_1\\x_2\\\vdots\\x_n}</me>
     </p>
+    </statement>
+  <solution>
+    <p><m>a_{k1}x_1+a_{k2}x_2+\cdots + a_{kn}x_n</m></p>
+  </solution>
   </task>
+
   <task>
+    <statement>
     <p>How can you express the result of the matrix-vector product in
     terms of <m>\vec{x}</m> and the rows of <m>A</m>?
     </p>
+    </statement>
+    <solution>
+      <p>The <m>k</m>-th component of the matrix-vector product is the
+      dot product of row <m>k</m> of <m>A</m> with <m>\vec{x}</m>.</p>
+    </solution>
   </task>
   <task>
-    <p>How can you express the result of the matrix-vector product in terms of <m>\vec{x}</m> and the column of <m>A</m>?
+    <statement>
+    <p>How can you express the result of the matrix-vector product in terms of <m>\vec{x}</m> and the columns of <m>A</m>?
     </p>
+    </statement>
+    <solution>
+      <p>One way to view this is as a linear combination of the
+      columns of <m>A</m> with the coefficient on the <m>k</m>-th
+      column of <m>A</m> being <m>x_k</m>.</p>
+    </solution>
   </task>
 </investigation>
 
