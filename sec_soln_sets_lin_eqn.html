@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Solution Sets of Linear Systems</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Linear Algebra">
+<meta property="book:author" content="Mitchel T. Keller">
+<meta property="book:author" content="Nicholas Long">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand\Rn{$\mathbb{R}^n$}
+\newcommand\Rm{$\mathbb{R}^m$}
+\newcommand\R{$\mathbb{R}$}
+\newcommand\colvec[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newlength{\workspacestrutwidth}
+\setlength{\workspacestrutwidth}{0pt}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Linear Algebra:</span> <span class="subtitle">Notes for MATH 341</span></a></h1>
+<p class="byline">Mitchel T. Keller, Nicholas Long</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_vector_matrix_eqns.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_solving_sys.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_vector_matrix_eqns.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_solving_sys.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="meta_frontmatter-preface.html" data-scroll="meta_frontmatter-preface" class="internal">Preface</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_starting.html" data-scroll="ch_starting" class="internal"><span class="codenumber">0</span> <span class="title">Getting Started</span></a><ul>
+<li><a href="sec_setting_stage.html" data-scroll="sec_setting_stage" class="internal">Setting the Stage</a></li>
+<li><a href="sec_sandwiches.html" data-scroll="sec_sandwiches" class="internal">What is a sandwich?</a></li>
+<li><a href="sec_warmups.html" data-scroll="sec_warmups" class="internal">Warmup Problems</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_what_is_proof.html" data-scroll="ch_what_is_proof" class="internal"><span class="codenumber">1</span> <span class="title">Getting Started</span></a><ul>
+<li><a href="sec_reading.html" data-scroll="sec_reading" class="internal">Introduction to mathematical arguments</a></li>
+<li><a href="sec_proof_practice.html" data-scroll="sec_proof_practice" class="internal">Writing First Proofs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_solving_sys.html" data-scroll="ch_solving_sys" class="internal"><span class="codenumber">2</span> <span class="title">Solving Systems</span></a><ul>
+<li><a href="sec_solving_linear_systems.html" data-scroll="sec_solving_linear_systems" class="internal">Solving Linear Systems</a></li>
+<li><a href="sec_vector_matrix_eqns.html" data-scroll="sec_vector_matrix_eqns" class="internal">Vector and Matrix Equations</a></li>
+<li><a href="sec_soln_sets_lin_eqn.html" data-scroll="sec_soln_sets_lin_eqn" class="active">Solution Sets of Linear Systems</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_soln_sets_lin_eqn"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.3</span> <span class="title">Solution Sets of Linear Systems</span>
+</h2>
+<p id="p-132">In this section, we will talk about efficient and clear ways to express the set of solutions to a linear system of equations.</p>
+<article class="theorem theorem-like" id="theorem-5"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.12</span><span class="period">.</span>
+</h3>
+<p id="p-133">If a system of linear equations has two distinct solutions, then the system has infinitely many solutions.</p></article><article class="investigation project-like" id="q12"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.26</span><span class="period">.</span>
+</h3>
+<p id="p-134">For each of the systems in <a href="" class="xref" data-knowl="./knowl/ex_five_systems.html" title="Exercise 2.6">Exercise 2.6</a>, use the reduced row echelon form to solve for each pivot (basic) variable in terms of the free variables and constant terms. By substituting in your new expressions for the pivot variables into the vector <span class="process-math">\(\colvec{x_1\\x_2\\\vdots\\x_n}\text{,}\)</span> you will get a vector solely in terms of the free variables. You can now write the solution set as a linear combination of vectors with each free variable as a coefficient. For instance, if a system had free variables <span class="process-math">\(x_2\)</span> and <span class="process-math">\(x_5\text{,}\)</span> then the parametric form would look like <span class="process-math">\(\vec{u}+x_2 \vec{v}+ x_5 \vec{w}\text{.}\)</span> This is called the <dfn class="terminology">parametric form</dfn> of the solution set for the system, and is really a linear combination of the vectors <span class="process-math">\(\vec{u}\text{,}\)</span> <span class="process-math">\(\vec{v}\text{,}\)</span> and <span class="process-math">\(\vec{w}\)</span> in the example.</p></article><article class="investigation project-like" id="q4"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.27</span><span class="period">.</span>
+</h3>
+<div class="introduction" id="introduction-12"><p id="p-135">Solve each of the following systems and present your solution set in parametric form.</p></div>
+<article class="task exercise-like" id="task-41"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-15">
+\begin{align*}
+3x_1-2x_2\amp =0\\
+2x_1-2x_2\amp =0\\
+-x_1+x_2\amp =0
+\end{align*}
+</div></article><article class="task exercise-like" id="task-42"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-16">
+\begin{align*}
+3x_1-2x_2\amp =0\\
+2x_1-2x_2\amp =0\\
+-x_1+x_2\amp =0
+\end{align*}
+</div></article><article class="task exercise-like" id="task-43"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-17">
+\begin{align*}
+4x-y+3z\amp =0\\
+3x-y+2z\amp =0
+\end{align*}
+</div></article><article class="task exercise-like" id="task-44"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-18">
+\begin{align*}
+x-11y-2z\amp =0\\
+8x-2y+3z\amp =0
+\end{align*}
+</div></article><article class="task exercise-like" id="task-45"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-19">
+\begin{align*}
+3r-5s+t\amp =0\\
+-6r+10s-2t\amp =0
+\end{align*}
+</div></article></article><article class="definition definition-like" id="definition-4"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.13</span><span class="period">.</span>
+</h3>
+<p id="p-141">A system of linear equations is <dfn class="terminology">homogeneous</dfn> if the matrix form of the system, <span class="process-math">\(A\vec{x} =\vec{b}\)</span> has <span class="process-math">\(\vec{b}
+=\vec{0}=\colvec{0\\\vdots\\0}\text{.}\)</span> If <span class="process-math">\(\vec{b} \neq
+\vec{0}\text{,}\)</span> then the corresponding system is <dfn class="terminology">nonhomogeneous</dfn>.</p></article><article class="investigation project-like" id="q7"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.28</span><span class="period">.</span>
+</h3>
+<p id="p-142">Using your answers to <a href="" class="xref" data-knowl="./knowl/q12.html" title="Question 2.26">Question 2.26</a> and <a href="" class="xref" data-knowl="./knowl/q4.html" title="Question 2.27">Question 2.27</a> as a guide, state and prove a theorem that discusses how the solution set to a homogeneous system is related to the solution set of the non-homogenous system.</p></article><article class="investigation project-like" id="investigation-23"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.29</span><span class="period">.</span>
+</h3>
+<p id="p-143"><em class="emphasis">State and prove</em> a theorem that describes under what conditions of the matrix <span class="process-math">\(A\)</span> the system <span class="process-math">\(A\vec{x}=\vec{b}\)</span> will have a solution for every <span class="process-math">\(\vec{b}\text{.}\)</span> Essentially, you need to fill in the blank of the following statement: If <span class="fillin underline" role="img" aria-label="40-character blank" style="width: 18.1818181818182em;"></span>, then <span class="process-math">\(A\vec{x}=\vec{b}\)</span> will have a solution for every <span class="process-math">\(\vec{b} \in \mathbb{R}^m\text{.}\)</span></p></article><article class="definition definition-like" id="definition-5"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.14</span><span class="period">.</span>
+</h3>
+<p id="p-144">The <dfn class="terminology">column space of a matrix</dfn> <span class="process-math">\(A\text{,}\)</span> denoted <span class="process-math">\(Col(A)\)</span> is the set of vectors that can be written as a linear combination of the columns of <span class="process-math">\(A\text{.}\)</span> If <span class="process-math">\(A\)</span> is <span class="process-math">\(m\)</span> by <span class="process-math">\(n\text{,}\)</span> then <span class="process-math">\(Col(A)=\{\vec{b} \in \mathbb{R}^m \mid
+A\vec{x} =\vec{b} \mbox{ for some } \vec{x} \in \mathbb{R}^n
+\}\text{.}\)</span></p></article><article class="theorem theorem-like" id="theorem-6"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.15</span><span class="period">.</span>
+</h3>
+<p id="p-145">The pivot columns of a matrix <span class="process-math">\(A\)</span> generate <span class="process-math">\(Col(A)\text{.}\)</span> This means that if <span class="process-math">\(\vec{v} \in Col(A)\text{,}\)</span> then <span class="process-math">\(\vec{v}\)</span> can be written as a linear combination using only the pivot columns of <span class="process-math">\(A\text{.}\)</span></p></article><p id="p-146">Note that this theorem uses the pivot columns of <span class="process-math">\(A\)</span> and <em class="emphasis">not</em> the pivot columns of the <em class="emphasis">echelon form</em> of <span class="process-math">\(A\text{.}\)</span> Even though you need the echelon form to figure out which columns have pivots, you should use the appropriate columns of <span class="process-math">\(A\)</span> in your linear combination.</p>
+<article class="definition definition-like" id="definition-6"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.16</span><span class="period">.</span>
+</h3>
+<p id="p-147">The <dfn class="terminology">null space of a matrix</dfn>, denoted <span class="process-math">\(Null(A)\text{,}\)</span> is the set of vectors that when multiplied by the matrix give the zero vector. In other words, <span class="process-math">\(Null(A)\)</span> is the solution set of the homogeneous equation <span class="process-math">\(A\vec{x}=\vec{0}\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-24"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.30</span><span class="period">.</span>
+</h3>
+<p id="p-148">Let <span class="process-math">\(A=\begin{bmatrix} 1\amp 2\amp 3 \\4\amp
+5\amp 6 \end{bmatrix}\text{.}\)</span> Describe the sets <span class="process-math">\(Col(A)\)</span> and <span class="process-math">\(Null(A)\)</span> using a parametric form.</p></article><article class="investigation project-like" id="investigation-25"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.31</span><span class="period">.</span>
+</h3>
+<p id="p-149">Let <span class="process-math">\(A=\begin{bmatrix} 1\amp 2\\ 3\amp 4\\5\amp 6 \end{bmatrix}\text{.}\)</span> Describe the sets <span class="process-math">\(Col(A)\)</span> and <span class="process-math">\(Null(A)\)</span> using a parametric form.</p></article><p id="p-150">For matrices <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> we will use the notation <span class="process-math">\(A\thicksim B\text{,}\)</span> which you produce in <span class="latex-logo">L<span class="A">a</span>T<span class="E">e</span>X</span> using <code class="code-inline tex2jax_ignore">A\thicksim B</code> in math mode, to denote that <span class="process-math">\(B\)</span> can be obtained from <span class="process-math">\(A\)</span> by performing a sequence of row operations.</p>
+<article class="investigation project-like" id="investigation-26"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.32</span><span class="period">.</span>
+</h3>
+<p id="p-151">Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A=\begin{bmatrix} -3\amp 6\amp -1\amp 1\amp -7\amp 0 \\1\amp -2\amp 2\amp 3\amp -1\amp 0 \\2\amp -4\amp 5\amp 8\amp -8\amp 0 \end{bmatrix}  \thicksim \begin{bmatrix} 1\amp -2\amp 0\amp -1\amp 0\amp 0\\0\amp 0\amp 1\amp 2\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 1\amp 0 \end{bmatrix}
+\end{equation*}
+</div>
+<p class="continuation">What is the reduced row echelon form of <span class="process-math">\(\begin{bmatrix} -3\amp -1\amp 1 \\1\amp 2\amp 3 \\2\amp 5\amp 8\end{bmatrix}\text{?}\)</span> You should use the information given above and <em class="emphasis">not</em> a lot of calculations.</p></article><article class="investigation project-like" id="investigation-27"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.33</span><span class="period">.</span>
+</h3>
+<p id="p-152">Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A=\begin{bmatrix} -3\amp 6\amp -1\amp 1\amp -7 \\1\amp -2\amp 2\amp 3\amp -1 \\2\amp -4\amp 5\amp 8\amp -8 \end{bmatrix} \thicksim \begin{bmatrix} 1\amp -2\amp 0\amp -1\amp 0\\0\amp 0\amp 1\amp 2\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 1 \end{bmatrix}
+\end{equation*}
+</div>
+<p class="continuation">Describe <span class="process-math">\(Col(A)\)</span> and <span class="process-math">\(Null(A)\)</span> using a parametric form using as <em class="emphasis">few</em> vectors as possible.</p></article><article class="investigation project-like" id="investigation-28"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.34</span><span class="period">.</span>
+</h3>
+<p id="p-153">Under what conditions on a <span class="process-math">\(m\)</span> by <span class="process-math">\(n\)</span> matrix, <span class="process-math">\(A\text{,}\)</span> will <span class="process-math">\(Col(A)\)</span> be all of <span class="process-math">\(\mathbb{R}^m\text{?}\)</span></p></article><p id="p-154">Remember that <span class="process-math">\(Col(A)\)</span> and <span class="process-math">\(Null(A)\)</span> are usually very different sets, in fact, they aren't always in the same parent set. If <span class="process-math">\(A\)</span> is a <span class="process-math">\(m\)</span> by <span class="process-math">\(n\)</span> matrix, then <span class="process-math">\(Col(A)\)</span> is in <span class="process-math">\(\mathbb{R}^{\spadesuit}\)</span> and <span class="process-math">\(Null(A)\)</span> is in <span class="process-math">\(\mathbb{R}^{\clubsuit}\text{,}\)</span> for what values of <span class="process-math">\(\clubsuit\)</span> and <span class="process-math">\(\spadesuit\text{?}\)</span></p>
+<article class="investigation project-like" id="investigation-29"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.35</span><span class="period">.</span>
+</h3>
+<p id="p-155">Find an example of a <span class="process-math">\(2\)</span> by <span class="process-math">\(2\)</span> matrix where <span class="process-math">\(Col(A)\)</span> is the same set as <span class="process-math">\(Null(A)\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-30"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.36</span><span class="period">.</span>
+</h3>
+<div class="introduction" id="introduction-13"><p id="p-156">Given a matrix <span class="process-math">\(A\)</span> with echelon form <span class="process-math">\(\begin{bmatrix} \blacksquare\amp *\amp *\amp *\\0\amp 0\amp
+\blacksquare\amp * \\ 0\amp 0\amp 0\amp 0 \end{bmatrix}\text{:}\)</span></p></div>
+<article class="task exercise-like" id="task-46"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-157">What is the minimum number of vectors that will be needed to give the parametric form of <span class="process-math">\(Col(A)\text{?}\)</span></p></article><article class="task exercise-like" id="task-47"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-158">What is the minimum number of vectors that will be needed to give the parametric form of <span class="process-math">\(Null(A)\text{?}\)</span></p></article><article class="task exercise-like" id="task-48"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-159"><span class="process-math">\(Col(A)\)</span> is a subset of <span class="process-math">\(\mathbb{R}^\spadesuit\)</span> for what value of <span class="process-math">\(\spadesuit\text{?}\)</span></p></article><article class="task exercise-like" id="task-49"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-160"><span class="process-math">\(Null(A)\)</span> is a subset of <span class="process-math">\(\mathbb{R}^\spadesuit\)</span> for what value of <span class="process-math">\(\spadesuit\text{?}\)</span></p></article></article><article class="investigation project-like" id="investigation-31"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.37</span><span class="period">.</span>
+</h3>
+<div class="introduction" id="introduction-14"><p id="p-161">Given a matrix <span class="process-math">\(A\)</span> with echelon form <span class="process-math">\(\begin{bmatrix} 0\amp \blacksquare\amp *\amp *\amp *\\0\amp 0\amp 0\amp \blacksquare\amp * \\ 0\amp 0\amp 0\amp 0\amp 0 \end{bmatrix}\text{:}\)</span></p></div>
+<article class="task exercise-like" id="task-50"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-162">What is the minimum number of vectors that will be needed to give the parametric form of <span class="process-math">\(Col(A)\text{?}\)</span></p></article><article class="task exercise-like" id="task-51"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-163">What is the minimum number of vectors that will be needed to give the parametric form of <span class="process-math">\(Null(A)\text{?}\)</span></p></article><article class="task exercise-like" id="task-52"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-164"><span class="process-math">\(Col(A)\)</span> is a subset of <span class="process-math">\(\mathbb{R}^\spadesuit\)</span> for what value of <span class="process-math">\(\spadesuit\text{?}\)</span></p></article><article class="task exercise-like" id="task-53"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-165"><span class="process-math">\(Null(A)\)</span> is a subset of <span class="process-math">\(\mathbb{R}^\spadesuit\)</span> for what value of <span class="process-math">\(\spadesuit\text{?}\)</span></p></article></article><article class="investigation project-like" id="q10"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.38</span><span class="period">.</span>
+</h3>
+<p id="p-166">Write a sentence to explain your answer to each part of the following question. Given a matrix <span class="process-math">\(A\text{,}\)</span> how many vectors will be needed to give the parametric form of</p>
+<ul class="disc">
+<li id="li-30"><p id="p-derived-li-30"><span class="process-math">\(\displaystyle Col(A)\)</span></p></li>
+<li id="li-31"><p id="p-derived-li-31"><span class="process-math">\(\displaystyle Null(A)\)</span></p></li>
+</ul></article><article class="investigation project-like" id="investigation-33"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">2.39</span><span class="period">.</span>
+</h3>
+<p id="p-167">Can every vector in <span class="process-math">\(\mathbb{R}^3\)</span> be written as a linear combination of the columns of <span class="process-math">\(A = \begin{bmatrix} 1\amp 5\amp -2\amp 0 \\ -3\amp 1\amp 9\amp -5 \\ 4\amp 8\amp -1\amp 7 \end{bmatrix}\text{?}\)</span> Justify your answer.</p></article></section></div></main>
+</div>
+</body>
+</html>
