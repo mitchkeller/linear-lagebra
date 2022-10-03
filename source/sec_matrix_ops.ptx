@@ -94,7 +94,7 @@
 
 <investigation><introduction><p> Let <m>A=\begin{bmatrix} 3\amp -1\amp 0 \\2\amp 0\amp -7
 \\ 4\amp 2\amp 6 \end{bmatrix}</m>, <m>B=\begin{bmatrix} 6\amp -2\amp 0 \\3\amp 0\amp -21 \\ 4\amp 2\amp 6
-\end{bmatrix}</m>, \break and <m>C=\begin{bmatrix} 1\amp 0\amp 0 \\0\amp 1\amp 0\\1\amp 1\amp 1
+\end{bmatrix}</m>, and <m>C=\begin{bmatrix} 1\amp 0\amp 0 \\0\amp 1\amp 0\\1\amp 1\amp 1
 \end{bmatrix}</m>.</p>
 </introduction>
 <task><p><m>A+B^T=</m></p></task>
@@ -115,7 +115,7 @@
 <theorem><statement><p>The sum of two symmetric <m>m</m> by <m>n</m> matrices is symmetric.</p>
 </statement></theorem>
 
-<theorem><statement><p>If <m>A</m> is a symmetricmatrix, then <m>kA</m> is symmetric.</p></statement></theorem>
+<theorem><statement><p>If <m>A</m> is a symmetric matrix, then <m>kA</m> is symmetric.</p></statement></theorem>
 </subsection>
 <subsection>
   <title>Special Types of Matrices</title>
