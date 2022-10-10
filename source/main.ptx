@@ -30,6 +30,7 @@
     <xi:include href="./ch_starting.ptx" />
     <xi:include href="./ch_what_is_proof.ptx" />
     <xi:include href="./ch_solving_sys.ptx" />
+    <xi:include href="./ch_vector_spaces.ptx" />    
     <!--<xi:include href="./ch_empty.ptx"/>-->
     <!-- Of course you will want to add more chapters as you proceed-->
 
