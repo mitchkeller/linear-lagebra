@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Subspaces</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Linear Algebra">
+<meta property="book:author" content="Mitchel T. Keller">
+<meta property="book:author" content="Nicholas Long">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand\Rn{$\mathbb{R}^n$}
+\newcommand\Rm{$\mathbb{R}^m$}
+\newcommand\R{$\mathbb{R}$}
+\newcommand\colvec[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newlength{\workspacestrutwidth}
+\setlength{\workspacestrutwidth}{0pt}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Linear Algebra:</span> <span class="subtitle">Notes for MATH 341</span></a></h1>
+<p class="byline">Mitchel T. Keller, Nicholas Long</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-10.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_vector_spaces.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-10.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_vector_spaces.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="meta_frontmatter-preface.html" data-scroll="meta_frontmatter-preface" class="internal">Preface</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_starting.html" data-scroll="ch_starting" class="internal"><span class="codenumber">0</span> <span class="title">Getting Started</span></a><ul>
+<li><a href="sec_setting_stage.html" data-scroll="sec_setting_stage" class="internal">Setting the Stage</a></li>
+<li><a href="sec_sandwiches.html" data-scroll="sec_sandwiches" class="internal">What is a sandwich?</a></li>
+<li><a href="sec_warmups.html" data-scroll="sec_warmups" class="internal">Warmup Problems</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_what_is_proof.html" data-scroll="ch_what_is_proof" class="internal"><span class="codenumber">1</span> <span class="title">Getting Started</span></a><ul>
+<li><a href="sec_reading.html" data-scroll="sec_reading" class="internal">Introduction to mathematical arguments</a></li>
+<li><a href="sec_proof_practice.html" data-scroll="sec_proof_practice" class="internal">Writing First Proofs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_solving_sys.html" data-scroll="ch_solving_sys" class="internal"><span class="codenumber">2</span> <span class="title">Solving Systems</span></a><ul>
+<li><a href="sec_solving_linear_systems.html" data-scroll="sec_solving_linear_systems" class="internal">Solving Linear Systems</a></li>
+<li><a href="sec_vector_matrix_eqns.html" data-scroll="sec_vector_matrix_eqns" class="internal">Vector and Matrix Equations</a></li>
+<li><a href="sec_soln_sets_lin_eqn.html" data-scroll="sec_soln_sets_lin_eqn" class="internal">Solution Sets of Linear Systems</a></li>
+<li><a href="sec_matrix_ops.html" data-scroll="sec_matrix_ops" class="internal">Matrix Operations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_vector_spaces.html" data-scroll="ch_vector_spaces" class="internal"><span class="codenumber">3</span> <span class="title">Vector Spaces</span></a><ul>
+<li><a href="section-10.html" data-scroll="section-10" class="internal">Definitions</a></li>
+<li><a href="section-11.html" data-scroll="section-11" class="active">Subspaces</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="section-11"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.2</span> <span class="title">Subspaces</span>
+</h2>
+<p id="p-269">As <a href="" class="xref" data-knowl="./knowl/vse.html" title="Question 3.5">Question 3.5</a> shows, it can be very tedious to prove that a set is indeed a vector space. A <dfn class="terminology">subspace</dfn> of a vector space is a subset that is itself a vector space. Since most of the properties of the vector spaces we look at get inherited from some larger vector space, it is often easier to show that a set is a vector space by showing it is a subspace of the appropriate parent vector space.</p>
+<article class="theorem theorem-like" id="theorem-13"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.6</span><span class="period">.</span>
+</h3>
+<p id="p-270">A subset <span class="process-math">\(H\)</span> of a vector space <span class="process-math">\(V\)</span> is a subspace if and only if the following are true:</p>
+<ol class="lower-alpha">
+<li id="li-62"><p id="p-derived-li-62">The zero vector of <span class="process-math">\(V\)</span> is in <span class="process-math">\(H\text{;}\)</span> <span class="process-math">\(\vec{0}_V \in H\text{.}\)</span></p></li>
+<li id="li-63"><p id="p-derived-li-63">H is closed under vector addition; if <span class="process-math">\(\vec{u}, \vec{v} \in H\text{,}\)</span> then <span class="process-math">\(\vec{u}+\vec{v}\in H\text{.}\)</span></p></li>
+<li id="li-64"><p id="p-derived-li-64">H is closed under scalar multiplication; if <span class="process-math">\(\vec{u} \in H\)</span> and <span class="process-math">\(c \in \mathbb{R}\text{,}\)</span> then <span class="process-math">\(c\vec{u} \in H\text{.}\)</span></p></li>
+</ol></article><p id="p-271">This theorem is so useful because we can prove a set is a vector space by checking only <em class="emphasis">three</em> properties instead of the <em class="emphasis">ten</em> that are involved in the definition. The reason that we do not need to check these other properties is that by using this subspace, we already have proven the proper rules of arithmetic from the parent space. Additionally, since we are using the same rules for scalar multiplication and vector addition as the parent space, we <em class="emphasis">must</em> also have the same scalars as the parent space.</p>
+<article class="investigation project-like" id="investigation-61"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.8</span><span class="period">.</span>
+</h3>
+<p id="p-272">Use the preceding theorem to prove that <span class="process-math">\(\mathbb{P}_n\)</span> is a subspace of <span class="process-math">\(\mathbb{P}\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-62"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.9</span><span class="period">.</span>
+</h3>
+<p id="p-273">Is <span class="process-math">\(\mathbb{R}\)</span> a subspace of <span class="process-math">\(\mathbb{C}\text{?}\)</span> Why or why not?</p></article><article class="investigation project-like" id="investigation-63"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.10</span><span class="period">.</span>
+</h3>
+<p id="p-274">Is <span class="process-math">\(\mathbb{R}^2\)</span> a subspace of <span class="process-math">\(\mathbb{R}^3\text{?}\)</span> Why or why not?</p></article><article class="investigation project-like" id="investigation-64"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.11</span><span class="period">.</span>
+</h3>
+<p id="p-275">Is the set of points on the plane given by <span class="process-math">\(z=0\)</span> a subspace of <span class="process-math">\(\mathbb{R}^3\text{?}\)</span> Why or why not?</p></article><article class="investigation project-like" id="investigation-65"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.12</span><span class="period">.</span>
+</h3>
+<p id="p-276">Is the set of points on the plane given by <span class="process-math">\(z=1\)</span> a subspace of <span class="process-math">\(\mathbb{R}^3\text{?}\)</span> Why or why not?</p></article><article class="investigation project-like" id="investigation-66"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.13</span><span class="period">.</span>
+</h3>
+<p id="p-277">Draw a plot of the points in <span class="process-math">\(\mathbb{R}^2\)</span> given by <span class="process-math">\(\{ \vec{x}=\colvec{2}{x_1}{x_2} \in \mathbb{R}^2 |x_1 x_2 \geq 0\}\text{.}\)</span> Is <span class="process-math">\(\{ \vec{x}=\colvec{2}{x_1}{x_2} \in \mathbb{R}^2 |x_1 x_2 \geq 0\}\)</span> a subspace of <span class="process-math">\(\mathbb{R}^2\text{?}\)</span> Why or why not?</p></article><article class="investigation project-like" id="investigation-67"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.14</span><span class="period">.</span>
+</h3>
+<p id="p-278">Is <span class="process-math">\(Sym_{n \times n}\text{,}\)</span> the set of symmetric <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrices a subspace of <span class="process-math">\(M_{n \times n}\text{?}\)</span> Why or why not?</p></article><article class="investigation project-like" id="investigation-68"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.15</span><span class="period">.</span>
+</h3>
+<p id="p-279">Prove or disprove: The set of odd functions on <span class="process-math">\(\mathbb{R}\)</span> (i.e., those for which <span class="process-math">\(f(-t)=-f(t)\)</span> for every <span class="process-math">\(t \in \mathbb{R}\)</span>) a subspace of <span class="process-math">\(F(\mathbb{R},\mathbb{R})\text{.}\)</span></p></article><article class="theorem theorem-like" id="theorem-14"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.7</span><span class="period">.</span>
+</h3>
+<p id="p-280">If <span class="process-math">\(A\)</span> is a <span class="process-math">\(m\)</span> by <span class="process-math">\(n\)</span> matrix, the solution set to the homogeneous equation <span class="process-math">\(A\vec{x}=\vec{0}\)</span> is a subspace of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span></p></article><article class="theorem theorem-like" id="theorem-15"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.8</span><span class="period">.</span>
+</h3>
+<p id="p-281">If <span class="process-math">\(H\)</span> and <span class="process-math">\(K\)</span> are subspaces of some vector space <span class="process-math">\(V\text{,}\)</span> then the set <span class="process-math">\(H \cap K\)</span> is a subspace of <span class="process-math">\(V\)</span> as well.</p></article><article class="investigation project-like" id="investigation-69"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.16</span><span class="period">.</span>
+</h3>
+<p id="p-282">Prove or Disprove: the set of <span class="process-math">\(2\)</span> by <span class="process-math">\(2\)</span> matrices with at least one zero entry is a subspace of <span class="process-math">\(M_{2 \times 2}\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-70"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.17</span><span class="period">.</span>
+</h3>
+<p id="p-283">Prove or Disprove: the set of matrices of the form <span class="process-math">\(\begin{bmatrix} a \amp b \\0 \amp -a \end{bmatrix}\)</span> is a subspace of <span class="process-math">\(M_{2 \times 2}\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-71"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.18</span><span class="period">.</span>
+</h3>
+<p id="p-284">Prove or disprove: The set of quadratic polynomials of the form <span class="process-math">\(at^2+b\)</span> is a subspace of the vector space of polynomials.</p></article></section></div></main>
+</div>
+</body>
+</html>
