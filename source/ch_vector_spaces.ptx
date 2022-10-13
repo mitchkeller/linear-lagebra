@@ -329,7 +329,10 @@ scalar multiplication and vector addition as the parent space, we
 <investigation><statement><p> Is the set of points on the plane given by <m>z=1</m> a subspace of <m>\mathbb{R}^3</m>? Why or why not?
 </p></statement></investigation>
 
-<investigation><statement><p> Draw a plot of the points in <m>\mathbb{R}^2</m> given by <m>\{ \vec{x}=\colvec{2}{x_1}{x_2} \in \mathbb{R}^2 |x_1 x_2 \geq 0\}</m>. Is <m>\{ \vec{x}=\colvec{2}{x_1}{x_2} \in \mathbb{R}^2 |x_1 x_2 \geq 0\}</m> a subspace of <m>\mathbb{R}^2</m>? Why or why not?
+<investigation><statement><p> Draw a plot of the points in
+<m>\mathbb{R}^2</m> given by <m>\{ \vec{x}=\colvec{x_1\\ x_2} \in
+\mathbb{R}^2 \mid x_1 x_2 \geq 0\}</m>. Is <m>\{ \vec{x}=\colvec{x_1\\
+x_2} \in \mathbb{R}^2 \mid x_1 x_2 \geq 0\}</m> a subspace of <m>\mathbb{R}^2</m>? Why or why not?
 </p></statement></investigation>
 
 <investigation><statement><p> Is <m>Sym_{n \times n}</m>, the set of symmetric <m>n</m> by <m>n</m> matrices a subspace of <m>M_{n \times n}</m>? Why or why not?
