@@ -358,125 +358,246 @@ functions on <m>\mathbb{R}</m> (i.e., those for which <m>f(-t)=-f(t)</m> for eve
 <investigation><statement><p> Prove or disprove: The set of quadratic polynomials of the form <m>at^2+b</m> is a subspace of the vector space of polynomials.
 </p></statement></investigation>
 </section>
-<!--
+<section>
+  <title>Span</title>
+  
+<p>Recall that a <term>linear combination</term> of the set <m>\{\vec{v_1},..\vec{v_k} \}</m> is a vector of the form <me>\sum_{i=1}^k c_i \vec{v_i} = c_1 \vec{v_1} + c_2 \vec{v_2}+...+c_k \vec{v_k}</me>.
+Note that some of the <m>c_i</m> may be zero. In other words, not every vector in a set needs to be part of a linear combination from that set.</p>
 
-\section{Span}
-Recall that a <term>linear combination} of the set <m>\{\vec{v_1},..\vec{v_k} \}</m> is a vector of the form <me>\sum_{i=1}^k c_i \vec{v_i} = c_1 \vec{v_1} + c_2 \vec{v_2}+...+c_k \vec{v_k}</me>
-Note that some of the <m>c_i</m> may be zero. In other words, not every vector in a set needs to be part of a linear combination from that set.
-
-<investigation><statement><p> Can you write <m>\vec{b}=\colvec{2}{2}{4}</m> as a linear combination of <m>\vec{v_1}=\colvec{2}{1}{1}</m> and <m>\vec{v_2}=\colvec{2}{-1}{1}</m>? Remember that you need to justify your work on every problem.
-\eq
-
-<investigation><statement><p> Repeat the previous problem for <m>\vec{b}=\colvec{2}{0}{0}</m>, <m>\vec{b}=\colvec{2}{-1}{2}</m>, and <m>\vec{b}=\colvec{2}{2}{2}</m>.
-\eq
-
-<investigation><statement><p> Can you write <m>2+4t</m> as a linear combination of <m>1+t</m> and <m>-1+t</m>?
-\eq
+<investigation><statement><p> Find a way to  write
+<m>\vec{b}=\colvec{2\\ 4}</m> as a linear combination of
+<m>\vec{v_1}=\colvec{1\\ 1}</m> and <m>\vec{v_2}=\colvec{-1\\ 1}</m>
+or explain why it is not possible to do so?</p>
+</statement>
+</investigation>
+<exercise><statement><p> Repeat the previous problem for
+<m>\vec{b}=\colvec{0\\ 0}</m>, <m>\vec{b}=\colvec{-1\\ 2}</m>, and
+<m>\vec{b}=\colvec{2\\ 2}</m>.
+</p>
+</statement>
+</exercise>
+<investigation><statement><p> Can you write <m>2+4t</m> as a linear
+combination of <m>1+t</m> and <m>-1+t</m>?
+</p>
+</statement>
+</investigation>
 
 <investigation><statement><p> Can you write <m>\begin{bmatrix} 2\amp 3 \\1\amp 1 \end{bmatrix}</m> as a linear combination of <m>\begin{bmatrix} 1\amp 1 \\0\amp 1 \end{bmatrix}</m> and <m>\begin{bmatrix} 1\amp 2 \\-1\amp 1 \end{bmatrix}</m>?
-\eq
+</p>
+</statement>
+</investigation>
 
-The <term>span} of a set of vectors <m>S</m>, denoted <m>span(S)</m> is the set of \underline{all} possible linear combinations of <m>S</m>. A set <m>S</m> is said to <term>span or generate a vector space} <m>V</m> if <m>span(S)=V</m>.
+<p>The <term>span</term> of a set of vectors <m>S</m>, denoted
+<m>span(S)</m> is the set of <em>all</em> possible linear
+combinations of <m>S</m>. A set <m>S</m> is said to <term>span or
+generate a vector space</term> <m>V</m> if <m>span(S)=V</m>.
+</p>
 
-<investigation><statement><p> If <m>S=\left\{ \colvec{3}{1}{1}{1},\colvec{3}{1}{-1}{1} \right\}</m>, is <m>\vec{b}=\colvec{3}{3}{1}{3} \in span(S)</m>?
-\eq
 
-<investigation><statement><p> If <m>S=\left\{ \colvec{3}{1}{1}{1},\colvec{3}{1}{-1}{1} \right\}</m>, is <m>\vec{b}=\colvec{3}{1}{2}{3} \in span(S)</m>?
-\eq
+<investigation><statement><p> If <m>S=\left\{ \colvec{1\\ 1\\ 1},\colvec{1\\ -1\\ 1} \right\}</m>, is <m>\vec{b}=\colvec{3\\ 1\\ 3} \in span(S)</m>?
+</p>
+</statement>
+</investigation>
 
-<investigation><statement><p> If <m>S=\left\{ \colvec{3}{1}{1}{1},\colvec{3}{1}{-1}{1} \right\}</m>, is <m>\vec{b}=\colvec{3}{0}{0}{0} \in span(S)</m>?
-\eq
+<exercise><statement><p> If <m>S=\left\{ \colvec{1\\ 1\\
+1},\colvec{1\\ -1\\ 1} \right\}</m>, is <m>\vec{b}=\colvec{1\\ 2\\ 3}
+\in span(S)</m>?</p>
+</statement>
+</exercise>
 
-<investigation><statement><p> If <m>S=\left\{ \colvec{3}{1}{1}{1},\colvec{3}{1}{-1}{1},\colvec{3}{1}{-1}{-1} \right\}</m>, is <m>\vec{b}=\colvec{3}{1}{2}{3} \in span(S)</m>?
-\eq
+<investigation><statement><p> If <m>S=\left\{ \colvec{1\\ 1\\ 1},\colvec{1\\ -1\\ 1} \right\}</m>, is <m>\vec{b}=\colvec{0\\ 0\\ 0} \in span(S)</m>?
+</p>
+</statement>
+</investigation>
+
+<investigation><statement><p> If <m>S=\left\{ \colvec{1\\ 1\\ 1},\colvec{1\\ -1\\ 1},\colvec{1\\ -1\\ -1} \right\}</m>, is <m>\vec{b}=\colvec{1\\ 2\\ 3} \in span(S)</m>?
+</p>
+</statement>
+</investigation>
 
 <investigation><statement><p> Is <m>1-t^2</m> in the span of <m>\{ 3, 4+t+t^2,5-t\}</m>?
-\eq
-
-<investigation><statement><p> For what value(s) of <m>\alpha</m> and <m>\beta</m> is <m>\vec{p}=\colvec{4}{\beta}{-2}{\alpha}{-4}</m> a solution to <m>A \vec{x}=\vec{b}</m> if <m>A = \begin{bmatrix} 1\amp 5\amp -2\amp 0 \\ -3\amp 1\amp 9\amp -5 \\ 4\amp -8\amp -1\amp 7 \end{bmatrix}</m> and <m>\vec{b}=\colvec{3}{-7}{9}{0}</m>?
-\eq
-
-<investigation><statement><p> Is <m>\vec{b}=\colvec{3}{-7}{9}{0}</m> in the span of the set of columns of <m>A = \begin{bmatrix} 1\amp 5\amp -2\amp 0 \\ -3\amp 1\amp 9\amp -5 \\ 4\amp -8\amp -1\amp 7 \end{bmatrix}</m>? If so, what are the coefficients?
-\eq
-
-<investigation><statement><p> Prove that if <m>S</m> is a set of <m>k</m> vectors from a vector space <m>V</m>, then <m>span(S)</m> is a subspace of <m>V</m>.
-\eq
-
-<investigation><statement><p> Find a finite set of vectors that generates each of the following vector spaces (be sure to show why your set works):
-\begin{enumerate}
-\item <m>\mathbb{R}^3</m>
-\item <m>\mathbb{P}_2</m>
-\item <m>Sym_{n \times n}</m>
-\end{enumerate}
-\eq
-
-<investigation><statement><p> Show that the set <m>\{ 1+t,t+t^2,1+t^3,t+t^2+t^3 \}</m> spans all of <m>\mathbb{P}_3</m>. Hint: Come up with a system of equations that you will need to solve and use your theorems from Chapter 1.
-\eq
+</p>
+</statement>
+</investigation>
 
 
-<investigation><statement><p> Geometrically describe the span of <m> \left\{ \colvec{3}{2}{1}{4} \right\} <m>.
-\eq
+<exercise><statement><p> For what value(s) of <m>\alpha</m> and <m>\beta</m> is <m>\vec{p}=\colvec{\beta\\ -2\\ \alpha\\ -4}</m> a solution to <m>A \vec{x}=\vec{b}</m> if <m>A = \begin{bmatrix} 1\amp 5\amp -2\amp 0 \\ -3\amp 1\amp 9\amp -5 \\ 4\amp -8\amp -1\amp 7 \end{bmatrix}</m> and <m>\vec{b}=\colvec{-7\\ 9\\ 0}</m>?
+</p>
+</statement>
+</exercise>
 
-<investigation><statement><p> Geometrically describe the span of <m> \left\{ \colvec{3}{2}{1}{4} , \colvec{3}{3}{-1}{1} \right\} <m>.
-\eq
+<investigation><statement><p> Is <m>\vec{b}=\colvec{-7\\ 9\\ 0}</m> in the span of the set of columns of <m>A = \begin{bmatrix} 1\amp 5\amp -2\amp 0 \\ -3\amp 1\amp 9\amp -5 \\ 4\amp -8\amp -1\amp 7 \end{bmatrix}</m>? If so, what are the coefficients?
+</p>
+</statement>
+</investigation>
 
-<investigation><statement><p> Does the span of <m> \left\{ \colvec{3}{2}{1}{4} , \colvec{3}{3}{-1}{1} \right\} <m> have to go through the origin?
-\eq
+<theorem><statement><p>Let <m>V</m> be a vector space. If
+<m>S=\{\vec{v_1},\vec{v_2},\dots,\vec{v_k}\}\subseteq V</m> is a set of <m>k</m> vectors from <m>V</m>, then <m>span(S)</m> is a subspace of <m>V</m>.
+</p>
+</statement>
+</theorem>
 
-<investigation><statement><p> Does the span of <m> \left\{ \vec{v_1},...,\vec{v_k} \right\} <m> where <m>\vec{v_i} \in \mathbb{R}^n</m> have to go through the\break origin?
-\eq
+<investigation><introduction><p> Find a finite set of vectors that generates each of the following vector spaces (be sure to show why your set works):
+</p>
+</introduction>
+<task>
+  <statement><p>
+    <m>\mathbb{R}^3</m>
+  </p>
+  </statement>
+</task>
+<task>
+  <statement><p>
+    <m>\mathbb{P}_2</m>
+  </p>
+  </statement>
+</task>
+<task>
+  <statement><p>
+    <m>Sym_{n \times n}</m>
+  </p>
+  </statement>
+</task>
+</investigation>
 
-\section{Linear Independence}
-\begin{definition}
-A set of vectors <m>S</m> is <term>linearly independent} if the only linear combination of the zero vector is the trivial linear combination. In other words, <m>S</m> being a linear independent set implies that if <m>c_1\vec{v_1}+c_2\vec{v_2}+...+c_k \vec{v_k}=\vec{0}</m> where <m>\vec{v_i} \in S</m>, then all <m>c_i=0</m>.
+<investigation><statement><p> Show that the set <m>\{
+1+t,t+t^2,1+t^3,t+t^2+t^3 \}</m> spans all of <m>\mathbb{P}_3</m>.</p>
+</statement>
+<hint><p>Come up with a system of equations that you will need to
+solve and use your theorems from earlier chapters.</p>
+</hint>
+</investigation>
 
-A set of vectors <m>S</m> is <term>linearly dependent} if the set is not linearly independent. More specifically, there exists a solution to <m>c_1\vec{v_1}+c_2\vec{v_2}+...+c_k \vec{v_k}=\vec{0}</m> where <m>\vec{v_i} \in S</m> and at least one of the <m>c_j \neq 0</m>.
-\end{definition}
+<investigation><statement><p> Geometrically describe the span of <m>
+\left\{ \colvec{2\\ 1\\ 4} \right\} </m>.</p>
+</statement>
+</investigation>
 
-<investigation><statement><p> Is the set <m>\left\{ \colvec{3}{1}{-3}{2} \right\}</m> linearly independent?
-\eq
+<investigation><statement><p> Geometrically describe the span of <m>
+\left\{ \colvec{2\\ 1\\ 4} , \colvec{3\\ -1\\ 1} \right\} </m>.</p>
+</statement>
+</investigation>
 
-<investigation><statement><p> Is the set <m>\left\{\colvec{3}{2}{3}{0}, \colvec{3}{-1}{-1}{2} \right\}</m> linearly independent?
-\eq
 
-<investigation><statement><p> \be
-\item Choose a vector <m>\vec{v}</m> so that the set <m>\left\{ \colvec{3}{2}{3}{0}, \colvec{3}{-1}{-1}{2} , \vec{v}  \right\} <m> is linearly independent, where <m>\vec{v} \in \mathbb{R}^3</m>.
-\item Is your choice of <m>\vec{v}</m> in <m> Span \left( \left\{ \colvec{3}{2}{3}{0}, \colvec{3}{-1}{-1}{2} \right\} \right)</m>? Show why or why not.
-\ee \eq
+<investigation><statement><p> Does the span of <m> \left\{ \colvec{2\\ 1\\ 4} , \colvec{3\\ -1\\ 1} \right\} </m> have to go through the origin?</p></statement></investigation>
+
+
+<investigation><statement><p> Does the span of <m> \left\{
+\vec{v_1},...,\vec{v_k} \right\} </m> where <m>\vec{v_i} \in
+\mathbb{R}^n</m> have to go through the origin?</p>
+</statement>
+</investigation>
+</section>
+<section>
+  <title>Linear Independence</title>
+  
+  <definition>
+    <statement>
+      <p>
+A set of vectors <m>S</m> is <term>linearly independent</term> if the
+only linear combination of elements of <m>S</m> that equals the zero vector is the trivial linear combination. In other words, <m>S</m> being a linear independent set implies that if <m>c_1\vec{v_1}+c_2\vec{v_2}+...+c_k \vec{v_k}=\vec{0}</m> where <m>\vec{v_i} \in S</m>, then all <m>c_i=0</m>.
+      </p>
+
+<p>A set of vectors <m>S</m> is <term>linearly dependent</term> if the
+set is not linearly independent. More specifically, there exists a
+solution to <m>c_1\vec{v_1}+c_2\vec{v_2}+...+c_k \vec{v_k}=\vec{0}</m>
+where <m>\vec{v_i} \in S</m> and at least one of the <m>c_j \neq
+0</m>.</p>
+    </statement>
+  </definition>
+
+<investigation><statement><p> Is the set <m>\left\{ \colvec{1\\ -3\\
+2} \right\}</m> linearly independent?
+</p>
+</statement>
+</investigation>
+
+
+<investigation><statement><p> Is the set <m>\left\{\colvec{2\\ 3\\ 0},
+\colvec{-1\\ -1\\ 2} \right\}</m> linearly independent?
+</p>
+</statement>
+</investigation>
+
+<investigation><task><p>
+Choose a vector <m>\vec{v}</m> so that the set <m>\left\{ \colvec{2\\
+3\\ 0}, \colvec{-1\\ -1\\ 2} , \vec{v}  \right\} </m> is linearly
+independent, where <m>\vec{v} \in \mathbb{R}^3</m>.</p>
+</task>
+<task><p>Is your choice of <m>\vec{v}</m> in <m> Span \left( \left\{
+\colvec{2\\ 3\\ 0}, \colvec{-1\\ -1\\ 2} \right\} \right)</m>? Show
+why or why not.</p>
+</task>
+</investigation>
 
 <investigation><statement><p> Is <m>\{ 2+t^2, 1+t^2 \}</m> a linearly dependent set in <m>\mathbb{P}_2</m>?
-\eq
+</p>
+</statement>
+</investigation>
 
-<investigation><statement><p> Is <m>\left\{ \begin{bmatrix} 1\amp 1\\0\amp 0 \end{bmatrix},\begin{bmatrix}0\amp 0\\ 1\amp 1 \end{bmatrix},\begin{bmatrix} 1\amp 0\\0\amp 1 \end{bmatrix},\begin{bmatrix} 0\amp 1\\1\amp 0 \end{bmatrix} \right\}</m> a linearly independent set in <m>M_{2 \times 2}</m>?
-\eq
+<exercise><statement><p> Is <m>\left\{ \begin{bmatrix} 1\amp 1\\0\amp
+0 \end{bmatrix},\begin{bmatrix}0\amp 0\\ 1\amp 1
+\end{bmatrix},\begin{bmatrix} 1\amp 0\\0\amp 1
+\end{bmatrix},\begin{bmatrix} 0\amp 1\\1\amp 0 \end{bmatrix}
+\right\}</m> a linearly independent set in <m>M_{2 \times 2}</m>?
+</p>
+</statement>
+</exercise>
 
-<investigation><statement><p> Prove that <m>\{ 1+t,t+t^2,1+t^2 \}</m> is linearly independent.
-\eq
+<exercise><statement><p> Prove that <m>\{ 1+t,t+t^2,1+t^2 \}</m> is
+linearly independent.</p>
+</statement>
+</exercise>
 
-<investigation><statement><p> Prove that if a set <m>S</m> of a vector space <m>V</m> contains <m>\vec{0}_V</m>, then <m>S</m> is linearly dependent.
-\eq
+<theorem><statement><p> If a set <m>S</m> of a vector space <m>V</m>
+contains <m>\vec{0}_V</m>, then <m>S</m> is linearly dependent.</p>
+</statement>
+</theorem>
 
-<investigation><statement><p> If <m>A</m> is a <m>m</m> by <m>n</m> matrix, then the columns of A form a linearly independent set if and only if <m>A</m> has \underline{\hspace{0.5in}} pivot columns. Completely justify your response. \eq
 
-<investigation><statement><p> Prove the following statement: If <m>M=\{ \vec{v_1},\vec{v_2},...,\vec{v_n}\}</m> is linearly independent, then any subset of <m>M</m> is linearly independent.
-\eq
+<investigation><statement><p> If <m>A</m> is a <m>m</m> by <m>n</m>
+matrix, then the columns of A form a linearly independent set if and
+only if <m>A</m> has <fillin characters="5" /> pivot
+columns. Completely justify your response.</p>
+</statement>
+</investigation>
+
+<theorem><statement><p>If <m>M=\{ \vec{v_1},\vec{v_2},...,\vec{v_n}\}</m> is linearly independent, then any subset of <m>M</m> is linearly independent.
+</p>
+</statement>
+</theorem>
 
 <investigation><statement><p> Prove or disprove: If <m>M=\{ \vec{v_1},\vec{v_2},...,\vec{v_n}\}</m> is linearly dependent, then any subset of <m>M</m> is linearly dependent.
-\eq
+</p>
+</statement>
+</investigation>
 
-<investigation><statement><p> Prove that if <m>\vec{u}</m> is in the span of <m>S</m>, then <m>S \bigcup \{\vec{u}\}</m> is linearly dependent.
-\eq
+<theorem><statement><p>If <m>\vec{u}</m> is in the span of <m>S</m>, then <m>S \cup \{\vec{u}\}</m> is linearly dependent.
+</p>
+</statement>
+</theorem>
 
+<!--
 %<investigation><statement><p> Prove that if <m>S</m> is linearly independent and <m>S \bigcup \{\vec{u}\}</m> is linearly dependent, then <m>\vec{u}</m> is in the span of <m>S</m>.
 %\eq
+-->
+<p>
+The following two theorems are a wonderful summary of the difference between and the importance of linear dependence and linear independence.
+</p>
+<theorem><statement><p>If <m>S</m> is a linearly dependent set, then
+any <m>\vec{w} \in span(S)</m> can be written as a linear combination
+from <m>S</m> in more than one way.</p>
+</statement>
+</theorem>
 
-The following two questions are a wonderful summary of the difference between and the importance of linear dependence and linear independence.
+<theorem xml:id="u"><statement><p>If <m>S</m> is a linearly
+independent set, then any <m>\vec{w} \in span(S)</m> can be written as
+a linear combination from <m>S</m> in only one way.</p>
+</statement>
+</theorem>
+</section>
 
-<investigation><statement><p> Prove that if <m>S</m> is a linearly dependent set, then any <m>\vec{w} \in span(S)</m> can be written as a linear combination from <m>S</m> in more than one way. \eq
-
-<investigation><statement><p>\label{u} Prove that if <m>S</m> is a linearly independent set, then any <m>\vec{w} \in span(S)</m> can be written as a linear combination from <m>S</m> in only one way. \eq
-
-
+<!--
 \section{Linear Transformations}
 Linear transformations are the “nice” functions from a vector space to a vector space. In particular, linear transformations preserve the operations of scalar multiplication and vector addition.
 \begin{definition}
@@ -496,9 +617,9 @@ Eventually we will be able to state a lot of linear transformations as a <term>m
 \be
 \item <m>f_1:\mathbb{P} \to \mathbb{R}</m> where <m>f_1(\vec{p})=</m> the degree of the polynomial <m>\vec{p}</m>
 \item <m>f_2:\mathbb{P} \to \mathbb{R}</m> where <m>f_2(\vec{p})= \vec{p}(t=1)</m>
-\item <m>f_3:\mathbb{R}^2 \to \mathbb{R}^3</m> where <m>f_3(\colvec{2}{a}{b})=\colvec{3}{a+b}{a-b}{b+1}</m>
-\item <m>f_4:\mathbb{R}^3 \to \mathbb{R}^2</m> where <m>f_4(\colvec{3}{a}{b}{c})=\colvec{2}{a+b}{a-c}</m>
-\item <m>f_5:\mathbb{R}^3 \to \mathbb{R}^2</m> where <m>f_5(\colvec{3}{a}{b}{c})=\colvec{2}{a+b}{c^2}</m>
+\item <m>f_3:\mathbb{R}^2 \to \mathbb{R}^3</m> where <m>f_3(\colvec{a\\ b})=\colvec{a+b\\ a-b\\ b+1}</m>
+\item <m>f_4:\mathbb{R}^3 \to \mathbb{R}^2</m> where <m>f_4(\colvec{a\\ b\\ c})=\colvec{a+b\\ a-c}</m>
+\item <m>f_5:\mathbb{R}^3 \to \mathbb{R}^2</m> where <m>f_5(\colvec{a\\ b\\ c})=\colvec{2\\ a+b\\ c^2}</m>
 \ee \eq
 
 <investigation><statement><p> Prove that if <m>T</m> is a linear transformation and a set of vectors <m>\{v_1,v_2,v_3\}</m> is linearly dependent, then the set <m>\{T(v_1),T(v_2),T(v_3)\}</m> is linearly dependent.
@@ -513,11 +634,11 @@ Eventually we will be able to state a lot of linear transformations as a <term>m
 \end{annotation}
 \eq
 
-<investigation><statement><p> If a linear transformation, <m>T</m>, sends the vector <m>\vec{e_1}=\colvec{2}{1}{0}</m> to <m>\colvec{3}{3}{-1}{1}</m> and sends the vector <m>\vec{e_2}=\colvec{2}{0}{1}</m> to <m>\colvec{3}{1}{0}{2}</m>, find the following:
+<investigation><statement><p> If a linear transformation, <m>T</m>, sends the vector <m>\vec{e_1}=\colvec{1\\ 0}</m> to <m>\colvec{3\\ -1\\ 1}</m> and sends the vector <m>\vec{e_2}=\colvec{0\\ 1}</m> to <m>\colvec{1\\ 0\\ 2}</m>, find the following:
 \begin{itemize}
-\item <m>T\left(\colvec{2}{3}{0}\right)</m>
-\item <m>T\left(\colvec{2}{0}{5}\right)</m>
-\item <m>T\left(\colvec{2}{a}{b}\right)</m>
+\item <m>T\left(\colvec{3\\ 0}\right)</m>
+\item <m>T\left(\colvec{0\\ 5}\right)</m>
+\item <m>T\left(\colvec{a\\ b}\right)</m>
 \end{itemize}
 \eq
 
@@ -544,7 +665,7 @@ What would this mean for the following matrix product: <me>\begin{bmatrix} a\amp
 \eq
 
 <investigation><statement><p>
-Draw what the image of the picture below will look like after applying given the linear transformations. It may help to look at where <m>\colvec{2}{1}{0}</m>, <m>\colvec{2}{0}{1}</m>, and <m>\colvec{2}{1}{1}</m> get mapped by <m>T</m>.
+Draw what the image of the picture below will look like after applying given the linear transformations. It may help to look at where <m>\colvec{1\\ 0}</m>, <m>\colvec{0\\ 1}</m>, and <m>\colvec{1\\ 1}</m> get mapped by <m>T</m>.
 %\begin{center} \includegraphics{smiley.png} \end{center}
 \begin{enumerate}
 \item <m>T: \mathbb{R}^2 \to \mathbb{R}^2</m> reflects points across the vertical axis
@@ -557,11 +678,11 @@ Draw what the image of the picture below will look like after applying given the
 \eq
 
 
-<investigation><statement><p> If a linear transformation, <m>T</m>, sends the vector <m>\colvec{2}{1}{1}</m> to <m>\colvec{2}{-2}{2}</m> and sends the vector <m>\colvec{2}{-1}{1}</m> to <m>\colvec{2}{0}{2}</m>, find the following:
+<investigation><statement><p> If a linear transformation, <m>T</m>, sends the vector <m>\colvec{1\\ 1}</m> to <m>\colvec{-2\\ 2}</m> and sends the vector <m>\colvec{-1\\ 1}</m> to <m>\colvec{0\\ 2}</m>, find the following:
 \begin{itemize}
-\item <m>T\left(\colvec{2}{1}{0}\right)</m> Hint: How can you write <m>\colvec{2}{1}{0}</m> as a linear combination of  <m>\colvec{2}{1}{1}</m> and <m>\colvec{2}{-1}{1}</m>?
-\item <m>T\left(\colvec{2}{0}{1}\right)</m>
-\item <m>T\left(\colvec{2}{a}{b}\right)</m>
+\item <m>T\left(\colvec{1\\ 0}\right)</m> Hint: How can you write <m>\colvec{1\\ 0}</m> as a linear combination of  <m>\colvec{1\\ 1}</m> and <m>\colvec{-1\\ 1}</m>?
+\item <m>T\left(\colvec{0\\ 1}\right)</m>
+\item <m>T\left(\colvec{a\\ b}\right)</m>
 \item Find the standard matrix presentation for <m>T</m>
 \end{itemize}
 \eq
@@ -576,13 +697,13 @@ Let <m>T_{\vec{0}}</m> be the function from <m>V</m> to <m>W</m> such that <m>T(
 
 The <term>range} of a linear transformation <m>T:V \rightarrow W</m> is the set of things in the codomain <m>W</m> that are the output of <m>T</m> for some input. That is <m>range(T)= \{\vec{y} \in W | \vec{y}=T(\vec{x}) \mbox{ for some } \vec{x} \in V\}</m>. The <term>null space}, or <term>kernel}, of a linear transformation <m>T:V \rightarrow W</m> is the set of inputs that get mapped to the zero vector of <m>W</m>. That is <m>Null(T)=\{\vec{x}\in V | T(\vec{x}) = \vec{0_W}\}</m>.
 
-<investigation><statement><p> Is <m>\vec{b}=\colvec{3}{0}{2}{1}</m> in the range of the linear transformation <m>T(\vec{x})=A\vec{x}</m> where <m>A= \begin{bmatrix} 1\amp 2 \\ 3 \amp  4\\0\amp 0 \end{bmatrix}</m>? Justify your answer without doing any matrix operations. Hint: write the corresponding matrix equation as a vector equation.
+<investigation><statement><p> Is <m>\vec{b}=\colvec{0\\ 2\\ 1}</m> in the range of the linear transformation <m>T(\vec{x})=A\vec{x}</m> where <m>A= \begin{bmatrix} 1\amp 2 \\ 3 \amp  4\\0\amp 0 \end{bmatrix}</m>? Justify your answer without doing any matrix operations. Hint: write the corresponding matrix equation as a vector equation.
 \eq
 
 <investigation><statement><p> Let <m>A=\begin{bmatrix} 1\amp 2\amp 3 \\4\amp 5\amp 6 \end{bmatrix}</m>. Find the range and null space of <m>T</m> where <m>T(\vec{x}) =A \vec{x}</m>. Remember to state the range and null space so that the reader can most easily verify whether a vector is in the set or not.
 \eq
 
-<investigation><statement><p> Let <m>T</m> from <m>\mathbb{R}^2</m> to <m>\mathbb{P}_2</m> be given by <m>T \left( \colvec{2}{a}{b} \right) = a +(a+b)t+(a-b)t^2</m>.
+<investigation><statement><p> Let <m>T</m> from <m>\mathbb{R}^2</m> to <m>\mathbb{P}_2</m> be given by <m>T \left( \colvec{a\\ b} \right) = a +(a+b)t+(a-b)t^2</m>.
 \begin{enumerate}
 \item Prove <m>T</m> is linear.
 \item Compute the range of <m>T</m>.
@@ -617,7 +738,7 @@ A function <m>f:C \rightarrow D</m> is <term>onto} if every element of <m>D</m> 
 \end{enumerate}
 \eq
 
-<investigation><statement><p> Let <m>T</m> from <m>\mathbb{R}^2</m> to <m>\mathbb{P}_2</m> be given by <m>T \left( \colvec{2}{a}{b} \right) = a +(a+b)t+(a-b)t^2</m>.
+<investigation><statement><p> Let <m>T</m> from <m>\mathbb{R}^2</m> to <m>\mathbb{P}_2</m> be given by <m>T \left( \colvec{a\\ b} \right) = a +(a+b)t+(a-b)t^2</m>.
 \begin{enumerate}
 \item Is <m>T</m> one-to-one?
 \item Is <m>T</m> onto?
