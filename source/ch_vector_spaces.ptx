@@ -625,7 +625,7 @@ columns. Completely justify your response.</p>
 </statement>
 </theorem>
 
-<!--
+<!-- TEST QUESTION
 %<investigation><statement><p> Prove that if <m>S</m> is linearly independent and <m>S \bigcup \{\vec{u}\}</m> is linearly dependent, then <m>\vec{u}</m> is in the span of <m>S</m>.
 %\eq
 -->
@@ -645,74 +645,218 @@ a linear combination from <m>S</m> in only one way.</p>
 </theorem>
 </section>
 
-<!--
-\section{Linear Transformations}
-Linear transformations are the “nice” functions from a vector space to a vector space. In particular, linear transformations preserve the operations of scalar multiplication and vector addition.
-\begin{definition}
-A function <m>T</m> from a vector space <m>V</m> to a vector space <m>W</m> is a <term>linear transformation} if for every <m>\vec{v_1},\vec{v_2} \in V</m> and <m>c \in \mathbb{R}</m>
-\begin{itemize}
-<li> <m>T(\vec{v_1}+\vec{v_2})=T(\vec{v_1})+T(\vec{v_2})</m>
-<li> <m>T(c\vec{v_1})=c T(\vec{v_1})</m>
-\end{itemize}
-\end{definition}
-<investigation><statement><p> Prove that the map <m>T: \mathbb{R}^n \rightarrow \mathbb{R}^m</m> given by <m>T(\vec{x}) = A\vec{x}</m> is linear, where <m>A</m> is an <m>m</m> by <m>n</m> real valued matrix.
-\eq
-Eventually we will be able to state a lot of linear transformations as a <term>matrix transformation} like in the problem above, but we will not be able to do this in general.
+<section>
+  <title>Linear Transformations</title>
+  <subsection>
+    <title>A Digression Into Functions</title>
+    <p>In class, we have already seen this definition, but we state it
+    here for reference:</p>
+    <definition>
+      <statement>
+	<p>
+	  Let <m>A</m> and <m>B</m> be sets. A <term>function</term>
+	  <m>f</m> from <m>A</m> to <m>B</m> is a way of associating
+	  to each element of <m>A</m> a unique element of
+	  <m>B</m>. We use the notation
+	  <m>f\colon A\to B</m> to denote that <m>f</m> is a function from
+	  <m>A</m> to <m>B</m>. For <m>a\in A</m>, we denote that <m>f</m>
+	  associates <m>a</m> with <m>\in B</m> as <m>f(a)=b</m> or as
+	  <m>a\stackrel{f}{\mapsto} b</m>. We call <m>A</m> the
+	  <term>domain</term> of <m>f</m> and <m>B</m> the
+	  <term>codomain</term> of <m>f</m>. The <term>image</term> of
+	  <m>f</m> is
+	  <me>\mathrm{im}(f) = \{b\in B\colon \text{ there exists }a\in
+	  A\text{ such that }f(a)=b\}</me>. Sometimes the image is
+	  called the <term>range</term>.
+	</p>
+      </statement>
+    </definition>
+
+    <p>We now introduce two properties of functions that will be
+    important in this course and your further study of mathematics. </p>
+
+    <p>A function <m>f: C \rightarrow D</m> is <term>one-to-one</term>
+    if <m>f(x)=f(y)</m> implies <m>x=y</m>. This means that
+    each input gets sent to a different output by the function
+    <m>f</m>. Alternately, you can say a on-to-one function does not
+    map two different inputs to the same output. For functions that we
+    can graph in the <m>xy</m>-plane, being one-to-one is the same as
+    passing the <em>horizontal</em> line test. A one-to-one function
+    is also called an <term>injection</term> or said to be <term>injective</term>.</p>
+    <example>
+      <p>Any linear function from <m>\mathbb{R}</m> to <m>\R</m> is
+      one-to-one. Suppose <m>f(x)=ax+b</m> with <m>a\neq 0</m>. To prove that <m>f</m> is
+      one-to-one, we assume that <m>f(x)=f(y)</m> and show that
+      <m>x=y</m>:
+      <md>
+	<mrow>f(x) \amp = f(y)</mrow>
+	<mrow>ax+b\amp = ay+b</mrow>
+	<mrow>ax\amp =ay</mrow>
+	<mrow>x\amp =y</mrow>
+	</md>
+	Note that we used <m>a\neq 0</m> to divide both sides by <m>a</m>.
+      </p>
+
+      <p>The domain is important when considering if a function is
+      one-to-one. To see why, consider the function <m>f\colon \R\to
+      \R</m> with rule <m>f(x)=x^2</m>. Since <m>f(-1)=1=f(1)</m> but
+      <m>-1\neq 1</m>, we see that this function is not
+      one-to-one. However, if we change the domain and consider
+      <m>g\colon \R^+\to\R</m> defined on the positive real numbers
+      <m>\R^+</m> given by the rule <m>g(x)=x^2</m>, we see that
+      <m>g</m> is one-to-one.</p>
+    </example>
+
+    <p>A function <m>f:C \rightarrow D</m> is <term>onto</term> if for
+    all <m>d\in D</m>, there exists <m>c\in C</m> such that
+    <m>f(c)=d</m>. In other words, a map <m>f</m> is onto if the image
+    of <m>f</m> is all of <m>D</m>. An onto function is also said to
+    be <term>surjective</term> or a <term>surjection</term>.</p>
+
+    <example>
+      <p>To prove that a function is onto, we take an arbitary element
+      of the codomain and find an element of the domain that the
+      function maps to the element of the codomain. We generally do
+      this by first doing calculations on scratch paper and then
+      demonstrating that the element of the domain <q>works</q> as our
+      proof. For instance, consider the linear function
+      <m>f(x)=ax+b</m> from <m>\R</m> to <m>\R</m> with <m>a\neq
+      0</m>. This function is onto. To prove this, let
+      <m>d\in\R</m>. We will show that <m>f\left(\frac{d-b}{a}\right)
+      =d</m>:
+      <md>
+	<mrow>f\left(\frac{d-b}{a}\right) \amp =
+	a\left(\frac{d-b}{a}\right) +b </mrow>
+	<mrow>\amp= (d-b)+b</mrow>
+	<mrow>\amp = d</mrow>
+      </md>. Since we have started with an arbitrary lement <m>d</m> of
+      the codomain and found an element of the domain that is mapped
+      to <m>d</m>, we have proved that <m>f</m> is onto.</p>
+
+      <p>The codomain is essential to deciding if a function is
+      onto. For instance, the function <m>x\mapsto x^2</m> (with
+      domain <m>\R</m>) is not onto
+      if the codomain is <m>\R</m>, as there is no real number that
+      squares to <m>-1</m>. However, if we change the codomain to be
+      all nonnegative real numbers, then the function is onto as it
+      maps <m>\sqrt{d}</m> do <m>d</m> for all nonnegative real
+      numbers <m>d</m>.</p>
+    </example>
+<investigation><introduction><p> For each of the functions from
+<m>\mathbb{R}</m> to <m>\mathbb{R}</m> below state whether the
+function is either 1-1 but not onto, onto but not 1-1, 1-1 and onto,
+or not 1-1 and not onto.</p>
+</introduction>
+<task><p><m>f(x) =e^x</m></p></task>
+<task><p><m>f(x) =x^2(1-x)</m></p></task>
+<task><p><m>f(x) =\sin(x)</m></p></task>
+<task><p><m>f(x) =x^3</m></p></task>
+<conclusion>
+  <p>For any property above that a function is missing, can you change
+  the domain and/or codomain so that the function does have the property?</p>
+</conclusion>
+</investigation>
+    
+  </subsection>
+  <subsection>
+    <title>Functions on vector spaces</title>
+<p>Linear transformations are the <q>nice</q> functions from a vector space to a vector space. In particular, linear transformations preserve the operations of scalar multiplication and vector addition.</p>
+<definition>
+  <statement>
+    <p>
+A function <m>T</m> from a vector space <m>V</m> to a vector space <m>W</m> is a <term>linear transformation</term> if for every <m>\vec{v_1},\vec{v_2} \in V</m> and <m>c \in \mathbb{R}</m>
+<ul>
+<li> <m>T(\vec{v_1}+\vec{v_2})=T(\vec{v_1})+T(\vec{v_2})</m></li>
+<li> <m>T(c\vec{v_1})=c T(\vec{v_1})</m></li>
+</ul>
+    </p>
+  </statement>
+</definition>
+<investigation><statement><p> Prove that the map <m>T: \mathbb{R}^n
+\rightarrow \mathbb{R}^m</m> given by <m>T(\vec{x}) = A\vec{x}</m> is
+linear, where <m>A</m> is an <m>m</m> by <m>n</m> real-valued matrix.
+</p>
+</statement>
+</investigation>
+<p>Eventually we will be able to state a lot of linear transformations
+as a <term>matrix transformation</term> like in the problem above, but
+we will not be able to do this in general.</p>
+
 <investigation><statement><p> Prove that the map <m>T: \mathbb{P} \to \mathbb{P}</m> given by <m>T(f)=\dfrac{df}{dt}</m> is linear. You may use your calculus knowledge.
-\eq
+</p>
+</statement>
+</investigation>
 
-<investigation><statement><p> For each of the following functions, determine if the function is a linear transformation. Remember to justify your reasoning and answers.
-\be
-\item <m>f_1:\mathbb{P} \to \mathbb{R}</m> where <m>f_1(\vec{p})=</m> the degree of the polynomial <m>\vec{p}</m>
-\item <m>f_2:\mathbb{P} \to \mathbb{R}</m> where <m>f_2(\vec{p})= \vec{p}(t=1)</m>
-\item <m>f_3:\mathbb{R}^2 \to \mathbb{R}^3</m> where <m>f_3(\colvec{a\\ b})=\colvec{a+b\\ a-b\\ b+1}</m>
-\item <m>f_4:\mathbb{R}^3 \to \mathbb{R}^2</m> where <m>f_4(\colvec{a\\ b\\ c})=\colvec{a+b\\ a-c}</m>
-\item <m>f_5:\mathbb{R}^3 \to \mathbb{R}^2</m> where <m>f_5(\colvec{a\\ b\\ c})=\colvec{2\\ a+b\\ c^2}</m>
-\ee \eq
 
-<investigation><statement><p> Prove that if <m>T</m> is a linear transformation and a set of vectors <m>\{v_1,v_2,v_3\}</m> is linearly dependent, then the set <m>\{T(v_1),T(v_2),T(v_3)\}</m> is linearly dependent.
-\eq
+<investigation><introduction><p> For each of the following functions,
+determine if the function is a linear transformation. Remember to
+justify your reasoning and answers.</p>
+</introduction>
+<task><p><m>f_1:\mathbb{P} \to \mathbb{R}</m> where <m>f_1(\vec{p})=</m> the degree of the polynomial <m>\vec{p}</m></p></task>
+<task><p><m>f_2:\mathbb{P} \to \mathbb{R}</m> where <m>f_2(\vec{p})= \vec{p}(t=1)</m></p></task>
+<task><p><m>f_3:\mathbb{R}^2 \to \mathbb{R}^3</m> where <m>f_3(\colvec{a\\ b})=\colvec{a+b\\ a-b\\ b+1}</m></p></task>
+<task><p><m>f_4:\mathbb{R}^3 \to \mathbb{R}^2</m> where <m>f_4(\colvec{a\\ b\\ c})=\colvec{a+b\\ a-c}</m></p></task>
+<task><p><m>f_5:\mathbb{R}^3 \to \mathbb{R}^2</m> where <m>f_5(\colvec{a\\ b\\ c})=\colvec{2\\ a+b\\ c^2}</m></p></task>
+</investigation>
 
-<investigation><statement><p> Give a counterexample to the following statement: If <m>T</m> is a linear transformation and a set of vectors <m>\{v_1,v_2,v_3\}</m> is linearly independent, then the set <m>\{T(v_1),T(v_2),T(v_3)\}</m> is linearly independent.
-\eq
+<theorem><statement><p>If <m>T\colon V\to W</m> is a linear transformation and a set of vectors <m>\{v_1,v_2,v_3\}</m> is linearly dependent, then the set <m>\{T(v_1),T(v_2),T(v_3)\}</m> is linearly dependent.
+</p></statement></theorem>
 
-<investigation><statement><p> Prove that if <m>T</m> is a linear transformation from <m>V</m> to <m>W</m>, then <m>T(\vec{0}_V)=\vec{0}_W</m>.
-\begin{annotation}
-\endnote{Sometimes students notice that they are using the fact that <m>0  \vec{v} = \vec{0}</m> for every <m>\vec{v} \in V</m>. If a student hasn't presented this idea yet, it can make a good class discussion to show why this works and have them write it up.}
-\end{annotation}
-\eq
+<investigation><statement><p> Give a counterexample to the following
+statement: If <m>T\colon V\to W</m> is a linear transformation and a set of vectors <m>\{v_1,v_2,v_3\}</m> is linearly independent, then the set <m>\{T(v_1),T(v_2),T(v_3)\}</m> is linearly independent.
+</p>
+</statement>
+</investigation>
 
-<investigation><statement><p> If a linear transformation, <m>T</m>, sends the vector <m>\vec{e_1}=\colvec{1\\ 0}</m> to <m>\colvec{3\\ -1\\ 1}</m> and sends the vector <m>\vec{e_2}=\colvec{0\\ 1}</m> to <m>\colvec{1\\ 0\\ 2}</m>, find the following:
-\begin{itemize}
-\item <m>T\left(\colvec{3\\ 0}\right)</m>
-\item <m>T\left(\colvec{0\\ 5}\right)</m>
-\item <m>T\left(\colvec{a\\ b}\right)</m>
-\end{itemize}
-\eq
+<theorem><statement><p>If <m>T</m> is a linear transformation from
+<m>V</m> to <m>W</m>, then <m>T(\vec{0}_V)=\vec{0}_W</m>.</p>
+</statement>
+</theorem>
+
+<investigation><introduction><p> If a linear transformation, <m>T</m>, sends the vector <m>\vec{e_1}=\colvec{1\\ 0}</m> to <m>\colvec{3\\ -1\\ 1}</m> and sends the vector <m>\vec{e_2}=\colvec{0\\ 1}</m> to <m>\colvec{1\\ 0\\ 2}</m>, find the following:
+</p></introduction>
+<task><p><m>T\left(\colvec{3\\ 0}\right)</m></p></task>
+<task><p><m>T\left(\colvec{0\\ 5}\right)</m></p></task>
+<task><p><m>T\left(\colvec{a\\ b}\right)</m></p></task>
+</investigation>
 
 <investigation><statement><p> Find a matrix <m>A</m> such that for the transformation in the previous problem <m>T(\vec{x})=A\vec{x}</m>.
-\eq
+</p>
+</statement>
+</investigation>
 
-\begin{definition} If <m>T</m> is a linear transformation from <m>\mathbb{R}^n</m> to <m>\mathbb{R}^m</m>, then the <term>standard matrix presentation} of <m>T</m> is a <m>m</m> by <m>n</m> matrix <me>A=[T(\vec{e_1}) \quad T(\vec{e_2}) \quad ... \quad T(\vec{e_n}) ]</me>
-where <m>\vec{e_i}</m> is the <term></m>i</m>-th elementary vector} of \Rn. Note that <m>(\vec{e_i})_j = \delta_{i,j}</m>, where <m>\delta</m> is the Dirac delta function defined by <me>\delta_{i,j}=\left\{ \begin{array}{cc} 0 \amp  \mbox{if }i\neq j\\ 1 \amp  \mbox{if } i = j \end{array} \right. </me>
-\end{definition}
-The vector <m>\vec{e_i}</m> can also be thought of as the <m>i</m>-th column of <m>Id_n</m>, the <m>n</m> by <m>n</m> identity matrix. Because of how we defined the standard matrix presentation, only transformations from <m>\mathbb{R}^n</m> to <m>\mathbb{R}^m</m> will have standard matrix presentations. In particular, the standard matrix presentation keeps track of where the standard basis vectors (</m>\vec{e_i}</m>) go under the transformation <m>T</m>.
+<definition><statement><p> If <m>T</m> is a linear transformation from <m>\mathbb{R}^n</m> to <m>\mathbb{R}^m</m>, then the <term>standard matrix presentation</term> of <m>T</m> is a <m>m</m> by <m>n</m> matrix <me>A=[T(\vec{e_1}) \quad T(\vec{e_2}) \quad ... \quad T(\vec{e_n}) ]</me>
+where <m>\vec{e_i}</m> is the <term><m>i</m>-th elementary
+vector</term> of <m>\R^n</m>. Note that <m>(\vec{e_i})_j =
+\delta_{i,j}</m>, where <m>\delta</m> is the Dirac delta function
+defined by <me>\delta_{i,j}=\left\{ \begin{array}{cc} 0 \amp  \mbox{if
+}i\neq j\\ 1 \amp  \mbox{if } i = j \end{array} \right. </me>
+</p>
+</statement>
+</definition>
 
-<investigation><statement><p>
-Write out <m>\vec{e_1}</m>, <m>\vec{e_2}</m>, and <m>\vec{e_3}</m> from <m>\mathbb{R}^3</m>. What is the result of multiplying <m>\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}</m> by <m>\vec{e_1}</m>? What about <m>\vec{e_2}</m>? <m>\vec{e_3}</m>?
+<p>The vector <m>\vec{e_i}</m> can also be thought of as the <m>i</m>-th column of <m>Id_n</m>, the <m>n</m> by <m>n</m> identity matrix. Because of how we defined the standard matrix presentation, only transformations from <m>\mathbb{R}^n</m> to <m>\mathbb{R}^m</m> will have standard matrix presentations. In particular, the standard matrix presentation keeps track of where the standard basis vectors (<m>\vec{e_i}</m>) go under the transformation <m>T</m>.</p>
 
-What would this mean for the following matrix product: <me>\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix} \begin{bmatrix} \vec{e_1}\amp \vec{e_2}\amp \vec{e_3} \end{bmatrix}</me>
-\eq
+<exercise><statement><p>
+Write out <m>\vec{e_1}</m>, <m>\vec{e_2}</m>, and <m>\vec{e_3}</m>
+from <m>\mathbb{R}^3</m>. What is the result of multiplying
+<m>\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i
+\end{bmatrix}</m> by <m>\vec{e_1}</m>? What about <m>\vec{e_2}</m>?
+<m>\vec{e_3}</m>?</p>
 
-<investigation><statement><p> Determine the standard matrix presentation <m>A</m> for the following <m>T</m>:
-\begin{itemize}
-\item <m>T: \mathbb{R}^2 \to \mathbb{R}^2</m> reflects points over the vertical axis
-\item <m>T: \mathbb{R}^2 \to \mathbb{R}^2</m> rotates points clockwise by <m>\pi/2</m>
-\item <m>T: \mathbb{R}^2 \to \mathbb{R}^2</m> rotates points by <m>\pi</m> and then flips points over the vertical axis
-\end{itemize}
-\eq
+<p>What would this mean for the following matrix product: <me>\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix} \begin{bmatrix} \vec{e_1}\amp \vec{e_2}\amp \vec{e_3} \end{bmatrix}</me>
+</p></statement>
+</exercise>
 
-<investigation><statement><p>
+
+<investigation><introduction><p> Determine the standard matrix presentation <m>A</m> for the following <m>T</m>:</p></introduction>
+<task><p><m>T: \mathbb{R}^2 \to \mathbb{R}^2</m> reflects points over the vertical axis</p></task>
+<task><p><m>T: \mathbb{R}^2 \to \mathbb{R}^2</m> rotates points clockwise by <m>\pi/2</m></p></task>
+<task><p><m>T: \mathbb{R}^2 \to \mathbb{R}^2</m> rotates points by
+<m>\pi</m> and then flips points over the vertical axis</p></task>
+</investigation>
+
+<!--<investigation><statement><p>
 Draw what the image of the picture below will look like after applying given the linear transformations. It may help to look at where <m>\colvec{1\\ 0}</m>, <m>\colvec{0\\ 1}</m>, and <m>\colvec{1\\ 1}</m> get mapped by <m>T</m>.
 %\begin{center} \includegraphics{smiley.png} \end{center}
 \begin{enumerate}
@@ -724,94 +868,97 @@ Draw what the image of the picture below will look like after applying given the
 \item <m>T: \mathbb{R}^2 \to \mathbb{R}^2</m> where <m>T(\vec{x})=A\vec{x}</m> and <m>A=\begin{bmatrix}0 \amp  0 \\0\amp 1 \end{bmatrix}</m>
 \end{enumerate}
 \eq
+-->
 
+<exercise><introduction><p> If a linear transformation, <m>T</m>, sends the vector <m>\colvec{1\\ 1}</m> to <m>\colvec{-2\\ 2}</m> and sends the vector <m>\colvec{-1\\ 1}</m> to <m>\colvec{0\\ 2}</m>, find the following:</p></introduction>
+<task><statement><p><m>T\left(\colvec{1\\
+0}\right)</m></p></statement><hint><p>How can you write <m>\colvec{1\\
+0}</m> as a linear combination of  <m>\colvec{1\\ 1}</m> and
+<m>\colvec{-1\\ 1}</m>?</p>
+</hint>
+</task>
+<task><p><m>T\left(\colvec{0\\ 1}\right)</m></p></task>
+<task><p><m>T\left(\colvec{a\\ b}\right)</m></p></task>
+<task><p>Find the standard matrix presentation for <m>T</m></p></task>
+</exercise>
 
-<investigation><statement><p> If a linear transformation, <m>T</m>, sends the vector <m>\colvec{1\\ 1}</m> to <m>\colvec{-2\\ 2}</m> and sends the vector <m>\colvec{-1\\ 1}</m> to <m>\colvec{0\\ 2}</m>, find the following:
-\begin{itemize}
-\item <m>T\left(\colvec{1\\ 0}\right)</m> Hint: How can you write <m>\colvec{1\\ 0}</m> as a linear combination of  <m>\colvec{1\\ 1}</m> and <m>\colvec{-1\\ 1}</m>?
-\item <m>T\left(\colvec{0\\ 1}\right)</m>
-\item <m>T\left(\colvec{a\\ b}\right)</m>
-\item Find the standard matrix presentation for <m>T</m>
-\end{itemize}
-\eq
-
-<investigation><statement><p>
+<theorem><statement><p>
 Let <m>T_{\vec{0}}</m> be the function from <m>V</m> to <m>W</m> such that <m>T(\vec{x})=\vec{0}_W</m> for every <m>\vec{x} \in V</m>. Let <m>Id_V</m> be the identity map on <m>V</m>, <m>Id_V(\vec{x}) = \vec{x}</m> for every <m>\vec{x} \in V</m>.
-\be
-\item Prove that <m>T_{\vec{0}}</m> is linear.
-\item Prove that <m>Id_V</m>  is linear.
-\ee
-\eq
+<ol>
+  <li>The function <m>T_{\vec{0}}</m> is a linear transformation.</li>
+  <li>The function <m>Id_V</m>  is a linear transformation.</li>
+</ol>
+</p>
+</statement>
+</theorem>
+<p>The <term>null space</term>, or <term>kernel</term>, of a linear transformation <m>T:V \rightarrow W</m> is the set of inputs that get mapped to the zero vector of <m>W</m>. That is <m>Null(T)=\{\vec{x}\in V \mid T(\vec{x}) = \vec{0_W}\}</m>.</p>
 
-The <term>range} of a linear transformation <m>T:V \rightarrow W</m> is the set of things in the codomain <m>W</m> that are the output of <m>T</m> for some input. That is <m>range(T)= \{\vec{y} \in W | \vec{y}=T(\vec{x}) \mbox{ for some } \vec{x} \in V\}</m>. The <term>null space}, or <term>kernel}, of a linear transformation <m>T:V \rightarrow W</m> is the set of inputs that get mapped to the zero vector of <m>W</m>. That is <m>Null(T)=\{\vec{x}\in V | T(\vec{x}) = \vec{0_W}\}</m>.
+<investigation><statement><p> Is <m>\vec{b}=\colvec{0\\ 2\\ 1}</m> in the image of the linear transformation <m>T(\vec{x})=A\vec{x}</m> where <m>A= \begin{bmatrix} 1\amp 2 \\ 3 \amp  4\\0\amp 0 \end{bmatrix}</m>? Justify your answer without doing any matrix operations.</p></statement><hint><p>Write the corresponding matrix equation as a vector equation.</p></hint></investigation>
 
-<investigation><statement><p> Is <m>\vec{b}=\colvec{0\\ 2\\ 1}</m> in the range of the linear transformation <m>T(\vec{x})=A\vec{x}</m> where <m>A= \begin{bmatrix} 1\amp 2 \\ 3 \amp  4\\0\amp 0 \end{bmatrix}</m>? Justify your answer without doing any matrix operations. Hint: write the corresponding matrix equation as a vector equation.
-\eq
+<exercise><statement><p> Let <m>A=\begin{bmatrix} 1\amp 2\amp 3
+\\4\amp 5\amp 6 \end{bmatrix}</m>. Find the image and null space of <m>T</m> where <m>T(\vec{x}) =A \vec{x}</m>. Remember to state the image and null space so that the reader can most easily verify whether a vector is in the set or not.
+</p></statement></exercise>
 
-<investigation><statement><p> Let <m>A=\begin{bmatrix} 1\amp 2\amp 3 \\4\amp 5\amp 6 \end{bmatrix}</m>. Find the range and null space of <m>T</m> where <m>T(\vec{x}) =A \vec{x}</m>. Remember to state the range and null space so that the reader can most easily verify whether a vector is in the set or not.
-\eq
+<investigation><introduction><p> Let <m>T</m> from <m>\mathbb{R}^2</m> to <m>\mathbb{P}_2</m> be given by <m>T \left( \colvec{a\\ b} \right) = a +(a+b)t+(a-b)t^2</m>.</p></introduction>
+<task><p>Prove <m>T</m> is linear.</p></task>
+<task><p>Compute the image of <m>T</m>.</p></task>
+<task><p>Compute the null space of <m>T</m>.</p></task>
+</investigation>
 
-<investigation><statement><p> Let <m>T</m> from <m>\mathbb{R}^2</m> to <m>\mathbb{P}_2</m> be given by <m>T \left( \colvec{a\\ b} \right) = a +(a+b)t+(a-b)t^2</m>.
-\begin{enumerate}
-\item Prove <m>T</m> is linear.
-\item Compute the range of <m>T</m>.
-\item Compute the null space of <m>T</m>.
-\end{enumerate}
-\eq
+<investigation><introduction><p> Let <m>V</m> be the vector space of
+polynomials in <m>x</m> and <m>y</m>.</p></introduction>
+<task><p>Show the transformation <m>T</m> that maps <m>f</m> to <m>\dfrac{\partial f}{\partial x}</m> is a linear transformation.</p></task>
+<task><p>Compute the null space of <m>T</m>.</p></task>
+<task><p>Compute the range of <m>T</m>.</p></task>
+</investigation>
 
-<investigation><statement><p> Let <m>V</m> be the vector space of polynomials in <m>x</m> and <m>y</m>. \be \item Show the transformation <m>T</m> that maps <m>f</m> to <m>\dfrac{\partial f}{\partial x}</m> is a linear transformation.
-\item Compute the null space of <m>T</m>.
-\item Compute the range of <m>T</m>.
-\ee
-\eq
+<theorem xml:id="rnss"><statement><p>
+If <m>T</m> is a linear transformation from <m>V</m> to
+<m>W</m>, then <m>null(T)</m> is a subspace of <m>V</m>.
+</p>
+</statement>
+</theorem>
 
-<investigation><statement><p>\label{rnss}
-Let <m>T</m> be a linear transformation from <m>V</m> to <m>W</m>. Prove that <m>null(T)</m> is a subspace of <m>V</m>.
-\eq
-<investigation><statement><p>\label{rnss2}
-Let <m>T</m> be a linear transformation from <m>V</m> to <m>W</m>. Prove that <m>range(T)</m> is a subspace of <m>W</m>.
-\eq
-A function <m>f: C \rightarrow D</m> is <term>one to one} if whenever <m>f(x)=f(y)</m>, then <m>x=y</m>. This means that each input gets sent to a different output by the function <m>f</m>. Alternately, you can say a one to one function does not map two different inputs to the same output.
+<theorem xml:id="rnss2"><statement><p>
+If <m>T</m> is a linear transformation from <m>V</m> to <m>W</m>, then
+<m>\mathrm{im}(T)</m> is a subspace of <m>W</m>.
+</p>
+</statement>
+</theorem>
 
-A function <m>f:C \rightarrow D</m> is <term>onto} if every element of <m>D</m> has some input that is mapped to it. In other words, a map <m>f</m> is onto if the range of <m>f</m> is all of <m>D</m>.
-<investigation><statement><p> For each of the functions from <m>\mathbb{R}</m> to <m>\mathbb{R}</m> below state whether the function is either 1-1 but not onto, onto but not 1-1, 1-1 and onto, or not 1-1 and not onto.
-\begin{enumerate}
-\item <m>f(x) =e^x</m>
-\item <m>f(x) =x</m>
-\item <m>f(x) =x^2</m>
-\item <m>f(x) =1-x</m>
-\item <m>f(x) =x^2(1-x)</m>
-\item <m>f(x) =sin(x)</m>
-\item <m>f(x) =x^3</m>
-\end{enumerate}
-\eq
+<investigation><introduction><p> Let <m>T</m> from <m>\mathbb{R}^2</m> to <m>\mathbb{P}_2</m> be given by <m>T \left( \colvec{a\\ b} \right) = a +(a+b)t+(a-b)t^2</m>.</p></introduction>
+<task><p>Is <m>T</m> one-to-one?</p></task>
+<task><p>Is <m>T</m> onto?</p></task>
+</investigation>
 
-<investigation><statement><p> Let <m>T</m> from <m>\mathbb{R}^2</m> to <m>\mathbb{P}_2</m> be given by <m>T \left( \colvec{a\\ b} \right) = a +(a+b)t+(a-b)t^2</m>.
-\begin{enumerate}
-\item Is <m>T</m> one-to-one?
-\item Is <m>T</m> onto?
-\end{enumerate}
-\eq
+<investigation><statement><p> Give an example of a linear
+transformation from <m>\mathbb{R}^2</m> to <m>\mathbb{R}^3</m> that is
+one-to-one.
+</p>
+</statement></investigation>
 
-<investigation><statement><p> Give an example of a linear transformation from <m>\mathbb{R}^2</m> to <m>\mathbb{R}^3</m> that is one to one.
-\eq
 
 <investigation><statement><p> Give an example of a linear transformation from <m>\mathbb{R}^2</m> to <m>\mathbb{R}^2</m> that is onto.
-\eq
+</p></statement></investigation>
 
 
 <investigation><statement><p> Give an example of a linear transformation from <m>\mathbb{R}^3</m> to <m>\mathbb{R}^2</m> that is onto.
-\eq
+</p></statement></investigation>
 
 <investigation><statement><p> If the set of columns of a <m>m</m> by <m>n</m> matrix <m>A</m> are linearly independent, does the set of columns of <m>A</m> span all of <m>\mathbb{R}^m</m>?
-\eq
-<investigation><statement><p> If the set of columns of a <m>m</m> by <m>n</m> matrix <m>A</m> are linearly independent, is the range of <m>T(\vec{x})=A\vec{x}</m> all of <m>\mathbb{R}^m</m>?
-\eq
+</p></statement></investigation>
+<investigation><statement><p> If the set of columns of a <m>m</m> by <m>n</m> matrix <m>A</m> are linearly independent, is the image of <m>T(\vec{x})=A\vec{x}</m> all of <m>\mathbb{R}^m</m>?
+</p></statement></investigation>
 
-\begin{theorem} A linear transformation <m>T:V \rightarrow W</m> is onto iff <m>range(T)=W</m>. \end{theorem}
+<theorem><statement><p>A linear transformation <m>T:V \rightarrow
+W</m> is onto if and only if <m>\mathrm{im}(T)=W</m>.</p></statement></theorem>
 
-<investigation><statement><p> Prove that for <m>T</m> a linear transformation from <m>V</m> to <m>W</m>, \break <m>null(T)=\{ \vec{0} \}</m> iff <m>T</m> is 1-1.
-\eq
+<theorem><statement><p> For each linear transformation <m>T</m> from
+<m>V</m> to <m>W</m>, <m>null(T)=\{ \vec{0} \}</m> if and only if
+<m>T</m> is one-to-one.</p></statement></theorem>
+</subsection>
+</section>
+<!--
 
 \section{Applications}
 \begin{annotation}
