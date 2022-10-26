@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Linear Transformations</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Linear Algebra">
+<meta property="book:author" content="Mitchel T. Keller">
+<meta property="book:author" content="Nicholas Long">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand\Rn{$\mathbb{R}^n$}
+\newcommand\Rm{$\mathbb{R}^m$}
+\newcommand\R{\mathbb{R}}
+\newcommand\colvec[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newlength{\workspacestrutwidth}
+\setlength{\workspacestrutwidth}{0pt}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Linear Algebra:</span> <span class="subtitle">Notes for MATH 341</span></a></h1>
+<p class="byline">Mitchel T. Keller, Nicholas Long</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-13.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_vector_spaces.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-13.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_vector_spaces.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="meta_frontmatter-preface.html" data-scroll="meta_frontmatter-preface" class="internal">Preface</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_starting.html" data-scroll="ch_starting" class="internal"><span class="codenumber">0</span> <span class="title">Getting Started</span></a><ul>
+<li><a href="sec_setting_stage.html" data-scroll="sec_setting_stage" class="internal">Setting the Stage</a></li>
+<li><a href="sec_sandwiches.html" data-scroll="sec_sandwiches" class="internal">What is a sandwich?</a></li>
+<li><a href="sec_warmups.html" data-scroll="sec_warmups" class="internal">Warmup Problems</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_what_is_proof.html" data-scroll="ch_what_is_proof" class="internal"><span class="codenumber">1</span> <span class="title">Getting Started</span></a><ul>
+<li><a href="sec_reading.html" data-scroll="sec_reading" class="internal">Introduction to mathematical arguments</a></li>
+<li><a href="sec_proof_practice.html" data-scroll="sec_proof_practice" class="internal">Writing First Proofs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_solving_sys.html" data-scroll="ch_solving_sys" class="internal"><span class="codenumber">2</span> <span class="title">Solving Systems</span></a><ul>
+<li><a href="sec_solving_linear_systems.html" data-scroll="sec_solving_linear_systems" class="internal">Solving Linear Systems</a></li>
+<li><a href="sec_vector_matrix_eqns.html" data-scroll="sec_vector_matrix_eqns" class="internal">Vector and Matrix Equations</a></li>
+<li><a href="sec_soln_sets_lin_eqn.html" data-scroll="sec_soln_sets_lin_eqn" class="internal">Solution Sets of Linear Systems</a></li>
+<li><a href="sec_matrix_ops.html" data-scroll="sec_matrix_ops" class="internal">Matrix Operations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_vector_spaces.html" data-scroll="ch_vector_spaces" class="internal"><span class="codenumber">3</span> <span class="title">Vector Spaces</span></a><ul>
+<li><a href="section-10.html" data-scroll="section-10" class="internal">Definitions</a></li>
+<li><a href="section-11.html" data-scroll="section-11" class="internal">Subspaces</a></li>
+<li><a href="section-12.html" data-scroll="section-12" class="internal">Span</a></li>
+<li><a href="section-13.html" data-scroll="section-13" class="internal">Linear Independence</a></li>
+<li><a href="section-14.html" data-scroll="section-14" class="active">Linear Transformations</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="section-14"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.5</span> <span class="title">Linear Transformations</span>
+</h2>
+<section class="subsection" id="subsection-5"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">A Digression Into Functions</span>
+</h3>
+<p id="p-329">In class, we have already seen this definition, but we state it here for reference:</p>
+<article class="definition definition-like" id="definition-10"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.21</span><span class="period">.</span>
+</h4>
+<p id="p-330">Let <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> be sets. A <dfn class="terminology">function</dfn> <span class="process-math">\(f\)</span> from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\)</span> is a way of associating to each element of <span class="process-math">\(A\)</span> a unique element of <span class="process-math">\(B\text{.}\)</span> We use the notation <span class="process-math">\(f\colon A\to B\)</span> to denote that <span class="process-math">\(f\)</span> is a function from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\text{.}\)</span> For <span class="process-math">\(a\in A\text{,}\)</span> we denote that <span class="process-math">\(f\)</span> associates <span class="process-math">\(a\)</span> with <span class="process-math">\(\in B\)</span> as <span class="process-math">\(f(a)=b\)</span> or as <span class="process-math">\(a\stackrel{f}{\mapsto} b\text{.}\)</span> We call <span class="process-math">\(A\)</span> the <dfn class="terminology">domain</dfn> of <span class="process-math">\(f\)</span> and <span class="process-math">\(B\)</span> the <dfn class="terminology">codomain</dfn> of <span class="process-math">\(f\text{.}\)</span> The <dfn class="terminology">image</dfn> of <span class="process-math">\(f\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathrm{im}(f) = \{b\in B\colon \text{ there exists }a\in
+A\text{ such that }f(a)=b\}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Sometimes the image is called the <dfn class="terminology">range</dfn>.</p></article><p id="p-331">We now introduce two properties of functions that will be important in this course and your further study of mathematics.</p>
+<p id="p-332">A function <span class="process-math">\(f: C \rightarrow D\)</span> is <dfn class="terminology">one-to-one</dfn> if <span class="process-math">\(f(x)=f(y)\)</span> implies <span class="process-math">\(x=y\text{.}\)</span> This means that each input gets sent to a different output by the function <span class="process-math">\(f\text{.}\)</span> Alternately, you can say a on-to-one function does not map two different inputs to the same output. For functions that we can graph in the <span class="process-math">\(xy\)</span>-plane, being one-to-one is the same as passing the <em class="emphasis">horizontal</em> line test. A one-to-one function is also called an <dfn class="terminology">injection</dfn> or said to be <dfn class="terminology">injective</dfn>.</p>
+<article class="example example-like" id="example-5"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.22</span><span class="period">.</span>
+</h4>
+<p id="p-333">Any linear function from <span class="process-math">\(\mathbb{R}\)</span> to <span class="process-math">\(\R\)</span> is one-to-one. Suppose <span class="process-math">\(f(x)=ax+b\)</span> with <span class="process-math">\(a\neq 0\text{.}\)</span> To prove that <span class="process-math">\(f\)</span> is one-to-one, we assume that <span class="process-math">\(f(x)=f(y)\)</span> and show that <span class="process-math">\(x=y\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-20">
+\begin{align*}
+f(x) \amp = f(y)\\
+ax+b\amp = ay+b\\
+ax\amp =ay\\
+x\amp =y
+\end{align*}
+</div>
+<p class="continuation">Note that we used <span class="process-math">\(a\neq 0\)</span> to divide both sides by <span class="process-math">\(a\text{.}\)</span></p>
+<p id="p-334">The domain is important when considering if a function is one-to-one. To see why, consider the function <span class="process-math">\(f\colon \R\to
+\R\)</span> with rule <span class="process-math">\(f(x)=x^2\text{.}\)</span> Since <span class="process-math">\(f(-1)=1=f(1)\)</span> but <span class="process-math">\(-1\neq 1\text{,}\)</span> we see that this function is not one-to-one. However, if we change the domain and consider <span class="process-math">\(g\colon \R^+\to\R\)</span> defined on the positive real numbers <span class="process-math">\(\R^+\)</span> given by the rule <span class="process-math">\(g(x)=x^2\text{,}\)</span> we see that <span class="process-math">\(g\)</span> is one-to-one.</p></article><p id="p-335">A function <span class="process-math">\(f:C \rightarrow D\)</span> is <dfn class="terminology">onto</dfn> if for all <span class="process-math">\(d\in D\text{,}\)</span> there exists <span class="process-math">\(c\in C\)</span> such that <span class="process-math">\(f(c)=d\text{.}\)</span> In other words, a map <span class="process-math">\(f\)</span> is onto if the image of <span class="process-math">\(f\)</span> is all of <span class="process-math">\(D\text{.}\)</span> An onto function is also said to be <dfn class="terminology">surjective</dfn> or a <dfn class="terminology">surjection</dfn>.</p>
+<article class="example example-like" id="example-6"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.23</span><span class="period">.</span>
+</h4>
+<p id="p-336">To prove that a function is onto, we take an arbitary element of the codomain and find an element of the domain that the function maps to the element of the codomain. We generally do this by first doing calculations on scratch paper and then demonstrating that the element of the domain “works” as our proof. For instance, consider the linear function <span class="process-math">\(f(x)=ax+b\)</span> from <span class="process-math">\(\R\)</span> to <span class="process-math">\(\R\)</span> with <span class="process-math">\(a\neq
+0\text{.}\)</span> This function is onto. To prove this, let <span class="process-math">\(d\in\R\text{.}\)</span> We will show that <span class="process-math">\(f\left(\frac{d-b}{a}\right)
+=d\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-21">
+\begin{align*}
+f\left(\frac{d-b}{a}\right) \amp =
+a\left(\frac{d-b}{a}\right) +b \\
+\amp= (d-b)+b\\
+\amp = d\text{.}
+\end{align*}
+</div>
+<p class="continuation">Since we have started with an arbitrary lement <span class="process-math">\(d\)</span> of the codomain and found an element of the domain that is mapped to <span class="process-math">\(d\text{,}\)</span> we have proved that <span class="process-math">\(f\)</span> is onto.</p>
+<p id="p-337">The codomain is essential to deciding if a function is onto. For instance, the function <span class="process-math">\(x\mapsto x^2\)</span> (with domain <span class="process-math">\(\R\)</span>) is not onto if the codomain is <span class="process-math">\(\R\text{,}\)</span> as there is no real number that squares to <span class="process-math">\(-1\text{.}\)</span> However, if we change the codomain to be all nonnegative real numbers, then the function is onto as it maps <span class="process-math">\(\sqrt{d}\)</span> do <span class="process-math">\(d\)</span> for all nonnegative real numbers <span class="process-math">\(d\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-92"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.39</span><span class="period">.</span>
+</h4>
+<div class="introduction" id="introduction-25"><p id="p-338">For each of the functions from <span class="process-math">\(\mathbb{R}\)</span> to <span class="process-math">\(\mathbb{R}\)</span> below state whether the function is either 1-1 but not onto, onto but not 1-1, 1-1 and onto, or not 1-1 and not onto.</p></div>
+<article class="task exercise-like" id="task-106"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-339"><span class="process-math">\(f(x) =e^x\)</span></p></article><article class="task exercise-like" id="task-107"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-340"><span class="process-math">\(f(x) =x^2(1-x)\)</span></p></article><article class="task exercise-like" id="task-108"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-341"><span class="process-math">\(f(x) =\sin(x)\)</span></p></article><article class="task exercise-like" id="task-109"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p id="p-342"><span class="process-math">\(f(x) =x^3\)</span></p></article><div class="conclusion" id="conclusion-1"><p id="p-343">For any property above that a function is missing, can you change the domain and/or codomain so that the function does have the property?</p></div></article></section><section class="subsection" id="subsection-6"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Functions on vector spaces</span>
+</h3>
+<p id="p-344">Linear transformations are the “nice” functions from a vector space to a vector space. In particular, linear transformations preserve the operations of scalar multiplication and vector addition.</p>
+<article class="definition definition-like" id="definition-11"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.24</span><span class="period">.</span>
+</h4>
+<p id="p-345">A function <span class="process-math">\(T\)</span> from a vector space <span class="process-math">\(V\)</span> to a vector space <span class="process-math">\(W\)</span> is a <dfn class="terminology">linear transformation</dfn> if for every <span class="process-math">\(\vec{v_1},\vec{v_2} \in V\)</span> and <span class="process-math">\(c \in \mathbb{R}\)</span></p>
+<ul class="disc">
+<li id="li-75"><p id="p-derived-li-75"><span class="process-math">\(\displaystyle T(\vec{v_1}+\vec{v_2})=T(\vec{v_1})+T(\vec{v_2})\)</span></p></li>
+<li id="li-76"><p id="p-derived-li-76"><span class="process-math">\(\displaystyle T(c\vec{v_1})=c T(\vec{v_1})\)</span></p></li>
+</ul></article><article class="investigation project-like" id="investigation-93"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.40</span><span class="period">.</span>
+</h4>
+<p id="p-346">Prove that the map <span class="process-math">\(T: \mathbb{R}^n
+\rightarrow \mathbb{R}^m\)</span> given by <span class="process-math">\(T(\vec{x}) = A\vec{x}\)</span> is linear, where <span class="process-math">\(A\)</span> is an <span class="process-math">\(m\)</span> by <span class="process-math">\(n\)</span> real-valued matrix.</p></article><p id="p-347">Eventually we will be able to state a lot of linear transformations as a <dfn class="terminology">matrix transformation</dfn> like in the problem above, but we will not be able to do this in general.</p>
+<article class="investigation project-like" id="investigation-94"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.41</span><span class="period">.</span>
+</h4>
+<p id="p-348">Prove that the map <span class="process-math">\(T: \mathbb{P} \to \mathbb{P}\)</span> given by <span class="process-math">\(T(f)=\dfrac{df}{dt}\)</span> is linear. You may use your calculus knowledge.</p></article><article class="investigation project-like" id="investigation-95"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.42</span><span class="period">.</span>
+</h4>
+<div class="introduction" id="introduction-26"><p id="p-349">For each of the following functions, determine if the function is a linear transformation. Remember to justify your reasoning and answers.</p></div>
+<article class="task exercise-like" id="task-110"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-350"><span class="process-math">\(f_1:\mathbb{P} \to \mathbb{R}\)</span> where <span class="process-math">\(f_1(\vec{p})=\)</span> the degree of the polynomial <span class="process-math">\(\vec{p}\)</span></p></article><article class="task exercise-like" id="task-111"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-351"><span class="process-math">\(f_2:\mathbb{P} \to \mathbb{R}\)</span> where <span class="process-math">\(f_2(\vec{p})= \vec{p}(t=1)\)</span></p></article><article class="task exercise-like" id="task-112"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-352"><span class="process-math">\(f_3:\mathbb{R}^2 \to \mathbb{R}^3\)</span> where <span class="process-math">\(f_3(\colvec{a\\ b})=\colvec{a+b\\ a-b\\ b+1}\)</span></p></article><article class="task exercise-like" id="task-113"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p id="p-353"><span class="process-math">\(f_4:\mathbb{R}^3 \to \mathbb{R}^2\)</span> where <span class="process-math">\(f_4(\colvec{a\\ b\\ c})=\colvec{a+b\\ a-c}\)</span></p></article><article class="task exercise-like" id="task-114"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<p id="p-354"><span class="process-math">\(f_5:\mathbb{R}^3 \to \mathbb{R}^2\)</span> where <span class="process-math">\(f_5(\colvec{a\\ b\\ c})=\colvec{2\\ a+b\\ c^2}\)</span></p></article></article><article class="theorem theorem-like" id="theorem-22"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.25</span><span class="period">.</span>
+</h4>
+<p id="p-355">If <span class="process-math">\(T\colon V\to W\)</span> is a linear transformation and a set of vectors <span class="process-math">\(\{v_1,v_2,v_3\}\)</span> is linearly dependent, then the set <span class="process-math">\(\{T(v_1),T(v_2),T(v_3)\}\)</span> is linearly dependent.</p></article><article class="investigation project-like" id="investigation-96"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.43</span><span class="period">.</span>
+</h4>
+<p id="p-356">Give a counterexample to the following statement: If <span class="process-math">\(T\colon V\to W\)</span> is a linear transformation and a set of vectors <span class="process-math">\(\{v_1,v_2,v_3\}\)</span> is linearly independent, then the set <span class="process-math">\(\{T(v_1),T(v_2),T(v_3)\}\)</span> is linearly independent.</p></article><article class="theorem theorem-like" id="theorem-23"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.26</span><span class="period">.</span>
+</h4>
+<p id="p-357">If <span class="process-math">\(T\)</span> is a linear transformation from <span class="process-math">\(V\)</span> to <span class="process-math">\(W\text{,}\)</span> then <span class="process-math">\(T(\vec{0}_V)=\vec{0}_W\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-97"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.44</span><span class="period">.</span>
+</h4>
+<div class="introduction" id="introduction-27"><p id="p-358">If a linear transformation, <span class="process-math">\(T\text{,}\)</span> sends the vector <span class="process-math">\(\vec{e_1}=\colvec{1\\ 0}\)</span> to <span class="process-math">\(\colvec{3\\ -1\\ 1}\)</span> and sends the vector <span class="process-math">\(\vec{e_2}=\colvec{0\\ 1}\)</span> to <span class="process-math">\(\colvec{1\\ 0\\ 2}\text{,}\)</span> find the following:</p></div>
+<article class="task exercise-like" id="task-115"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-359"><span class="process-math">\(T\left(\colvec{3\\ 0}\right)\)</span></p></article><article class="task exercise-like" id="task-116"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-360"><span class="process-math">\(T\left(\colvec{0\\ 5}\right)\)</span></p></article><article class="task exercise-like" id="task-117"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-361"><span class="process-math">\(T\left(\colvec{a\\ b}\right)\)</span></p></article></article><article class="investigation project-like" id="investigation-98"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.45</span><span class="period">.</span>
+</h4>
+<p id="p-362">Find a matrix <span class="process-math">\(A\)</span> such that for the transformation in the previous problem <span class="process-math">\(T(\vec{x})=A\vec{x}\text{.}\)</span></p></article><article class="definition definition-like" id="definition-12"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.27</span><span class="period">.</span>
+</h4>
+<p id="p-363">If <span class="process-math">\(T\)</span> is a linear transformation from <span class="process-math">\(\mathbb{R}^n\)</span> to <span class="process-math">\(\mathbb{R}^m\text{,}\)</span> then the <dfn class="terminology">standard matrix presentation</dfn> of <span class="process-math">\(T\)</span> is a <span class="process-math">\(m\)</span> by <span class="process-math">\(n\)</span> matrix</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A=[T(\vec{e_1}) \quad T(\vec{e_2}) \quad ... \quad T(\vec{e_n}) ]
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\vec{e_i}\)</span> is the <dfn class="terminology"><span class="process-math">\(i\)</span>-th elementary vector</dfn> of <span class="process-math">\(\R^n\text{.}\)</span> Note that <span class="process-math">\((\vec{e_i})_j =
+\delta_{i,j}\text{,}\)</span> where <span class="process-math">\(\delta\)</span> is the Dirac delta function defined by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\delta_{i,j}=\left\{ \begin{array}{cc} 0 \amp  \mbox{if
+}i\neq j\\ 1 \amp  \mbox{if } i = j \end{array} \right. 
+\end{equation*}
+</div></article><p id="p-364">The vector <span class="process-math">\(\vec{e_i}\)</span> can also be thought of as the <span class="process-math">\(i\)</span>-th column of <span class="process-math">\(Id_n\text{,}\)</span> the <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> identity matrix. Because of how we defined the standard matrix presentation, only transformations from <span class="process-math">\(\mathbb{R}^n\)</span> to <span class="process-math">\(\mathbb{R}^m\)</span> will have standard matrix presentations. In particular, the standard matrix presentation keeps track of where the standard basis vectors (<span class="process-math">\(\vec{e_i}\)</span>) go under the transformation <span class="process-math">\(T\text{.}\)</span></p>
+<article class="exercise exercise-like" id="exercise-11"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">3.28</span><span class="period">.</span>
+</h4>
+<p id="p-365">Write out <span class="process-math">\(\vec{e_1}\text{,}\)</span> <span class="process-math">\(\vec{e_2}\text{,}\)</span> and <span class="process-math">\(\vec{e_3}\)</span> from <span class="process-math">\(\mathbb{R}^3\text{.}\)</span> What is the result of multiplying <span class="process-math">\(\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i
+\end{bmatrix}\)</span> by <span class="process-math">\(\vec{e_1}\text{?}\)</span> What about <span class="process-math">\(\vec{e_2}\text{?}\)</span> <span class="process-math">\(\vec{e_3}\text{?}\)</span></p>
+<p id="p-366">What would this mean for the following matrix product:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix} \begin{bmatrix} \vec{e_1}\amp \vec{e_2}\amp \vec{e_3} \end{bmatrix}
+\end{equation*}
+</div></article><article class="investigation project-like" id="investigation-99"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.46</span><span class="period">.</span>
+</h4>
+<div class="introduction" id="introduction-28"><p id="p-367">Determine the standard matrix presentation <span class="process-math">\(A\)</span> for the following <span class="process-math">\(T\text{:}\)</span></p></div>
+<article class="task exercise-like" id="task-118"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-368"><span class="process-math">\(T: \mathbb{R}^2 \to \mathbb{R}^2\)</span> reflects points over the vertical axis</p></article><article class="task exercise-like" id="task-119"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-369"><span class="process-math">\(T: \mathbb{R}^2 \to \mathbb{R}^2\)</span> rotates points clockwise by <span class="process-math">\(\pi/2\)</span></p></article><article class="task exercise-like" id="task-120"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-370"><span class="process-math">\(T: \mathbb{R}^2 \to \mathbb{R}^2\)</span> rotates points by <span class="process-math">\(\pi\)</span> and then flips points over the vertical axis</p></article></article><article class="exercise exercise-like" id="exercise-12"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">3.29</span><span class="period">.</span>
+</h4>
+<div class="introduction" id="introduction-29"><p id="p-371">If a linear transformation, <span class="process-math">\(T\text{,}\)</span> sends the vector <span class="process-math">\(\colvec{1\\ 1}\)</span> to <span class="process-math">\(\colvec{-2\\ 2}\)</span> and sends the vector <span class="process-math">\(\colvec{-1\\ 1}\)</span> to <span class="process-math">\(\colvec{0\\ 2}\text{,}\)</span> find the following:</p></div>
+<article class="task exercise-like" id="task-121"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-372"><span class="process-math">\(T\left(\colvec{1\\
+0}\right)\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-6" id="hint-6"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-6"><div class="hint solution-like"><p id="p-373">How can you write <span class="process-math">\(\colvec{1\\
+0}\)</span> as a linear combination of  <span class="process-math">\(\colvec{1\\ 1}\)</span> and <span class="process-math">\(\colvec{-1\\ 1}\text{?}\)</span></p></div></div>
+</div></article><article class="task exercise-like" id="task-122"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-374"><span class="process-math">\(T\left(\colvec{0\\ 1}\right)\)</span></p></article><article class="task exercise-like" id="task-123"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-375"><span class="process-math">\(T\left(\colvec{a\\ b}\right)\)</span></p></article><article class="task exercise-like" id="task-124"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p id="p-376">Find the standard matrix presentation for <span class="process-math">\(T\)</span></p></article></article><article class="theorem theorem-like" id="theorem-24"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.30</span><span class="period">.</span>
+</h4>
+<p id="p-377">Let <span class="process-math">\(T_{\vec{0}}\)</span> be the function from <span class="process-math">\(V\)</span> to <span class="process-math">\(W\)</span> such that <span class="process-math">\(T(\vec{x})=\vec{0}_W\)</span> for every <span class="process-math">\(\vec{x} \in V\text{.}\)</span> Let <span class="process-math">\(Id_V\)</span> be the identity map on <span class="process-math">\(V\text{,}\)</span> <span class="process-math">\(Id_V(\vec{x}) = \vec{x}\)</span> for every <span class="process-math">\(\vec{x} \in V\text{.}\)</span></p>
+<ol class="decimal">
+<li id="li-77"><p id="p-derived-li-77">The function <span class="process-math">\(T_{\vec{0}}\)</span> is a linear transformation.</p></li>
+<li id="li-78"><p id="p-derived-li-78">The function <span class="process-math">\(Id_V\)</span>  is a linear transformation.</p></li>
+</ol></article><p id="p-378">The <dfn class="terminology">null space</dfn>, or <dfn class="terminology">kernel</dfn>, of a linear transformation <span class="process-math">\(T:V \rightarrow W\)</span> is the set of inputs that get mapped to the zero vector of <span class="process-math">\(W\text{.}\)</span> That is <span class="process-math">\(Null(T)=\{\vec{x}\in V \mid T(\vec{x}) = \vec{0_W}\}\text{.}\)</span></p>
+<article class="investigation project-like" id="investigation-100"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.47</span><span class="period">.</span>
+</h4>
+<p id="p-379">Is <span class="process-math">\(\vec{b}=\colvec{0\\ 2\\ 1}\)</span> in the image of the linear transformation <span class="process-math">\(T(\vec{x})=A\vec{x}\)</span> where <span class="process-math">\(A= \begin{bmatrix} 1\amp 2 \\ 3 \amp  4\\0\amp 0 \end{bmatrix}\text{?}\)</span> Justify your answer without doing any matrix operations.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-7" id="hint-7"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-7"><div class="hint solution-like"><p id="p-380">Write the corresponding matrix equation as a vector equation.</p></div></div>
+</div></article><article class="exercise exercise-like" id="exercise-13"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">3.31</span><span class="period">.</span>
+</h4>
+<p id="p-381">Let <span class="process-math">\(A=\begin{bmatrix} 1\amp 2\amp 3
+\\4\amp 5\amp 6 \end{bmatrix}\text{.}\)</span> Find the image and null space of <span class="process-math">\(T\)</span> where <span class="process-math">\(T(\vec{x}) =A \vec{x}\text{.}\)</span> Remember to state the image and null space so that the reader can most easily verify whether a vector is in the set or not.</p></article><article class="investigation project-like" id="investigation-101"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.48</span><span class="period">.</span>
+</h4>
+<div class="introduction" id="introduction-30"><p id="p-382">Let <span class="process-math">\(T\)</span> from <span class="process-math">\(\mathbb{R}^2\)</span> to <span class="process-math">\(\mathbb{P}_2\)</span> be given by <span class="process-math">\(T \left( \colvec{a\\ b} \right) = a +(a+b)t+(a-b)t^2\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-125"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-383">Prove <span class="process-math">\(T\)</span> is linear.</p></article><article class="task exercise-like" id="task-126"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-384">Compute the image of <span class="process-math">\(T\text{.}\)</span></p></article><article class="task exercise-like" id="task-127"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-385">Compute the null space of <span class="process-math">\(T\text{.}\)</span></p></article></article><article class="investigation project-like" id="investigation-102"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.49</span><span class="period">.</span>
+</h4>
+<div class="introduction" id="introduction-31"><p id="p-386">Let <span class="process-math">\(V\)</span> be the vector space of polynomials in <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-128"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-387">Show the transformation <span class="process-math">\(T\)</span> that maps <span class="process-math">\(f\)</span> to <span class="process-math">\(\dfrac{\partial f}{\partial x}\)</span> is a linear transformation.</p></article><article class="task exercise-like" id="task-129"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-388">Compute the null space of <span class="process-math">\(T\text{.}\)</span></p></article><article class="task exercise-like" id="task-130"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-389">Compute the range of <span class="process-math">\(T\text{.}\)</span></p></article></article><article class="theorem theorem-like" id="rnss"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.32</span><span class="period">.</span>
+</h4>
+<p id="p-390">If <span class="process-math">\(T\)</span> is a linear transformation from <span class="process-math">\(V\)</span> to <span class="process-math">\(W\text{,}\)</span> then <span class="process-math">\(null(T)\)</span> is a subspace of <span class="process-math">\(V\text{.}\)</span></p></article><article class="theorem theorem-like" id="rnss2"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.33</span><span class="period">.</span>
+</h4>
+<p id="p-391">If <span class="process-math">\(T\)</span> is a linear transformation from <span class="process-math">\(V\)</span> to <span class="process-math">\(W\text{,}\)</span> then <span class="process-math">\(\mathrm{im}(T)\)</span> is a subspace of <span class="process-math">\(W\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-103"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.50</span><span class="period">.</span>
+</h4>
+<div class="introduction" id="introduction-32"><p id="p-392">Let <span class="process-math">\(T\)</span> from <span class="process-math">\(\mathbb{R}^2\)</span> to <span class="process-math">\(\mathbb{P}_2\)</span> be given by <span class="process-math">\(T \left( \colvec{a\\ b} \right) = a +(a+b)t+(a-b)t^2\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-131"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-393">Is <span class="process-math">\(T\)</span> one-to-one?</p></article><article class="task exercise-like" id="task-132"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-394">Is <span class="process-math">\(T\)</span> onto?</p></article></article><article class="investigation project-like" id="investigation-104"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.51</span><span class="period">.</span>
+</h4>
+<p id="p-395">Give an example of a linear transformation from <span class="process-math">\(\mathbb{R}^2\)</span> to <span class="process-math">\(\mathbb{R}^3\)</span> that is one-to-one.</p></article><article class="investigation project-like" id="investigation-105"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.52</span><span class="period">.</span>
+</h4>
+<p id="p-396">Give an example of a linear transformation from <span class="process-math">\(\mathbb{R}^2\)</span> to <span class="process-math">\(\mathbb{R}^2\)</span> that is onto.</p></article><article class="investigation project-like" id="investigation-106"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.53</span><span class="period">.</span>
+</h4>
+<p id="p-397">Give an example of a linear transformation from <span class="process-math">\(\mathbb{R}^3\)</span> to <span class="process-math">\(\mathbb{R}^2\)</span> that is onto.</p></article><article class="investigation project-like" id="investigation-107"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.54</span><span class="period">.</span>
+</h4>
+<p id="p-398">If the set of columns of a <span class="process-math">\(m\)</span> by <span class="process-math">\(n\)</span> matrix <span class="process-math">\(A\)</span> are linearly independent, does the set of columns of <span class="process-math">\(A\)</span> span all of <span class="process-math">\(\mathbb{R}^m\text{?}\)</span></p></article><article class="investigation project-like" id="investigation-108"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">3.55</span><span class="period">.</span>
+</h4>
+<p id="p-399">If the set of columns of a <span class="process-math">\(m\)</span> by <span class="process-math">\(n\)</span> matrix <span class="process-math">\(A\)</span> are linearly independent, is the image of <span class="process-math">\(T(\vec{x})=A\vec{x}\)</span> all of <span class="process-math">\(\mathbb{R}^m\text{?}\)</span></p></article><article class="theorem theorem-like" id="theorem-27"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.34</span><span class="period">.</span>
+</h4>
+<p id="p-400">A linear transformation <span class="process-math">\(T:V \rightarrow
+W\)</span> is onto if and only if <span class="process-math">\(\mathrm{im}(T)=W\text{.}\)</span></p></article><article class="theorem theorem-like" id="theorem-28"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.35</span><span class="period">.</span>
+</h4>
+<p id="p-401">For each linear transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(V\)</span> to <span class="process-math">\(W\text{,}\)</span> <span class="process-math">\(null(T)=\{ \vec{0} \}\)</span> if and only if <span class="process-math">\(T\)</span> is one-to-one.</p></article></section></section></div></main>
+</div>
+</body>
+</html>
