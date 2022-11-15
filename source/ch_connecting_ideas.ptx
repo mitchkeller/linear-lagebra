@@ -1,0 +1,621 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Chapters are enclosed with <chapter> tags. Use xml:id to -->
+<!-- uniquely identify the chapter.  The @xmlns:xi attribute  -->
+<!-- is needed if you use xi:include in this file             -->
+<chapter xml:id="ch_connecting_ideas" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<!-- Change title when you have one: -->
+  <title>Connecting Ideas</title>
+  <!-- If the chapter has sections, there may be an introduction -->
+  <!-- before those sections. Note the <p> tags around content.  -->
+
+  <!-- Sections can be written directly here, but it might help  -->
+  <!-- with organization to include them as separate files.      -->
+  <!-- That way it is easy to include the section in a different -->
+  <!-- chapter later if you change your mind about the order.    -->
+  <section>
+    <title>Basis and Dimension</title>
+    
+    <p>In the previous chapter, we saw that if a set <m>S</m> spans a
+    vector space <m>V</m>, then <m>S</m> is big enough to write
+    everything in <m>V</m> (as a linear combination of <m>S</m>). We
+    also saw that a linearly independent set <m>S</m> had a unique way
+    to represent elements in <m>span(S)</m>. A convenient and minimal
+    way to describe a vector space is to give a set of vectors that
+    spans all of <m>V</m> but does not include anything extra.</p>
+    
+    <definition>
+      <statement>
+	<p>A <term>basis</term> for a vector space <m>V</m> is a set of vectors
+	that is linearly independent and spans <m>V</m>.</p>
+      </statement>
+    </definition>
+
+<p>In this way, a basis is big enough (spans <m>V</m>) and contains nothing extra (linearly independent).</p>
+
+<investigation><statement><p> Can a set of 4 vectors be a basis for <m>\mathbb{R}^3</m>? Why or why not? Be sure to justify using ideas from Chapter 1 and not any theorems past this point.
+</p></statement></investigation>
+
+<investigation><statement><p> Can a set of 2 vectors be a basis for <m>\mathbb{R}^3</m>? Why or why not?
+</p></statement></investigation>
+
+<theorem>
+  <statement>
+    <p>
+If there exists a basis for a vector space <m>V</m> with <m>n</m>
+vectors, then every basis of <m>V</m> must have exactly <m>n</m>
+vectors.
+    </p>
+  </statement>
+</theorem>
+
+<p>
+The previous theorem does not imply that there is only one basis for a vector space, just that any two bases for the same vector space will have the exact same number of vectors. The idea that every basis for a vector space <m>V</m> has the same number of vectors gives rise to the idea of dimension.
+</p>
+<definition><statement><p> If a vector space <m>V</m> has a basis with a finite number of elements, <m>n</m>, then we say that <m>V</m> has <term>dimension</term> <m>n</m> or that <m>V</m> is <term><m>n</m>-dimensional</term>, also written as <m>\dim(V)=n</m>.</p></statement></definition>
+
+<investigation><statement><p> Show that <m>\{ \vec{e}_1, ... ,\vec{e}_n \}</m> is a basis for <m>\mathbb{R}^n</m> and thus that <m>\mathbb{R}^n</m> is an <m>n</m>-dimensional vector space.
+</p></statement></investigation>
+
+<investigation><statement><p> Give a set of 3 different vectors in <m>\mathbb{R}^3</m> that are not a basis for <m>\mathbb{R}^3</m>. Be sure to show why the set does not satisfy the definition of a basis.
+</p></statement></investigation>
+
+<investigation><statement><p> Give a basis for <m>\mathbb{P}_3</m> and compute the dimension of <m>\mathbb{P}_3</m>.
+</p></statement></investigation>
+
+<investigation><statement><p> What is <m>\dim(\mathbb{P}_n)</m>? Be sure to justify.
+</p></statement></investigation>
+
+<investigation><statement><p> Recall that the set <m>\{\vec{0} \}</m> is the trivial vector space. What is a basis for <m>\{\vec{0} \}</m>? What is <m>\dim(\{\vec{0} \})</m>?
+</p></statement></investigation>
+
+<theorem>
+  <statement>
+    <p>
+If <m>V</m> is an <m>n</m>-dimensional vector space and <m>S</m> is a
+set with exactly <m>n</m> vectors, then <m>S</m> is linearly
+independent if and only if <m>S</m> spans <m>V</m>.
+    </p>
+  </statement>
+</theorem>
+
+
+<p>This is an <em>enormously</em> helpful theorem since we know that a linearly independent set of <m>n</m> vectors from a <m>n</m>-dimensional vector space is a basis (no need to show spanning). This goes the other way as well, namely if a set of <m>n</m> vectors, <m>S</m>, spans a <m>n</m>-dimensional vector space, <m>V</m>, then <m>S</m> is a basis for <m>V</m> (no need to show linear independence).</p>
+
+<investigation><statement><p> Prove that <m>\{ 1+t,t+t^2,1+t^2 \}</m> is a basis for <m>\mathbb{P}_2</m>.
+</p></statement></investigation>
+
+<investigation><statement><p> Give two different bases for <m>M_{2 \times 2}</m>.
+</p></statement></investigation>
+
+<investigation><statement><p> What is the dimension of <m>Sym_{3 \times 3}</m>, the vector space of symmetric 3 by 3 matrices?
+</p></statement></investigation>
+
+<investigation><statement><p> What is the dimension of <m>Sym_{n \times n}</m>?
+</p></statement></investigation>
+
+<investigation><statement><p> What is the dimension of <m>\mathbb{P}</m>?
+</p></statement></investigation>
+
+<investigation><task><p>Prove that <m>H=\{ \colvec{t\\t\\0} \mid t \in
+\mathbb{R} \} </m> is a subspace of <m>\mathbb{R}^3</m>.</p>
+</task>
+<task><p>Is <m>Span(\{ \colvec{1\\0\\0} , \colvec{0\\1\\0} \})
+=H</m>?</p>
+</task>
+<task><p>What dimension is <m>H</m>?</p></task></investigation>
+
+<paragraphs>
+  <title>Rank and nullity</title>
+<p>Recall that if <m>T: V \rightarrow W</m> is linear,
+then <m>Null(T)</m> and  <m>\mathrm{im}(T)</m> are subspaces of
+<m>V</m> and <m>W</m> respectively.</p>
+<definition>
+<statement><p>The <term>rank</term> of a transformation <m>T</m> is <m>\dim(\mathrm{im}(T))</m> and the <term>nullity</term> of <m>T</m> is <m>\dim(Null(T))</m>.</p></statement>
+</definition>
+
+
+<investigation><introduction><p> Let <m>A=\begin{bmatrix} 1\amp 2\amp 3
+\\4\amp 5\amp 6 \end{bmatrix}</m>.</p></introduction>
+<task><p>Find <m>rank(T)</m> and <m>nullity(T)</m> where <m>T(\vec{x}) =A \vec{x}</m>.</p></task>
+<task><p>Find a basis for <m>Null(T)</m>.</p></task>
+<task><p>Find a basis for <m>range(T)</m>.</p></task>
+</investigation>
+
+<exercise><introduction><p> Let <m>T</m> from <m>\mathbb{R}^2</m>
+to <m>\mathbb{P}_2</m> be given by <m>T \left( \colvec{a\\ b}
+\right) = a +(a+b)t+(a-b)t^2</m>.</p></introduction>
+<task><p><m>rank(T)=</m></p></task>
+<task><p><m>nullity(T)=</m></p></task>
+<task><p>Find a basis for <m>Null(T)</m>.</p></task>
+<task><p>Find a basis for <m>\mathrm{im}(T)</m>.</p></task>
+</exercise>
+
+<investigation><statement><p> Let <m>T:\mathbb{P}_3 \rightarrow
+\mathbb{R}^2</m> be given by <m>T(f)=\colvec{f(0)\\ f(1)}</m>. Compute <m>rank(T)</m> and <m>nullity(T)</m>.
+</p></statement></investigation>
+
+<theorem xml:id="thm_dimension"><title>Dimension Theorem</title><statement><p> Let <m>T</m>
+be a linear transformation from <m>V</m> to <m>W</m> with <m>V</m> a
+<m>n</m>-dimensional vector space. <m>rank(T) + nullity(T)=n</m>.</p>
+</statement>
+</theorem>
+
+<p>If <m>T</m> is a matrix transformation
+(<m>T(\vec{x})=A\vec{x}</m>), then <md><mrow>rank(T)\amp=
+rank(A)=dim(Col(A))</mrow><intertext>and</intertext><mrow>nullity\amp (T)=nullity(A)=dim(Null(A))</mrow></md>.</p>
+
+<investigation><statement><p> Using 
+previous work, prove the <xref ref="thm_dimension" text="title" /> for <m>T: \mathbb{R}^n \rightarrow \mathbb{R}^m</m> given by <m>T(\vec{x})=A\vec{x}</m>, where <m>A</m> is a <m>m</m> by <m>n</m> matrix.
+</p></statement></investigation>
+
+<exercise><statement><p> List out all possible echelon forms of 3 by 3 matrices using the symbols <m>\blacksquare</m> for pivot, <m>*</m> for non-pivot entry (possibly <m>0</m>), and <m>0</m> if an entry <em>must</em> be <m>0</m>. For each form, give the rank of the matrix and the dimension of the null space.
+</p></statement></exercise>
+</paragraphs>
+<paragraphs><title>Coordinate vectors relative to a basis</title>
+<p>Given an ordered basis <m>\beta =\{ \vec{v}_1, ...,\vec{v}_k \}</m>
+of a vector space <m>V</m>, the <term>coordinate vector of
+<m>\vec{x}</m> relative to <m>\beta</m></term>, denoted
+<m>[\vec{x}]_\beta</m>, is a vector of the coefficients of the unique
+way to write <m>\vec{x}</m> as a linear combination of
+<m>\beta</m>. Namely, if  <m>\vec{x} = c_1 \vec{v_1}+c_2 \vec{v_2}
++...+c_k \vec{v_k}</m>, then <m>[\vec{x}]_\beta = \colvec{c_1\\ c_2\\
+\vdots\\ c_k}</m>.</p>
+
+<investigation><introduction><p> For each of the following vectors, compute <m>[\vec{v}]_{\beta}</m> where <m>\beta =\{ \colvec{0\\ 0\\ 1}, \colvec{0\\ 1\\ 1},\colvec{1\\ 1\\ 1} \}</m></p></introduction>
+<task><p><m>\vec{v}=\colvec{2\\ 2\\ 2}</m></p></task>
+<task><p><m>\vec{v}=\colvec{3\\ 0\\ 0}</m></p></task>
+<task><p><m>\vec{v}=\colvec{-1\\ -1\\ 0}</m></p></task>
+<task><p><m>\vec{v}=\colvec{-2\\ 0\\ 3}</m></p></task>
+<task><p><m>\vec{v}=\colvec{a\\ b\\ c}</m></p></task>
+</investigation>
+
+<investigation><introduction><p>
+In the previous problem, you wrote out the coordinate vectors relative to <m>\beta =\{ \colvec{0\\ 0\\ 1}, \colvec{0\\ 1\\ 1},\colvec{1\\ 1\\ 1} \}</m>. Note that the first three vectors you used form a basis as well, which we will call <m>\gamma =\{ \colvec{2\\ 2\\ 2}, \colvec{3\\ 0\\ 0},\colvec{-1\\ -1\\ 0} \}</m>.</p>
+</introduction>
+<task><p>
+Compute  <m>[\vec{v}]_{\gamma}</m> for <m>v=\colvec{-2\\ 0\\
+3}</m>.</p></task>
+<task><p>The coordinate vectors of <m>\gamma</m> relative to <m>\beta</m> can be used to make the <term>change of basis matrix</term> from <m>\beta</m> to <m>\gamma</m>. Specifically, the change of basis matrix from <m>\beta</m> to <m>\gamma</m> is given by <m>[ [\vec{\gamma_1}]_\beta [\vec{\gamma_2}]_\beta [\vec{\gamma_3}]_\beta ] </m>.  Use your work from the previous question, to construct the change of basis matrix from <m>\beta</m> to <m>\gamma</m>.</p></task>
+<task><p>Multiplying by this change of basis matrix will convert a coordinate vector relative to <m>\beta</m> to a coordinate vector relative to <m>\gamma</m>. Verify that if you multiply your change of basis matrix from <m>\beta</m> to <m>\gamma</m> by <m>[\vec{v}]_{\beta}</m> you get <m>[\vec{v}]_{\gamma}</m> where  <m>v=\colvec{-2\\ 0\\ 3}</m>.</p></task>
+</investigation>
+<p>The above process of constructing a change of basis matrix works for any two bases of the same vector space (even if the vector space is not <m>\mathbb{R}^n</m>).</p>
+
+<exercise><introduction><p> For each of the following vectors, compute <m>[\vec{v}]_{\beta}</m> where <m>\beta =\{ 1+t,t+t^2,1+t^2 \}</m>.</p></introduction>
+<task><p><m>\vec{v}=2+2t</m></p></task>
+<task><p><m>\vec{v}=4-t^2+t</m></p></task>
+<task><p><m>\vec{v}=3</m></p></task>
+<task><p><m>\vec{v}=t</m></p></task>
+<task><p><m>\vec{v}=6t^2</m></p></task>
+</exercise>
+
+<p>The coordinate vector allows us to state problems in a vector space like <m>\mathbb{P}_n</m> in the same way we state problems in <m>\mathbb{R}^n</m>.</p>
+
+<exercise><introduction><p> For each of the following vectors, compute <m>[\vec{v}]_{\beta}</m> where <me>\beta =\{ \begin{bmatrix} 1\amp 2\\3\amp 4  \end{bmatrix}, \begin{bmatrix} 1\amp 0\\0\amp 1  \end{bmatrix}, \begin{bmatrix} 0\amp 1\\1\amp 0  \end{bmatrix}, \begin{bmatrix} 1\amp 0\\0\amp 0 \end{bmatrix} \}</me>.</p></introduction>
+<task><p><m>\vec{v}=\begin{bmatrix} 1\amp 1\\1\amp 1
+\end{bmatrix}</m></p></task>
+<task><p><m>\vec{v}=\begin{bmatrix} 1\amp 0\\1\amp 1  \end{bmatrix}</m></p></task>
+</exercise>
+</paragraphs>
+</section>
+<section>
+  <title>Invertible Matrices</title>
+<introduction><p>
+
+In this section, we will only consider square matrices. A matrix <m>A
+\in M_{n \times n}</m> is <term>invertible</term> if there exists a
+matrix <m>B</m> such that <m>AB=Id_n</m> and <m>BA=Id_n</m>. The
+inverse matrix of <m>A</m> is denoted <m>A^{-1}</m>. Be careful that
+you do not use the notation <m>A^{-1}</m> until you have shown that
+<m>A</m> is invertible.</p>
+</introduction>
+
+<subsection><title>Elementary Matrices</title>
+
+<p>Recall that an elementary row operation on a matrix is an operation of the form:
+
+<ul>
+<li>multiplying a row by a non-zero scalar</li>
+<li>switching two rows</li>
+<li>adding a multiple of one row to another row</li>
+</ul>
+Elementary matrices are obtained by performing an elementary operation on the identity matrix.</p>
+<investigation><introduction><p> Give the elementary matrix obtained by performing the given operation on <m>Id_3</m>. (These are 4 separate questions):</p>
+</introduction>
+<task><p>Scaling the first row by <m>\alpha</m></p></task>
+<task><p>Switching the second and third rows</p></task>
+<task><p>Adding 3 times the 2nd row to the 1st row</p></task>
+<task><p>Adding 3 times the 1st row to the 2nd row</p></task>
+</investigation>
+
+<investigation><statement><p> Check that your answer to the previous question does the desired operation by multiplying each of the four previous elementary matrices by <m>\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}</m>. Which side do you multiply the elementary matrix on to correspond to row operations?
+</p></statement></investigation>
+
+<investigation><statement><p> Compute (and verify) the inverse of each of the elementary matrices from the previous problems. 
+</p></statement>
+<hint><p>Think about how you would go backwards for each of the elementary operations.</p></hint></investigation>
+
+<p>Your work on the previous questions should convince you that
+elementary matrices are invertible and that multiplying by an
+elementary matrix produces the same result as having performed the
+corresponding elementary row operation. Elementary matrices offer a
+way of keeping track of elementary operations.</p>
+</subsection>
+</section>
+</chapter><!--
+\begin{theorem}
+Elementary matrices are invertible and the inverse matrix is an elementary matrix corresponding to the inverse elementary operation.
+\end{theorem}
+
+\begin{theorem}
+If <m>A</m> and <m>B</m> are invertible <m>n</m> by <m>n</m> matrices, then <m>AB</m> is an invertible <m>n</m> by <m>n</m> matrix. Further, <m>(AB)^{-1} =B^{-1}A^{-1}</m>.
+\end{theorem}
+
+<investigation><statement><p>\label{q11} Prove that if <m>A</m> can be reduced to <m>Id_n</m> by elementary row operations, then <m>A</m> is invertible.
+</p></statement></investigation>
+
+<investigation><statement><p> Give all values of <m>k</m> where <m>A=\begin{bmatrix} 1\amp 0\amp 2\\-1\amp k\amp 4\\3\amp 5\amp 1 \end{bmatrix}</m> will be invertible.
+</p></statement></investigation>
+
+<investigation><statement><p> Give all values of <m>k</m> where <m>A=\begin{bmatrix} 1\amp 0\amp 2\\-1\amp k\amp 4\\3\amp -1\amp 1 \end{bmatrix}</m> will be invertible.
+</p></statement></investigation>
+
+<investigation><statement><p> How many pivots must a matrix <m>A</m> have in order to be row reducible to <m>Id_n</m>? Justify using previous results.
+</p></statement></investigation>
+
+<investigation><statement><p> Prove that if <m>A</m> is invertible, then <m>A\vec{x} =\vec{b}</m> has a unique solution for every <m>\vec{b} \in \mathbb{R}^n</m>.
+</p></statement></investigation>
+
+<investigation><statement><p> Prove or disprove: If <m>A</m> and <m>B</m> are invertible <m>n</m> by <m>n</m> matrices, then <m>A+B</m> is invertible.
+</p></statement></investigation>
+
+<investigation><statement><p> Prove that if <m>A</m> is invertible, then <m>A^T</m> is invertible.
+</p></statement></investigation>
+
+\subsection{Computing Inverses}
+In general computing the inverse of a matrix takes more time and operations than solving a system of equations. For this reason, it is generally easier to find and solve a related system of equations problem than to compute the inverse matrix. We will outline a few ways to find inverse matrices and compute a few small examples.
+
+<investigation><statement><p> If a matrix <m>A</m> is row reduced to <m>Id_n</m> by elementary row operations corresponding (in order of use) to elementary matrices <m>E_1</m>, <m>E_2</m>, ... , <m>E_k</m>, give an expression for <m>A^{-1}</m>.
+</p></statement></investigation>
+
+<investigation><statement><p> Use your answer to the previous question to prove the following:
+
+Any sequence of elementary row operations that reduces <m>A</m> to <m>Id_n</m> also transforms <m>Id_n</m> into <m>A^{-1}</m>.
+</p></statement></investigation>
+
+The previous result shows that computing inverses is equivalent to a row reduction problem. In particular, if <m>A</m> is invertible, then reducing <m>[ A \enskip | \enskip Id_n]</m> to reduced row echelon form will produce the matrix <m>[ Id_n \enskip | \enskip A^{-1}]</m>.
+
+<investigation><statement><p>\label{22inv} Use the idea above to compute the inverse of <m>\begin{bmatrix} a\amp b\\c\amp d \end{bmatrix}</m>. Be sure to note any assumptions you will need to make in order to reduce <m>[ A \enskip | \enskip Id_n]</m> to <m>[ Id_n \enskip | \enskip A^{-1}]</m>.
+</p></statement></investigation>
+
+<investigation><statement><p> If <m>A=\begin{bmatrix}1\amp  0\amp  1 \\0\amp 2\amp -1 \\ 0\amp 6\amp -1\end{bmatrix}</m>, find <m>A^{-1}</m> and check that <m>A A^{-1}=Id_3</m>.
+</p></statement></investigation>
+
+<investigation><statement><p>
+If <m>A=\begin{bmatrix} 0\amp -1\\3\amp 4 \end{bmatrix}</m>, find <m>A^{-1}</m> and use your answer to solve <m>A\vec{x} = \vec{b}</m> if:
+\begin{enumerate}
+\item <m>\vec{b} =\colvec{2\\ 3\\ 1}</m>
+\item <m>\vec{b} =\colvec{2}{-1\\ -2}</m>
+\item <m>\vec{b} =\colvec{2}{0\\ 5}</m>
+\item <m>\vec{b} =\colvec{2}{\alpha\\ \beta}</m>
+\end{enumerate}
+</p></statement></investigation>
+\subsection{Invertible Matrix Theorem}
+<investigation><statement><p> In many texts there is a long list of equivalent conditions for when a square matrix is invertible. Below is a list of some of these conditions that we have talked about or proven. Go back through your notes and questions and cite when we connected two of the ideas in the list. For instance, parts <m>a)</m> and <m>b)</m> are linked by Question \ref{q11}
+</p></statement></investigation>
+
+\begin{theorem}[The Invertible Matrix Theorem]\label{imt}
+Let <m>A</m> be a <m>n</m> by <m>n</m> matrix. The following are equivalent statements (either all True or all False):
+\begin{enumerate}
+\item <m>A</m> is an invertible matrix.
+\item <m>A</m> is row equivalent to <m>Id_n</m>.
+\item <m>A</m> has <m>n</m> pivots.
+\item <m>rank(A)=n</m>
+\item <m>nullity(A)=0</m>
+\item <m>A\vec{x} =\vec{0}</m> has only the trivial solution.
+\item The linear transformation <m>\vec{x} \rightarrow A\vec{x}</m> is one-to-one.
+\item The linear transformation <m>\vec{x} \rightarrow A\vec{x}</m> is onto.
+\item <m>A\vec{x}=\vec{b}</m> has a solution for every <m>\vec{b} \in \mathbb{R}^n</m>.
+\item The columns of <m>A</m> form a linearly independent set.
+\item The columns of <m>A</m> span <m>\mathbb{R}^n</m>.
+\item The columns of <m>A</m> are a basis for <m>\mathbb{R}^n</m>.
+\item <m>A^T</m> is invertible.
+\end{enumerate}
+\end{theorem}
+
+<investigation><statement><p>
+Two important ideas in this course that have been tied to many different methods or ideas are 1) consistent systems of linear equations and 2) invertible matrices. These two ideas are a bit different though. Give an example of a consistent system of linear equations (in matrix equation form <m>A\vec{x} = \vec{b}</m>) where the coefficient matrix <m>A</m> is a non-invertible square matrix.
+</p></statement></investigation>
+
+\section{Invertible Linear Transformations}
+\begin{annotation}
+\endnote{This section and the next one on LU decomposition are examples of ideas that students who have successfully completed this course can pick up and use on their own. They appear here because they can be quite useful.}
+\end{annotation}
+
+\begin{definition}
+A linear transformation <m>T</m> from <m>V</m> to <m>W</m> is invertible if there exists a linear transformation <m>U</m> from <m>W</m> to <m>V</m> such that <m>T\circ U=Id_W</m> and <m>U \circ T=Id_V</m>.
+\end{definition}
+Alternative definition:  A linear transformation <m>T</m> from <m>V</m> to <m>W</m> is invertible if <m>T</m> is one-to-one and onto.
+
+
+<investigation><statement><p> Let <m>A=\begin{bmatrix} 1\amp 2\amp 3 \\4\amp 5\amp 6 \end{bmatrix}</m>. Is <m>T:\mathbb{R}^3 \to \mathbb{R}^2</m> given by <m>T(\vec{x})=A\vec{x}</m> an invertible linear transformation?
+</p></statement></investigation>
+
+<investigation><statement><p> Let <m>T</m> from <m>\mathbb{R}^2</m> to <m>\mathbb{P}_2</m> be given by <m>T \left( \colvec{2}{a\\ b} \right) = a +(a+b)t+(a-b)t^2</m>. Is <m>T</m> an invertible linear transformation?
+</p></statement></investigation>
+
+<investigation><statement><p> Let <m>T</m> from <m>\mathbb{R}^3</m> to <m>\mathbb{P}_2</m> be given by <m>T \left( \colvec{a\\ b\\ c} \right) = (a+c) +(a+b)t+(a-b)t^2</m>. Is <m>T</m> an invertible linear transformation?
+</p></statement></investigation>
+
+\section{LU factorization of matrices}
+\begin{annotation}
+\endnote{This section can be very important to applied mathematics since it relates to efficient computation, but some instructors choose to skip this for time reasons.}
+\end{annotation}
+
+<investigation><statement><p> \begin{enumerate}
+\item Reduce <m>A=\begin{bmatrix} 1\amp 2 \\ 3\amp 4\end{bmatrix}</m> to \underline{echelon} form (not reduced row echelon form). How many row operations did you use?
+\item Compute the elementary matrix (or matrices) corresponding to the row operation(s) from the previous part.
+\item Compute the inverse of the elementary matrix from the previous problem and multiply the result by the echelon form you found in part <m>b)</m>. What is your result and why does this make sense?
+\item Let <m>L</m> be the inverse elementary matrix from part <m>c)</m> and let <m>U</m> be the echelon form from part <m>a)</m>. Solve <m>L\vec{y}=\vec{b}</m> for <m>\vec{b}=\colvec{2}{1\\ -1}</m>.
+\item Now solve <m>U\vec{x}=\vec{y}</m>.
+\item Now solve <m>A\vec{x}=\vec{b}</m>.
+\end{enumerate}
+</p></statement></investigation>
+
+<investigation><statement><p> \begin{enumerate}
+\item Reduce <m>A=\begin{bmatrix} 1\amp 2\amp 3\\ 4\amp 5\amp 6 \\ 7\amp 8\amp 9 \end{bmatrix}</m> to \underline{echelon} form. How many row operations did you use?
+\item Compute the elementary matrix (or matrices) corresponding to the row operation(s) from the previous problem.
+\item Compute the inverse of the elementary matrix (or product of matrices) from part <m>b)</m> and multiply your answer by the echelon form you found in part <m>a)</m>. What is your result and why does this make sense?
+\item Let <m>L</m> be the inverse elementary matrix product from part <m>c)</m> and let <m>U</m> be the echelon form from part <m>a)</m>. Solve <m>L\vec{y}=\vec{b}</m> for <m>\vec{b}=\colvec{1\\ -1\\ 0}</m>.
+\item Now solve <m>U\vec{x}=\vec{y}</m>.
+\item Now solve <m>A\vec{x}=\vec{b}</m>.
+\end{enumerate}
+</p></statement></investigation>
+
+The preceding two problems can be generalized to show how row operations will conveniently reduce any matrix into a product of an upper- and a lower-diagonal matrix. This <m>LU</m> decomposition has certain advantages when solving linear systems using a computer, especially for large systems.
+
+\section{Determinants}
+Determinants will be an incredibly useful tool in quickly determining several important properties of square matrices. We will first look at how to compute determinants and later outline the important properties that determinants have. While some of you may have been taught some rules for how to compute determinants of 2 by 2 and 3 by 3 matrices, I encourage you to understand how to compute determinants in general.
+\subsection{Computing Determinants}
+\begin{definition}
+The \textbf{determinant} is a function from <m>n</m> by <m>n</m> matrices to the real numbers (</m>det:M_{n \times n} \rightarrow \mathbb{R}</m>). If <m>A</m> is a 1 by 1 matrix, <m>A=[A_{1,1}]</m>, then <m>det(A)=A_{1,1}</m>. For <m>n \geq 2</m>, the determinant of a <m>n</m> by <m>n</m> matrix is given by the following formula in terms of determinants of <m>(n-1)</m> by <m>(n-1)</m> matrices:
+<me>det(A)=\sum_{j=1}^n (-1)^{1+j} (A_{1,j}) \enskip det(A^*_{1,j})</m></m>
+where <m>A^*_{i,j}</m> is the <m>(n-1)</m> by <m>(n-1)</m> matrix obtained by deleting the <m>i</m>-th row and <m>j</m>-th column of <m>A</m>.
+
+The term <m>A_{i,j}\enskip det(A^*_{i,j})</m> is called the \textbf{</m>(i,j)</m> cofactor of <m>A</m>}.
+
+%The range of the determinant is <m>\mathbb{C}</m> if the entries of the matrix are complex.
+\end{definition}
+The above definition uses cofactor expansion along the first row.
+<investigation><statement><p> In this question, we will unpack the determinant formula above for a 2 by 2 matrix <m>A=\begin{bmatrix} a\amp b \\c\amp d \end{bmatrix}</m>.
+\begin{enumerate}
+\item Rather than using the summation notation of the formula above, write out the two terms in <m>det(A)</m>.
+\item <m>A^*_{1,1}=</m>
+\item <m>A^*_{1,2}=</m>
+\item <m>A_{1,1}=</m>
+\item <m>A_{1,2}=</m>
+\item <m>(-1)^{1+1}=</m>
+\item <m>(-1)^{1+2}=</m>
+\item <m>det(A)=</m>
+\end{enumerate}
+</p></statement></investigation>
+Your answer to the previous problem will be useful in calculating determinants of 3 by 3 matrices.
+\begin{theorem}
+The determinant can be computed by cofactor expansion along any row or column. Specifically the cofactor expansion along the <m>k</m>-th row is given by <me>det(A)=\sum_{j=1}^n (-1)^{k+j} (A_{k,j}) \enskip det(A^*_{k,j})</m></m>
+and the cofactor expansion along the <m>k</m>-th column is given by
+<me>det(A)=\sum_{i=1}^n (-1)^{i+k} (A_{i,k}) \enskip det(A^*_{i,k})</m></m>
+\end{theorem}
+
+\question Use cofactor expansion along the first column of \break <m>A=\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}</m> to compute <m>det(A)</m>.
+
+\question Use cofactor expansion along the second row of \break <m>A=\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}</m> to compute <m>det(A)</m>. Did you get the same answer as the previous question?
+
+\question Compute the determinant of <m>B=\begin{bmatrix}g\amp h\amp i \\d\amp e\amp f\\ a\amp b\amp c \end{bmatrix}</m>. How does your answer compare with the previous problem?
+
+\question Compute the determinant of <m>C=\begin{bmatrix} a\amp b\amp c\\3d\amp 3e\amp 3f\\g\amp h\amp i \end{bmatrix}</m>.
+
+\question Compute the determinant of <m>D=\begin{bmatrix} a+kd\amp b+ke\amp c+kf\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}</m>.
+
+<investigation><statement><p> Compute the determinant of the following matrices:
+\begin{enumerate}
+\item <m>\begin{bmatrix} 3\amp 0\amp 1\amp 0\\0\amp 2\amp -1\amp 4 \\-3\amp 5\amp 0\amp 2\\2\amp 2\amp 2\amp -1 \end{bmatrix}</m>
+\item <m>2\begin{bmatrix} 3\amp 0\amp 1\amp 0\\0\amp 2\amp -1\amp 4 \\-3\amp 5\amp 0\amp 2\\2\amp 2\amp 2\amp -1 \end{bmatrix}</m>
+\end{enumerate}
+</p></statement></investigation>
+\subsection{Properties of Determinants}
+
+<investigation><statement><p> Prove that if <m>A</m> has a row of zeros, then <m>det(A)=0</m>.
+</p></statement></investigation>
+
+<investigation><statement><p> Prove that <m>det(Id_n)=1</m>.
+</p></statement></investigation>
+
+<investigation><statement><p> Use your results from the previous subsection to state what the determinants of the three different kinds of elementary matrices are. (You do not need to prove the general case, just give a clear, correct statement.)
+</p></statement></investigation>
+
+\begin{theorem}
+\begin{enumerate}
+\item If <m>A</m> and <m>B</m> are <m>n</m> by <m>n</m>, then <m>det(AB)=det(A) det(B)</m>.
+\item The determinant of an upper or lower triangular matrix is the product of its diagonal entries. <me>det(L)=\prod_{i=1}^n L_{i,i}</m></m> <me>det(U)=\prod_{i=1}^n U_{i,i}</m></m>
+\item The determinant of a diagonal matrix is the product of its diagonal entries. If <m>D</m> is diagonal, then <me>det(D)=\prod_{i=1}^n D_{i,i}</m></m>
+\item <m>det(A)=det(A^T)</m>
+\item A matrix <m>A</m> is invertible iff <m>det(A)\neq 0</m>. This property should be included in the Invertible Matrix Theorem. In fact, you should go write it in as part (n) of Theorem \ref{imt}.
+\end{enumerate}
+\end{theorem}
+
+\begin{annotation}
+\endnote{In the next problem, we use an elementary operation on columns. This is intentional. I take this as a time to remind students that everything we have been doing as far as row operations can be applied to deal with column operations. In this course we don't worry about considering both concepts all of the time in order to have time to deeply understand the relationships involving row operations. I also try to remind them that everything we have done so far more or less stems from row operations or can be taken from an abstract setting and applied as solving a system of linear equation (with row operations!!!).
+
+Additionally, the next three questions are not essential to the rest of the material and can be omitted for time. Question \ref{ee} is vital to several ideas and proofs in the next section.}
+\end{annotation}
+<investigation><statement><p> Let <m>A=E_1 E_2 E_3</m> be a four by four matrix, where
+\begin{itemize}
+\item <m>E_1</m> is the elementary matrix that adds two times the 2nd column to the 3rd column
+\item <m>E_2</m> is the elementary matrix that switches the second and fourth rows
+\item <m>E_3</m> is the elementary matrix that scales the first row by <m>\frac{1}{2}</m>
+\end{itemize}
+Compute <m>det(A)</m>.
+</p></statement></investigation>
+
+<investigation><statement><p> Let <m>A=LU</m>, where <m>L=\begin{bmatrix} 1\amp 0\amp 0\\-2\amp 1\amp 0\\2\amp -3\amp 1 \end{bmatrix}</m> and \break <m>U=\begin{bmatrix} 3 \amp -1 \amp 2\\0\amp 1\amp -2\\0\amp 0\amp 5 \end{bmatrix}</m>. Compute <m>det(L)</m>, <m>det(U)</m>, and <m>det(A)</m>. What relationship should these determinants have?
+</p></statement></investigation>
+
+<investigation><statement><p> Let <m>A=\begin{bmatrix} 1\amp 2\amp 3\\4\amp 5\amp 6\\0\amp 1\amp -1 \end{bmatrix}</m> and <m>\vec{b}=\colvec{1\\ 1\\ 1}</m>.
+\begin{enumerate}
+\item Compute <m>det(A)</m>.
+\item Let <m>A_1</m> be the matrix obtained by replacing the first column of <m>A</m> with <m>\vec{b}</m>. Compute <m>det(A_1)</m>.
+\item By similar replacement of the second and third columns, find <m>A_2</m> and <m>A_3</m>. Compute <m>det(A_2)</m> and <m>det(A_3)</m>.
+\item Solve <m>A\vec{x}=\vec{b}</m>.
+\item Write <m>\colvec{x_1\\ x_2\\ x_3}</m> in terms of <m>det(A_1)</m>, <m>det(A_2)</m>, <m>det(A_3)</m>, and <m>det(A)</m>.
+\end{enumerate}
+</p></statement></investigation>
+
+The previous problem is an example of \textbf{Cramer's Rule}, which allows you to write the unique solution of <m>A\vec{x} =\vec{b}</m> (for a square invertible matrix <m>A</m>) in terms of determinants.
+
+<investigation><statement><p>\label{ee} Prove: <m>det(A)=0</m> iff <m>A\vec{x}=\vec{0}</m> has solutions such that <m>\vec{x} \neq \vec{0}</m>.
+</p></statement></investigation>
+
+\section{Eigenvalues and Eigenvectors}
+\begin{annotation}
+\endnote{Throughout this section, the students may ask about solving some of the algebraic equations using complex numbers. Only after Question \ref{q13} are complex numbers explicitly addressed. I typically take this as an opportunity to talk to students about the assumptions that may be implicit in problems and that if they think real versus complex would change the answer to the question, then they should consider and write up both cases (This always comes up by Question \ref{q14} at the latest). Many students do not have facility with solving algebraic problems with complex numbers and other students' presentations offer another time to expose them to these ideas. Your milage may vary.}
+\end{annotation}
+\begin{definition}
+An \textbf{eigenvector} of a matrix <m>A</m> is a nonzero vector <m>\vec{x}</m> such that <m>A\vec{x}=\lambda \vec{x}</m> for some scalar <m>\lambda</m>. The scalar <m>\lambda</m> is called an \textbf{eigenvalue} of <m>A</m> if there exists a nonzero solution to <m>A\vec{x}=\lambda \vec{x}</m>.
+\end{definition}
+
+<investigation><statement><p> Which of the following vectors are an eigenvector of \break</m>A=\begin{bmatrix} 2\amp 3\\3\amp 2 \end{bmatrix}</m>? For any vectors that are eigenvectors of <m>A</m>, give the eigenvalue. \begin{enumerate}
+\item <m>\vec{v_1}=\colvec{2}{1}{2}</m>
+\item <m>\vec{v_2}=\colvec{2}{-1}{1}</m>
+\item <m>\vec{v_3}=\colvec{2}{3}{-1}</m>
+\item <m>\vec{v_4}=\colvec{2}{1}{1}</m>
+\item <m>\vec{v_5}=\colvec{2}{0}{0}</m>
+\end{enumerate}
+</p></statement></investigation>
+
+<investigation><statement><p> Let <m>A=\begin{bmatrix} 2\amp 1\\-1\amp 3 \end{bmatrix}</m>. Try to find an eigenvector with eigenvalue <m>3</m>. In other words, find a vector <m>\vec{v}</m> such that <m>A\vec{v}=3\vec{v}</m>.
+</p></statement></investigation>
+
+<investigation><statement><p> Let <m>A=\begin{bmatrix} 3\amp 4\\3\amp -1 \end{bmatrix}</m>. Try to find an eigenvector with eigenvalue <m>-3</m>. In other words, find a vector <m>\vec{v}</m> such that <m>A\vec{v}=-3\vec{v}</m>.
+</p></statement></investigation>
+
+<investigation><statement><p> Prove: <m>det(A- \alpha Id)=0</m> iff <m>\alpha</m> is an eigenvalue. Hint: Look at Question \ref{ee}.
+</p></statement></investigation>
+
+If <m>A</m> is a <m>n</m> by <m>n</m> matrix, then <m>det(A- t Id)</m> will be a <m>n</m>-th degree polynomial in <m>t</m>, which we call the \textbf{characteristic polynomial of <m>A</m>}. The previous question shows that finding roots of the characteristic polynomial is the same as finding eigenvalues.
+
+<investigation><statement><p> Find each of the following matrices: write out the characteristic polynomial, give all eigenvalues, and for each eigenvalue, find an eigenvector.
+\begin{enumerate}
+\item <m>\begin{bmatrix} 1\amp 1 \\1\amp 1 \end{bmatrix}</m>
+\item <m>\begin{bmatrix} 1\amp -3 \\-3\amp 1 \end{bmatrix}</m>
+\item <m>\begin{bmatrix} 1\amp 2 \\3\amp 4 \end{bmatrix}</m>
+\item <m>\begin{bmatrix} 1\amp 2\amp 3 \\4\amp 5\amp 6\\7\amp 8\amp 9 \end{bmatrix}</m>
+\item <m>\begin{bmatrix} 4\amp -1\amp 6\\2\amp 1\amp 6\\2\amp -1\amp 8 \end{bmatrix}</m>
+\item <m>\begin{bmatrix} 1\amp 1\amp 0\amp 0\\1\amp 1\amp 0\amp 0\\0\amp 0\amp 1\amp -3\\0\amp 0\amp -3\amp 1 \end{bmatrix}</m>
+\end{enumerate}
+</p></statement></investigation>
+\begin{annotation}
+\endnote{Part e) of the previous problem is important for students to work through since it sets up Question \ref{q92}. Sometimes Question \ref{q92} can be done as an entire 50 minute class since it encapsulates a lot of understanding of dimension, eigenspaces, and previews diagonalizability.}
+\end{annotation}
+
+A root <m>\alpha</m> of a polynomial (in <m>t</m>) has (algebraic) multiplicity <m>k</m> if <m>k</m> is the largest integer such that <m>(t-\alpha)^k</m> is a factor.
+
+<investigation><statement><p> Prove that a nonzero vector, <m>\vec{v}</m>, is an eigenvector of <m>A</m> with eigenvalue <m>\lambda</m> if and only if <m>\vec{v}</m> is in the null space of <m>A-\lambda Id</m>.
+</p></statement></investigation>
+
+<investigation><statement><p> Prove that if <m>\vec{v}</m> is an eigenvector of <m>A</m>, then <m>\alpha \vec{v}</m> is also an eigenvector of <m>A</m> (when <m>\alpha \neq 0</m>).
+</p></statement></investigation>
+
+<investigation><statement><p> Prove that if <m>\vec{v_1}</m> and <m>\vec{v_2}</m> are eigenvectors of <m>A</m> with the same eigenvalue, then <m>\vec{v_1}+\vec{v_2}</m> is also an eigenvector of <m>A</m>. What is the eigenvalue of <m>\vec{v_1}+\vec{v_2}</m>?
+</p></statement></investigation>
+
+\begin{definition}
+If <m>\lambda</m> is an eigenvalue of <m>A</m>, then the \textbf{eigenspace of <m>\lambda</m>}, <m>E_\lambda</m>, is the set of vectors <m>\vec{x}</m> such that <m>(A-\lambda Id_n)\vec{x}=\vec{0}</m>. The previous two questions along with the inclusion of <m>\vec{0}</m> give the following theorem.
+\end{definition}
+\begin{theorem} If <m>\lambda</m> is an eigenvalue of <m>A \in M_{n \times n}</m>, then <m>E_\lambda</m> is a subspace of <m>\mathbb{R}^n</m>.
+\end{theorem}
+
+<investigation><statement><p> Prove that <m>dim(E_\lambda) \geq 1</m> for every eigenvalue <m>\lambda</m>.
+</p></statement></investigation>
+
+\question\label{q92} \begin{enumerate} \item Let <m>A =\begin{bmatrix} 2 \amp a\amp b\\0\amp 2\amp c\\0\amp 0\amp 2 \end{bmatrix}</m>. Show that <m>A</m> only has an eigenvalue of 2. What is the algebraic multiplicity of the eigenvalue 2?
+\item Can you pick <m>a</m>, <m>b</m>, and <m>c</m>, so that the eigenspace of 2 has dimension 3? If so, give a choice of <m>a</m>, <m>b</m>, and <m>c</m> that does so.
+\item Can you pick <m>a</m>, <m>b</m>, and <m>c</m>, so that the eigenspace of 2 has dimension 2? If so, give a choice of <m>a</m>, <m>b</m>, and <m>c</m> that does so.
+\item Can you pick <m>a</m>, <m>b</m>, and <m>c</m>, so that the eigenspace of 2 has dimension 1? If so, give a choice of <m>a</m>, <m>b</m>, and <m>c</m> that does so.
+\end{enumerate}
+
+\subsection{Diagonalizability}
+\begin{definition}
+A matrix <m>A</m> is \textbf{diagonalizable} if there exists an invertible matrix <m>Q</m> such that <m>A=QDQ^{-1}</m> where <m>D</m> is a diagonal matrix.
+\end{definition}
+\begin{theorem}
+A matrix <m>A \in M_{n \times n}</m> is diagonalizable iff <m>A</m> has <m>n</m> linearly independent eigenvectors. In fact, the matrix <m>Q</m> that will diagonalize <m>A</m> will have the <m>n</m> linearly independent eigenvectors as its columns.
+\end{theorem}
+The question becomes when can we find <m>n</m> linearly independent eigenvectors for a matrix <m>A</m>. It turns out that \textbf{\underline{if you can}} find <m>n</m> linearly independent eigenvectors for <m>A</m>, then the matrix <m>Q</m> has columns given by these eigenvectors and the diagonal matrix will have the eigenvalues on the diagonal. In particular, if the <m>i</m>-th column of <m>Q</m> has eigenvalue <m>\lambda_i</m>, then <m>D_{i,i} = \lambda_i</m>.
+
+<investigation><statement><p> Can you diagonalize <m>A=\begin{bmatrix} -1\amp 2\\-2\amp 4 \end{bmatrix}</m>? If so, give a basis of eigenvectors, give corresponding choices for <m>Q</m>, <m>Q^{-1}</m>, and <m>D</m>, then use these to demonstrate how <m>A=QDQ^{-1}</m>. </p></statement></investigation>
+
+<investigation><statement><p>\label{q14} Can you diagonalize <m>A=\begin{bmatrix} 1\amp -1\\1\amp 1 \end{bmatrix}</m>? If so, give a basis of eigenvectors, give corresponding choices for <m>Q</m>, <m>Q^{-1}</m>, and <m>D</m>, then use these to demonstrate how <m>A=QDQ^{-1}</m>. </p></statement></investigation>
+
+<investigation><statement><p> Prove that if <m>\vec{v_1}</m> is an eigenvector with eigenvalue <m>\lambda_1</m> and <m>\vec{v_2}</m> is an eigenvector with eigenvalue <m>\lambda_2 \neq \lambda_1</m>, then <m>\{ \vec{v_1},\vec{v_2} \}</m> is linearly independent.  </p></statement></investigation>
+
+The following theorem relies on the preceding question and the fact that the dimension of every eigenspace is at least 1.
+\begin{theorem}
+If a <m>n</m> by <m>n</m> matrix <m>A</m> has <m>n</m> distinct eigenvalues, then <m>A</m> is diagonalizable.
+\end{theorem}
+
+<investigation><statement><p> The converse of this theorem is not true in that there diagonalizable matrices that do not have distinct eigenvalues. Give an example of a matrix that is diagonalizable but does not have distinct eigenvalues. Remember that diagonal matrices are diagonalizable. </p></statement></investigation>
+
+\begin{theorem}
+A <m>n</m> by <m>n</m> matrix <m>A</m> is diagonalizable iff the sums of the dimensions of its eigenspaces is <m>n</m>.
+\end{theorem}
+
+<investigation><statement><p> Give an example of a matrix that is not diagonalizable. Justify your claim.
+</p></statement></investigation>
+
+<investigation><statement><p> Let <m>A</m> be a <m>4</m> by <m>4</m> matrix. \begin{enumerate} \item How many eigenvalues can <m>A</m> have?
+\item For each of the possible number of eigenvalues in the previous part, write out all of the possible dimensions of each of the eigenspaces. For instance: if <m>A</m> has 4 distinct eigenvalues, then the only possibility is that each eigenspace has dimension 1 (why is that?).
+\item Which of the cases from the previous problem correspond to <m>A</m> being diagonalizable?
+\end{enumerate}
+</p></statement></investigation>
+\subsection{Eigenvalues and Eigenvectors of Linear Transformations}
+The structure of eigenvalues, eigenvectors, and even diagonalizability can be generalized to linear transformations if we consider a square matrix <m>A</m> as a transformation <m>\vec{x} \rightarrow A\vec{x}</m>.
+
+\begin{definition}
+An \textbf{eigenvector} of a linear transformation <m>T:V \rightarrow V</m> is a nonzero vector <m>\vec{x} \in V</m> such that <m>T(\vec{x})=\lambda \vec{x}</m> for some scalar <m>\lambda</m>. The scalar <m>\lambda</m> is called an \textbf{eigenvalue} of <m>T</m> if there exists a nonzero solution to <m>T(\vec{x}) = \lambda \vec{x}</m>.
+\end{definition}
+
+<investigation><statement><p> Examine each of the following transformations of <m>\mathbb{R}^2</m> \underline{geometrically} and find all eigenvalues and eigenvectors of the transformation. You should not try to construct and use a transformation matrix but rather think about what kinds of vectors will be mapped to a scalar multiple of themselves. Only non-zero vectors that are mapped to a scalar multiple of themselves are eigenvectors.
+\begin{enumerate}
+\item <m>T_1</m> flips points over the horizontal axis.
+\item <m>T_2</m> flips points over the line <m>y=mx</m>.
+\item <m>T_3</m> rotates points by <m>\pi</m> counterclockwise.
+\item <m>T_4</m> rotates points by <m>\frac{\pi}{3}</m> counterclockwise.
+\item <m>T_5</m> shears points horizontally by <m>2</m>. In other words, <m>T_5(\vec{e_1})=\colvec{2}{1}{0}</m> and <m>T_5(\vec{e_2})=\colvec{2}{2}{1}</m>.
+\item <m>T_6</m> projects points onto the vertical axis.
+\end{enumerate}
+</p></statement></investigation>
+
+<investigation><statement><p> What are the eigenvalues and eigenvectors of the transformation <m>T: \mathbb{P} \rightarrow \mathbb{P}</m> given by <m>T(f) =\dfrac{df}{dt}</m>?
+</p></statement></investigation>
+
+<investigation><statement><p>\label{q132} Let <m>T</m> be the transformation of <m>\mathbb{R}^2</m> given by <m>T(\vec{x})=A\vec{x}</m> with <m>A=\begin{bmatrix}0\amp 2\\-2\amp 0 \end{bmatrix} <m>. Describe geometrically what the linear transformation <m>T</m> does.
+</p></statement></investigation>
+
+The next question demonstrates why we need to consider complex eigenvalues and eigenvectors even when the martix entries are real numbers.
+
+<investigation><statement><p>\label{q13} What are the eigenvalues and eigenvectors of <m>A=\begin{bmatrix}0\amp 2\\-2\amp 0 \end{bmatrix} <m>? You need to consider complex numbers for both the eigenvalues and eigenvectors. Be sure to check your eigenvalues and eigenvectors.
+</p></statement></investigation>
+
+For the previous problem, we would technically need to work in a complex numbers to do the algebra, but we don't want to dwell on the algebra of complex vector spaces (which is actually not very different.) Instead, we would like to investigate what is happening geometrically when we have complex eigenvalues for matrices with real number entries.
+
+<investigation><statement><p> What do you think the scalar multiplication by <m>2i</m> is doing in the previous problem? Think about a geometric answer and consider Question \label{q132}.
+</p></statement></investigation>
+
+<investigation><statement><p> Let <m>T</m> be the linear transformation from <m>\mathbb{R}^2</m> to <m>\mathbb{R}^2</m> that rotates around the origin by <m>\frac{\pi}{2}</m> clockwise and then scales vectors by a factor of 2. Find <m>A</m>, the standard matrix for <m>T</m> and determine if <m>A</m> is diagonalizable.
+</p></statement></investigation>
+
+<investigation><statement><p> Let <m>T</m> be the linear transformation from <m>\mathbb{R}^2</m> to <m>\mathbb{R}^2</m> that rotates around the origin by <m>\theta</m> counterclockwise. Find <m>A</m>, the standard matrix for <m>T</m> (in terms of <m>\theta</m>).
+
+Determine for which values of <m>\theta</m> the matrix <m>A</m> will be diagonalizable.
+</p></statement></investigation>-->
+
