@@ -47,6 +47,81 @@ vectors, then every basis of <m>V</m> must have exactly <m>n</m>
 vectors.
     </p>
   </statement>
+  <proof>
+    <p>
+      Assume by way of contradiction that <m>V</m> is a vector space
+      with bases <m>S_0 = \{v_1,v_2,\dots,v_n\}</m> and
+      <m>S'=\{u_1,u_2,\dots,u_m\}</m> with <m>n\lt m</m>. Since
+      <m>u_1\in V</m> and <m>S_0</m> is a basis for <m>V</m>, there
+      are scalars <m>c_i</m> such that <m>\displaystyle u_1 = \sum_{i=1}^n c_i
+      v_i</m>. Since <m>S'</m> is linearly independent, <m>u_1\neq
+      \vec{0}</m> and at least one <m>c_i\neq 0</m>. Without loss of
+      generality, assume that <m>c_1\neq 0</m>. Now let <m>S_1 =
+      \{u_1,v_2,\dots,v_n\}</m>. We claim that <m>S_1</m>
+      is a basis for <m>V</m>. Notice that we can write
+      <me>v_1 = \frac{1}{c_1}u_1 + \sum_{i=2}^n
+      \frac{-c_i}{c_1}v_i.</me>
+      Thus, <m>v_1\in span(S_1)</m> and so any vector in
+      <m>span(S_0)=V</m> can be written to demonstrate that it is also
+      in <m>span(S_1)</m>. To see that <m>S_1</m> is linearly
+      independent, suppose that
+      <me>\vec{0} = d_1 u_1 + d_2v_2 + \cdots + d_nv_n</me>
+      is a nontrivial linear combination of vectors in <m>S_1</m> that
+      sums to the zero vector. Notice that if <m>d_1=0</m>, then we
+      have a nontrivial linear combination of vectors from <m>S_0</m>
+      that sums to the zero vector, which contradicts that <m>S_0</m>
+      is linearly independent. Thus, <m>d_1\neq 0</m>. In this case,
+      substitute <m>u_1 = \sum_{i=1}^n c_i
+      v_i</m> and combine like terms. Since <m>c_1\neq 0\neq d_1</m>,
+      we now have a nontrivial linear combination of vectors from
+      <m>S_0</m> that sums to <m>\vec{0}</m>, which contradicts that
+      <m>S_0</m> is a basis for <m>V</m>.
+
+      We will now show, as with using mathematical induction, that we
+      can continue to move vectors from <m>S'</m> into our basis. To
+      do so, we assume for some <m>i</m> such that <m>1\leq i\lt n</m>
+      that <m>S_i=\{u_1,u_2,\dots,u_i,v_{i+1},\dots,v_n\}</m> is a
+      basis for <m>V</m>. We will show that
+      <m>S_{i+1}=\{u_1,u_2,\dots,u_{i+1},v_{i+2},\dots,v_n\}</m> is
+      also a basis for <m>V</m>. We know that <m>u_{i+1}\in
+      span(S_i)</m>, so there are scalars <m>f_i</m> such that
+      <men xml:id="eqn_u_i_plus_one">u_{i+1}=f_1u_1+f_2u_2+\cdots+f_iu_i+f_{i+1}v_{i+1}+\cdots+f_nv_n</men>. Notice
+      that this requires some <m>f_j</m> with <m>j\gt </m> be nonzero,
+      as otherwise we would have written <m>u_{i+1}</m> as a linear
+      combination of elements of <m>S'</m> (other than
+      <m>u_{i+1}</m>), which would mean that <m>S'</m> is not linearly
+      independent. Without loss of generality, assume that
+      <m>d_{i+1}\neq 0</m>. Notice that equation <xref
+      ref="eqn_u_i_plus_one" /> can be rearranged to show that
+      <m>v_{i+1}\in span(S_{i+1})</m> as we did with <m>v_i</m>
+      earlier, so <m>S_{i+1}</m> spans <m>V</m>. To prove that <m>S_{i+1}</m> is linearly independent,
+      suppose that
+      <me>\vec{0} = a_1u_1 + a_2u_2+\cdots +
+      a_{i+1}u_{i+1}+a_{i+2}v_{i+2}+\cdots a_nv_n</me> is a nontrivial
+      linear combination that sums to the zero vector.
+      Notice that <m>a_{i+1}\neq 0</m> or else we have demonstrated that
+      <m>S_i</m> is linearly dependent. However, we now have
+      <me>u_{i+1} = \frac{-a_1}{a_{i+1}}u_1 +\cdots +
+      \frac{-a_i}{a_{i+1}}u_i + \frac{-a_{i+2}}{a_{i+1}}v_{i+2}+\cdots
+      + \frac{-a_n}{a_{i+1}}v_n</me>. Notice that <m>v_{i+1}</m> is
+      not present in this sum, but otherwise this is a linear
+      combination of elements of <m>S_i</m>. Since <xref
+      ref="eqn_u_i_plus_one" /> has a nonzero coefficient on
+      <m>v_{i+1}</m>, this is a different linear combination summing
+      to <m>u_{i+1}</m>. Thus, <m>S_i</m> is not linearly independent,
+      which is a contradiction.
+    </p>
+    <p>
+      Thus, we can produce a sequence <m>S_0,S_1,S_2,\dots,S_n</m> of
+      bases for <m>V</m>. Notice that <m>S_n=\{u_1,u_2,\dots,u_n\}</m>
+      and that <m>u_m</m> is not in this set as <m>m\gt
+      n</m>. However, since <m>S_n</m> is a basis, we can write
+      <m>u_m</m> as a linear combination of elements of <m>S_n</m>. Thus,
+      there are two ways to write <m>u_m</m> as a linear combination
+      of elements of <m>S'</m>, contradicting that <m>S'</m> is
+      linearly independent.
+    </p>
+  </proof>
 </theorem>
 
 <p>
