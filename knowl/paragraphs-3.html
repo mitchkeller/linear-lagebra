@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<section class="paragraphs"><h3 class="heading"><span class="title">Coordinate vectors relative to a basis.</span></h3>
+<p>Given an ordered basis <span class="process-math">\(\beta =\{ \vec{v}_1, ...,\vec{v}_k \}\)</span> of a vector space <span class="process-math">\(V\text{,}\)</span> the <dfn class="terminology">coordinate vector of <span class="process-math">\(\vec{x}\)</span> relative to <span class="process-math">\(\beta\)</span></dfn>, denoted <span class="process-math">\([\vec{x}]_\beta\text{,}\)</span> is a vector of the coefficients of the unique way to write <span class="process-math">\(\vec{x}\)</span> as a linear combination of <span class="process-math">\(\beta\text{.}\)</span> Namely, if  <span class="process-math">\(\vec{x} = c_1 \vec{v_1}+c_2 \vec{v_2}
++...+c_k \vec{v_k}\text{,}\)</span> then <span class="process-math">\([\vec{x}]_\beta = \colvec{c_1\\ c_2\\
+\vdots\\ c_k}\text{.}\)</span></p>
+<article class="investigation project-like"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.17</span><span class="period">.</span>
+</h4>
+<div class="introduction"><p>For each of the following vectors, compute <span class="process-math">\([\vec{v}]_{\beta}\)</span> where <span class="process-math">\(\beta =\{ \colvec{0\\ 0\\ 1}, \colvec{0\\ 1\\ 1},\colvec{1\\ 1\\ 1} \}\)</span></p></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p><span class="process-math">\(\vec{v}=\colvec{2\\ 2\\ 2}\)</span></p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p><span class="process-math">\(\vec{v}=\colvec{3\\ 0\\ 0}\)</span></p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p><span class="process-math">\(\vec{v}=\colvec{-1\\ -1\\ 0}\)</span></p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p><span class="process-math">\(\vec{v}=\colvec{-2\\ 0\\ 3}\)</span></p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<p><span class="process-math">\(\vec{v}=\colvec{a\\ b\\ c}\)</span></p></article></article><article class="investigation project-like"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.18</span><span class="period">.</span>
+</h4>
+<div class="introduction"><p>In the previous problem, you wrote out the coordinate vectors relative to <span class="process-math">\(\beta =\{ \colvec{0\\ 0\\ 1}, \colvec{0\\ 1\\ 1},\colvec{1\\ 1\\ 1} \}\text{.}\)</span> Note that the first three vectors you used form a basis as well, which we will call <span class="process-math">\(\gamma =\{ \colvec{2\\ 2\\ 2}, \colvec{3\\ 0\\ 0},\colvec{-1\\ -1\\ 0} \}\text{.}\)</span></p></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p>Compute  <span class="process-math">\([\vec{v}]_{\gamma}\)</span> for <span class="process-math">\(v=\colvec{-2\\ 0\\
+3}\text{.}\)</span></p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p>The coordinate vectors of <span class="process-math">\(\gamma\)</span> relative to <span class="process-math">\(\beta\)</span> can be used to make the <dfn class="terminology">change of basis matrix</dfn> from <span class="process-math">\(\beta\)</span> to <span class="process-math">\(\gamma\text{.}\)</span> Specifically, the change of basis matrix from <span class="process-math">\(\beta\)</span> to <span class="process-math">\(\gamma\)</span> is given by <span class="process-math">\([ [\vec{\gamma_1}]_\beta [\vec{\gamma_2}]_\beta [\vec{\gamma_3}]_\beta ] \text{.}\)</span>  Use your work from the previous question, to construct the change of basis matrix from <span class="process-math">\(\beta\)</span> to <span class="process-math">\(\gamma\text{.}\)</span></p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p>Multiplying by this change of basis matrix will convert a coordinate vector relative to <span class="process-math">\(\beta\)</span> to a coordinate vector relative to <span class="process-math">\(\gamma\text{.}\)</span> Verify that if you multiply your change of basis matrix from <span class="process-math">\(\beta\)</span> to <span class="process-math">\(\gamma\)</span> by <span class="process-math">\([\vec{v}]_{\beta}\)</span> you get <span class="process-math">\([\vec{v}]_{\gamma}\)</span> where  <span class="process-math">\(v=\colvec{-2\\ 0\\ 3}\text{.}\)</span></p></article></article><p>The above process of constructing a change of basis matrix works for any two bases of the same vector space (even if the vector space is not <span class="process-math">\(\mathbb{R}^n\)</span>).</p>
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">4.9</span><span class="period">.</span>
+</h4>
+<div class="introduction"><p>For each of the following vectors, compute <span class="process-math">\([\vec{v}]_{\beta}\)</span> where <span class="process-math">\(\beta =\{ 1+t,t+t^2,1+t^2 \}\text{.}\)</span></p></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p><span class="process-math">\(\vec{v}=2+2t\)</span></p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p><span class="process-math">\(\vec{v}=4-t^2+t\)</span></p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p><span class="process-math">\(\vec{v}=3\)</span></p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p><span class="process-math">\(\vec{v}=t\)</span></p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<p><span class="process-math">\(\vec{v}=6t^2\)</span></p></article></article><p>The coordinate vector allows us to state problems in a vector space like <span class="process-math">\(\mathbb{P}_n\)</span> in the same way we state problems in <span class="process-math">\(\mathbb{R}^n\text{.}\)</span></p>
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">4.10</span><span class="period">.</span>
+</h4>
+<div class="introduction">
+<p>For each of the following vectors, compute <span class="process-math">\([\vec{v}]_{\beta}\)</span> where</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\beta =\{ \begin{bmatrix} 1\amp 2\\3\amp 4  \end{bmatrix}, \begin{bmatrix} 1\amp 0\\0\amp 1  \end{bmatrix}, \begin{bmatrix} 0\amp 1\\1\amp 0  \end{bmatrix}, \begin{bmatrix} 1\amp 0\\0\amp 0 \end{bmatrix} \}\text{.}
+\end{equation*}
+</div>
+</div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p><span class="process-math">\(\vec{v}=\begin{bmatrix} 1\amp 1\\1\amp 1
+\end{bmatrix}\)</span></p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p><span class="process-math">\(\vec{v}=\begin{bmatrix} 1\amp 0\\1\amp 1  \end{bmatrix}\)</span></p></article></article></section><span class="incontext"><a href="section-15.html#paragraphs-3" class="internal">in-context</a></span>
+</body>
+</html>
