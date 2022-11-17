@@ -150,11 +150,11 @@ window.MathJax = {
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-16"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.2</span> <span class="title">Invertible Matrices</span>
 </h2>
-<section class="introduction" id="introduction-39"><p id="p-465">In this section, we will only consider square matrices. A matrix <span class="process-math">\(A
+<section class="introduction" id="introduction-39"><p id="p-475">In this section, we will only consider square matrices. A matrix <span class="process-math">\(A
 \in M_{n \times n}\)</span> is <dfn class="terminology">invertible</dfn> if there exists a matrix <span class="process-math">\(B\)</span> such that <span class="process-math">\(AB=Id_n\)</span> and <span class="process-math">\(BA=Id_n\text{.}\)</span> The inverse matrix of <span class="process-math">\(A\)</span> is denoted <span class="process-math">\(A^{-1}\text{.}\)</span> Be careful that you do not use the notation <span class="process-math">\(A^{-1}\)</span> until you have shown that <span class="process-math">\(A\)</span> is invertible.</p></section><section class="subsection" id="subsection-7"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Elementary Matrices</span>
 </h3>
-<p id="p-466">Recall that an elementary row operation on a matrix is an operation of the form:</p>
+<p id="p-476">Recall that an elementary row operation on a matrix is an operation of the form:</p>
 <ul class="disc">
 <li id="li-79"><p id="p-derived-li-79">multiplying a row by a non-zero scalar</p></li>
 <li id="li-80"><p id="p-derived-li-80">switching two rows</p></li>
@@ -164,87 +164,87 @@ window.MathJax = {
 <article class="investigation project-like" id="investigation-127"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.19</span><span class="period">.</span>
 </h4>
-<div class="introduction" id="introduction-40"><p id="p-467">Give the elementary matrix obtained by performing the given operation on <span class="process-math">\(Id_3\text{.}\)</span> (These are 4 separate questions):</p></div>
+<div class="introduction" id="introduction-40"><p id="p-477">Give the elementary matrix obtained by performing the given operation on <span class="process-math">\(Id_3\text{.}\)</span> (These are 4 separate questions):</p></div>
 <article class="task exercise-like" id="task-158"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-468">Scaling the first row by <span class="process-math">\(\alpha\)</span></p></article><article class="task exercise-like" id="task-159"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<p id="p-469">Switching the second and third rows</p></article><article class="task exercise-like" id="task-160"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<p id="p-470">Adding 3 times the 2nd row to the 1st row</p></article><article class="task exercise-like" id="task-161"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<p id="p-471">Adding 3 times the 1st row to the 2nd row</p></article></article><article class="investigation project-like" id="investigation-128"><h4 class="heading">
+<p id="p-478">Scaling the first row by <span class="process-math">\(\alpha\)</span></p></article><article class="task exercise-like" id="task-159"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-479">Switching the second and third rows</p></article><article class="task exercise-like" id="task-160"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-480">Adding 3 times the 2nd row to the 1st row</p></article><article class="task exercise-like" id="task-161"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p id="p-481">Adding 3 times the 1st row to the 2nd row</p></article></article><article class="investigation project-like" id="investigation-128"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.20</span><span class="period">.</span>
 </h4>
-<p id="p-472">Check that your answer to the previous question does the desired operation by multiplying each of the four previous elementary matrices by <span class="process-math">\(\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}\text{.}\)</span> Which side do you multiply the elementary matrix on to correspond to row operations?</p></article><article class="investigation project-like" id="investigation-129"><h4 class="heading">
+<p id="p-482">Check that your answer to the previous question does the desired operation by multiplying each of the four previous elementary matrices by <span class="process-math">\(\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}\text{.}\)</span> Which side do you multiply the elementary matrix on to correspond to row operations?</p></article><article class="investigation project-like" id="investigation-129"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.21</span><span class="period">.</span>
 </h4>
-<p id="p-473">Compute (and verify) the inverse of each of the elementary matrices from the previous problems.</p>
+<p id="p-483">Compute (and verify) the inverse of each of the elementary matrices from the previous problems.</p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-8" id="hint-8"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-8"><div class="hint solution-like"><p id="p-474">Think about how you would go backwards for each of the elementary operations.</p></div></div>
-</div></article><p id="p-475">Your work on the previous questions should convince you that elementary matrices are invertible and that multiplying by an elementary matrix produces the same result as having performed the corresponding elementary row operation. Elementary matrices offer a way of keeping track of elementary operations. We will not write our a proof of the following theorem at this time, but we state it for future uses:</p>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-8" id="hint-8"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-8"><div class="hint solution-like"><p id="p-484">Think about how you would go backwards for each of the elementary operations.</p></div></div>
+</div></article><p id="p-485">Your work on the previous questions should convince you that elementary matrices are invertible and that multiplying by an elementary matrix produces the same result as having performed the corresponding elementary row operation. Elementary matrices offer a way of keeping track of elementary operations. We will not write our a proof of the following theorem at this time, but we state it for future uses:</p>
 <article class="theorem theorem-like" id="theorem-32"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.11</span><span class="period">.</span>
 </h4>
-<p id="p-476">Elementary matrices are invertible and the inverse matrix is an elementary matrix corresponding to the inverse elementary operation.</p></article><p id="p-477">You shoud, however, at this time prove the theorems below.</p>
+<p id="p-486">Elementary matrices are invertible and the inverse matrix is an elementary matrix corresponding to the inverse elementary operation.</p></article><p id="p-487">You shoud, however, at this time prove the theorems below.</p>
 <article class="theorem theorem-like" id="theorem-33"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.12</span><span class="period">.</span>
 </h4>
-<p id="p-478">If <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are invertible <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrices, then <span class="process-math">\((AB)^{-1} =B^{-1}A^{-1}\)</span> and <span class="process-math">\(AB\)</span> is an invertible <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrix.</p></article><article class="theorem theorem-like" id="q11"><h4 class="heading">
+<p id="p-488">If <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are invertible <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrices, then <span class="process-math">\((AB)^{-1} =B^{-1}A^{-1}\)</span> and <span class="process-math">\(AB\)</span> is an invertible <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrix.</p></article><article class="theorem theorem-like" id="q11"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.13</span><span class="period">.</span>
 </h4>
-<p id="p-479">If <span class="process-math">\(A\)</span> can be reduced to <span class="process-math">\(Id_n\)</span> by elementary row operations, then <span class="process-math">\(A\)</span> is invertible.</p></article><article class="investigation project-like" id="investigation-130"><h4 class="heading">
+<p id="p-489">If <span class="process-math">\(A\)</span> can be reduced to <span class="process-math">\(Id_n\)</span> by elementary row operations, then <span class="process-math">\(A\)</span> is invertible.</p></article><article class="investigation project-like" id="investigation-130"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.22</span><span class="period">.</span>
 </h4>
-<p id="p-480">Give all values of <span class="process-math">\(k\)</span> where <span class="process-math">\(A=\begin{bmatrix} 1\amp 0\amp 2\\-1\amp k\amp 4\\3\amp 5\amp 1 \end{bmatrix}\)</span> will be invertible.</p></article><article class="investigation project-like" id="investigation-131"><h4 class="heading">
+<p id="p-490">Give all values of <span class="process-math">\(k\)</span> where <span class="process-math">\(A=\begin{bmatrix} 1\amp 0\amp 2\\-1\amp k\amp 4\\3\amp 5\amp 1 \end{bmatrix}\)</span> will be invertible.</p></article><article class="investigation project-like" id="investigation-131"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.23</span><span class="period">.</span>
 </h4>
-<p id="p-481">Give all values of <span class="process-math">\(k\)</span> where <span class="process-math">\(A=\begin{bmatrix} 1\amp 0\amp 2\\-1\amp k\amp 4\\3\amp -1\amp 1 \end{bmatrix}\)</span> will be invertible.</p></article><article class="investigation project-like" id="investigation-132"><h4 class="heading">
+<p id="p-491">Give all values of <span class="process-math">\(k\)</span> where <span class="process-math">\(A=\begin{bmatrix} 1\amp 0\amp 2\\-1\amp k\amp 4\\3\amp -1\amp 1 \end{bmatrix}\)</span> will be invertible.</p></article><article class="investigation project-like" id="investigation-132"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.24</span><span class="period">.</span>
 </h4>
-<p id="p-482">How many pivots must a matrix <span class="process-math">\(A\)</span> have in order to be row reducible to <span class="process-math">\(Id_n\text{?}\)</span> Justify using previous results.</p></article><article class="theorem theorem-like" id="theorem-35"><h4 class="heading">
+<p id="p-492">How many pivots must a matrix <span class="process-math">\(A\)</span> have in order to be row reducible to <span class="process-math">\(Id_n\text{?}\)</span> Justify using previous results.</p></article><article class="theorem theorem-like" id="theorem-35"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.14</span><span class="period">.</span>
 </h4>
-<p id="p-483">If <span class="process-math">\(A\)</span> is invertible, then <span class="process-math">\(A\vec{x}
+<p id="p-493">If <span class="process-math">\(A\)</span> is invertible, then <span class="process-math">\(A\vec{x}
 =\vec{b}\)</span> has a unique solution for every <span class="process-math">\(\vec{b} \in
 \mathbb{R}^n\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-133"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.25</span><span class="period">.</span>
 </h4>
-<p id="p-484">Prove or disprove: If <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are invertible <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrices, then <span class="process-math">\(A+B\)</span> is invertible.</p></article><article class="investigation project-like" id="investigation-134"><h4 class="heading">
+<p id="p-494">Prove or disprove: If <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are invertible <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrices, then <span class="process-math">\(A+B\)</span> is invertible.</p></article><article class="investigation project-like" id="investigation-134"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.26</span><span class="period">.</span>
 </h4>
-<p id="p-485">Prove that if <span class="process-math">\(A\)</span> is invertible, then <span class="process-math">\(A^T\)</span> is invertible.</p></article></section><section class="subsection" id="subsection-8"><h3 class="heading hide-type">
+<p id="p-495">Prove that if <span class="process-math">\(A\)</span> is invertible, then <span class="process-math">\(A^T\)</span> is invertible.</p></article></section><section class="subsection" id="subsection-8"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Computing Inverses</span>
 </h3>
-<p id="p-486">In general computing the inverse of a matrix takes more time and operations than solving a system of equations. For this reason, it is generally easier to find and solve a related system of equations problem than to compute the inverse matrix. We will outline a few ways to find inverse matrices and compute a few small examples.</p>
+<p id="p-496">In general computing the inverse of a matrix takes more time and operations than solving a system of equations. For this reason, it is generally easier to find and solve a related system of equations problem than to compute the inverse matrix. We will outline a few ways to find inverse matrices and compute a few small examples.</p>
 <article class="investigation project-like" id="investigation-135"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.27</span><span class="period">.</span>
 </h4>
-<p id="p-487">If a matrix <span class="process-math">\(A\)</span> is row reduced to <span class="process-math">\(Id_n\)</span> by elementary row operations corresponding (in order of use) to elementary matrices <span class="process-math">\(E_1\text{,}\)</span> <span class="process-math">\(E_2\text{,}\)</span> ... , <span class="process-math">\(E_k\text{,}\)</span> give an expression for <span class="process-math">\(A^{-1}\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-136"><h4 class="heading">
+<p id="p-497">If a matrix <span class="process-math">\(A\)</span> is row reduced to <span class="process-math">\(Id_n\)</span> by elementary row operations corresponding (in order of use) to elementary matrices <span class="process-math">\(E_1\text{,}\)</span> <span class="process-math">\(E_2\text{,}\)</span> ... , <span class="process-math">\(E_k\text{,}\)</span> give an expression for <span class="process-math">\(A^{-1}\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-136"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.28</span><span class="period">.</span>
 </h4>
-<p id="p-488">Use your answer to the previous question to prove the following: Any sequence of elementary row operations that reduces <span class="process-math">\(A\)</span> to <span class="process-math">\(Id_n\)</span> also transforms <span class="process-math">\(Id_n\)</span> into <span class="process-math">\(A^{-1}\text{.}\)</span></p></article><p id="p-489">The previous result shows that computing inverses is equivalent to a row reduction problem. In particular, if <span class="process-math">\(A\)</span> is invertible, then reducing <span class="process-math">\([ A \quad | \quad Id_n]\)</span> to reduced row echelon form will produce the matrix <span class="process-math">\([ Id_n \quad | \quad A^{-1}]\text{.}\)</span></p>
+<p id="p-498">Use your answer to the previous question to prove the following: Any sequence of elementary row operations that reduces <span class="process-math">\(A\)</span> to <span class="process-math">\(Id_n\)</span> also transforms <span class="process-math">\(Id_n\)</span> into <span class="process-math">\(A^{-1}\text{.}\)</span></p></article><p id="p-499">The previous result shows that computing inverses is equivalent to a row reduction problem. In particular, if <span class="process-math">\(A\)</span> is invertible, then reducing <span class="process-math">\([ A \quad | \quad Id_n]\)</span> to reduced row echelon form will produce the matrix <span class="process-math">\([ Id_n \quad | \quad A^{-1}]\text{.}\)</span></p>
 <article class="investigation project-like" id="22inv"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.29</span><span class="period">.</span>
 </h4>
-<p id="p-490">Use the idea above to compute the inverse of <span class="process-math">\(\begin{bmatrix} a\amp b\\c\amp d \end{bmatrix}\text{.}\)</span> Be sure to note any assumptions you will need to make in order to reduce <span class="process-math">\([ A \quad | \quad Id_n]\)</span> to <span class="process-math">\([ Id_n \quad | \quad A^{-1}]\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-18"><h4 class="heading">
+<p id="p-500">Use the idea above to compute the inverse of <span class="process-math">\(\begin{bmatrix} a\amp b\\c\amp d \end{bmatrix}\text{.}\)</span> Be sure to note any assumptions you will need to make in order to reduce <span class="process-math">\([ A \quad | \quad Id_n]\)</span> to <span class="process-math">\([ Id_n \quad | \quad A^{-1}]\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-18"><h4 class="heading">
 <span class="type">Exercise</span><span class="space"> </span><span class="codenumber">4.15</span><span class="period">.</span>
 </h4>
-<p id="p-491">If <span class="process-math">\(A=\begin{bmatrix}1\amp  0\amp  1 \\0\amp 2\amp -1 \\ 0\amp 6\amp -1\end{bmatrix}\text{,}\)</span> find <span class="process-math">\(A^{-1}\)</span> and check that <span class="process-math">\(A A^{-1}=Id_3\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-19"><h4 class="heading">
+<p id="p-501">If <span class="process-math">\(A=\begin{bmatrix}1\amp  0\amp  1 \\0\amp 2\amp -1 \\ 0\amp 6\amp -1\end{bmatrix}\text{,}\)</span> find <span class="process-math">\(A^{-1}\)</span> and check that <span class="process-math">\(A A^{-1}=Id_3\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-19"><h4 class="heading">
 <span class="type">Exercise</span><span class="space"> </span><span class="codenumber">4.16</span><span class="period">.</span>
 </h4>
-<div class="introduction" id="introduction-41"><p id="p-492">If <span class="process-math">\(A=\begin{bmatrix} 0\amp -1\\3\amp 4 \end{bmatrix}\text{,}\)</span> find <span class="process-math">\(A^{-1}\)</span> and use your answer to solve <span class="process-math">\(A\vec{x} = \vec{b}\)</span> if:</p></div>
+<div class="introduction" id="introduction-41"><p id="p-502">If <span class="process-math">\(A=\begin{bmatrix} 0\amp -1\\3\amp 4 \end{bmatrix}\text{,}\)</span> find <span class="process-math">\(A^{-1}\)</span> and use your answer to solve <span class="process-math">\(A\vec{x} = \vec{b}\)</span> if:</p></div>
 <article class="task exercise-like" id="task-162"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-493"><span class="process-math">\(\vec{b} =\colvec{3\\ 1}\)</span></p></article><article class="task exercise-like" id="task-163"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<p id="p-494"><span class="process-math">\(\vec{b} =\colvec{-1\\ -2}\)</span></p></article><article class="task exercise-like" id="task-164"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<p id="p-495"><span class="process-math">\(\vec{b} =\colvec{0\\ 5}\)</span></p></article><article class="task exercise-like" id="task-165"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<p id="p-496"><span class="process-math">\(\vec{b} =\colvec{\alpha\\ \beta}\)</span></p></article></article></section><section class="subsection" id="subsection-9"><h3 class="heading hide-type">
+<p id="p-503"><span class="process-math">\(\vec{b} =\colvec{3\\ 1}\)</span></p></article><article class="task exercise-like" id="task-163"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-504"><span class="process-math">\(\vec{b} =\colvec{-1\\ -2}\)</span></p></article><article class="task exercise-like" id="task-164"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-505"><span class="process-math">\(\vec{b} =\colvec{0\\ 5}\)</span></p></article><article class="task exercise-like" id="task-165"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p id="p-506"><span class="process-math">\(\vec{b} =\colvec{\alpha\\ \beta}\)</span></p></article></article></section><section class="subsection" id="subsection-9"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Invertible Matrix Theorem</span>
 </h3>
 <article class="investigation project-like" id="investigation-138"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.30</span><span class="period">.</span>
 </h4>
-<p id="p-497">In many texts there is a long list of equivalent conditions for when a square matrix is invertible. Below is a list of some of these conditions that we have talked about or proven. Go back through your notes and questions and cite when we connected two of the ideas in the list. For instance, parts <span class="process-math">\(a)\)</span> and <span class="process-math">\(b)\)</span> are linked by <a href="" class="xref" data-knowl="./knowl/q11.html" title="Theorem 4.13">Theorem 4.13</a></p></article><p id="p-498">Before stating this major theorem, we should explain what the phrase “the following are equivalent” (sometimes written “TFAE” in scratchwork or on the board) means. A theorem of this type is essentially a giant if and only if theorem. Specifically, each statement in the theorem is true or each statement in the theorem is false. It is not possible for some to be true and some to be false. In a theorem with, say, three statements, we often prove that statement 1 implies statement 2, statement 2 implies statement 3, and statement three implies statement 1. Then you can start at any statement and reach any other statement, showing that if one is true, all the others must be true. However, with longer lists, we sometimes have to prove things a bit more piecemeal.</p>
+<p id="p-507">In many texts there is a long list of equivalent conditions for when a square matrix is invertible. Below is a list of some of these conditions that we have talked about or proven. Go back through your notes and questions and cite when we connected two of the ideas in the list. For instance, parts <span class="process-math">\(a)\)</span> and <span class="process-math">\(b)\)</span> are linked by <a href="" class="xref" data-knowl="./knowl/q11.html" title="Theorem 4.13">Theorem 4.13</a></p></article><p id="p-508">Before stating this major theorem, we should explain what the phrase “the following are equivalent” (sometimes written “TFAE” in scratchwork or on the board) means. A theorem of this type is essentially a giant if and only if theorem. Specifically, each statement in the theorem is true or each statement in the theorem is false. It is not possible for some to be true and some to be false. In a theorem with, say, three statements, we often prove that statement 1 implies statement 2, statement 2 implies statement 3, and statement three implies statement 1. Then you can start at any statement and reach any other statement, showing that if one is true, all the others must be true. However, with longer lists, we sometimes have to prove things a bit more piecemeal.</p>
 <article class="theorem theorem-like" id="imt"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.17</span><span class="period">.</span><span class="space"> </span><span class="title">The Invertible Matrix Theorem.</span>
 </h4>
-<p id="p-499">Let <span class="process-math">\(A\)</span> be a <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrix. The following are equivalent:</p>
+<p id="p-509">Let <span class="process-math">\(A\)</span> be a <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrix. The following are equivalent:</p>
 <ol class="lower-alpha">
 <li id="li-82"><p id="p-derived-li-82"><span class="process-math">\(A\)</span> is an invertible matrix.</p></li>
 <li id="li-83"><p id="p-derived-li-83"><span class="process-math">\(A\)</span> is row equivalent to <span class="process-math">\(Id_n\text{.}\)</span></p></li>
@@ -262,7 +262,7 @@ window.MathJax = {
 </ol></article><article class="investigation project-like" id="investigation-139"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.31</span><span class="period">.</span>
 </h4>
-<p id="p-500">Two important ideas in this course that have been tied to many different methods or ideas are 1) consistent systems of linear equations and 2) invertible matrices. These two ideas are a bit different though. Give an example of a consistent system of linear equations (in matrix equation form <span class="process-math">\(A\vec{x} = \vec{b}\)</span>) where the coefficient matrix <span class="process-math">\(A\)</span> is a non-invertible square matrix.</p></article></section></section></div></main>
+<p id="p-510">Two important ideas in this course that have been tied to many different methods or ideas are 1) consistent systems of linear equations and 2) invertible matrices. These two ideas are a bit different though. Give an example of a consistent system of linear equations (in matrix equation form <span class="process-math">\(A\vec{x} = \vec{b}\)</span>) where the coefficient matrix <span class="process-math">\(A\)</span> is a non-invertible square matrix.</p></article></section></section></div></main>
 </div>
 </body>
 </html>

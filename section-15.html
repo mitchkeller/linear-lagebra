@@ -189,7 +189,7 @@ span(S_i)\text{,}\)</span> so there are scalars <span class="process-math">\(f_i
 u_{i+1}=f_1u_1+f_2u_2+\cdots+f_iu_i+f_{i+1}v_{i+1}+\cdots+f_nv_n\text{.}\tag{4.1}
 \end{equation}
 </div>
-<p class="continuation">Notice that this requires some <span class="process-math">\(f_j\)</span> with <span class="process-math">\(j\gt i\)</span> be nonzero, as otherwise we would have written <span class="process-math">\(u_{i+1}\)</span> as a linear combination of elements of <span class="process-math">\(S'\)</span> (other than <span class="process-math">\(u_{i+1}\)</span>), which would mean that <span class="process-math">\(S'\)</span> is not linearly independent. Without loss of generality, assume that <span class="process-math">\(d_{i+1}\neq 0\text{.}\)</span> Notice that equation <a href="" class="xref" data-knowl="./knowl/eqn_u_i_plus_one.html" title="Equation 4.1">(4.1)</a> can be rearranged to show that <span class="process-math">\(v_{i+1}\in span(S_{i+1})\)</span> as we did with <span class="process-math">\(v_i\)</span> earlier, so <span class="process-math">\(S_{i+1}\)</span> spans <span class="process-math">\(V\text{.}\)</span> To prove that <span class="process-math">\(S_{i+1}\)</span> is linearly independent, suppose that</p>
+<p class="continuation">Notice that this requires some <span class="process-math">\(f_j\)</span> with <span class="process-math">\(j\gt i\)</span> be nonzero, as otherwise we would have written <span class="process-math">\(u_{i+1}\)</span> as a linear combination of elements of <span class="process-math">\(S'\)</span> (other than <span class="process-math">\(u_{i+1}\)</span>), which would mean that <span class="process-math">\(S'\)</span> is not linearly independent. Without loss of generality, assume that <span class="process-math">\(f_{i+1}\neq 0\text{.}\)</span> Notice that equation <a href="" class="xref" data-knowl="./knowl/eqn_u_i_plus_one.html" title="Equation 4.1">(4.1)</a> can be rearranged to show that <span class="process-math">\(v_{i+1}\in span(S_{i+1})\)</span> as we did with <span class="process-math">\(v_1\)</span> earlier, so <span class="process-math">\(S_{i+1}\)</span> spans <span class="process-math">\(V\text{.}\)</span> To prove that <span class="process-math">\(S_{i+1}\)</span> is linearly independent, suppose that</p>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eqn_u_i_plus_one.html ./knowl/eqn_u_i_plus_one.html">
 \begin{equation*}
 \vec{0} = a_1u_1 + a_2u_2+\cdots +
@@ -265,23 +265,48 @@ n\text{.}\)</span> However, since <span class="process-math">\(S_n\)</span> is a
 <article class="task exercise-like" id="task-136"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <p id="p-430">Find <span class="process-math">\(rank(T)\)</span> and <span class="process-math">\(nullity(T)\)</span> where <span class="process-math">\(T(\vec{x}) =A \vec{x}\text{.}\)</span></p></article><article class="task exercise-like" id="task-137"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <p id="p-431">Find a basis for <span class="process-math">\(Null(T)\text{.}\)</span></p></article><article class="task exercise-like" id="task-138"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<p id="p-432">Find a basis for <span class="process-math">\(range(T)\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="exercise-14"><h4 class="heading">
+<p id="p-432">Find a basis for <span class="process-math">\(\mathrm{im}(T)\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="exercise-14"><h4 class="heading">
 <span class="type">Exercise</span><span class="space"> </span><span class="codenumber">4.6</span><span class="period">.</span>
 </h4>
 <div class="introduction" id="introduction-34"><p id="p-433">Let <span class="process-math">\(T\)</span> from <span class="process-math">\(\mathbb{R}^2\)</span> to <span class="process-math">\(\mathbb{P}_2\)</span> be given by <span class="process-math">\(T \left( \colvec{a\\ b}
 \right) = a +(a+b)t+(a-b)t^2\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-139"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-434"><span class="process-math">\(rank(T)=\)</span></p></article><article class="task exercise-like" id="task-140"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<p id="p-435"><span class="process-math">\(nullity(T)=\)</span></p></article><article class="task exercise-like" id="task-141"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<p id="p-436">Find a basis for <span class="process-math">\(Null(T)\text{.}\)</span></p></article><article class="task exercise-like" id="task-142"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<p id="p-437">Find a basis for <span class="process-math">\(\mathrm{im}(T)\text{.}\)</span></p></article></article><article class="investigation project-like" id="investigation-123"><h4 class="heading">
+<p id="p-434"><span class="process-math">\(rank(T)=\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-7" id="solution-7"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-7"><div class="solution solution-like">
+<p id="p-435">We already worked out what the image of <span class="process-math">\(T\)</span> was in an earlier problem and found that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\mathrm{im}(T) = \{\frac{\beta+\gamma}{2} + \beta t + \gamma
+t^2\colon \beta,\gamma\in\mathbb{R}\}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Notice that we can rewrite the polynomials in the image to have the form <span class="process-math">\(\beta +
+\gamma + 2\beta t + 2\beta t^2\text{,}\)</span> and grouping based on the scalar, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\beta(1+2t) + \gamma(1+2t^2)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Thus, every vector in the image is a linear combination of <span class="process-math">\(1+2t\)</span> and <span class="process-math">\(1+2t^2\text{.}\)</span> I will leave it to you to verify that these vectors are linearly independent, but this shows that the rank of <span class="process-math">\(T\)</span> is 2. (Since we have found a basis, this also answers the last part of this question.</p>
+</div></div>
+</div></article><article class="task exercise-like" id="task-140"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-436"><span class="process-math">\(nullity(T)=\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-8" id="solution-8"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-8"><div class="solution solution-like"><p id="p-437">Notice that to be sent to the zero polynomial, a vector in the domain must have <span class="process-math">\(a=0\)</span> to get the constant term to be zero. But then this forces <span class="process-math">\(b=0\text{.}\)</span> Thus, <span class="process-math">\(nullity(T)=0\)</span> as the null space is the trivial vector space.</p></div></div>
+</div></article><article class="task exercise-like" id="task-141"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-438">Find a basis for <span class="process-math">\(Null(T)\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-9" id="solution-9"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-9"><div class="solution solution-like"><p id="p-439">Since the null space is trivial, the basis is the empty set.</p></div></div>
+</div></article><article class="task exercise-like" id="task-142"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p id="p-440">Find a basis for <span class="process-math">\(\mathrm{im}(T)\text{.}\)</span></p></article></article><article class="investigation project-like" id="investigation-123"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.15</span><span class="period">.</span>
 </h4>
-<p id="p-438">Let <span class="process-math">\(T:\mathbb{P}_3 \rightarrow
+<p id="p-441">Let <span class="process-math">\(T:\mathbb{P}_3 \rightarrow
 \mathbb{R}^2\)</span> be given by <span class="process-math">\(T(f)=\colvec{f(0)\\ f(1)}\text{.}\)</span> Compute <span class="process-math">\(rank(T)\)</span> and <span class="process-math">\(nullity(T)\text{.}\)</span></p></article><article class="theorem theorem-like" id="thm_dimension"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.7</span><span class="period">.</span><span class="space"> </span><span class="title">Dimension Theorem.</span>
 </h4>
-<p id="p-439">Let <span class="process-math">\(T\)</span> be a linear transformation from <span class="process-math">\(V\)</span> to <span class="process-math">\(W\)</span> with <span class="process-math">\(V\)</span> a <span class="process-math">\(n\)</span>-dimensional vector space. <span class="process-math">\(rank(T) + nullity(T)=n\text{.}\)</span></p></article><p id="p-440">If <span class="process-math">\(T\)</span> is a matrix transformation (<span class="process-math">\(T(\vec{x})=A\vec{x}\)</span>), then</p>
+<p id="p-442">Let <span class="process-math">\(T\)</span> be a linear transformation from <span class="process-math">\(V\)</span> to <span class="process-math">\(W\)</span> with <span class="process-math">\(V\)</span> a <span class="process-math">\(n\)</span>-dimensional vector space. <span class="process-math">\(rank(T) + nullity(T)=n\text{.}\)</span></p></article><p id="p-443">If <span class="process-math">\(T\)</span> is a matrix transformation (<span class="process-math">\(T(\vec{x})=A\vec{x}\)</span>), then</p>
 <div class="displaymath process-math" data-contains-math-knowls="" id="md-22">
 \begin{align*}
 rank(T)\amp=
@@ -295,46 +320,61 @@ nullity\amp (T)=nullity(A)=dim(Null(A))\text{.}
 <article class="investigation project-like" id="investigation-124"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.16</span><span class="period">.</span>
 </h4>
-<p id="p-441">Using previous work, prove the <a href="" class="xref" data-knowl="./knowl/thm_dimension.html" title="Theorem 4.7: Dimension Theorem">Dimension Theorem</a> for <span class="process-math">\(T: \mathbb{R}^n \rightarrow \mathbb{R}^m\)</span> given by <span class="process-math">\(T(\vec{x})=A\vec{x}\text{,}\)</span> where <span class="process-math">\(A\)</span> is a <span class="process-math">\(m\)</span> by <span class="process-math">\(n\)</span> matrix.</p></article><article class="exercise exercise-like" id="exercise-15"><h4 class="heading">
+<p id="p-444">Using previous work, prove the <a href="" class="xref" data-knowl="./knowl/thm_dimension.html" title="Theorem 4.7: Dimension Theorem">Dimension Theorem</a> for <span class="process-math">\(T: \mathbb{R}^n \rightarrow \mathbb{R}^m\)</span> given by <span class="process-math">\(T(\vec{x})=A\vec{x}\text{,}\)</span> where <span class="process-math">\(A\)</span> is a <span class="process-math">\(m\)</span> by <span class="process-math">\(n\)</span> matrix.</p></article><article class="exercise exercise-like" id="exercise-15"><h4 class="heading">
 <span class="type">Exercise</span><span class="space"> </span><span class="codenumber">4.8</span><span class="period">.</span>
 </h4>
-<p id="p-442">List out all possible echelon forms of 3 by 3 matrices using the symbols <span class="process-math">\(\blacksquare\)</span> for pivot, <span class="process-math">\(*\)</span> for non-pivot entry (possibly <span class="process-math">\(0\)</span>), and <span class="process-math">\(0\)</span> if an entry <em class="emphasis">must</em> be <span class="process-math">\(0\text{.}\)</span> For each form, give the rank of the matrix and the dimension of the null space.</p></article></section><section class="paragraphs" id="paragraphs-3"><h3 class="heading"><span class="title">Coordinate vectors relative to a basis.</span></h3>
-<p id="p-443">Given an ordered basis <span class="process-math">\(\beta =\{ \vec{v}_1, ...,\vec{v}_k \}\)</span> of a vector space <span class="process-math">\(V\text{,}\)</span> the <dfn class="terminology">coordinate vector of <span class="process-math">\(\vec{x}\)</span> relative to <span class="process-math">\(\beta\)</span></dfn>, denoted <span class="process-math">\([\vec{x}]_\beta\text{,}\)</span> is a vector of the coefficients of the unique way to write <span class="process-math">\(\vec{x}\)</span> as a linear combination of <span class="process-math">\(\beta\text{.}\)</span> Namely, if  <span class="process-math">\(\vec{x} = c_1 \vec{v_1}+c_2 \vec{v_2}
+<p id="p-445">List out all possible echelon forms of 3 by 3 matrices using the symbols <span class="process-math">\(\blacksquare\)</span> for pivot, <span class="process-math">\(*\)</span> for non-pivot entry (possibly <span class="process-math">\(0\)</span>), and <span class="process-math">\(0\)</span> if an entry <em class="emphasis">must</em> be <span class="process-math">\(0\text{.}\)</span> For each form, give the rank of the matrix and the dimension of the null space.</p></article></section><section class="paragraphs" id="paragraphs-3"><h3 class="heading"><span class="title">Coordinate vectors relative to a basis.</span></h3>
+<p id="p-446">Given an ordered basis <span class="process-math">\(\beta =\{ \vec{v}_1, ...,\vec{v}_k \}\)</span> of a vector space <span class="process-math">\(V\text{,}\)</span> the <dfn class="terminology">coordinate vector of <span class="process-math">\(\vec{x}\)</span> relative to <span class="process-math">\(\beta\)</span></dfn>, denoted <span class="process-math">\([\vec{x}]_\beta\text{,}\)</span> is a vector of the coefficients of the unique way to write <span class="process-math">\(\vec{x}\)</span> as a linear combination of <span class="process-math">\(\beta\text{.}\)</span> Namely, if  <span class="process-math">\(\vec{x} = c_1 \vec{v_1}+c_2 \vec{v_2}
 +...+c_k \vec{v_k}\text{,}\)</span> then <span class="process-math">\([\vec{x}]_\beta = \colvec{c_1\\ c_2\\
 \vdots\\ c_k}\text{.}\)</span></p>
 <article class="investigation project-like" id="investigation-125"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.17</span><span class="period">.</span>
 </h4>
-<div class="introduction" id="introduction-35"><p id="p-444">For each of the following vectors, compute <span class="process-math">\([\vec{v}]_{\beta}\)</span> where <span class="process-math">\(\beta =\{ \colvec{0\\ 0\\ 1}, \colvec{0\\ 1\\ 1},\colvec{1\\ 1\\ 1} \}\)</span></p></div>
+<div class="introduction" id="introduction-35"><p id="p-447">For each of the following vectors, compute <span class="process-math">\([\vec{v}]_{\beta}\)</span> where <span class="process-math">\(\beta =\{ \colvec{0\\ 0\\ 1}, \colvec{0\\ 1\\ 1},\colvec{1\\ 1\\ 1} \}\)</span></p></div>
 <article class="task exercise-like" id="task-143"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-445"><span class="process-math">\(\vec{v}=\colvec{2\\ 2\\ 2}\)</span></p></article><article class="task exercise-like" id="task-144"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<p id="p-446"><span class="process-math">\(\vec{v}=\colvec{3\\ 0\\ 0}\)</span></p></article><article class="task exercise-like" id="task-145"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<p id="p-447"><span class="process-math">\(\vec{v}=\colvec{-1\\ -1\\ 0}\)</span></p></article><article class="task exercise-like" id="task-146"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<p id="p-448"><span class="process-math">\(\vec{v}=\colvec{-2\\ 0\\ 3}\)</span></p></article><article class="task exercise-like" id="task-147"><h5 class="heading"><span class="codenumber">(e)</span></h5>
-<p id="p-449"><span class="process-math">\(\vec{v}=\colvec{a\\ b\\ c}\)</span></p></article></article><article class="investigation project-like" id="investigation-126"><h4 class="heading">
+<p id="p-448"><span class="process-math">\(\vec{v}=\colvec{2\\ 2\\ 2}\)</span></p></article><article class="task exercise-like" id="task-144"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-449"><span class="process-math">\(\vec{v}=\colvec{3\\ 0\\ 0}\)</span></p></article><article class="task exercise-like" id="task-145"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-450"><span class="process-math">\(\vec{v}=\colvec{-1\\ -1\\ 0}\)</span></p></article><article class="task exercise-like" id="task-146"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p id="p-451"><span class="process-math">\(\vec{v}=\colvec{-2\\ 0\\ 3}\)</span></p></article><article class="task exercise-like" id="task-147"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<p id="p-452"><span class="process-math">\(\vec{v}=\colvec{a\\ b\\ c}\)</span></p></article></article><article class="investigation project-like" id="investigation-126"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.18</span><span class="period">.</span>
 </h4>
-<div class="introduction" id="introduction-36"><p id="p-450">In the previous problem, you wrote out the coordinate vectors relative to <span class="process-math">\(\beta =\{ \colvec{0\\ 0\\ 1}, \colvec{0\\ 1\\ 1},\colvec{1\\ 1\\ 1} \}\text{.}\)</span> Note that the first three vectors you used form a basis as well, which we will call <span class="process-math">\(\gamma =\{ \colvec{2\\ 2\\ 2}, \colvec{3\\ 0\\ 0},\colvec{-1\\ -1\\ 0} \}\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-36"><p id="p-453">In the previous problem, you wrote out the coordinate vectors relative to <span class="process-math">\(\beta =\{ \colvec{0\\ 0\\ 1}, \colvec{0\\ 1\\ 1},\colvec{1\\ 1\\ 1} \}\text{.}\)</span> Note that the first three vectors you used form a basis as well, which we will call <span class="process-math">\(\gamma =\{ \colvec{2\\ 2\\ 2}, \colvec{3\\ 0\\ 0},\colvec{-1\\ -1\\ 0} \}\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-148"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-451">Compute  <span class="process-math">\([\vec{v}]_{\gamma}\)</span> for <span class="process-math">\(v=\colvec{-2\\ 0\\
+<p id="p-454">Compute  <span class="process-math">\([\vec{v}]_{\gamma}\)</span> for <span class="process-math">\(v=\colvec{-2\\ 0\\
 3}\text{.}\)</span></p></article><article class="task exercise-like" id="task-149"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<p id="p-452">The coordinate vectors of <span class="process-math">\(\gamma\)</span> relative to <span class="process-math">\(\beta\)</span> can be used to make the <dfn class="terminology">change of basis matrix</dfn> from <span class="process-math">\(\beta\)</span> to <span class="process-math">\(\gamma\text{.}\)</span> Specifically, the change of basis matrix from <span class="process-math">\(\beta\)</span> to <span class="process-math">\(\gamma\)</span> is given by <span class="process-math">\([ [\vec{\gamma_1}]_\beta [\vec{\gamma_2}]_\beta [\vec{\gamma_3}]_\beta ] \text{.}\)</span>  Use your work from the previous question, to construct the change of basis matrix from <span class="process-math">\(\beta\)</span> to <span class="process-math">\(\gamma\text{.}\)</span></p></article><article class="task exercise-like" id="task-150"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<p id="p-453">Multiplying by this change of basis matrix will convert a coordinate vector relative to <span class="process-math">\(\beta\)</span> to a coordinate vector relative to <span class="process-math">\(\gamma\text{.}\)</span> Verify that if you multiply your change of basis matrix from <span class="process-math">\(\beta\)</span> to <span class="process-math">\(\gamma\)</span> by <span class="process-math">\([\vec{v}]_{\beta}\)</span> you get <span class="process-math">\([\vec{v}]_{\gamma}\)</span> where  <span class="process-math">\(v=\colvec{-2\\ 0\\ 3}\text{.}\)</span></p></article></article><p id="p-454">The above process of constructing a change of basis matrix works for any two bases of the same vector space (even if the vector space is not <span class="process-math">\(\mathbb{R}^n\)</span>).</p>
+<p id="p-455">The coordinate vectors of <span class="process-math">\(\gamma\)</span> relative to <span class="process-math">\(\beta\)</span> can be used to make the <dfn class="terminology">change of basis matrix</dfn> from <span class="process-math">\(\gamma\)</span> to <span class="process-math">\(\beta\text{.}\)</span> Specifically, the change of basis matrix from <span class="process-math">\(\gamma\)</span> to <span class="process-math">\(\beta\)</span> is given by <span class="process-math">\([ [\vec{\gamma_1}]_\beta [\vec{\gamma_2}]_\beta [\vec{\gamma_3}]_\beta ] \text{.}\)</span>  Use your work from the previous question, to construct the change of basis matrix from <span class="process-math">\(\gamma\)</span> to <span class="process-math">\(\beta\text{.}\)</span></p></article><article class="task exercise-like" id="task-150"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-456">Multiplying by this change of basis matrix will convert a coordinate vector relative to <span class="process-math">\(\gamma\)</span> to a coordinate vector relative to <span class="process-math">\(\beta\text{.}\)</span> Verify that if you multiply your change of basis matrix from <span class="process-math">\(\gamma\)</span> to <span class="process-math">\(\beta\)</span> by <span class="process-math">\([\vec{v}]_{\gamma}\)</span> you get <span class="process-math">\([\vec{v}]_{\beta}\)</span> where  <span class="process-math">\(v=\colvec{-2\\ 0\\ 3}\text{.}\)</span></p></article></article><p id="p-457">The above process of constructing a change of basis matrix works for any two bases of the same vector space (even if the vector space is not <span class="process-math">\(\mathbb{R}^n\)</span>).</p>
 <article class="exercise exercise-like" id="exercise-16"><h4 class="heading">
 <span class="type">Exercise</span><span class="space"> </span><span class="codenumber">4.9</span><span class="period">.</span>
 </h4>
-<div class="introduction" id="introduction-37"><p id="p-455">For each of the following vectors, compute <span class="process-math">\([\vec{v}]_{\beta}\)</span> where <span class="process-math">\(\beta =\{ 1+t,t+t^2,1+t^2 \}\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-37"><p id="p-458">For each of the following vectors, compute <span class="process-math">\([\vec{v}]_{\beta}\)</span> where <span class="process-math">\(\beta =\{ 1+t,t+t^2,1+t^2 \}\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-151"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-456"><span class="process-math">\(\vec{v}=2+2t\)</span></p></article><article class="task exercise-like" id="task-152"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<p id="p-457"><span class="process-math">\(\vec{v}=4-t^2+t\)</span></p></article><article class="task exercise-like" id="task-153"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<p id="p-458"><span class="process-math">\(\vec{v}=3\)</span></p></article><article class="task exercise-like" id="task-154"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<p id="p-459"><span class="process-math">\(\vec{v}=t\)</span></p></article><article class="task exercise-like" id="task-155"><h5 class="heading"><span class="codenumber">(e)</span></h5>
-<p id="p-460"><span class="process-math">\(\vec{v}=6t^2\)</span></p></article></article><p id="p-461">The coordinate vector allows us to state problems in a vector space like <span class="process-math">\(\mathbb{P}_n\)</span> in the same way we state problems in <span class="process-math">\(\mathbb{R}^n\text{.}\)</span></p>
+<p id="p-459"><span class="process-math">\(\vec{v}=2+2t\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-10" id="solution-10"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-10"><div class="solution solution-like"><p id="p-460"><span class="process-math">\([\vec{v}]_\beta = \colvec{2\\ 0 \\ 0}\)</span></p></div></div>
+</div></article><article class="task exercise-like" id="task-152"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-461"><span class="process-math">\(\vec{v}=4-t^2+t\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-11" id="solution-11"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-11"><div class="solution solution-like"><p id="p-462"><span class="process-math">\([\vec{v}]_\beta = \colvec{3\\ -2 \\ 1}\)</span></p></div></div>
+</div></article><article class="task exercise-like" id="task-153"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-463"><span class="process-math">\(\vec{v}=3\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-12" id="solution-12"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-12"><div class="solution solution-like"><p id="p-464"><span class="process-math">\([\vec{v}]_\beta = \colvec{3/2\\ -3/2 \\ 3/2}\)</span></p></div></div>
+</div></article><article class="task exercise-like" id="task-154"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p id="p-465"><span class="process-math">\(\vec{v}=t\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-13" id="solution-13"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-13"><div class="solution solution-like"><p id="p-466"><span class="process-math">\([\vec{v}]_\beta = \colvec{1/2\\ 1/2 \\ -1/2}\)</span></p></div></div>
+</div></article><article class="task exercise-like" id="task-155"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<p id="p-467"><span class="process-math">\(\vec{v}=6t^2\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-14" id="solution-14"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-14"><div class="solution solution-like"><p id="p-468"><span class="process-math">\([\vec{v}]_\beta = \colvec{-3\\ 3\\ 3}\)</span></p></div></div>
+</div></article></article><p id="p-469">The coordinate vector allows us to state problems in a vector space like <span class="process-math">\(\mathbb{P}_n\)</span> in the same way we state problems in <span class="process-math">\(\mathbb{R}^n\text{.}\)</span></p>
 <article class="exercise exercise-like" id="exercise-17"><h4 class="heading">
 <span class="type">Exercise</span><span class="space"> </span><span class="codenumber">4.10</span><span class="period">.</span>
 </h4>
 <div class="introduction" id="introduction-38">
-<p id="p-462">For each of the following vectors, compute <span class="process-math">\([\vec{v}]_{\beta}\)</span> where</p>
+<p id="p-470">For each of the following vectors, compute <span class="process-math">\([\vec{v}]_{\beta}\)</span> where</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \beta =\{ \begin{bmatrix} 1\amp 2\\3\amp 4  \end{bmatrix}, \begin{bmatrix} 1\amp 0\\0\amp 1  \end{bmatrix}, \begin{bmatrix} 0\amp 1\\1\amp 0  \end{bmatrix}, \begin{bmatrix} 1\amp 0\\0\amp 0 \end{bmatrix} \}\text{.}
@@ -342,9 +382,16 @@ nullity\amp (T)=nullity(A)=dim(Null(A))\text{.}
 </div>
 </div>
 <article class="task exercise-like" id="task-156"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-463"><span class="process-math">\(\vec{v}=\begin{bmatrix} 1\amp 1\\1\amp 1
-\end{bmatrix}\)</span></p></article><article class="task exercise-like" id="task-157"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<p id="p-464"><span class="process-math">\(\vec{v}=\begin{bmatrix} 1\amp 0\\1\amp 1  \end{bmatrix}\)</span></p></article></article></section></section></div></main>
+<p id="p-471"><span class="process-math">\(\vec{v}=\begin{bmatrix} 1\amp 1\\1\amp 1
+\end{bmatrix}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-15" id="solution-15"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-15"><div class="solution solution-like"><p id="p-472"><span class="process-math">\([\vec{v}]_\beta = \colvec{0\\ 1\\ 1\\ 0}\)</span></p></div></div>
+</div></article><article class="task exercise-like" id="task-157"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-473"><span class="process-math">\(\vec{v}=\begin{bmatrix} 1\amp 0\\1\amp 1
+\end{bmatrix}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-16" id="solution-16"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-16"><div class="solution solution-like"><p id="p-474"><span class="process-math">\([\vec{v}]_\beta = \colvec{1\\ -3\\ -2\\ 3}\)</span></p></div></div>
+</div></article></article></section></section></div></main>
 </div>
 </body>
 </html>
