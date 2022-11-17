@@ -314,20 +314,32 @@ Elementary matrices are obtained by performing an elementary operation on the id
 elementary matrices are invertible and that multiplying by an
 elementary matrix produces the same result as having performed the
 corresponding elementary row operation. Elementary matrices offer a
-way of keeping track of elementary operations.</p>
-</subsection>
-</section>
-</chapter><!--
-\begin{theorem}
-Elementary matrices are invertible and the inverse matrix is an elementary matrix corresponding to the inverse elementary operation.
-\end{theorem}
+way of keeping track of elementary operations. We will not write our a
+proof of the following theorem at this time, but we state it for
+future uses:</p>
 
-\begin{theorem}
-If <m>A</m> and <m>B</m> are invertible <m>n</m> by <m>n</m> matrices, then <m>AB</m> is an invertible <m>n</m> by <m>n</m> matrix. Further, <m>(AB)^{-1} =B^{-1}A^{-1}</m>.
-\end{theorem}
+<theorem>
+<statement>
+  <p>
+Elementary matrices are invertible and the inverse matrix is an
+elementary matrix corresponding to the inverse elementary operation.
+  </p>
+</statement>
+</theorem>
 
-<investigation><statement><p>\label{q11} Prove that if <m>A</m> can be reduced to <m>Id_n</m> by elementary row operations, then <m>A</m> is invertible.
-</p></statement></investigation>
+<p>You shoud, however, at this time prove the theorems below.</p>
+<theorem>
+  <statement>
+    <p>
+      If <m>A</m> and <m>B</m> are invertible <m>n</m> by <m>n</m>
+      matrices, then <m>(AB)^{-1} =B^{-1}A^{-1}</m> and <m>AB</m> is
+      an invertible <m>n</m> by <m>n</m> matrix.
+    </p>
+  </statement>
+</theorem>
+
+<theorem xml:id="q11"><statement><p>If <m>A</m> can be reduced to <m>Id_n</m> by elementary row operations, then <m>A</m> is invertible.
+</p></statement></theorem>
 
 <investigation><statement><p> Give all values of <m>k</m> where <m>A=\begin{bmatrix} 1\amp 0\amp 2\\-1\amp k\amp 4\\3\amp 5\amp 1 \end{bmatrix}</m> will be invertible.
 </p></statement></investigation>
@@ -338,19 +350,29 @@ If <m>A</m> and <m>B</m> are invertible <m>n</m> by <m>n</m> matrices, then <m>A
 <investigation><statement><p> How many pivots must a matrix <m>A</m> have in order to be row reducible to <m>Id_n</m>? Justify using previous results.
 </p></statement></investigation>
 
-<investigation><statement><p> Prove that if <m>A</m> is invertible, then <m>A\vec{x} =\vec{b}</m> has a unique solution for every <m>\vec{b} \in \mathbb{R}^n</m>.
-</p></statement></investigation>
+<theorem><statement><p>If <m>A</m> is invertible, then <m>A\vec{x}
+=\vec{b}</m> has a unique solution for every <m>\vec{b} \in
+\mathbb{R}^n</m>.  </p></statement></theorem>
 
 <investigation><statement><p> Prove or disprove: If <m>A</m> and <m>B</m> are invertible <m>n</m> by <m>n</m> matrices, then <m>A+B</m> is invertible.
 </p></statement></investigation>
 
 <investigation><statement><p> Prove that if <m>A</m> is invertible, then <m>A^T</m> is invertible.
 </p></statement></investigation>
+</subsection>
+<subsection>
+  <title>Computing Inverses</title>
 
-\subsection{Computing Inverses}
-In general computing the inverse of a matrix takes more time and operations than solving a system of equations. For this reason, it is generally easier to find and solve a related system of equations problem than to compute the inverse matrix. We will outline a few ways to find inverse matrices and compute a few small examples.
+  <p>In general computing the inverse of a matrix takes more time and
+  operations than solving a system of equations. For this reason, it
+  is generally easier to find and solve a related system of equations
+  problem than to compute the inverse matrix. We will outline a few
+  ways to find inverse matrices and compute a few small examples.</p>
 
-<investigation><statement><p> If a matrix <m>A</m> is row reduced to <m>Id_n</m> by elementary row operations corresponding (in order of use) to elementary matrices <m>E_1</m>, <m>E_2</m>, ... , <m>E_k</m>, give an expression for <m>A^{-1}</m>.
+<investigation><statement><p> If a matrix <m>A</m> is row reduced to
+<m>Id_n</m> by elementary row operations corresponding (in order of
+use) to elementary matrices <m>E_1</m>, <m>E_2</m>, ... , <m>E_k</m>,
+give an expression for <m>A^{-1}</m>.
 </p></statement></investigation>
 
 <investigation><statement><p> Use your answer to the previous question to prove the following:
@@ -358,50 +380,75 @@ In general computing the inverse of a matrix takes more time and operations than
 Any sequence of elementary row operations that reduces <m>A</m> to <m>Id_n</m> also transforms <m>Id_n</m> into <m>A^{-1}</m>.
 </p></statement></investigation>
 
-The previous result shows that computing inverses is equivalent to a row reduction problem. In particular, if <m>A</m> is invertible, then reducing <m>[ A \enskip | \enskip Id_n]</m> to reduced row echelon form will produce the matrix <m>[ Id_n \enskip | \enskip A^{-1}]</m>.
+<p>The previous result shows that computing inverses is equivalent to a row reduction problem. In particular, if <m>A</m> is invertible, then reducing <m>[ A \quad | \quad Id_n]</m> to reduced row echelon form will produce the matrix <m>[ Id_n \quad | \quad A^{-1}]</m>.</p>
 
-<investigation><statement><p>\label{22inv} Use the idea above to compute the inverse of <m>\begin{bmatrix} a\amp b\\c\amp d \end{bmatrix}</m>. Be sure to note any assumptions you will need to make in order to reduce <m>[ A \enskip | \enskip Id_n]</m> to <m>[ Id_n \enskip | \enskip A^{-1}]</m>.
+<investigation xml:id="22inv"><statement><p>Use the idea above to compute the inverse of <m>\begin{bmatrix} a\amp b\\c\amp d \end{bmatrix}</m>. Be sure to note any assumptions you will need to make in order to reduce <m>[ A \quad | \quad Id_n]</m> to <m>[ Id_n \quad | \quad A^{-1}]</m>.
 </p></statement></investigation>
 
-<investigation><statement><p> If <m>A=\begin{bmatrix}1\amp  0\amp  1 \\0\amp 2\amp -1 \\ 0\amp 6\amp -1\end{bmatrix}</m>, find <m>A^{-1}</m> and check that <m>A A^{-1}=Id_3</m>.
+<exercise><statement><p> If <m>A=\begin{bmatrix}1\amp  0\amp  1 \\0\amp 2\amp -1 \\ 0\amp 6\amp -1\end{bmatrix}</m>, find <m>A^{-1}</m> and check that <m>A A^{-1}=Id_3</m>.
+</p></statement></exercise>
+
+<exercise><introduction><p>
+If <m>A=\begin{bmatrix} 0\amp -1\\3\amp 4 \end{bmatrix}</m>, find
+<m>A^{-1}</m> and use your answer to solve <m>A\vec{x} = \vec{b}</m>
+if:</p></introduction>
+<task><p><m>\vec{b} =\colvec{3\\ 1}</m></p></task>
+<task><p><m>\vec{b} =\colvec{-1\\ -2}</m></p></task>
+<task><p><m>\vec{b} =\colvec{0\\ 5}</m></p></task>
+<task><p><m>\vec{b} =\colvec{\alpha\\ \beta}</m></p></task>
+</exercise>
+</subsection>
+<subsection>
+  <title>Invertible Matrix Theorem</title>
+<investigation><statement><p> In many texts there is a long list of
+equivalent conditions for when a square matrix is invertible. Below is
+a list of some of these conditions that we have talked about or
+proven. Go back through your notes and questions and cite when we
+connected two of the ideas in the list. For instance, parts <m>a)</m>
+and <m>b)</m> are linked by <xref ref="q11" />
 </p></statement></investigation>
 
-<investigation><statement><p>
-If <m>A=\begin{bmatrix} 0\amp -1\\3\amp 4 \end{bmatrix}</m>, find <m>A^{-1}</m> and use your answer to solve <m>A\vec{x} = \vec{b}</m> if:
-\begin{enumerate}
-\item <m>\vec{b} =\colvec{2\\ 3\\ 1}</m>
-\item <m>\vec{b} =\colvec{2}{-1\\ -2}</m>
-\item <m>\vec{b} =\colvec{2}{0\\ 5}</m>
-\item <m>\vec{b} =\colvec{2}{\alpha\\ \beta}</m>
-\end{enumerate}
-</p></statement></investigation>
-\subsection{Invertible Matrix Theorem}
-<investigation><statement><p> In many texts there is a long list of equivalent conditions for when a square matrix is invertible. Below is a list of some of these conditions that we have talked about or proven. Go back through your notes and questions and cite when we connected two of the ideas in the list. For instance, parts <m>a)</m> and <m>b)</m> are linked by Question \ref{q11}
-</p></statement></investigation>
-
-\begin{theorem}[The Invertible Matrix Theorem]\label{imt}
-Let <m>A</m> be a <m>n</m> by <m>n</m> matrix. The following are equivalent statements (either all True or all False):
-\begin{enumerate}
-\item <m>A</m> is an invertible matrix.
-\item <m>A</m> is row equivalent to <m>Id_n</m>.
-\item <m>A</m> has <m>n</m> pivots.
-\item <m>rank(A)=n</m>
-\item <m>nullity(A)=0</m>
-\item <m>A\vec{x} =\vec{0}</m> has only the trivial solution.
-\item The linear transformation <m>\vec{x} \rightarrow A\vec{x}</m> is one-to-one.
-\item The linear transformation <m>\vec{x} \rightarrow A\vec{x}</m> is onto.
-\item <m>A\vec{x}=\vec{b}</m> has a solution for every <m>\vec{b} \in \mathbb{R}^n</m>.
-\item The columns of <m>A</m> form a linearly independent set.
-\item The columns of <m>A</m> span <m>\mathbb{R}^n</m>.
-\item The columns of <m>A</m> are a basis for <m>\mathbb{R}^n</m>.
-\item <m>A^T</m> is invertible.
-\end{enumerate}
-\end{theorem}
+<p>Before stating this major theorem, we should explain what the
+phrase <q>the following are equivalent</q> (sometimes written
+<q>TFAE</q> in scratchwork or on the board) means. A theorem of this
+type is essentially a giant if and only if theorem. Specifically, each
+statement in the theorem is true or each statement in the theorem is
+false. It is not possible for some to be true and some to be false. In
+a theorem with, say, three statements, we often prove that statement 1
+implies statement 2, statement 2 implies statement 3, and statement
+three implies statement 1. Then you can start at any statement and
+reach any other statement, showing that if one is true, all the others
+must be true. However, with longer lists, we sometimes have to prove
+things a bit more piecemeal.</p>
+<theorem xml:id="imt"><title>The Invertible Matrix Theorem</title>
+<statement>
+  <p>
+Let <m>A</m> be a <m>n</m> by <m>n</m> matrix. The following are equivalent:
+<ol marker="a)">
+  <li><m>A</m> is an invertible matrix.</li>
+<li><m>A</m> is row equivalent to <m>Id_n</m>.</li>
+<li><m>A</m> has <m>n</m> pivots.</li>
+<li><m>rank(A)=n</m></li>
+<li><m>nullity(A)=0</m></li>
+<li><m>A\vec{x} =\vec{0}</m> has only the trivial solution.</li>
+<li>The linear transformation <m>\vec{x} \rightarrow A\vec{x}</m> is one-to-one.</li>
+<li>The linear transformation <m>\vec{x} \rightarrow A\vec{x}</m> is onto.</li>
+<li><m>A\vec{x}=\vec{b}</m> has a solution for every <m>\vec{b} \in \mathbb{R}^n</m>.</li>
+<li>The columns of <m>A</m> form a linearly independent set.</li>
+<li>The columns of <m>A</m> span <m>\mathbb{R}^n</m>.</li>
+<li>The columns of <m>A</m> are a basis for <m>\mathbb{R}^n</m>.</li>
+<li><m>A^T</m> is invertible.</li>
+</ol>
+  </p>
+</statement>
+</theorem>
 
 <investigation><statement><p>
 Two important ideas in this course that have been tied to many different methods or ideas are 1) consistent systems of linear equations and 2) invertible matrices. These two ideas are a bit different though. Give an example of a consistent system of linear equations (in matrix equation form <m>A\vec{x} = \vec{b}</m>) where the coefficient matrix <m>A</m> is a non-invertible square matrix.
 </p></statement></investigation>
-
+</subsection>
+</section>
+<!--
 \section{Invertible Linear Transformations}
 \begin{annotation}
 \endnote{This section and the next one on LU decomposition are examples of ideas that students who have successfully completed this course can pick up and use on their own. They appear here because they can be quite useful.}
@@ -448,23 +495,34 @@ Alternative definition:  A linear transformation <m>T</m> from <m>V</m> to <m>W<
 </p></statement></investigation>
 
 The preceding two problems can be generalized to show how row operations will conveniently reduce any matrix into a product of an upper- and a lower-diagonal matrix. This <m>LU</m> decomposition has certain advantages when solving linear systems using a computer, especially for large systems.
-
-\section{Determinants}
-Determinants will be an incredibly useful tool in quickly determining several important properties of square matrices. We will first look at how to compute determinants and later outline the important properties that determinants have. While some of you may have been taught some rules for how to compute determinants of 2 by 2 and 3 by 3 matrices, I encourage you to understand how to compute determinants in general.
-\subsection{Computing Determinants}
-\begin{definition}
-The \textbf{determinant} is a function from <m>n</m> by <m>n</m> matrices to the real numbers (</m>det:M_{n \times n} \rightarrow \mathbb{R}</m>). If <m>A</m> is a 1 by 1 matrix, <m>A=[A_{1,1}]</m>, then <m>det(A)=A_{1,1}</m>. For <m>n \geq 2</m>, the determinant of a <m>n</m> by <m>n</m> matrix is given by the following formula in terms of determinants of <m>(n-1)</m> by <m>(n-1)</m> matrices:
-<me>det(A)=\sum_{j=1}^n (-1)^{1+j} (A_{1,j}) \enskip det(A^*_{1,j})</m></m>
+-->
+<section>
+  <title>Determinants</title>
+<introduction><p>Determinants will be an incredibly useful tool in
+quickly determining several important properties of square
+matrices. We will first look at how to compute determinants and later
+outline the important properties that determinants have. While some of
+you may have been taught some rules for how to compute determinants of
+2 by 2 and 3 by 3 matrices, I encourage you to understand how to
+compute determinants in general.</p></introduction>
+<subsection>
+  <title>Computing Determinants</title>
+  <definition>
+<statement><p>The <term>determinant</term> is a function from <m>n</m> by <m>n</m> matrices to the real numbers (<m>\det:M_{n \times n} \rightarrow \mathbb{R}</m>). If <m>A</m> is a 1 by 1 matrix, <m>A=[A_{1,1}]</m>, then <m>\det(A)=A_{1,1}</m>. For <m>n \geq 2</m>, the determinant of a <m>n</m> by <m>n</m> matrix is given by the following formula in terms of determinants of <m>(n-1)</m> by <m>(n-1)</m> matrices:
+<me>\det(A)=\sum_{j=1}^n (-1)^{1+j} (A_{1,j}) \, \det(A^*_{1,j})</me>
 where <m>A^*_{i,j}</m> is the <m>(n-1)</m> by <m>(n-1)</m> matrix obtained by deleting the <m>i</m>-th row and <m>j</m>-th column of <m>A</m>.
 
-The term <m>A_{i,j}\enskip det(A^*_{i,j})</m> is called the \textbf{</m>(i,j)</m> cofactor of <m>A</m>}.
-
-%The range of the determinant is <m>\mathbb{C}</m> if the entries of the matrix are complex.
-\end{definition}
-The above definition uses cofactor expansion along the first row.
+The term <m>A_{i,j}\,\det(A^*_{i,j})</m> is called the <term><m>(i,j)</m> cofactor of <m>A</m></term>.</p>
+</statement>
+  </definition>
+</subsection>
+</section>
+</chapter>
+<!--
+<p>The above definition uses cofactor expansion along the first row.</p>
 <investigation><statement><p> In this question, we will unpack the determinant formula above for a 2 by 2 matrix <m>A=\begin{bmatrix} a\amp b \\c\amp d \end{bmatrix}</m>.
 \begin{enumerate}
-\item Rather than using the summation notation of the formula above, write out the two terms in <m>det(A)</m>.
+\item Rather than using the summation notation of the formula above, write out the two terms in <m>\det(A)</m>.
 \item <m>A^*_{1,1}=</m>
 \item <m>A^*_{1,2}=</m>
 \item <m>A_{1,1}=</m>
@@ -476,9 +534,9 @@ The above definition uses cofactor expansion along the first row.
 </p></statement></investigation>
 Your answer to the previous problem will be useful in calculating determinants of 3 by 3 matrices.
 \begin{theorem}
-The determinant can be computed by cofactor expansion along any row or column. Specifically the cofactor expansion along the <m>k</m>-th row is given by <me>det(A)=\sum_{j=1}^n (-1)^{k+j} (A_{k,j}) \enskip det(A^*_{k,j})</m></m>
+The determinant can be computed by cofactor expansion along any row or column. Specifically the cofactor expansion along the <m>k</m>-th row is given by <me>det(A)=\sum_{j=1}^n (-1)^{k+j} (A_{k,j}) \quad det(A^*_{k,j})</m></m>
 and the cofactor expansion along the <m>k</m>-th column is given by
-<me>det(A)=\sum_{i=1}^n (-1)^{i+k} (A_{i,k}) \enskip det(A^*_{i,k})</m></m>
+<me>det(A)=\sum_{i=1}^n (-1)^{i+k} (A_{i,k}) \quad det(A^*_{i,k})</m></m>
 \end{theorem}
 
 \question Use cofactor expansion along the first column of \break <m>A=\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}</m> to compute <m>det(A)</m>.
