@@ -86,7 +86,7 @@ vectors.
       also a basis for <m>V</m>. We know that <m>u_{i+1}\in
       span(S_i)</m>, so there are scalars <m>f_i</m> such that
       <men xml:id="eqn_u_i_plus_one">u_{i+1}=f_1u_1+f_2u_2+\cdots+f_iu_i+f_{i+1}v_{i+1}+\cdots+f_nv_n</men>. Notice
-      that this requires some <m>f_j</m> with <m>j\gt </m> be nonzero,
+      that this requires some <m>f_j</m> with <m>j\gt i</m> be nonzero,
       as otherwise we would have written <m>u_{i+1}</m> as a linear
       combination of elements of <m>S'</m> (other than
       <m>u_{i+1}</m>), which would mean that <m>S'</m> is not linearly
