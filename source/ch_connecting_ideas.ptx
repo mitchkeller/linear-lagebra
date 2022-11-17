@@ -91,9 +91,9 @@ vectors.
       combination of elements of <m>S'</m> (other than
       <m>u_{i+1}</m>), which would mean that <m>S'</m> is not linearly
       independent. Without loss of generality, assume that
-      <m>d_{i+1}\neq 0</m>. Notice that equation <xref
+      <m>f_{i+1}\neq 0</m>. Notice that equation <xref
       ref="eqn_u_i_plus_one" /> can be rearranged to show that
-      <m>v_{i+1}\in span(S_{i+1})</m> as we did with <m>v_i</m>
+      <m>v_{i+1}\in span(S_{i+1})</m> as we did with <m>v_1</m>
       earlier, so <m>S_{i+1}</m> spans <m>V</m>. To prove that <m>S_{i+1}</m> is linearly independent,
       suppose that
       <me>\vec{0} = a_1u_1 + a_2u_2+\cdots +
@@ -194,15 +194,37 @@ then <m>Null(T)</m> and  <m>\mathrm{im}(T)</m> are subspaces of
 \\4\amp 5\amp 6 \end{bmatrix}</m>.</p></introduction>
 <task><p>Find <m>rank(T)</m> and <m>nullity(T)</m> where <m>T(\vec{x}) =A \vec{x}</m>.</p></task>
 <task><p>Find a basis for <m>Null(T)</m>.</p></task>
-<task><p>Find a basis for <m>range(T)</m>.</p></task>
+<task><p>Find a basis for <m>\mathrm{im}(T)</m>.</p></task>
 </investigation>
 
 <exercise><introduction><p> Let <m>T</m> from <m>\mathbb{R}^2</m>
 to <m>\mathbb{P}_2</m> be given by <m>T \left( \colvec{a\\ b}
 \right) = a +(a+b)t+(a-b)t^2</m>.</p></introduction>
-<task><p><m>rank(T)=</m></p></task>
-<task><p><m>nullity(T)=</m></p></task>
-<task><p>Find a basis for <m>Null(T)</m>.</p></task>
+<task><statement><p><m>rank(T)=</m></p></statement>
+<solution>
+  <p>We already worked out what the image of <m>T</m> was in an
+  earlier problem and found that
+  <me>\mathrm{im}(T) = \{\frac{\beta+\gamma}{2} + \beta t + \gamma
+  t^2\colon \beta,\gamma\in\mathbb{R}\}</me>. Notice that we can
+  rewrite the polynomials in the image to have the form <m>\beta +
+  \gamma + 2\beta t + 2\beta t^2</m>, and grouping based on the
+  scalar, we have <me>\beta(1+2t) + \gamma(1+2t^2)</me>. Thus, every
+  vector in the image is a linear combination of <m>1+2t</m> and
+  <m>1+2t^2</m>. I will leave it to you to verify that these vectors
+  are linearly independent, but this shows that the rank of <m>T</m>
+  is 2. (Since we have found a basis, this also answers the last part
+  of this question.</p>
+</solution></task>
+<task><statement><p><m>nullity(T)=</m></p></statement><solution><p>Notice
+that to be sent to the zero polynomial, a vector in the domain must
+have <m>a=0</m> to get the constant term to be zero. But then this
+forces <m>b=0</m>. Thus, <m>nullity(T)=0</m> as the null space is the
+trivial vector space.</p></solution></task>
+<task><statement><p>Find a basis for <m>Null(T)</m>.</p></statement>
+<solution>
+  <p>Since the null space is trivial, the basis is the empty set.</p>
+</solution>
+</task>
 <task><p>Find a basis for <m>\mathrm{im}(T)</m>.</p></task>
 </exercise>
 
@@ -251,25 +273,58 @@ In the previous problem, you wrote out the coordinate vectors relative to <m>\be
 <task><p>
 Compute  <m>[\vec{v}]_{\gamma}</m> for <m>v=\colvec{-2\\ 0\\
 3}</m>.</p></task>
-<task><p>The coordinate vectors of <m>\gamma</m> relative to <m>\beta</m> can be used to make the <term>change of basis matrix</term> from <m>\beta</m> to <m>\gamma</m>. Specifically, the change of basis matrix from <m>\beta</m> to <m>\gamma</m> is given by <m>[ [\vec{\gamma_1}]_\beta [\vec{\gamma_2}]_\beta [\vec{\gamma_3}]_\beta ] </m>.  Use your work from the previous question, to construct the change of basis matrix from <m>\beta</m> to <m>\gamma</m>.</p></task>
-<task><p>Multiplying by this change of basis matrix will convert a coordinate vector relative to <m>\beta</m> to a coordinate vector relative to <m>\gamma</m>. Verify that if you multiply your change of basis matrix from <m>\beta</m> to <m>\gamma</m> by <m>[\vec{v}]_{\beta}</m> you get <m>[\vec{v}]_{\gamma}</m> where  <m>v=\colvec{-2\\ 0\\ 3}</m>.</p></task>
+<task><p>The coordinate vectors of <m>\gamma</m> relative to <m>\beta</m> can be used to make the <term>change of basis matrix</term> from <m>\gamma</m> to <m>\beta</m>. Specifically, the change of basis matrix from <m>\gamma</m> to <m>\beta</m> is given by <m>[ [\vec{\gamma_1}]_\beta [\vec{\gamma_2}]_\beta [\vec{\gamma_3}]_\beta ] </m>.  Use your work from the previous question, to construct the change of basis matrix from <m>\gamma</m> to <m>\beta</m>.</p></task>
+<task><p>Multiplying by this change of basis matrix will convert a coordinate vector relative to <m>\gamma</m> to a coordinate vector relative to <m>\beta</m>. Verify that if you multiply your change of basis matrix from <m>\gamma</m> to <m>\beta</m> by <m>[\vec{v}]_{\gamma}</m> you get <m>[\vec{v}]_{\beta}</m> where  <m>v=\colvec{-2\\ 0\\ 3}</m>.</p></task>
 </investigation>
 <p>The above process of constructing a change of basis matrix works for any two bases of the same vector space (even if the vector space is not <m>\mathbb{R}^n</m>).</p>
 
 <exercise><introduction><p> For each of the following vectors, compute <m>[\vec{v}]_{\beta}</m> where <m>\beta =\{ 1+t,t+t^2,1+t^2 \}</m>.</p></introduction>
-<task><p><m>\vec{v}=2+2t</m></p></task>
-<task><p><m>\vec{v}=4-t^2+t</m></p></task>
-<task><p><m>\vec{v}=3</m></p></task>
-<task><p><m>\vec{v}=t</m></p></task>
-<task><p><m>\vec{v}=6t^2</m></p></task>
+<task>
+  <statement><p><m>\vec{v}=2+2t</m></p></statement>
+  <solution>
+    <p>
+      <m>[\vec{v}]_\beta = \colvec{2\\ 0 \\ 0}</m>
+    </p>
+  </solution>
+</task>
+<task><statement><p><m>\vec{v}=4-t^2+t</m></p></statement>
+  <solution>
+    <p>
+      <m>[\vec{v}]_\beta = \colvec{3\\ -2 \\ 1}</m>
+    </p>
+  </solution>
+</task>
+<task><statement><p><m>\vec{v}=3</m></p></statement>
+<solution>
+  <p><m>[\vec{v}]_\beta = \colvec{3/2\\ -3/2 \\ 3/2}</m></p>
+</solution>
+</task>
+<task><statement><p><m>\vec{v}=t</m></p></statement>
+<solution>
+  <p><m>[\vec{v}]_\beta = \colvec{1/2\\ 1/2 \\ -1/2}</m></p>
+</solution>
+</task>
+<task><statement><p><m>\vec{v}=6t^2</m></p></statement>
+<solution>
+  <p><m>[\vec{v}]_\beta = \colvec{-3\\ 3\\ 3}</m></p>
+</solution>
+
+</task>
 </exercise>
 
 <p>The coordinate vector allows us to state problems in a vector space like <m>\mathbb{P}_n</m> in the same way we state problems in <m>\mathbb{R}^n</m>.</p>
 
 <exercise><introduction><p> For each of the following vectors, compute <m>[\vec{v}]_{\beta}</m> where <me>\beta =\{ \begin{bmatrix} 1\amp 2\\3\amp 4  \end{bmatrix}, \begin{bmatrix} 1\amp 0\\0\amp 1  \end{bmatrix}, \begin{bmatrix} 0\amp 1\\1\amp 0  \end{bmatrix}, \begin{bmatrix} 1\amp 0\\0\amp 0 \end{bmatrix} \}</me>.</p></introduction>
-<task><p><m>\vec{v}=\begin{bmatrix} 1\amp 1\\1\amp 1
-\end{bmatrix}</m></p></task>
-<task><p><m>\vec{v}=\begin{bmatrix} 1\amp 0\\1\amp 1  \end{bmatrix}</m></p></task>
+<task><statement><p><m>\vec{v}=\begin{bmatrix} 1\amp 1\\1\amp 1
+\end{bmatrix}</m></p></statement>
+<solution>
+  <p><m>[\vec{v}]_\beta = \colvec{0\\ 1\\ 1\\ 0}</m></p>
+</solution></task>
+<task><statement><p><m>\vec{v}=\begin{bmatrix} 1\amp 0\\1\amp 1
+\end{bmatrix}</m></p></statement>
+<solution>
+  <p><m>[\vec{v}]_\beta = \colvec{1\\ -3\\ -2\\ 3}</m></p>
+</solution></task>
 </exercise>
 </paragraphs>
 </section>
