@@ -501,6 +501,46 @@ Let <m>A</m> be a <m>n</m> by <m>n</m> matrix. The following are equivalent:
 <investigation><statement><p>
 Two important ideas in this course that have been tied to many different methods or ideas are 1) consistent systems of linear equations and 2) invertible matrices. These two ideas are a bit different though. Give an example of a consistent system of linear equations (in matrix equation form <m>A\vec{x} = \vec{b}</m>) where the coefficient matrix <m>A</m> is a non-invertible square matrix.
 </p></statement></investigation>
+
+<p>
+  We close this section with a theorem that should not be surprising
+  based on the work that we have done so far. A proof is provided for
+  you. The criterion the following theorem states can be added to the
+  list of statements in <xref ref="imt" text="title" />.
+</p>
+<theorem>
+  <statement>
+    <p>
+      A square matrix <m>A</m> is invertible if and only if there
+      exist elementary matrices <m>E_1,E_2,\dots, E_k</m> such that
+      <me>A = E_1E_2\cdots E_k</me>.
+    </p>
+  </statement>
+  <proof>
+    <case>
+      <title><m>\Rightarrow</m></title>
+      <p>Since <m>A</m> is invertible, there exist elementary matrices
+      that row reduce <m>A</m> to the identity matrix. That is, we
+      have elementary matrices <m>E'_i</m> such that <me>E'_1\cdots
+      E'_kA = Id_n</me>. Each elementary matrix is invertible, so we
+      can write <me>A =
+      (E'_k)^{-1}\cdots (E'_2)^{-1}\cdots(E'_1)^{-1}</me>. As the inverse of
+      an elementary matrix is an elementary matrix, the right-hand
+      side is a product of elementary matrices as desired.</p>
+    </case>
+    <case>
+      <title><m>\Leftarrow</m></title>
+      <p>
+	If we have <m>A = E_1E_2\cdots E_k</m>, we can multiply
+	one-by-one on the left by the inverses of the elementary
+	matrices, which are also elementary matrices. Thus, we have
+	<me>(E_k)^{-1}\cdots(E_2)^{-1}(E_1)^{-1}A = Id_n</me>. This
+	shows that there is a way to row reduce <m>A</m> and obtain
+	the identity matrix, so <m>A</m> is invertible.
+      </p>
+    </case>
+  </proof>
+</theorem>
 </subsection>
 </section>
 <!--
@@ -570,142 +610,200 @@ where <m>A^*_{i,j}</m> is the <m>(n-1)</m> by <m>(n-1)</m> matrix obtained by de
 The term <m>A_{i,j}\,\det(A^*_{i,j})</m> is called the <term><m>(i,j)</m> cofactor of <m>A</m></term>.</p>
 </statement>
   </definition>
+
+<p>The above definition uses cofactor expansion along the first row.</p>
+<investigation><introduction><p> In this question, we will unpack the
+determinant formula above for a 2 by 2 matrix <m>A=\begin{bmatrix}
+a\amp b \\c\amp d \end{bmatrix}</m>.</p></introduction>
+<task><p>Rather than using the summation notation of the formula above, write out the two terms in <m>\det(A)</m>.</p></task>
+<task><p><m>A^*_{1,1}=</m></p></task>
+<task><p><m>A^*_{1,2}=</m></p></task>
+<task><p><m>A_{1,1}=</m></p></task>
+<task><p><m>A_{1,2}=</m></p></task>
+<task><p><m>(-1)^{1+1}=</m></p></task>
+<task><p><m>(-1)^{1+2}=</m></p></task>
+<task><p><m>\det(A)=</m></p></task>
+</investigation>
+<p>Your answer to the previous problem will be useful in calculating
+determinants of 3 by 3 matrices. We will use the theorem below without
+proving it.</p>
+<theorem>
+  <statement>
+    <p>
+The determinant can be computed by cofactor expansion along any row or column. Specifically the cofactor expansion along the <m>k</m>-th row is given by <me>\det(A)=\sum_{j=1}^n (-1)^{k+j} (A_{k,j}) \, \det(A^*_{k,j})</me>
+and the cofactor expansion along the <m>k</m>-th column is given by
+<me>\det(A)=\sum_{i=1}^n (-1)^{i+k} (A_{i,k}) \quad
+\det(A^*_{i,k})</me>.
+    </p>
+  </statement>
+</theorem>
+
+<exercise><statement><p> Use cofactor expansion along the first column of <m>A=\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}</m> to compute <m>\det(A)</m>.</p></statement></exercise>
+
+<exercise><statement><p> Use cofactor expansion along the second row of <m>A=\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}</m> to compute <m>\det(A)</m>. Did you get the same answer as the previous question?</p></statement></exercise>
+
+<exercise><statement><p> Compute the determinant of <m>B=\begin{bmatrix}g\amp h\amp i \\d\amp e\amp f\\ a\amp b\amp c \end{bmatrix}</m>. How does your answer compare with the previous problem?</p></statement></exercise>
+
+<exercise><statement><p> Compute the determinant of <m>C=\begin{bmatrix} a\amp b\amp c\\3d\amp 3e\amp 3f\\g\amp h\amp i \end{bmatrix}</m>.</p></statement></exercise>
+
+<exercise><statement><p> Compute the determinant of <m>D=\begin{bmatrix} a+kd\amp b+ke\amp c+kf\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}</m>.</p></statement></exercise>
+
+<exercise><introduction><p> Compute the determinant of the
+following matrices:</p></introduction>
+<task><p><m>\begin{bmatrix} 3\amp 0\amp 1\amp 0\\0\amp 2\amp -1\amp 4
+\\-3\amp 5\amp 0\amp 2\\2\amp 2\amp 2\amp -1 \end{bmatrix}</m></p>
+</task>
+<task><p><m>2\begin{bmatrix} 3\amp 0\amp 1\amp 0\\0\amp 2\amp -1\amp 4
+\\-3\amp 5\amp 0\amp 2\\2\amp 2\amp 2\amp -1
+\end{bmatrix}</m></p></task></exercise>
+</subsection>
+<subsection>
+  <title>Properties of Determinants</title>
+
+<investigation><statement><p> Prove that if <m>A</m> has a row of zeros, then <m>\det(A)=0</m>.
+</p></statement></investigation>
+
+<investigation><statement><p> Prove that <m>\det(Id_n)=1</m>.
+</p></statement></investigation>
+
+<p>We will now state several useful properties of determinants. We
+will defer the proofs until later in the course. You may use these
+theorems <em>unless a problem specifically asks you to prove one of
+them</em>, in which case, the problem will note that you may not use
+the theorem to prove it.</p>
+
+<theorem><statement><p>The determinants of elementary matrices have
+the following values:
+<ol marker="(a)">
+  <li>If <m>E_1</m> multiplies a row by a scalar <m>\alpha</m>, then
+  <m>\det(E_1) = \alpha</m>.</li>
+  <li>If <m>E_2</m> adds <m>\alpha</m> times a row to another row, then
+    <m>\det(E_2) = 1</m>.</li>
+      <li>If <m>E_3</m> swaps two rows, then
+  <m>\det(E_3) = -1</m>.</li>
+</ol>
+</p></statement></theorem>
+
+<theorem>
+  <statement>
+    <p>
+      <ol marker="(a)">
+	<li>If <m>A</m> and <m>B</m> are <m>n</m> by <m>n</m>, then
+	<m>\det(AB)=\det(A) \det(B)</m>.</li>
+	<li>The determinant of an upper or lower triangular matrix is
+	the product of its diagonal
+	entries. <md><mrow>\det(L)=\prod_{i=1}^n (L)_{i,i}</mrow>
+	<mrow>\det(U)=\prod_{i=1}^n (U)_{i,i}</mrow></md></li>
+	<li>The determinant of a diagonal matrix is the product of its
+	diagonal entries. If <m>D</m> is diagonal, then
+	<me>\det(D)=\prod_{i=1}^n (D)_{i,i}</me>.</li>
+	<li><m>\det(A)=\det(A^T)</m></li>
+	<li>A matrix <m>A</m> is invertible iff <m>\det(A)\neq
+	0</m>.</li>
+      </ol>
+    </p>
+  </statement>
+</theorem>
+<p>The final property of the theorem above should be included in the
+<xref ref="imt" text="title" />!
+</p>
+<theorem xml:id="ee"><statement><p>Let <m>A</m> be an <m>n\times n</m>
+matrix. We have that <m>\det(A)=0</m> iff <m>A\vec{x}=\vec{0}</m> has solutions such that <m>\vec{x} \neq \vec{0}</m>.
+</p></statement></theorem>
 </subsection>
 </section>
-</chapter>
-<!--
-<p>The above definition uses cofactor expansion along the first row.</p>
-<investigation><statement><p> In this question, we will unpack the determinant formula above for a 2 by 2 matrix <m>A=\begin{bmatrix} a\amp b \\c\amp d \end{bmatrix}</m>.
-\begin{enumerate}
-\item Rather than using the summation notation of the formula above, write out the two terms in <m>\det(A)</m>.
-\item <m>A^*_{1,1}=</m>
-\item <m>A^*_{1,2}=</m>
-\item <m>A_{1,1}=</m>
-\item <m>A_{1,2}=</m>
-\item <m>(-1)^{1+1}=</m>
-\item <m>(-1)^{1+2}=</m>
-\item <m>det(A)=</m>
-\end{enumerate}
-</p></statement></investigation>
-Your answer to the previous problem will be useful in calculating determinants of 3 by 3 matrices.
-\begin{theorem}
-The determinant can be computed by cofactor expansion along any row or column. Specifically the cofactor expansion along the <m>k</m>-th row is given by <me>det(A)=\sum_{j=1}^n (-1)^{k+j} (A_{k,j}) \quad det(A^*_{k,j})</m></m>
-and the cofactor expansion along the <m>k</m>-th column is given by
-<me>det(A)=\sum_{i=1}^n (-1)^{i+k} (A_{i,k}) \quad det(A^*_{i,k})</m></m>
-\end{theorem}
+<section><title>Eigenvalues and Eigenvectors</title>
+<definition>
+  <statement>
+    <p>
+An <term>eigenvector</term> of a matrix <m>A</m> is a nonzero vector
+<m>\vec{x}</m> such that <m>A\vec{x}=\lambda \vec{x}</m> for some
+scalar <m>\lambda</m>. The scalar <m>\lambda</m> is called an
+<term>eigenvalue</term> of <m>A</m> if there exists a nonzero solution
+to <m>A\vec{x}=\lambda \vec{x}</m>.
+    </p>
+  </statement>
+</definition>
 
-\question Use cofactor expansion along the first column of \break <m>A=\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}</m> to compute <m>det(A)</m>.
 
-\question Use cofactor expansion along the second row of \break <m>A=\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}</m> to compute <m>det(A)</m>. Did you get the same answer as the previous question?
+<investigation><introduction><p> Which of the following vectors are an
+eigenvector of <m>A=\begin{bmatrix} 2\amp 3\\3\amp 2
+\end{bmatrix}</m>? For any vectors that are eigenvectors of <m>A</m>,
+give the eigenvalue. To speed things along, we are going to use
+SageMath cells embedded in the course notes. the code below sets up
+the computation that you need to do to answer the first part
+below. You may modify the code and click the button again (or type shift-return) to solve the
+other parts. If you mess up the code, just reload the page.</p>
+<sage>
+  <input>
+    A = matrix(2,2,[2,3,3,2])
+    v = matrix(2,1,[1,2])
+    A*v
+  </input>
+</sage>
+</introduction>
+<task><statement><p><m>\vec{v_1}=\colvec{1\\ 2}</m></p></statement></task>
+<task><statement><p><m>\vec{v_2}=\colvec{-1\\ 1}</m></p></statement></task>
+<task><statement><p><m>\vec{v_3}=\colvec{3\\ -1}</m></p></statement></task>
+<task><statement><p><m>\vec{v_4}=\colvec{1\\ 1}</m></p></statement></task>
+<task><statement><p><m>\vec{v_5}=\colvec{0\\ 0}</m></p></statement></task>
+</investigation>
 
-\question Compute the determinant of <m>B=\begin{bmatrix}g\amp h\amp i \\d\amp e\amp f\\ a\amp b\amp c \end{bmatrix}</m>. How does your answer compare with the previous problem?
-
-\question Compute the determinant of <m>C=\begin{bmatrix} a\amp b\amp c\\3d\amp 3e\amp 3f\\g\amp h\amp i \end{bmatrix}</m>.
-
-\question Compute the determinant of <m>D=\begin{bmatrix} a+kd\amp b+ke\amp c+kf\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}</m>.
-
-<investigation><statement><p> Compute the determinant of the following matrices:
-\begin{enumerate}
-\item <m>\begin{bmatrix} 3\amp 0\amp 1\amp 0\\0\amp 2\amp -1\amp 4 \\-3\amp 5\amp 0\amp 2\\2\amp 2\amp 2\amp -1 \end{bmatrix}</m>
-\item <m>2\begin{bmatrix} 3\amp 0\amp 1\amp 0\\0\amp 2\amp -1\amp 4 \\-3\amp 5\amp 0\amp 2\\2\amp 2\amp 2\amp -1 \end{bmatrix}</m>
-\end{enumerate}
-</p></statement></investigation>
-\subsection{Properties of Determinants}
-
-<investigation><statement><p> Prove that if <m>A</m> has a row of zeros, then <m>det(A)=0</m>.
-</p></statement></investigation>
-
-<investigation><statement><p> Prove that <m>det(Id_n)=1</m>.
-</p></statement></investigation>
-
-<investigation><statement><p> Use your results from the previous subsection to state what the determinants of the three different kinds of elementary matrices are. (You do not need to prove the general case, just give a clear, correct statement.)
-</p></statement></investigation>
-
-\begin{theorem}
-\begin{enumerate}
-\item If <m>A</m> and <m>B</m> are <m>n</m> by <m>n</m>, then <m>det(AB)=det(A) det(B)</m>.
-\item The determinant of an upper or lower triangular matrix is the product of its diagonal entries. <me>det(L)=\prod_{i=1}^n L_{i,i}</m></m> <me>det(U)=\prod_{i=1}^n U_{i,i}</m></m>
-\item The determinant of a diagonal matrix is the product of its diagonal entries. If <m>D</m> is diagonal, then <me>det(D)=\prod_{i=1}^n D_{i,i}</m></m>
-\item <m>det(A)=det(A^T)</m>
-\item A matrix <m>A</m> is invertible iff <m>det(A)\neq 0</m>. This property should be included in the Invertible Matrix Theorem. In fact, you should go write it in as part (n) of Theorem \ref{imt}.
-\end{enumerate}
-\end{theorem}
-
-\begin{annotation}
-\endnote{In the next problem, we use an elementary operation on columns. This is intentional. I take this as a time to remind students that everything we have been doing as far as row operations can be applied to deal with column operations. In this course we don't worry about considering both concepts all of the time in order to have time to deeply understand the relationships involving row operations. I also try to remind them that everything we have done so far more or less stems from row operations or can be taken from an abstract setting and applied as solving a system of linear equation (with row operations!!!).
-
-Additionally, the next three questions are not essential to the rest of the material and can be omitted for time. Question \ref{ee} is vital to several ideas and proofs in the next section.}
-\end{annotation}
-<investigation><statement><p> Let <m>A=E_1 E_2 E_3</m> be a four by four matrix, where
-\begin{itemize}
-\item <m>E_1</m> is the elementary matrix that adds two times the 2nd column to the 3rd column
-\item <m>E_2</m> is the elementary matrix that switches the second and fourth rows
-\item <m>E_3</m> is the elementary matrix that scales the first row by <m>\frac{1}{2}</m>
-\end{itemize}
-Compute <m>det(A)</m>.
-</p></statement></investigation>
-
-<investigation><statement><p> Let <m>A=LU</m>, where <m>L=\begin{bmatrix} 1\amp 0\amp 0\\-2\amp 1\amp 0\\2\amp -3\amp 1 \end{bmatrix}</m> and \break <m>U=\begin{bmatrix} 3 \amp -1 \amp 2\\0\amp 1\amp -2\\0\amp 0\amp 5 \end{bmatrix}</m>. Compute <m>det(L)</m>, <m>det(U)</m>, and <m>det(A)</m>. What relationship should these determinants have?
-</p></statement></investigation>
-
-<investigation><statement><p> Let <m>A=\begin{bmatrix} 1\amp 2\amp 3\\4\amp 5\amp 6\\0\amp 1\amp -1 \end{bmatrix}</m> and <m>\vec{b}=\colvec{1\\ 1\\ 1}</m>.
-\begin{enumerate}
-\item Compute <m>det(A)</m>.
-\item Let <m>A_1</m> be the matrix obtained by replacing the first column of <m>A</m> with <m>\vec{b}</m>. Compute <m>det(A_1)</m>.
-\item By similar replacement of the second and third columns, find <m>A_2</m> and <m>A_3</m>. Compute <m>det(A_2)</m> and <m>det(A_3)</m>.
-\item Solve <m>A\vec{x}=\vec{b}</m>.
-\item Write <m>\colvec{x_1\\ x_2\\ x_3}</m> in terms of <m>det(A_1)</m>, <m>det(A_2)</m>, <m>det(A_3)</m>, and <m>det(A)</m>.
-\end{enumerate}
-</p></statement></investigation>
-
-The previous problem is an example of \textbf{Cramer's Rule}, which allows you to write the unique solution of <m>A\vec{x} =\vec{b}</m> (for a square invertible matrix <m>A</m>) in terms of determinants.
-
-<investigation><statement><p>\label{ee} Prove: <m>det(A)=0</m> iff <m>A\vec{x}=\vec{0}</m> has solutions such that <m>\vec{x} \neq \vec{0}</m>.
-</p></statement></investigation>
-
-\section{Eigenvalues and Eigenvectors}
-\begin{annotation}
-\endnote{Throughout this section, the students may ask about solving some of the algebraic equations using complex numbers. Only after Question \ref{q13} are complex numbers explicitly addressed. I typically take this as an opportunity to talk to students about the assumptions that may be implicit in problems and that if they think real versus complex would change the answer to the question, then they should consider and write up both cases (This always comes up by Question \ref{q14} at the latest). Many students do not have facility with solving algebraic problems with complex numbers and other students' presentations offer another time to expose them to these ideas. Your milage may vary.}
-\end{annotation}
-\begin{definition}
-An \textbf{eigenvector} of a matrix <m>A</m> is a nonzero vector <m>\vec{x}</m> such that <m>A\vec{x}=\lambda \vec{x}</m> for some scalar <m>\lambda</m>. The scalar <m>\lambda</m> is called an \textbf{eigenvalue} of <m>A</m> if there exists a nonzero solution to <m>A\vec{x}=\lambda \vec{x}</m>.
-\end{definition}
-
-<investigation><statement><p> Which of the following vectors are an eigenvector of \break</m>A=\begin{bmatrix} 2\amp 3\\3\amp 2 \end{bmatrix}</m>? For any vectors that are eigenvectors of <m>A</m>, give the eigenvalue. \begin{enumerate}
-\item <m>\vec{v_1}=\colvec{2}{1}{2}</m>
-\item <m>\vec{v_2}=\colvec{2}{-1}{1}</m>
-\item <m>\vec{v_3}=\colvec{2}{3}{-1}</m>
-\item <m>\vec{v_4}=\colvec{2}{1}{1}</m>
-\item <m>\vec{v_5}=\colvec{2}{0}{0}</m>
-\end{enumerate}
-</p></statement></investigation>
+<p>As a hint for the following two problems, it will suffice to try to
+find an eigenvector of the form <m>\colvec{1\\ a}</m>. You might first
+convince yourself that for these matrices, no eigenvector can have
+first component <m>0</m>.</p>
 
 <investigation><statement><p> Let <m>A=\begin{bmatrix} 2\amp 1\\-1\amp 3 \end{bmatrix}</m>. Try to find an eigenvector with eigenvalue <m>3</m>. In other words, find a vector <m>\vec{v}</m> such that <m>A\vec{v}=3\vec{v}</m>.
 </p></statement></investigation>
 
 <investigation><statement><p> Let <m>A=\begin{bmatrix} 3\amp 4\\3\amp -1 \end{bmatrix}</m>. Try to find an eigenvector with eigenvalue <m>-3</m>. In other words, find a vector <m>\vec{v}</m> such that <m>A\vec{v}=-3\vec{v}</m>.
 </p></statement></investigation>
+<p>As a hint to proving this, look back to <xref ref="ee" /></p>
+<theorem><statement><p> Let <m>A</m> be a square matrix. We have that
+<m>\det(A- \alpha Id)=0</m> iff <m>\alpha</m> is an eigenvalue of <m>A</m>. 
+</p></statement></theorem>
 
-<investigation><statement><p> Prove: <m>det(A- \alpha Id)=0</m> iff <m>\alpha</m> is an eigenvalue. Hint: Look at Question \ref{ee}.
-</p></statement></investigation>
+<p>If <m>A</m> is a <m>n</m> by <m>n</m> matrix, then <m>\det(A- t Id)</m> will be a <m>n</m>-th degree polynomial in <m>t</m>, which we call the <term>characteristic polynomial of <m>A</m></term>. The previous theorem shows that finding roots of the characteristic polynomial is the same as finding eigenvalues.</p>
 
-If <m>A</m> is a <m>n</m> by <m>n</m> matrix, then <m>det(A- t Id)</m> will be a <m>n</m>-th degree polynomial in <m>t</m>, which we call the \textbf{characteristic polynomial of <m>A</m>}. The previous question shows that finding roots of the characteristic polynomial is the same as finding eigenvalues.
-
-<investigation><statement><p> Find each of the following matrices: write out the characteristic polynomial, give all eigenvalues, and for each eigenvalue, find an eigenvector.
-\begin{enumerate}
-\item <m>\begin{bmatrix} 1\amp 1 \\1\amp 1 \end{bmatrix}</m>
-\item <m>\begin{bmatrix} 1\amp -3 \\-3\amp 1 \end{bmatrix}</m>
-\item <m>\begin{bmatrix} 1\amp 2 \\3\amp 4 \end{bmatrix}</m>
-\item <m>\begin{bmatrix} 1\amp 2\amp 3 \\4\amp 5\amp 6\\7\amp 8\amp 9 \end{bmatrix}</m>
-\item <m>\begin{bmatrix} 4\amp -1\amp 6\\2\amp 1\amp 6\\2\amp -1\amp 8 \end{bmatrix}</m>
-\item <m>\begin{bmatrix} 1\amp 1\amp 0\amp 0\\1\amp 1\amp 0\amp 0\\0\amp 0\amp 1\amp -3\\0\amp 0\amp -3\amp 1 \end{bmatrix}</m>
-\end{enumerate}
-</p></statement></investigation>
-\begin{annotation}
+<investigation><introduction><p> Find each of the following matrices:
+write out the characteristic polynomial, give all eigenvalues, and for
+each eigenvalue, find an eigenvector. You should do the first two by
+hand to get a feel for finding the characteristic polynomial. After
+that, I have provided a SageMath cell you can modify to get the
+characteristic polynomial quickly, but you will need to work from
+there to find eigenvalues and eigenvectors.</p></introduction>
+<task><statement><p><m>\begin{bmatrix} 1\amp 1 \\1\amp 1 \end{bmatrix}</m></p></statement></task>
+<task><statement><p><m>\begin{bmatrix} 1\amp -3 \\-3\amp 1 \end{bmatrix}</m></p></statement></task>
+<task><statement><p><m>\begin{bmatrix} 1\amp 2 \\3\amp 4
+\end{bmatrix}</m></p>
+<sage>
+  <input>
+    A = matrix(2,2,[1,2,3,4])
+    # Getting the characteristic polynomial in factored
+    # form is helpful. For that, change charpoly to
+    # fcp below
+    A.charpoly(t')
+  </input>
+</sage>
+</statement></task>
+<task><statement><p><m>\begin{bmatrix} 1\amp 2\amp 3 \\4\amp 5\amp 6\\7\amp 8\amp 9 \end{bmatrix}</m></p></statement></task>
+<task><statement><p><m>\begin{bmatrix} 4\amp -1\amp 6\\2\amp 1\amp 6\\2\amp -1\amp 8 \end{bmatrix}</m></p></statement></task>
+<task><statement><p><m>\begin{bmatrix} 1\amp 1\amp 0\amp 0\\1\amp
+1\amp 0\amp 0\\0\amp 0\amp 1\amp -3\\0\amp 0\amp -3\amp 1
+\end{bmatrix}</m></p></statement><hint><p>Work smarter, not harder, on
+this part!</p></hint></task>
+<conclusion><p>A root <m>\alpha</m> of a polynomial (in <m>t</m>) has
+<term>(algebraic) multiplicity</term> <m>k</m> if <m>k</m> is the
+largest integer such that <m>(t-\alpha)^k</m> is a factor. Which, if
+any, of the eigenvalues you found above have algebraic multiplicity
+greater than <m>1</m>?</p>
+</conclusion>
+</investigation>
+<!--\begin{annotation}
 \endnote{Part e) of the previous problem is important for students to work through since it sets up Question \ref{q92}. Sometimes Question \ref{q92} can be done as an entire 50 minute class since it encapsulates a lot of understanding of dimension, eigenspaces, and previews diagonalizability.}
-\end{annotation}
+\end{annotation}-->
 
-A root <m>\alpha</m> of a polynomial (in <m>t</m>) has (algebraic) multiplicity <m>k</m> if <m>k</m> is the largest integer such that <m>(t-\alpha)^k</m> is a factor.
 
 <investigation><statement><p> Prove that a nonzero vector, <m>\vec{v}</m>, is an eigenvector of <m>A</m> with eigenvalue <m>\lambda</m> if and only if <m>\vec{v}</m> is in the null space of <m>A-\lambda Id</m>.
 </p></statement></investigation>
@@ -716,55 +814,103 @@ A root <m>\alpha</m> of a polynomial (in <m>t</m>) has (algebraic) multiplicity 
 <investigation><statement><p> Prove that if <m>\vec{v_1}</m> and <m>\vec{v_2}</m> are eigenvectors of <m>A</m> with the same eigenvalue, then <m>\vec{v_1}+\vec{v_2}</m> is also an eigenvector of <m>A</m>. What is the eigenvalue of <m>\vec{v_1}+\vec{v_2}</m>?
 </p></statement></investigation>
 
-\begin{definition}
-If <m>\lambda</m> is an eigenvalue of <m>A</m>, then the \textbf{eigenspace of <m>\lambda</m>}, <m>E_\lambda</m>, is the set of vectors <m>\vec{x}</m> such that <m>(A-\lambda Id_n)\vec{x}=\vec{0}</m>. The previous two questions along with the inclusion of <m>\vec{0}</m> give the following theorem.
-\end{definition}
-\begin{theorem} If <m>\lambda</m> is an eigenvalue of <m>A \in M_{n \times n}</m>, then <m>E_\lambda</m> is a subspace of <m>\mathbb{R}^n</m>.
-\end{theorem}
+<definition>
+  <statement>
+    <p>
+If <m>\lambda</m> is an eigenvalue of <m>A</m>, then the
+<term>eigenspace of <m>\lambda</m></term>, <m>E_\lambda</m>, is the
+set of vectors <m>\vec{x}</m> such that <m>(A-\lambda
+Id_n)\vec{x}=\vec{0}</m>.
+    </p>
+  </statement>
+</definition>
+<p>The previous two questions along with the inclusion of
+<m>\vec{0}</m> have proved the following theorem.</p>
+
+<theorem>
+  <statement><p>If <m>\lambda</m> is an eigenvalue of <m>A \in M_{n
+  \times n}</m>, then <m>E_\lambda</m> is a subspace of
+  <m>\mathbb{R}^n</m>.</p>
+  </statement>
+</theorem>
 
 <investigation><statement><p> Prove that <m>dim(E_\lambda) \geq 1</m> for every eigenvalue <m>\lambda</m>.
 </p></statement></investigation>
 
-\question\label{q92} \begin{enumerate} \item Let <m>A =\begin{bmatrix} 2 \amp a\amp b\\0\amp 2\amp c\\0\amp 0\amp 2 \end{bmatrix}</m>. Show that <m>A</m> only has an eigenvalue of 2. What is the algebraic multiplicity of the eigenvalue 2?
-\item Can you pick <m>a</m>, <m>b</m>, and <m>c</m>, so that the eigenspace of 2 has dimension 3? If so, give a choice of <m>a</m>, <m>b</m>, and <m>c</m> that does so.
-\item Can you pick <m>a</m>, <m>b</m>, and <m>c</m>, so that the eigenspace of 2 has dimension 2? If so, give a choice of <m>a</m>, <m>b</m>, and <m>c</m> that does so.
-\item Can you pick <m>a</m>, <m>b</m>, and <m>c</m>, so that the eigenspace of 2 has dimension 1? If so, give a choice of <m>a</m>, <m>b</m>, and <m>c</m> that does so.
-\end{enumerate}
 
-\subsection{Diagonalizability}
-\begin{definition}
-A matrix <m>A</m> is \textbf{diagonalizable} if there exists an invertible matrix <m>Q</m> such that <m>A=QDQ^{-1}</m> where <m>D</m> is a diagonal matrix.
-\end{definition}
-\begin{theorem}
-A matrix <m>A \in M_{n \times n}</m> is diagonalizable iff <m>A</m> has <m>n</m> linearly independent eigenvectors. In fact, the matrix <m>Q</m> that will diagonalize <m>A</m> will have the <m>n</m> linearly independent eigenvectors as its columns.
-\end{theorem}
-The question becomes when can we find <m>n</m> linearly independent eigenvectors for a matrix <m>A</m>. It turns out that \textbf{\underline{if you can}} find <m>n</m> linearly independent eigenvectors for <m>A</m>, then the matrix <m>Q</m> has columns given by these eigenvectors and the diagonal matrix will have the eigenvalues on the diagonal. In particular, if the <m>i</m>-th column of <m>Q</m> has eigenvalue <m>\lambda_i</m>, then <m>D_{i,i} = \lambda_i</m>.
+<investigation xml:id="q92">
+    <task><statement><p>Let <m>A =\begin{bmatrix} 2 \amp a\amp
+    b\\0\amp 2\amp c\\0\amp 0\amp 2 \end{bmatrix}</m>. Show that
+    <m>A</m> only has an eigenvalue of 2. What is the algebraic
+    multiplicity of the eigenvalue 2?</p></statement></task>
+    <task><statement><p>Can you pick <m>a</m>, <m>b</m>, and <m>c</m>, so that the eigenspace of 2 has dimension 3? If so, give a choice of <m>a</m>, <m>b</m>, and <m>c</m> that does so.</p></statement></task>
+    <task><statement><p>Can you pick <m>a</m>, <m>b</m>, and <m>c</m>, so that the eigenspace of 2 has dimension 2? If so, give a choice of <m>a</m>, <m>b</m>, and <m>c</m> that does so.</p></statement></task>
+<task><statement><p>Can you pick <m>a</m>, <m>b</m>, and <m>c</m>, so that the eigenspace of 2 has dimension 1? If so, give a choice of <m>a</m>, <m>b</m>, and <m>c</m> that does so.</p></statement></task>
+</investigation>
+
+<paragraphs>
+  <title>Diagonalizability</title>
+  <definition>
+    <statement>
+      <p>
+A matrix <m>A</m> is <term>diagonalizable</term> if there exists an invertible matrix <m>Q</m> such that <m>A=QDQ^{-1}</m> where <m>D</m> is a diagonal matrix.
+      </p>
+    </statement>
+  </definition>
+  <theorem>
+    <statement>
+      <p>A matrix <m>A \in M_{n \times n}</m> is diagonalizable iff
+      <m>A</m> has <m>n</m> linearly independent eigenvectors. In
+      fact, the matrix <m>Q</m> that will diagonalize <m>A</m> will
+      have the <m>n</m> linearly independent eigenvectors as its
+      columns.
+      </p>
+    </statement>
+  </theorem>
+
+<p>The question becomes when can we find <m>n</m> linearly independent eigenvectors for a matrix <m>A</m>. It turns out that <em>if you can</em> find <m>n</m> linearly independent eigenvectors for <m>A</m>, then the matrix <m>Q</m> has columns given by these eigenvectors and the diagonal matrix will have the eigenvalues on the diagonal. In particular, if the <m>i</m>-th column of <m>Q</m> has eigenvalue <m>\lambda_i</m>, then <m>D_{i,i} = \lambda_i</m>.</p>
 
 <investigation><statement><p> Can you diagonalize <m>A=\begin{bmatrix} -1\amp 2\\-2\amp 4 \end{bmatrix}</m>? If so, give a basis of eigenvectors, give corresponding choices for <m>Q</m>, <m>Q^{-1}</m>, and <m>D</m>, then use these to demonstrate how <m>A=QDQ^{-1}</m>. </p></statement></investigation>
 
-<investigation><statement><p>\label{q14} Can you diagonalize <m>A=\begin{bmatrix} 1\amp -1\\1\amp 1 \end{bmatrix}</m>? If so, give a basis of eigenvectors, give corresponding choices for <m>Q</m>, <m>Q^{-1}</m>, and <m>D</m>, then use these to demonstrate how <m>A=QDQ^{-1}</m>. </p></statement></investigation>
+<investigation xml:id="q14"><statement><p>Can you diagonalize <m>A=\begin{bmatrix} 1\amp -1\\1\amp 1 \end{bmatrix}</m>? If so, give a basis of eigenvectors, give corresponding choices for <m>Q</m>, <m>Q^{-1}</m>, and <m>D</m>, then use these to demonstrate how <m>A=QDQ^{-1}</m>. </p></statement></investigation>
 
-<investigation><statement><p> Prove that if <m>\vec{v_1}</m> is an eigenvector with eigenvalue <m>\lambda_1</m> and <m>\vec{v_2}</m> is an eigenvector with eigenvalue <m>\lambda_2 \neq \lambda_1</m>, then <m>\{ \vec{v_1},\vec{v_2} \}</m> is linearly independent.  </p></statement></investigation>
+<lemma><statement><p>If <m>\vec{v_1}</m> is an eigenvector with eigenvalue <m>\lambda_1</m> and <m>\vec{v_2}</m> is an eigenvector with eigenvalue <m>\lambda_2 \neq \lambda_1</m>, then <m>\{ \vec{v_1},\vec{v_2} \}</m> is linearly independent.  </p></statement></lemma>
 
-The following theorem relies on the preceding question and the fact that the dimension of every eigenspace is at least 1.
-\begin{theorem}
-If a <m>n</m> by <m>n</m> matrix <m>A</m> has <m>n</m> distinct eigenvalues, then <m>A</m> is diagonalizable.
-\end{theorem}
+<p>The following theorem relies on the preceding lemma and the fact that the dimension of every eigenspace is at least 1.</p>
+<theorem>
+  <statement>
+    <p>If a <m>n</m> by <m>n</m> matrix <m>A</m> has <m>n</m> distinct
+    eigenvalues, then <m>A</m> is diagonalizable.</p>
+  </statement>
+</theorem>
 
 <investigation><statement><p> The converse of this theorem is not true in that there diagonalizable matrices that do not have distinct eigenvalues. Give an example of a matrix that is diagonalizable but does not have distinct eigenvalues. Remember that diagonal matrices are diagonalizable. </p></statement></investigation>
 
-\begin{theorem}
-A <m>n</m> by <m>n</m> matrix <m>A</m> is diagonalizable iff the sums of the dimensions of its eigenspaces is <m>n</m>.
-\end{theorem}
+<theorem>
+  <statement>
+    <p>
+A <m>n</m> by <m>n</m> matrix <m>A</m> is diagonalizable if and only if the sums
+of the dimensions of its eigenspaces is <m>n</m>.
+    </p>
+  </statement>
+</theorem>
+
 
 <investigation><statement><p> Give an example of a matrix that is not diagonalizable. Justify your claim.
 </p></statement></investigation>
 
-<investigation><statement><p> Let <m>A</m> be a <m>4</m> by <m>4</m> matrix. \begin{enumerate} \item How many eigenvalues can <m>A</m> have?
-\item For each of the possible number of eigenvalues in the previous part, write out all of the possible dimensions of each of the eigenspaces. For instance: if <m>A</m> has 4 distinct eigenvalues, then the only possibility is that each eigenspace has dimension 1 (why is that?).
-\item Which of the cases from the previous problem correspond to <m>A</m> being diagonalizable?
-\end{enumerate}
-</p></statement></investigation>
+<investigation><introduction><p> Let <m>A</m> be a <m>4</m> by
+<m>4</m> matrix.</p></introduction>
+<task><statement><p>How many eigenvalues can <m>A</m> have?</p>
+</statement>
+</task>
+<task><statement><p> For each of the possible number of eigenvalues in the previous part, write out all of the possible dimensions of each of the eigenspaces. For instance: if <m>A</m> has 4 distinct eigenvalues, then the only possibility is that each eigenspace has dimension 1 (why is that?).</p></statement></task>
+<task><statement><p>Which of the cases from the previous problem correspond to <m>A</m> being diagonalizable?</p></statement></task>
+</investigation>
+</paragraphs>
+</section>
+</chapter>
+<!--
 \subsection{Eigenvalues and Eigenvectors of Linear Transformations}
 The structure of eigenvalues, eigenvectors, and even diagonalizability can be generalized to linear transformations if we consider a square matrix <m>A</m> as a transformation <m>\vec{x} \rightarrow A\vec{x}</m>.
 
@@ -778,7 +924,7 @@ An \textbf{eigenvector} of a linear transformation <m>T:V \rightarrow V</m> is a
 \item <m>T_2</m> flips points over the line <m>y=mx</m>.
 \item <m>T_3</m> rotates points by <m>\pi</m> counterclockwise.
 \item <m>T_4</m> rotates points by <m>\frac{\pi}{3}</m> counterclockwise.
-\item <m>T_5</m> shears points horizontally by <m>2</m>. In other words, <m>T_5(\vec{e_1})=\colvec{2}{1}{0}</m> and <m>T_5(\vec{e_2})=\colvec{2}{2}{1}</m>.
+\item <m>T_5</m> shears points horizontally by <m>2</m>. In other words, <m>T_5(\vec{e_1})=\colvec{1}{0}</m> and <m>T_5(\vec{e_2})=\colvec{2}{1}</m>.
 \item <m>T_6</m> projects points onto the vertical axis.
 \end{enumerate}
 </p></statement></investigation>
