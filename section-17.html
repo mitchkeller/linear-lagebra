@@ -94,10 +94,10 @@ window.MathJax = {
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-16.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_connecting_ideas.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-16.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_connecting_ideas.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-18.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-16.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_connecting_ideas.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-16.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_connecting_ideas.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-18.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -143,6 +143,7 @@ window.MathJax = {
 <li><a href="section-15.html" data-scroll="section-15" class="internal">Basis and Dimension</a></li>
 <li><a href="section-16.html" data-scroll="section-16" class="internal">Invertible Matrices</a></li>
 <li><a href="section-17.html" data-scroll="section-17" class="active">Determinants</a></li>
+<li><a href="section-18.html" data-scroll="section-18" class="internal">Eigenvalues and Eigenvectors</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -150,19 +151,114 @@ window.MathJax = {
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="section-17"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.3</span> <span class="title">Determinants</span>
 </h2>
-<section class="introduction" id="introduction-42"><p id="p-511">Determinants will be an incredibly useful tool in quickly determining several important properties of square matrices. We will first look at how to compute determinants and later outline the important properties that determinants have. While some of you may have been taught some rules for how to compute determinants of 2 by 2 and 3 by 3 matrices, I encourage you to understand how to compute determinants in general.</p></section><section class="subsection" id="subsection-10"><h3 class="heading hide-type">
+<section class="introduction" id="introduction-42"><p id="p-515">Determinants will be an incredibly useful tool in quickly determining several important properties of square matrices. We will first look at how to compute determinants and later outline the important properties that determinants have. While some of you may have been taught some rules for how to compute determinants of 2 by 2 and 3 by 3 matrices, I encourage you to understand how to compute determinants in general.</p></section><section class="subsection" id="subsection-10"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Computing Determinants</span>
 </h3>
 <article class="definition definition-like" id="definition-16"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.18</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.19</span><span class="period">.</span>
 </h4>
-<p id="p-512">The <dfn class="terminology">determinant</dfn> is a function from <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrices to the real numbers (<span class="process-math">\(\det:M_{n \times n} \rightarrow \mathbb{R}\)</span>). If <span class="process-math">\(A\)</span> is a 1 by 1 matrix, <span class="process-math">\(A=[A_{1,1}]\text{,}\)</span> then <span class="process-math">\(\det(A)=A_{1,1}\text{.}\)</span> For <span class="process-math">\(n \geq 2\text{,}\)</span> the determinant of a <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrix is given by the following formula in terms of determinants of <span class="process-math">\((n-1)\)</span> by <span class="process-math">\((n-1)\)</span> matrices:</p>
+<p id="p-516">The <dfn class="terminology">determinant</dfn> is a function from <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrices to the real numbers (<span class="process-math">\(\det:M_{n \times n} \rightarrow \mathbb{R}\)</span>). If <span class="process-math">\(A\)</span> is a 1 by 1 matrix, <span class="process-math">\(A=[A_{1,1}]\text{,}\)</span> then <span class="process-math">\(\det(A)=A_{1,1}\text{.}\)</span> For <span class="process-math">\(n \geq 2\text{,}\)</span> the determinant of a <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrix is given by the following formula in terms of determinants of <span class="process-math">\((n-1)\)</span> by <span class="process-math">\((n-1)\)</span> matrices:</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \det(A)=\sum_{j=1}^n (-1)^{1+j} (A_{1,j}) \, \det(A^*_{1,j})
 \end{equation*}
 </div>
-<p class="continuation">where <span class="process-math">\(A^*_{i,j}\)</span> is the <span class="process-math">\((n-1)\)</span> by <span class="process-math">\((n-1)\)</span> matrix obtained by deleting the <span class="process-math">\(i\)</span>-th row and <span class="process-math">\(j\)</span>-th column of <span class="process-math">\(A\text{.}\)</span> The term <span class="process-math">\(A_{i,j}\,\det(A^*_{i,j})\)</span> is called the <dfn class="terminology"><span class="process-math">\((i,j)\)</span> cofactor of <span class="process-math">\(A\)</span></dfn>.</p></article></section></section></div></main>
+<p class="continuation">where <span class="process-math">\(A^*_{i,j}\)</span> is the <span class="process-math">\((n-1)\)</span> by <span class="process-math">\((n-1)\)</span> matrix obtained by deleting the <span class="process-math">\(i\)</span>-th row and <span class="process-math">\(j\)</span>-th column of <span class="process-math">\(A\text{.}\)</span> The term <span class="process-math">\(A_{i,j}\,\det(A^*_{i,j})\)</span> is called the <dfn class="terminology"><span class="process-math">\((i,j)\)</span> cofactor of <span class="process-math">\(A\)</span></dfn>.</p></article><p id="p-517">The above definition uses cofactor expansion along the first row.</p>
+<article class="investigation project-like" id="investigation-140"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.32</span><span class="period">.</span>
+</h4>
+<div class="introduction" id="introduction-43"><p id="p-518">In this question, we will unpack the determinant formula above for a 2 by 2 matrix <span class="process-math">\(A=\begin{bmatrix}
+a\amp b \\c\amp d \end{bmatrix}\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-166"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-519">Rather than using the summation notation of the formula above, write out the two terms in <span class="process-math">\(\det(A)\text{.}\)</span></p></article><article class="task exercise-like" id="task-167"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-520"><span class="process-math">\(A^*_{1,1}=\)</span></p></article><article class="task exercise-like" id="task-168"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-521"><span class="process-math">\(A^*_{1,2}=\)</span></p></article><article class="task exercise-like" id="task-169"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p id="p-522"><span class="process-math">\(A_{1,1}=\)</span></p></article><article class="task exercise-like" id="task-170"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<p id="p-523"><span class="process-math">\(A_{1,2}=\)</span></p></article><article class="task exercise-like" id="task-171"><h5 class="heading"><span class="codenumber">(f)</span></h5>
+<p id="p-524"><span class="process-math">\((-1)^{1+1}=\)</span></p></article><article class="task exercise-like" id="task-172"><h5 class="heading"><span class="codenumber">(g)</span></h5>
+<p id="p-525"><span class="process-math">\((-1)^{1+2}=\)</span></p></article><article class="task exercise-like" id="task-173"><h5 class="heading"><span class="codenumber">(h)</span></h5>
+<p id="p-526"><span class="process-math">\(\det(A)=\)</span></p></article></article><p id="p-527">Your answer to the previous problem will be useful in calculating determinants of 3 by 3 matrices. We will use the theorem below without proving it.</p>
+<article class="theorem theorem-like" id="theorem-38"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.20</span><span class="period">.</span>
+</h4>
+<p id="p-528">The determinant can be computed by cofactor expansion along any row or column. Specifically the cofactor expansion along the <span class="process-math">\(k\)</span>-th row is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\det(A)=\sum_{j=1}^n (-1)^{k+j} (A_{k,j}) \, \det(A^*_{k,j})
+\end{equation*}
+</div>
+<p class="continuation">and the cofactor expansion along the <span class="process-math">\(k\)</span>-th column is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\det(A)=\sum_{i=1}^n (-1)^{i+k} (A_{i,k}) \quad
+\det(A^*_{i,k})\text{.}
+\end{equation*}
+</div></article><article class="exercise exercise-like" id="exercise-20"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">4.21</span><span class="period">.</span>
+</h4>
+<p id="p-529">Use cofactor expansion along the first column of <span class="process-math">\(A=\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}\)</span> to compute <span class="process-math">\(\det(A)\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-21"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">4.22</span><span class="period">.</span>
+</h4>
+<p id="p-530">Use cofactor expansion along the second row of <span class="process-math">\(A=\begin{bmatrix} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}\)</span> to compute <span class="process-math">\(\det(A)\text{.}\)</span> Did you get the same answer as the previous question?</p></article><article class="exercise exercise-like" id="exercise-22"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">4.23</span><span class="period">.</span>
+</h4>
+<p id="p-531">Compute the determinant of <span class="process-math">\(B=\begin{bmatrix}g\amp h\amp i \\d\amp e\amp f\\ a\amp b\amp c \end{bmatrix}\text{.}\)</span> How does your answer compare with the previous problem?</p></article><article class="exercise exercise-like" id="exercise-23"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">4.24</span><span class="period">.</span>
+</h4>
+<p id="p-532">Compute the determinant of <span class="process-math">\(C=\begin{bmatrix} a\amp b\amp c\\3d\amp 3e\amp 3f\\g\amp h\amp i \end{bmatrix}\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-24"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">4.25</span><span class="period">.</span>
+</h4>
+<p id="p-533">Compute the determinant of <span class="process-math">\(D=\begin{bmatrix} a+kd\amp b+ke\amp c+kf\\d\amp e\amp f\\g\amp h\amp i \end{bmatrix}\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-25"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">4.26</span><span class="period">.</span>
+</h4>
+<div class="introduction" id="introduction-44"><p id="p-534">Compute the determinant of the following matrices:</p></div>
+<article class="task exercise-like" id="task-174"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p id="p-535"><span class="process-math">\(\begin{bmatrix} 3\amp 0\amp 1\amp 0\\0\amp 2\amp -1\amp 4
+\\-3\amp 5\amp 0\amp 2\\2\amp 2\amp 2\amp -1 \end{bmatrix}\)</span></p></article><article class="task exercise-like" id="task-175"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-536"><span class="process-math">\(2\begin{bmatrix} 3\amp 0\amp 1\amp 0\\0\amp 2\amp -1\amp 4
+\\-3\amp 5\amp 0\amp 2\\2\amp 2\amp 2\amp -1
+\end{bmatrix}\)</span></p></article></article></section><section class="subsection" id="subsection-11"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Properties of Determinants</span>
+</h3>
+<article class="investigation project-like" id="investigation-141"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.33</span><span class="period">.</span>
+</h4>
+<p id="p-537">Prove that if <span class="process-math">\(A\)</span> has a row of zeros, then <span class="process-math">\(\det(A)=0\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-142"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.34</span><span class="period">.</span>
+</h4>
+<p id="p-538">Prove that <span class="process-math">\(\det(Id_n)=1\text{.}\)</span></p></article><p id="p-539">We will now state several useful properties of determinants. We will defer the proofs until later in the course. You may use these theorems <em class="emphasis">unless a problem specifically asks you to prove one of them</em>, in which case, the problem will note that you may not use the theorem to prove it.</p>
+<article class="theorem theorem-like" id="theorem-39"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.27</span><span class="period">.</span>
+</h4>
+<p id="p-540">The determinants of elementary matrices have the following values:</p>
+<ol class="lower-alpha">
+<li id="li-95"><p id="p-derived-li-95">If <span class="process-math">\(E_1\)</span> multiplies a row by a scalar <span class="process-math">\(\alpha\text{,}\)</span> then <span class="process-math">\(\det(E_1) = \alpha\text{.}\)</span></p></li>
+<li id="li-96"><p id="p-derived-li-96">If <span class="process-math">\(E_2\)</span> adds <span class="process-math">\(\alpha\)</span> times a row to another row, then <span class="process-math">\(\det(E_2) = 1\text{.}\)</span></p></li>
+<li id="li-97"><p id="p-derived-li-97">If <span class="process-math">\(E_3\)</span> swaps two rows, then <span class="process-math">\(\det(E_3) = -1\text{.}\)</span></p></li>
+</ol></article><article class="theorem theorem-like" id="theorem-40"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.28</span><span class="period">.</span>
+</h4>
+<ol id="p-541" class="lower-alpha">
+<li id="li-98"><p id="p-derived-li-98">If <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are <span class="process-math">\(n\)</span> by <span class="process-math">\(n\text{,}\)</span> then <span class="process-math">\(\det(AB)=\det(A) \det(B)\text{.}\)</span></p></li>
+<li id="li-99"><p id="p-derived-li-99">The determinant of an upper or lower triangular matrix is the product of its diagonal entries.<div class="displaymath process-math" data-contains-math-knowls="" id="md-23">
+\begin{gather*}
+\det(L)=\prod_{i=1}^n (L)_{i,i}\\
+\det(U)=\prod_{i=1}^n (U)_{i,i}
+\end{gather*}
+</div></p></li>
+<li id="li-100"><p id="p-derived-li-100">The determinant of a diagonal matrix is the product of its diagonal entries. If <span class="process-math">\(D\)</span> is diagonal, then<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\det(D)=\prod_{i=1}^n (D)_{i,i}\text{.}
+\end{equation*}
+</div></p></li>
+<li id="li-101"><p id="p-derived-li-101"><span class="process-math">\(\displaystyle \det(A)=\det(A^T)\)</span></p></li>
+<li id="li-102"><p id="p-derived-li-102">A matrix <span class="process-math">\(A\)</span> is invertible iff <span class="process-math">\(\det(A)\neq
+0\text{.}\)</span></p></li>
+</ol></article><p id="p-542">The final property of the theorem above should be included in the <a href="" class="xref" data-knowl="./knowl/imt.html" title="Theorem 4.17: The Invertible Matrix Theorem">The Invertible Matrix Theorem</a>!</p>
+<article class="theorem theorem-like" id="ee"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.29</span><span class="period">.</span>
+</h4>
+<p id="p-543">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n\times n\)</span> matrix. We have that <span class="process-math">\(\det(A)=0\)</span> iff <span class="process-math">\(A\vec{x}=\vec{0}\)</span> has solutions such that <span class="process-math">\(\vec{x} \neq \vec{0}\text{.}\)</span></p></article></section></section></div></main>
 </div>
 </body>
 </html>

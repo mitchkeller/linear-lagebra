@@ -143,6 +143,7 @@ window.MathJax = {
 <li><a href="section-15.html" data-scroll="section-15" class="internal">Basis and Dimension</a></li>
 <li><a href="section-16.html" data-scroll="section-16" class="active">Invertible Matrices</a></li>
 <li><a href="section-17.html" data-scroll="section-17" class="internal">Determinants</a></li>
+<li><a href="section-18.html" data-scroll="section-18" class="internal">Eigenvalues and Eigenvectors</a></li>
 </ul>
 </li>
 </ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
@@ -262,7 +263,41 @@ window.MathJax = {
 </ol></article><article class="investigation project-like" id="investigation-139"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.31</span><span class="period">.</span>
 </h4>
-<p id="p-510">Two important ideas in this course that have been tied to many different methods or ideas are 1) consistent systems of linear equations and 2) invertible matrices. These two ideas are a bit different though. Give an example of a consistent system of linear equations (in matrix equation form <span class="process-math">\(A\vec{x} = \vec{b}\)</span>) where the coefficient matrix <span class="process-math">\(A\)</span> is a non-invertible square matrix.</p></article></section></section></div></main>
+<p id="p-510">Two important ideas in this course that have been tied to many different methods or ideas are 1) consistent systems of linear equations and 2) invertible matrices. These two ideas are a bit different though. Give an example of a consistent system of linear equations (in matrix equation form <span class="process-math">\(A\vec{x} = \vec{b}\)</span>) where the coefficient matrix <span class="process-math">\(A\)</span> is a non-invertible square matrix.</p></article><p id="p-511">We close this section with a theorem that should not be surprising based on the work that we have done so far. A proof is provided for you. The criterion the following theorem states can be added to the list of statements in <a href="" class="xref" data-knowl="./knowl/imt.html" title="Theorem 4.17: The Invertible Matrix Theorem">The Invertible Matrix Theorem</a>.</p>
+<article class="theorem theorem-like" id="theorem-37"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.18</span><span class="period">.</span>
+</h4>
+<p id="p-512">A square matrix <span class="process-math">\(A\)</span> is invertible if and only if there exist elementary matrices <span class="process-math">\(E_1,E_2,\dots, E_k\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A = E_1E_2\cdots E_k\text{.}
+\end{equation*}
+</div></article><article class="proof" id="proof-4"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4>
+<article class="case" id="case-1"><h5 class="heading">
+<span class="process-math">\(\Rightarrow\)</span>.</h5>
+<p id="p-513">Since <span class="process-math">\(A\)</span> is invertible, there exist elementary matrices that row reduce <span class="process-math">\(A\)</span> to the identity matrix. That is, we have elementary matrices <span class="process-math">\(E'_i\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+E'_1\cdots
+E'_kA = Id_n\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Each elementary matrix is invertible, so we can write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A =
+(E'_k)^{-1}\cdots (E'_2)^{-1}\cdots(E'_1)^{-1}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">As the inverse of an elementary matrix is an elementary matrix, the right-hand side is a product of elementary matrices as desired.</p></article><article class="case" id="case-2"><h5 class="heading">
+<span class="process-math">\(\Leftarrow\)</span>.</h5>
+<p id="p-514">If we have <span class="process-math">\(A = E_1E_2\cdots E_k\text{,}\)</span> we can multiply one-by-one on the left by the inverses of the elementary matrices, which are also elementary matrices. Thus, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(E_k)^{-1}\cdots(E_2)^{-1}(E_1)^{-1}A = Id_n\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This shows that there is a way to row reduce <span class="process-math">\(A\)</span> and obtain the identity matrix, so <span class="process-math">\(A\)</span> is invertible.</p></article></article></section></section></div></main>
 </div>
 </body>
 </html>
