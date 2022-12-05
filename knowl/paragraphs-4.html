@@ -15,7 +15,8 @@
 <article class="definition definition-like"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.34</span><span class="period">.</span>
 </h4>
-<p>A matrix <span class="process-math">\(A\)</span> is <dfn class="terminology">diagonalizable</dfn> if there exists an invertible matrix <span class="process-math">\(Q\)</span> such that <span class="process-math">\(A=QDQ^{-1}\)</span> where <span class="process-math">\(D\)</span> is a diagonal matrix.</p></article><article class="theorem theorem-like"><h4 class="heading">
+<p>A matrix <span class="process-math">\(A\)</span> is <dfn class="terminology">diagonalizable</dfn> if there exists an invertible matrix <span class="process-math">\(Q\)</span> such that <span class="process-math">\(A=QDQ^{-1}\)</span> where <span class="process-math">\(D\)</span> is a diagonal matrix.</p></article><p>We will not prove this theorem, but we will make use of it:</p>
+<article class="theorem theorem-like"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.35</span><span class="period">.</span>
 </h4>
 <p>A matrix <span class="process-math">\(A \in M_{n \times n}\)</span> is diagonalizable iff <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> linearly independent eigenvectors. In fact, the matrix <span class="process-math">\(Q\)</span> that will diagonalize <span class="process-math">\(A\)</span> will have the <span class="process-math">\(n\)</span> linearly independent eigenvectors as its columns.</p></article><p>The question becomes when can we find <span class="process-math">\(n\)</span> linearly independent eigenvectors for a matrix <span class="process-math">\(A\text{.}\)</span> It turns out that <em class="emphasis">if you can</em> find <span class="process-math">\(n\)</span> linearly independent eigenvectors for <span class="process-math">\(A\text{,}\)</span> then the matrix <span class="process-math">\(Q\)</span> has columns given by these eigenvectors and the diagonal matrix will have the eigenvalues on the diagonal. In particular, if the <span class="process-math">\(i\)</span>-th column of <span class="process-math">\(Q\)</span> has eigenvalue <span class="process-math">\(\lambda_i\text{,}\)</span> then <span class="process-math">\(D_{i,i} = \lambda_i\text{.}\)</span></p>
@@ -41,13 +42,17 @@
 <p>A <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrix <span class="process-math">\(A\)</span> is diagonalizable if and only if the sums of the dimensions of its eigenspaces is <span class="process-math">\(n\text{.}\)</span></p></article><article class="investigation project-like"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.47</span><span class="period">.</span>
 </h4>
-<p>Give an example of a matrix that is not diagonalizable. Justify your claim.</p></article><article class="investigation project-like"><h4 class="heading">
+<p>Give an example of a matrix (with real eigenvalues) that is not diagonalizable. Justify your claim.</p></article><article class="investigation project-like"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.48</span><span class="period">.</span>
 </h4>
 <div class="introduction"><p>Let <span class="process-math">\(A\)</span> be a <span class="process-math">\(4\)</span> by <span class="process-math">\(4\)</span> matrix.</p></div>
 <article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <p>How many eigenvalues can <span class="process-math">\(A\)</span> have?</p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <p>For each of the possible number of eigenvalues in the previous part, write out all of the possible dimensions of each of the eigenspaces. For instance: if <span class="process-math">\(A\)</span> has 4 distinct eigenvalues, then the only possibility is that each eigenspace has dimension 1 (why is that?).</p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<p>Which of the cases from the previous problem correspond to <span class="process-math">\(A\)</span> being diagonalizable?</p></article></article></section><span class="incontext"><a href="section-18.html#paragraphs-4" class="internal">in-context</a></span>
+<p>Which of the cases from the previous problem correspond to <span class="process-math">\(A\)</span> being diagonalizable?</p></article></article><article class="investigation project-like"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.49</span><span class="period">.</span>
+</h4>
+<p>Let <span class="process-math">\(A=\begin{bmatrix} 7 \amp -5 \amp 25\\ 10 \amp -8 \amp
+35\\ 0 \amp 0 \amp -1\end{bmatrix}\text{.}\)</span> Diagonalize <span class="process-math">\(A\)</span> and use your diagonalization to compute <span class="process-math">\(A^{10}\text{.}\)</span></p></article></section><span class="incontext"><a href="section-18.html#paragraphs-4" class="internal">in-context</a></span>
 </body>
 </html>

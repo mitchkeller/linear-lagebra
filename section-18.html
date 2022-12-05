@@ -191,7 +191,7 @@ A*v
 <article class="investigation project-like" id="investigation-146"><h3 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.38</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-46"><p id="p-557">Find each of the following matrices: write out the characteristic polynomial, give all eigenvalues, and for each eigenvalue, find an eigenvector. You should do the first two by hand to get a feel for finding the characteristic polynomial. After that, I have provided a SageMath cell you can modify to get the characteristic polynomial quickly, but you will need to work from there to find eigenvalues and eigenvectors.</p></div>
+<div class="introduction" id="introduction-46"><p id="p-557">For each of the following matrices: write out the characteristic polynomial, give all eigenvalues, and for each eigenvalue, find an eigenvector. You should do the first two by hand to get a feel for finding the characteristic polynomial. After that, I have provided a SageMath cell you can modify to get the characteristic polynomial quickly, but you will need to work from there to find eigenvalues and eigenvectors.</p></div>
 <article class="task exercise-like" id="task-181"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-558"><span class="process-math">\(\begin{bmatrix} 1\amp 1 \\1\amp 1 \end{bmatrix}\)</span></p></article><article class="task exercise-like" id="task-182"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-559"><span class="process-math">\(\begin{bmatrix} 1\amp -3 \\-3\amp 1 \end{bmatrix}\)</span></p></article><article class="task exercise-like" id="task-183"><h4 class="heading"><span class="codenumber">(c)</span></h4>
@@ -201,7 +201,7 @@ A*v
 # Getting the characteristic polynomial in factored
 # form is helpful. For that, change charpoly to
 # fcp below
-A.charpoly(t')
+A.charpoly('t')
 </script></pre></article><article class="task exercise-like" id="task-184"><h4 class="heading"><span class="codenumber">(d)</span></h4>
 <p id="p-561"><span class="process-math">\(\begin{bmatrix} 1\amp 2\amp 3 \\4\amp 5\amp 6\\7\amp 8\amp 9 \end{bmatrix}\)</span></p></article><article class="task exercise-like" id="task-185"><h4 class="heading"><span class="codenumber">(e)</span></h4>
 <p id="p-562"><span class="process-math">\(\begin{bmatrix} 4\amp -1\amp 6\\2\amp 1\amp 6\\2\amp -1\amp 8 \end{bmatrix}\)</span></p></article><article class="task exercise-like" id="task-186"><h4 class="heading"><span class="codenumber">(f)</span></h4>
@@ -213,70 +213,117 @@ A.charpoly(t')
 </div></article><div class="conclusion" id="conclusion-2"><p id="p-565">A root <span class="process-math">\(\alpha\)</span> of a polynomial (in <span class="process-math">\(t\)</span>) has <dfn class="terminology">(algebraic) multiplicity</dfn> <span class="process-math">\(k\)</span> if <span class="process-math">\(k\)</span> is the largest integer such that <span class="process-math">\((t-\alpha)^k\)</span> is a factor. Which, if any, of the eigenvalues you found above have algebraic multiplicity greater than <span class="process-math">\(1\text{?}\)</span></p></div></article><article class="investigation project-like" id="investigation-147"><h3 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.39</span><span class="period">.</span>
 </h3>
-<p id="p-566">Prove that a nonzero vector, <span class="process-math">\(\vec{v}\text{,}\)</span> is an eigenvector of <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(\lambda\)</span> if and only if <span class="process-math">\(\vec{v}\)</span> is in the null space of <span class="process-math">\(A-\lambda Id\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-148"><h3 class="heading">
+<p id="p-566">Prove that a nonzero vector, <span class="process-math">\(\vec{v}\text{,}\)</span> is an eigenvector of <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(\lambda\)</span> if and only if <span class="process-math">\(\vec{v}\)</span> is in the null space of <span class="process-math">\(A-\lambda Id\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-17" id="solution-17"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-17"><div class="solution solution-like">
+<p id="p-567"><span class="process-math">\((\Rightarrow)\)</span> If <span class="process-math">\(\vec{v}\)</span> is an eigenvector of <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> then <span class="process-math">\(A\vec{v} =
+\lambda\vec{v}\text{.}\)</span> By algebra, this means that <span class="process-math">\(A\vec{v} -
+\lambda\vec{v} = \vec{0}\text{,}\)</span> and hence <span class="process-math">\((A-\lambda
+Id)\vec{v}=\vec{0}\text{.}\)</span> Thus, <span class="process-math">\(\vec{v}\)</span> is in the null space of <span class="process-math">\(A-\lambda Id\text{.}\)</span></p>
+<p id="p-568"><span class="process-math">\((\Leftarrow)\)</span> If <span class="process-math">\(\vec{v}\in Null(A-\lambda Id)\text{,}\)</span> then <span class="process-math">\((A-\lambda Id)\vec{v} = 0\text{.}\)</span> Hence, <span class="process-math">\(A\vec{v}-\lambda
+\vec{v} = \vec{0}\text{,}\)</span> or <span class="process-math">\(A\vec{v} = \lambda\vec{v}\text{.}\)</span> Thus, <span class="process-math">\(\vec{v}\)</span> is an eigenvector of <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(\lambda\text{.}\)</span></p>
+</div></div>
+</div></article><article class="investigation project-like" id="investigation-148"><h3 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.40</span><span class="period">.</span>
 </h3>
-<p id="p-567">Prove that if <span class="process-math">\(\vec{v}\)</span> is an eigenvector of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\alpha \vec{v}\)</span> is also an eigenvector of <span class="process-math">\(A\)</span> (when <span class="process-math">\(\alpha \neq 0\)</span>).</p></article><article class="investigation project-like" id="investigation-149"><h3 class="heading">
+<p id="p-569">Prove that if <span class="process-math">\(\vec{v}\)</span> is an eigenvector of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\alpha \vec{v}\)</span> is also an eigenvector of <span class="process-math">\(A\)</span> (when <span class="process-math">\(\alpha \neq 0\)</span>).</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-18" id="solution-18"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-18"><div class="solution solution-like">
+<p id="p-570">Since <span class="process-math">\(\vec{v}\)</span> is an eigenvector of <span class="process-math">\(A\text{,}\)</span> there is a scalar <span class="process-math">\(\lambda\)</span> such that <span class="process-math">\(A\vec{v} = \lambda
+\vec{v}\text{.}\)</span> By properties of matrix multiplication, we thus have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A(\alpha\vec{v}) = \alpha A\vec{v} = \alpha\lambda\vec{v} =
+\lambda(\alpha\vec{v})\text{.}
+\end{equation*}
+</div>
+<p class="continuation">As <span class="process-math">\(\alpha\neq 0\text{,}\)</span> this shows that <span class="process-math">\(\alpha\vec{v}\)</span> is an eigenvector with the same eigenvalue.</p>
+</div></div>
+</div></article><article class="investigation project-like" id="investigation-149"><h3 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.41</span><span class="period">.</span>
 </h3>
-<p id="p-568">Prove that if <span class="process-math">\(\vec{v_1}\)</span> and <span class="process-math">\(\vec{v_2}\)</span> are eigenvectors of <span class="process-math">\(A\)</span> with the same eigenvalue, then <span class="process-math">\(\vec{v_1}+\vec{v_2}\)</span> is also an eigenvector of <span class="process-math">\(A\text{.}\)</span> What is the eigenvalue of <span class="process-math">\(\vec{v_1}+\vec{v_2}\text{?}\)</span></p></article><article class="definition definition-like" id="definition-18"><h3 class="heading">
+<p id="p-571">Prove that if <span class="process-math">\(\vec{v_1}\)</span> and <span class="process-math">\(\vec{v_2}\)</span> are eigenvectors of <span class="process-math">\(A\)</span> with the same eigenvalue, then <span class="process-math">\(\vec{v_1}+\vec{v_2}\)</span> is also an eigenvector of <span class="process-math">\(A\text{.}\)</span> What is the eigenvalue of <span class="process-math">\(\vec{v_1}+\vec{v_2}\text{?}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-19" id="solution-19"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-19"><div class="solution solution-like">
+<p id="p-572">Let <span class="process-math">\(\lambda\)</span> be the associated eigenvalue. We have that <span class="process-math">\(A\vec{v}_1 = \lambda\vec{v}_1\)</span> and <span class="process-math">\(A\vec{v}_2 =
+\lambda\vec{v}_2\text{.}\)</span> Thus, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A(\vec{v}_1 + \vec{v}_2) =
+A\vec{v}_1 + A\vec{v}_2 = \lambda\vec{v}_1 + \lambda\vec{v}_2 =
+\lambda(\vec{v}_1 + \vec{v}_2)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Therefore, <span class="process-math">\(\vec{v}_1 +
+\vec{v}_2\)</span> is an eigenvector with the same eigenvalue.</p>
+</div></div>
+</div></article><article class="definition definition-like" id="definition-18"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.32</span><span class="period">.</span>
 </h3>
-<p id="p-569">If <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\text{,}\)</span> then the <dfn class="terminology">eigenspace of <span class="process-math">\(\lambda\)</span></dfn>, <span class="process-math">\(E_\lambda\text{,}\)</span> is the set of vectors <span class="process-math">\(\vec{x}\)</span> such that <span class="process-math">\((A-\lambda
-Id_n)\vec{x}=\vec{0}\text{.}\)</span></p></article><p id="p-570">The previous two questions along with the inclusion of <span class="process-math">\(\vec{0}\)</span> have proved the following theorem.</p>
+<p id="p-573">If <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\text{,}\)</span> then the <dfn class="terminology">eigenspace of <span class="process-math">\(\lambda\)</span></dfn>, <span class="process-math">\(E_\lambda\text{,}\)</span> is the set of vectors <span class="process-math">\(\vec{x}\)</span> such that <span class="process-math">\((A-\lambda
+Id_n)\vec{x}=\vec{0}\text{.}\)</span></p></article><p id="p-574">The previous two questions along with the inclusion of <span class="process-math">\(\vec{0}\)</span> have proved the following theorem.</p>
 <article class="theorem theorem-like" id="theorem-43"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.33</span><span class="period">.</span>
 </h3>
-<p id="p-571">If <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A \in M_{n
+<p id="p-575">If <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A \in M_{n
 \times n}\text{,}\)</span> then <span class="process-math">\(E_\lambda\)</span> is a subspace of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-150"><h3 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.42</span><span class="period">.</span>
 </h3>
-<p id="p-572">Prove that <span class="process-math">\(dim(E_\lambda) \geq 1\)</span> for every eigenvalue <span class="process-math">\(\lambda\text{.}\)</span></p></article><article class="investigation project-like" id="q92"><h3 class="heading">
+<p id="p-576">Prove that <span class="process-math">\(dim(E_\lambda) \geq 1\)</span> for every eigenvalue <span class="process-math">\(\lambda\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-20" id="solution-20"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-20"><div class="solution solution-like"><p id="p-577">We prove this by contradiction. Suppose that there is an eigenspace with dimension <span class="process-math">\(0\text{.}\)</span> Then <span class="process-math">\(E_\lambda =
+\{\vec{0}\}\text{,}\)</span> since this is the only vector space of dimension <span class="process-math">\(0\text{.}\)</span> However, we now see that <span class="process-math">\(E_\lambda\)</span> does not contain any nonzero vectors, and thus cannot contain any eigenvectors and therefore is not an eigenspace.</p></div></div>
+</div></article><article class="investigation project-like" id="q92"><h3 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.43</span><span class="period">.</span>
 </h3>
 <article class="task exercise-like" id="task-187"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-573">Let <span class="process-math">\(A =\begin{bmatrix} 2 \amp a\amp
+<p id="p-578">Let <span class="process-math">\(A =\begin{bmatrix} 2 \amp a\amp
 b\\0\amp 2\amp c\\0\amp 0\amp 2 \end{bmatrix}\text{.}\)</span> Show that <span class="process-math">\(A\)</span> only has an eigenvalue of 2. What is the algebraic multiplicity of the eigenvalue 2?</p></article><article class="task exercise-like" id="task-188"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-574">Can you pick <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\text{,}\)</span> so that the eigenspace of 2 has dimension 3? If so, give a choice of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> that does so.</p></article><article class="task exercise-like" id="task-189"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-575">Can you pick <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\text{,}\)</span> so that the eigenspace of 2 has dimension 2? If so, give a choice of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> that does so.</p></article><article class="task exercise-like" id="task-190"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-576">Can you pick <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\text{,}\)</span> so that the eigenspace of 2 has dimension 1? If so, give a choice of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> that does so.</p></article></article><section class="paragraphs" id="paragraphs-4"><h3 class="heading"><span class="title">Diagonalizability.</span></h3>
+<p id="p-579">Can you pick <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\text{,}\)</span> so that the eigenspace of 2 has dimension 3? If so, give a choice of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> that does so.</p></article><article class="task exercise-like" id="task-189"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-580">Can you pick <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\text{,}\)</span> so that the eigenspace of 2 has dimension 2? If so, give a choice of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> that does so.</p></article><article class="task exercise-like" id="task-190"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-581">Can you pick <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\text{,}\)</span> so that the eigenspace of 2 has dimension 1? If so, give a choice of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> that does so.</p></article></article><section class="paragraphs" id="paragraphs-4"><h3 class="heading"><span class="title">Diagonalizability.</span></h3>
 <article class="definition definition-like" id="definition-19"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.34</span><span class="period">.</span>
 </h4>
-<p id="p-577">A matrix <span class="process-math">\(A\)</span> is <dfn class="terminology">diagonalizable</dfn> if there exists an invertible matrix <span class="process-math">\(Q\)</span> such that <span class="process-math">\(A=QDQ^{-1}\)</span> where <span class="process-math">\(D\)</span> is a diagonal matrix.</p></article><article class="theorem theorem-like" id="theorem-44"><h4 class="heading">
+<p id="p-582">A matrix <span class="process-math">\(A\)</span> is <dfn class="terminology">diagonalizable</dfn> if there exists an invertible matrix <span class="process-math">\(Q\)</span> such that <span class="process-math">\(A=QDQ^{-1}\)</span> where <span class="process-math">\(D\)</span> is a diagonal matrix.</p></article><p id="p-583">We will not prove this theorem, but we will make use of it:</p>
+<article class="theorem theorem-like" id="theorem-44"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.35</span><span class="period">.</span>
 </h4>
-<p id="p-578">A matrix <span class="process-math">\(A \in M_{n \times n}\)</span> is diagonalizable iff <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> linearly independent eigenvectors. In fact, the matrix <span class="process-math">\(Q\)</span> that will diagonalize <span class="process-math">\(A\)</span> will have the <span class="process-math">\(n\)</span> linearly independent eigenvectors as its columns.</p></article><p id="p-579">The question becomes when can we find <span class="process-math">\(n\)</span> linearly independent eigenvectors for a matrix <span class="process-math">\(A\text{.}\)</span> It turns out that <em class="emphasis">if you can</em> find <span class="process-math">\(n\)</span> linearly independent eigenvectors for <span class="process-math">\(A\text{,}\)</span> then the matrix <span class="process-math">\(Q\)</span> has columns given by these eigenvectors and the diagonal matrix will have the eigenvalues on the diagonal. In particular, if the <span class="process-math">\(i\)</span>-th column of <span class="process-math">\(Q\)</span> has eigenvalue <span class="process-math">\(\lambda_i\text{,}\)</span> then <span class="process-math">\(D_{i,i} = \lambda_i\text{.}\)</span></p>
+<p id="p-584">A matrix <span class="process-math">\(A \in M_{n \times n}\)</span> is diagonalizable iff <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> linearly independent eigenvectors. In fact, the matrix <span class="process-math">\(Q\)</span> that will diagonalize <span class="process-math">\(A\)</span> will have the <span class="process-math">\(n\)</span> linearly independent eigenvectors as its columns.</p></article><p id="p-585">The question becomes when can we find <span class="process-math">\(n\)</span> linearly independent eigenvectors for a matrix <span class="process-math">\(A\text{.}\)</span> It turns out that <em class="emphasis">if you can</em> find <span class="process-math">\(n\)</span> linearly independent eigenvectors for <span class="process-math">\(A\text{,}\)</span> then the matrix <span class="process-math">\(Q\)</span> has columns given by these eigenvectors and the diagonal matrix will have the eigenvalues on the diagonal. In particular, if the <span class="process-math">\(i\)</span>-th column of <span class="process-math">\(Q\)</span> has eigenvalue <span class="process-math">\(\lambda_i\text{,}\)</span> then <span class="process-math">\(D_{i,i} = \lambda_i\text{.}\)</span></p>
 <article class="investigation project-like" id="investigation-152"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.44</span><span class="period">.</span>
 </h4>
-<p id="p-580">Can you diagonalize <span class="process-math">\(A=\begin{bmatrix} -1\amp 2\\-2\amp 4 \end{bmatrix}\text{?}\)</span> If so, give a basis of eigenvectors, give corresponding choices for <span class="process-math">\(Q\text{,}\)</span> <span class="process-math">\(Q^{-1}\text{,}\)</span> and <span class="process-math">\(D\text{,}\)</span> then use these to demonstrate how <span class="process-math">\(A=QDQ^{-1}\text{.}\)</span></p></article><article class="investigation project-like" id="q14"><h4 class="heading">
+<p id="p-586">Can you diagonalize <span class="process-math">\(A=\begin{bmatrix} -1\amp 2\\-2\amp 4 \end{bmatrix}\text{?}\)</span> If so, give a basis of eigenvectors, give corresponding choices for <span class="process-math">\(Q\text{,}\)</span> <span class="process-math">\(Q^{-1}\text{,}\)</span> and <span class="process-math">\(D\text{,}\)</span> then use these to demonstrate how <span class="process-math">\(A=QDQ^{-1}\text{.}\)</span></p></article><article class="investigation project-like" id="q14"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.45</span><span class="period">.</span>
 </h4>
-<p id="p-581">Can you diagonalize <span class="process-math">\(A=\begin{bmatrix} 1\amp -1\\1\amp 1 \end{bmatrix}\text{?}\)</span> If so, give a basis of eigenvectors, give corresponding choices for <span class="process-math">\(Q\text{,}\)</span> <span class="process-math">\(Q^{-1}\text{,}\)</span> and <span class="process-math">\(D\text{,}\)</span> then use these to demonstrate how <span class="process-math">\(A=QDQ^{-1}\text{.}\)</span></p></article><article class="lemma theorem-like" id="lemma-1"><h4 class="heading">
+<p id="p-587">Can you diagonalize <span class="process-math">\(A=\begin{bmatrix} 1\amp -1\\1\amp 1 \end{bmatrix}\text{?}\)</span> If so, give a basis of eigenvectors, give corresponding choices for <span class="process-math">\(Q\text{,}\)</span> <span class="process-math">\(Q^{-1}\text{,}\)</span> and <span class="process-math">\(D\text{,}\)</span> then use these to demonstrate how <span class="process-math">\(A=QDQ^{-1}\text{.}\)</span></p></article><article class="lemma theorem-like" id="lemma-1"><h4 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.36</span><span class="period">.</span>
 </h4>
-<p id="p-582">If <span class="process-math">\(\vec{v_1}\)</span> is an eigenvector with eigenvalue <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\vec{v_2}\)</span> is an eigenvector with eigenvalue <span class="process-math">\(\lambda_2 \neq \lambda_1\text{,}\)</span> then <span class="process-math">\(\{ \vec{v_1},\vec{v_2} \}\)</span> is linearly independent.</p></article><p id="p-583">The following theorem relies on the preceding lemma and the fact that the dimension of every eigenspace is at least 1.</p>
+<p id="p-588">If <span class="process-math">\(\vec{v_1}\)</span> is an eigenvector with eigenvalue <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\vec{v_2}\)</span> is an eigenvector with eigenvalue <span class="process-math">\(\lambda_2 \neq \lambda_1\text{,}\)</span> then <span class="process-math">\(\{ \vec{v_1},\vec{v_2} \}\)</span> is linearly independent.</p></article><p id="p-589">The following theorem relies on the preceding lemma and the fact that the dimension of every eigenspace is at least 1.</p>
 <article class="theorem theorem-like" id="theorem-45"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.37</span><span class="period">.</span>
 </h4>
-<p id="p-584">If a <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrix <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> distinct eigenvalues, then <span class="process-math">\(A\)</span> is diagonalizable.</p></article><article class="investigation project-like" id="investigation-154"><h4 class="heading">
+<p id="p-590">If a <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrix <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> distinct eigenvalues, then <span class="process-math">\(A\)</span> is diagonalizable.</p></article><article class="investigation project-like" id="investigation-154"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.46</span><span class="period">.</span>
 </h4>
-<p id="p-585">The converse of this theorem is not true in that there diagonalizable matrices that do not have distinct eigenvalues. Give an example of a matrix that is diagonalizable but does not have distinct eigenvalues. Remember that diagonal matrices are diagonalizable.</p></article><article class="theorem theorem-like" id="theorem-46"><h4 class="heading">
+<p id="p-591">The converse of this theorem is not true in that there diagonalizable matrices that do not have distinct eigenvalues. Give an example of a matrix that is diagonalizable but does not have distinct eigenvalues. Remember that diagonal matrices are diagonalizable.</p></article><article class="theorem theorem-like" id="theorem-46"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.38</span><span class="period">.</span>
 </h4>
-<p id="p-586">A <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrix <span class="process-math">\(A\)</span> is diagonalizable if and only if the sums of the dimensions of its eigenspaces is <span class="process-math">\(n\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-155"><h4 class="heading">
+<p id="p-592">A <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrix <span class="process-math">\(A\)</span> is diagonalizable if and only if the sums of the dimensions of its eigenspaces is <span class="process-math">\(n\text{.}\)</span></p></article><article class="investigation project-like" id="investigation-155"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.47</span><span class="period">.</span>
 </h4>
-<p id="p-587">Give an example of a matrix that is not diagonalizable. Justify your claim.</p></article><article class="investigation project-like" id="investigation-156"><h4 class="heading">
+<p id="p-593">Give an example of a matrix (with real eigenvalues) that is not diagonalizable. Justify your claim.</p></article><article class="investigation project-like" id="investigation-156"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.48</span><span class="period">.</span>
 </h4>
-<div class="introduction" id="introduction-47"><p id="p-588">Let <span class="process-math">\(A\)</span> be a <span class="process-math">\(4\)</span> by <span class="process-math">\(4\)</span> matrix.</p></div>
+<div class="introduction" id="introduction-47"><p id="p-594">Let <span class="process-math">\(A\)</span> be a <span class="process-math">\(4\)</span> by <span class="process-math">\(4\)</span> matrix.</p></div>
 <article class="task exercise-like" id="task-191"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-589">How many eigenvalues can <span class="process-math">\(A\)</span> have?</p></article><article class="task exercise-like" id="task-192"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<p id="p-590">For each of the possible number of eigenvalues in the previous part, write out all of the possible dimensions of each of the eigenspaces. For instance: if <span class="process-math">\(A\)</span> has 4 distinct eigenvalues, then the only possibility is that each eigenspace has dimension 1 (why is that?).</p></article><article class="task exercise-like" id="task-193"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<p id="p-591">Which of the cases from the previous problem correspond to <span class="process-math">\(A\)</span> being diagonalizable?</p></article></article></section></section></div></main>
+<p id="p-595">How many eigenvalues can <span class="process-math">\(A\)</span> have?</p></article><article class="task exercise-like" id="task-192"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p id="p-596">For each of the possible number of eigenvalues in the previous part, write out all of the possible dimensions of each of the eigenspaces. For instance: if <span class="process-math">\(A\)</span> has 4 distinct eigenvalues, then the only possibility is that each eigenspace has dimension 1 (why is that?).</p></article><article class="task exercise-like" id="task-193"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p id="p-597">Which of the cases from the previous problem correspond to <span class="process-math">\(A\)</span> being diagonalizable?</p></article></article><article class="investigation project-like" id="investigation-157"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.49</span><span class="period">.</span>
+</h4>
+<p id="p-598">Let <span class="process-math">\(A=\begin{bmatrix} 7 \amp -5 \amp 25\\ 10 \amp -8 \amp
+35\\ 0 \amp 0 \amp -1\end{bmatrix}\text{.}\)</span> Diagonalize <span class="process-math">\(A\)</span> and use your diagonalization to compute <span class="process-math">\(A^{10}\text{.}\)</span></p></article></section></section></div></main>
 </div>
 </body>
 </html>
