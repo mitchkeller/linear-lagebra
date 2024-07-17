@@ -29,13 +29,13 @@
 
   <worksheet>
     <title>Practicing Writing Proofs</title>
-<!--    <page>-->
+<page>
     <activity workspace="10cm">
       <statement>
 	Prove the theorem <q>If <m>x</m> is an odd integer and
 	<m>y</m> is an odd integer, then <m>xy</m> is an odd integer.</q>
       </statement>
-      <solution>
+      <!-- <solution>
 	<p>Let <m>x</m> and <m>y</m>be odd integers. Hence there exist
 	integers <m>k</m> and <m>n</m> such that <m>x=2k+1</m> and
 	<m>y=2n+1</m>. Multiplying, we have
@@ -49,7 +49,7 @@
 	something like let <m>m=2kn+k+n</m> if you wanted to make the
 	form of an odd integer clearer, but I think this proof would
 	be fine as written.)</p>
-      </solution>
+      </solution> -->
 </activity>
 
 <activity workspace="12cm">
@@ -59,7 +59,7 @@
     requires proving two separate implications. Identify them before
     writing your proofs!)</p>
   </statement>
-  <solution>
+  <!-- <solution>
     <p><m>(\Rightarrow)</m> Let <m>x+4</m> be an odd integer. Hence
     there exists an integer <m>n</m> such that <m>x+4=2n+1</m>. By
     adding three to both sides of this equation, we have <m>x+7 =
@@ -72,11 +72,11 @@
     <m>x+4=2m-3</m>. A bit more algebra shows that <m>x+4 = 2m-4+1 =
     2(m-2)+1</m>. Thus, we have proved that <m>x+4</m> is an odd integer.
     </p>
-  </solution>
+  </solution> -->
 </activity>
 
-<!--    </page>
-    <page>-->
+</page>
+<page>
       <p>Another type of theorem that we are sometimes called upon to
       prove is a <term>uniqueness theorem</term>. In such a case, we
       must prove that the thing in question exists as well as prove
@@ -123,7 +123,7 @@
     </statement>
   </task>
 </activity>
-<!--    </page>-->
+   </page>
     <page>
       <activity workspace="5cm">
 	<introduction>

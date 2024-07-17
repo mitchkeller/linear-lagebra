@@ -437,7 +437,7 @@ Any sequence of elementary row operations that reduces <m>A</m> to <m>Id_n</m> a
 
 <p>The previous result shows that computing inverses is equivalent to a row reduction problem. In particular, if <m>A</m> is invertible, then reducing <m>[ A \quad | \quad Id_n]</m> to reduced row echelon form will produce the matrix <m>[ Id_n \quad | \quad A^{-1}]</m>.</p>
 
-<investigation xml:id="22inv"><statement><p>Use the idea above to compute the inverse of <m>\begin{bmatrix} a\amp b\\c\amp d \end{bmatrix}</m>. Be sure to note any assumptions you will need to make in order to reduce <m>[ A \quad | \quad Id_n]</m> to <m>[ Id_n \quad | \quad A^{-1}]</m>.
+<investigation xml:id="inv22"><statement><p>Use the idea above to compute the inverse of <m>\begin{bmatrix} a\amp b\\c\amp d \end{bmatrix}</m>. Be sure to note any assumptions you will need to make in order to reduce <m>[ A \quad | \quad Id_n]</m> to <m>[ Id_n \quad | \quad A^{-1}]</m>.
 </p></statement></investigation>
 
 <exercise><statement><p> If <m>A=\begin{bmatrix}1\amp  0\amp  1 \\0\amp 2\amp -1 \\ 0\amp 6\amp -1\end{bmatrix}</m>, find <m>A^{-1}</m> and check that <m>A A^{-1}=Id_3</m>.

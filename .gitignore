@@ -90,3 +90,8 @@ GitHub.sublime-settings
 .dropbox.cache
 
 schemas.xml
+
+.devcontainer.json
+.github
+codechat_config.yaml
+logs
