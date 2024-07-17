@@ -5,7 +5,7 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Warmup Problems</title>
@@ -15,20 +15,38 @@
 <meta property="book:title" content="Linear Algebra">
 <meta property="book:author" content="Mitchel T. Keller">
 <meta property="book:author" content="Nicholas Long">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
-    processHtmlClass: "process-math",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -38,40 +56,128 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.88,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
   },
-  startup: {
+  "startup": {
     pageReady() {
       return MathJax.startup.defaultPageReady().then(function () {
       console.log("in ready function");
       rsMathReady();
       }
     )}
-},
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
-</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.4/colors_blue_red.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<style>
+#sec_solving_linear_systems-2-7-2 { counter-set: sec_solving_linear_systems-2-7-2 0; }
+#sec_solving_linear_systems-2-7-2 > li::marker { content: ""counter(sec_solving_linear_systems-2-7-2,decimal)"."; }
+#sec_solving_linear_systems-2-7-2 > li { counter-increment: sec_solving_linear_systems-2-7-2; }
+#sec_solving_linear_systems-2-28-1 { counter-set: sec_solving_linear_systems-2-28-1 0; }
+#sec_solving_linear_systems-2-28-1 > li::marker { content: ""counter(sec_solving_linear_systems-2-28-1,decimal)"."; }
+#sec_solving_linear_systems-2-28-1 > li { counter-increment: sec_solving_linear_systems-2-28-1; }
+#sec_solving_linear_systems-2-34-1-1-5 { counter-set: sec_solving_linear_systems-2-34-1-1-5 0; }
+#sec_solving_linear_systems-2-34-1-1-5 > li::marker { content: ""counter(sec_solving_linear_systems-2-34-1-1-5,decimal)"."; }
+#sec_solving_linear_systems-2-34-1-1-5 > li { counter-increment: sec_solving_linear_systems-2-34-1-1-5; }
+#sec_solving_linear_systems-2-35-1-1-5 { counter-set: sec_solving_linear_systems-2-35-1-1-5 0; }
+#sec_solving_linear_systems-2-35-1-1-5 > li::marker { content: ""counter(sec_solving_linear_systems-2-35-1-1-5,decimal)"."; }
+#sec_solving_linear_systems-2-35-1-1-5 > li { counter-increment: sec_solving_linear_systems-2-35-1-1-5; }
+#sec_solving_linear_systems-2-36-3-1-1 { counter-set: sec_solving_linear_systems-2-36-3-1-1 0; }
+#sec_solving_linear_systems-2-36-3-1-1 > li::marker { content: ""counter(sec_solving_linear_systems-2-36-3-1-1,decimal)"."; }
+#sec_solving_linear_systems-2-36-3-1-1 > li { counter-increment: sec_solving_linear_systems-2-36-3-1-1; }
+#ch_vector_spaces-2-3-1-1-6 { counter-set: ch_vector_spaces-2-3-1-1-6 0; }
+#ch_vector_spaces-2-3-1-1-6 > li::marker { content: ""counter(ch_vector_spaces-2-3-1-1-6,decimal)"."; }
+#ch_vector_spaces-2-3-1-1-6 > li { counter-increment: ch_vector_spaces-2-3-1-1-6; }
+#ch_vector_spaces-2-3-1-1-7 { counter-set: ch_vector_spaces-2-3-1-1-7 0; }
+#ch_vector_spaces-2-3-1-1-7 > li::marker { content: ""counter(ch_vector_spaces-2-3-1-1-7,decimal)"."; }
+#ch_vector_spaces-2-3-1-1-7 > li { counter-increment: ch_vector_spaces-2-3-1-1-7; }
+#ch_vector_spaces-2-13-1-1 { counter-set: ch_vector_spaces-2-13-1-1 0; }
+#ch_vector_spaces-2-13-1-1 > li::marker { content: ""counter(ch_vector_spaces-2-13-1-1,decimal)"."; }
+#ch_vector_spaces-2-13-1-1 > li { counter-increment: ch_vector_spaces-2-13-1-1; }
+#ch_vector_spaces-2-14-2-1-1-1 { counter-set: ch_vector_spaces-2-14-2-1-1-1 0; }
+#ch_vector_spaces-2-14-2-1-1-1 > li::marker { content: ""counter(ch_vector_spaces-2-14-2-1-1-1,decimal)"."; }
+#ch_vector_spaces-2-14-2-1-1-1 > li { counter-increment: ch_vector_spaces-2-14-2-1-1-1; }
+#ch_vector_spaces-3-3-1-1-3 { counter-set: ch_vector_spaces-3-3-1-1-3 0; }
+#ch_vector_spaces-3-3-1-1-3 > li::marker { content: "("counter(ch_vector_spaces-3-3-1-1-3,lower-alpha)")"; }
+#ch_vector_spaces-3-3-1-1-3 > li { counter-increment: ch_vector_spaces-3-3-1-1-3; }
+#ch_vector_spaces-3-3-2-2-2 { counter-set: ch_vector_spaces-3-3-2-2-2 0; }
+#ch_vector_spaces-3-3-2-2-2 > li::marker { content: ""counter(ch_vector_spaces-3-3-2-2-2,decimal)"."; }
+#ch_vector_spaces-3-3-2-2-2 > li { counter-increment: ch_vector_spaces-3-3-2-2-2; }
+#ch_vector_spaces-6-3-18-1-1-10 { counter-set: ch_vector_spaces-6-3-18-1-1-10 0; }
+#ch_vector_spaces-6-3-18-1-1-10 > li::marker { content: ""counter(ch_vector_spaces-6-3-18-1-1-10,decimal)"."; }
+#ch_vector_spaces-6-3-18-1-1-10 > li { counter-increment: ch_vector_spaces-6-3-18-1-1-10; }
+#imt-2-1-4 { counter-set: imt-2-1-4 0; }
+#imt-2-1-4 > li::marker { content: ""counter(imt-2-1-4,lower-alpha)")"; }
+#imt-2-1-4 > li { counter-increment: imt-2-1-4; }
+#ch_connecting_ideas-4-4-5-1-1-1 { counter-set: ch_connecting_ideas-4-4-5-1-1-1 0; }
+#ch_connecting_ideas-4-4-5-1-1-1 > li::marker { content: "("counter(ch_connecting_ideas-4-4-5-1-1-1,lower-alpha)")"; }
+#ch_connecting_ideas-4-4-5-1-1-1 > li { counter-increment: ch_connecting_ideas-4-4-5-1-1-1; }
+#ch_connecting_ideas-4-4-6-1-1-1 { counter-set: ch_connecting_ideas-4-4-6-1-1-1 0; }
+#ch_connecting_ideas-4-4-6-1-1-1 > li::marker { content: "("counter(ch_connecting_ideas-4-4-6-1-1-1,lower-alpha)")"; }
+#ch_connecting_ideas-4-4-6-1-1-1 > li { counter-increment: ch_connecting_ideas-4-4-6-1-1-1; }
+#ch_inner_products-2-4-1-1-10 { counter-set: ch_inner_products-2-4-1-1-10 0; }
+#ch_inner_products-2-4-1-1-10 > li::marker { content: ""counter(ch_inner_products-2-4-1-1-10,lower-alpha)"."; }
+#ch_inner_products-2-4-1-1-10 > li { counter-increment: ch_inner_products-2-4-1-1-10; }
+#ch_inner_products-2-5-1-1 { counter-set: ch_inner_products-2-5-1-1 0; }
+#ch_inner_products-2-5-1-1 > li::marker { content: ""counter(ch_inner_products-2-5-1-1,lower-alpha)"."; }
+#ch_inner_products-2-5-1-1 > li { counter-increment: ch_inner_products-2-5-1-1; }
+</style>
 </head>
-<body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Linear Algebra:</span> <span class="subtitle">Notes for MATH 341</span></a></h1>
+<p class="byline">Mitchel T. Keller, Nicholas Long</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec_sandwiches.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_starting.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch_what_is_proof.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\Q}{\mathbb Q}
 \newcommand\Rn{$\mathbb{R}^n$}
@@ -87,132 +193,171 @@ window.MathJax = {
 \definecolor{fillinmathshade}{gray}{0.9}
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
-<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
-<a id="logo-link" href=""></a><div class="title-container">
-<h1 class="heading"><a href="my-great-book.html"><span class="title">Linear Algebra:</span> <span class="subtitle">Notes for MATH 341</span></a></h1>
-<p class="byline">Mitchel T. Keller, Nicholas Long</p>
-</div>
-</div></div>
-<nav id="primary-navbar" class="navbar"><div class="container">
-<div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_sandwiches.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_starting.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch_what_is_proof.html" title="Next">Next</a></span></div>
-</div>
-<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_sandwiches.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_starting.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch_what_is_proof.html" title="Next">Next</a>
-</div>
-</div></nav></header><div class="page">
-<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
-<nav id="toc"><ul>
-<li class="link frontmatter">
-<a href="meta_frontmatter.html" data-scroll="meta_frontmatter" class="internal"><span class="title">Front Matter</span></a><ul>
-<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
-<li><a href="meta_frontmatter-preface.html" data-scroll="meta_frontmatter-preface" class="internal">Preface</a></li>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="meta_frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="meta_frontmatter-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="meta_frontmatter-preface.html" class="internal"><span class="title">Preface</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="ch_starting.html" data-scroll="ch_starting" class="internal"><span class="codenumber">0</span> <span class="title">Getting Started</span></a><ul>
-<li><a href="sec_setting_stage.html" data-scroll="sec_setting_stage" class="internal">Setting the Stage</a></li>
-<li><a href="sec_sandwiches.html" data-scroll="sec_sandwiches" class="internal">What is a sandwich?</a></li>
-<li><a href="sec_warmups.html" data-scroll="sec_warmups" class="active">Warmup Problems</a></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_starting.html" class="internal"><span class="codenumber">0</span> <span class="title">Getting Started</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_setting_stage.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Setting the Stage</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_sandwiches.html" class="internal"><span class="codenumber">0.2</span> <span class="title">What is a sandwich?</span></a></div></li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec_warmups.html" class="internal"><span class="codenumber">0.3</span> <span class="title">Warmup Problems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec_warmups.html#sec_warmups-2" class="internal"><span class="title">Warmup Problems</span></a></div></li></ul>
+</li>
 </ul>
 </li>
-<li class="link">
-<a href="ch_what_is_proof.html" data-scroll="ch_what_is_proof" class="internal"><span class="codenumber">1</span> <span class="title">Getting Started</span></a><ul>
-<li><a href="sec_reading.html" data-scroll="sec_reading" class="internal">Introduction to mathematical arguments</a></li>
-<li><a href="sec_proof_practice.html" data-scroll="sec_proof_practice" class="internal">Writing First Proofs</a></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_what_is_proof.html" class="internal"><span class="codenumber">1</span> <span class="title">Getting Started</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_reading.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Introduction to mathematical arguments</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_proof_practice.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Writing First Proofs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec_proof_practice.html#sec_proof_practice-3" class="internal"><span class="title">Practicing Writing Proofs</span></a></div></li></ul>
+</li>
 </ul>
 </li>
-<li class="link">
-<a href="ch_solving_sys.html" data-scroll="ch_solving_sys" class="internal"><span class="codenumber">2</span> <span class="title">Solving Systems</span></a><ul>
-<li><a href="sec_solving_linear_systems.html" data-scroll="sec_solving_linear_systems" class="internal">Solving Linear Systems</a></li>
-<li><a href="sec_vector_matrix_eqns.html" data-scroll="sec_vector_matrix_eqns" class="internal">Vector and Matrix Equations</a></li>
-<li><a href="sec_soln_sets_lin_eqn.html" data-scroll="sec_soln_sets_lin_eqn" class="internal">Solution Sets of Linear Systems</a></li>
-<li><a href="sec_matrix_ops.html" data-scroll="sec_matrix_ops" class="internal">Matrix Operations</a></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_solving_sys.html" class="internal"><span class="codenumber">2</span> <span class="title">Solving Systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solving_linear_systems.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Solving Linear Systems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solving_linear_systems.html#sec_solving_linear_systems-2" class="internal"><span class="title">Elementary Operations</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_vector_matrix_eqns.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Vector and Matrix Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_soln_sets_lin_eqn.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Solution Sets of Linear Systems</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_matrix_ops.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Matrix Operations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix_ops.html#sec_matrix_ops-2" class="internal"><span class="title">Addition and Transposition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix_ops.html#sec_matrix_ops-3" class="internal"><span class="title">Special Types of Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix_ops.html#sec_matrix_ops-4" class="internal"><span class="title">Matrix Multiplication</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="ch_vector_spaces.html" data-scroll="ch_vector_spaces" class="internal"><span class="codenumber">3</span> <span class="title">Vector Spaces</span></a><ul>
-<li><a href="section-10.html" data-scroll="section-10" class="internal">Definitions</a></li>
-<li><a href="section-11.html" data-scroll="section-11" class="internal">Subspaces</a></li>
-<li><a href="section-12.html" data-scroll="section-12" class="internal">Span</a></li>
-<li><a href="section-13.html" data-scroll="section-13" class="internal">Linear Independence</a></li>
-<li><a href="section-14.html" data-scroll="section-14" class="internal">Linear Transformations</a></li>
 </ul>
 </li>
-<li class="link">
-<a href="ch_connecting_ideas.html" data-scroll="ch_connecting_ideas" class="internal"><span class="codenumber">4</span> <span class="title">Connecting Ideas</span></a><ul>
-<li><a href="section-15.html" data-scroll="section-15" class="internal">Basis and Dimension</a></li>
-<li><a href="section-16.html" data-scroll="section-16" class="internal">Invertible Matrices</a></li>
-<li><a href="section-17.html" data-scroll="section-17" class="internal">Determinants</a></li>
-<li><a href="section-18.html" data-scroll="section-18" class="internal">Eigenvalues and Eigenvectors</a></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_vector_spaces.html" class="internal"><span class="codenumber">3</span> <span class="title">Vector Spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_vector_spaces-2.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_vector_spaces-3.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Subspaces</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_vector_spaces-4.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Span</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_vector_spaces-5.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Linear Independence</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch_vector_spaces-6.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Linear Transformations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch_vector_spaces-6.html#ch_vector_spaces-6-2" class="internal"><span class="title">A Digression Into Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch_vector_spaces-6.html#ch_vector_spaces-6-3" class="internal"><span class="title">Functions on vector spaces</span></a></div></li>
 </ul>
 </li>
-<li class="link">
-<a href="ch_inner_products.html" data-scroll="ch_inner_products" class="internal"><span class="codenumber">5</span> <span class="title">Inner Product Spaces</span></a><ul>
-<li><a href="section-19.html" data-scroll="section-19" class="internal">Inner Products</a></li>
-<li><a href="section-20.html" data-scroll="section-20" class="internal">Orthogonal Complements</a></li>
-<li><a href="section-21.html" data-scroll="section-21" class="internal">Orthonormal Bases</a></li>
 </ul>
 </li>
-</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
-</div></div>
-<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_warmups"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">0.3</span> <span class="title">Warmup Problems</span>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_connecting_ideas.html" class="internal"><span class="codenumber">4</span> <span class="title">Connecting Ideas</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_connecting_ideas-2.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Basis and Dimension</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch_connecting_ideas-3.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Invertible Matrices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch_connecting_ideas-3.html#ch_connecting_ideas-3-3" class="internal"><span class="title">Elementary Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch_connecting_ideas-3.html#ch_connecting_ideas-3-4" class="internal"><span class="title">Computing Inverses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch_connecting_ideas-3.html#ch_connecting_ideas-3-5" class="internal"><span class="title">Invertible Matrix Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch_connecting_ideas-4.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Determinants</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch_connecting_ideas-4.html#ch_connecting_ideas-4-3" class="internal"><span class="title">Computing Determinants</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch_connecting_ideas-4.html#ch_connecting_ideas-4-4" class="internal"><span class="title">Properties of Determinants</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_connecting_ideas-5.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_inner_products.html" class="internal"><span class="codenumber">5</span> <span class="title">Inner Product Spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_inner_products-2.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Inner Products</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_inner_products-3.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Orthogonal Complements</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_inner_products-4.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Orthonormal Bases</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_warmups"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">0.3</span><span class="space"> </span><span class="title">Warmup Problems</span>
 </h2>
-<section class="worksheet" id="worksheet-1"><h3 class="heading hide-type">
-<span class="type">Worksheet</span> <span class="codenumber"></span> <span class="title">Warmup Problems</span><div class="print-links">
-<a href="worksheet-1-a4.html" class="a4">A4</a><a href="worksheet-1-letter.html" class="us">US</a>
+<section class="worksheet" id="sec_warmups-2"><h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Warmup Problems</span><div class="print-links">
+<a href="sec_warmups-2-a4.html" class="a4">A4</a><a href="sec_warmups-2-letter.html" class="us">US</a>
 </div>
 </h3>
-<section class="introduction" id="introduction-1"><p id="p-4">The questions on this handout will help give an overview of where linear algebra begins.</p></section><section class="onepage" id="page-1"><article class="activity project-like" id="activity-1"><h4 class="heading">
+<section class="introduction" id="sec_warmups-2-2"><div class="para" id="sec_warmups-2-2-1">The questions on this handout will help give an overview of where linear algebra begins.</div></section><section class="onepage" id="sec_warmups-2-3"><article class="activity project-like" id="sec_warmups-2-3-1"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">0.1</span><span class="period">.</span>
 </h4>
 <article class="task exercise-like" id="task_warmups_simult"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-5">Solve:</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-1">
+<div class="para logical" id="task_warmups_simult-1">
+<div class="para">Solve:</div>
+<div class="displaymath process-math" id="task_warmups_simult-1-1">
 \begin{align*}
 3x_1-2x_2\amp= 6\\
 -x_1+x_2\amp= 1
 \end{align*}
 </div>
-<div class="workspace" data-space="4cm"></div></article><article class="task exercise-like" id="task-2"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<p id="p-6">Draw a graph of the solution set of the equation: <span class="process-math">\(3x_1-2x_2=6\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-1" id="hint-1"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-1"><div class="hint solution-like"><p id="p-7">If a solution has <span class="process-math">\(x_1=a\text{,}\)</span> what is <span class="process-math">\(x_2\)</span> or viceversa?</p></div></div>
 </div>
-<div class="workspace" data-space="4cm"></div></article><article class="task exercise-like" id="task-3"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<p id="p-8">Draw a graph of the solution set of the equation: <span class="process-math">\(-x_1+x_2=1\text{.}\)</span></p>
-<div class="workspace" data-space="4cm"></div></article><article class="task exercise-like" id="task-4"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<p id="p-9">Graph the solution sets from the two previous steps together. How does your answer to <a href="" class="xref" data-knowl="./knowl/task_warmups_simult.html" title="Task 0.1.a">part 0.1.a</a> compare to your graph?</p>
-<div class="workspace" data-space="4cm"></div></article></article></section><section class="onepage" id="page-2"><article class="activity project-like" id="activity-2"><h4 class="heading">
+<div class="workspace" data-space="4cm"></div></article><article class="task exercise-like" id="sec_warmups-2-3-1-2"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="sec_warmups-2-3-1-2-1-1">Draw a graph of the solution set of the equation: <span class="process-math">\(3x_1-2x_2=6\text{.}\)</span>
+</div>
+<div class="solutions"><details id="sec_warmups-2-3-1-2-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="sec_warmups-2-3-1-2-2-1">If a solution has <span class="process-math">\(x_1=a\text{,}\)</span> what is <span class="process-math">\(x_2\)</span> or viceversa?</div></div></details></div>
+<div class="workspace" data-space="4cm"></div></article><article class="task exercise-like" id="sec_warmups-2-3-1-3"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="sec_warmups-2-3-1-3-1">Draw a graph of the solution set of the equation: <span class="process-math">\(-x_1+x_2=1\text{.}\)</span>
+</div>
+<div class="workspace" data-space="4cm"></div></article><article class="task exercise-like" id="sec_warmups-2-3-1-4"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="sec_warmups-2-3-1-4-1">Graph the solution sets from the two previous steps together. How does your answer to <a href="sec_warmups.html#task_warmups_simult" class="xref" data-knowl="./knowl/xref/task_warmups_simult.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 0.1.a">part 0.1.a</a> compare to your graph?</div>
+<div class="workspace" data-space="4cm"></div></article></article></section><section class="onepage" id="sec_warmups-2-4"><article class="activity project-like" id="sec_warmups-2-4-1"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">0.2</span><span class="period">.</span>
 </h4>
-<p id="p-10">Solve:</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-2">
+<div class="para logical" id="sec_warmups-2-4-1-1-1">
+<div class="para">Solve:</div>
+<div class="displaymath process-math" id="sec_warmups-2-4-1-1-1-1">
 \begin{align*}
 2x_1-2x_2\amp=6\\
 -x_1+x_2\amp=1 
 \end{align*}
 </div>
-<div class="workspace" data-space="5cm"></div></article><article class="activity project-like" id="activity-3"><h4 class="heading">
+</div>
+<div class="workspace" data-space="5cm"></div></article> <article class="activity project-like" id="sec_warmups-2-4-2"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">0.3</span><span class="period">.</span>
 </h4>
-<p id="p-11">Solve:</p>
-<div class="displaymath process-math" data-contains-math-knowls="" id="md-3">
+<div class="para logical" id="sec_warmups-2-4-2-1-1">
+<div class="para">Solve:</div>
+<div class="displaymath process-math" id="sec_warmups-2-4-2-1-1-1">
 \begin{align*}
 2x_1-2x_2\amp=-2\\
 -x_1+x_2\amp=1
 \end{align*}
 </div>
-<div class="workspace" data-space="5cm"></div></article><article class="investigation project-like" id="investigation-1"><h4 class="heading">
+</div>
+<div class="workspace" data-space="5cm"></div></article> <article class="investigation project-like" id="sec_warmups-2-4-3"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">0.4</span><span class="period">.</span>
 </h4>
-<p id="p-12">Wait…what just happened? Explain the results of the previous two activities. What do the graphs of the corresponding solution sets look like in relation to the graphs of the equations?</p>
-<div class="workspace" data-space="3cm"></div></article><article class="investigation project-like" id="investigation-2"><h4 class="heading">
+<div class="para" id="sec_warmups-2-4-3-1-1">Wait…what just happened? Explain the results of the previous two activities. What do the graphs of the corresponding solution sets look like in relation to the graphs of the equations?</div>
+<div class="workspace" data-space="3cm"></div></article> <article class="investigation project-like" id="sec_warmups-2-4-4"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">0.5</span><span class="period">.</span>
 </h4>
-<p id="p-13">What are the possible intersections of two lines? Clearly state your conjecture.</p>
-<div class="workspace" data-space="3cm"></div></article><p id="p-14">Throughout this course we will be doing many of the same things you did in the previous questions, but we will do them in a more general setting that will allow us to solve <em class="emphasis">many</em> new and old problems.</p></section></section></section></div></main>
+<div class="para" id="sec_warmups-2-4-4-1-1">What are the possible intersections of two lines? Clearly state your conjecture.</div>
+<div class="workspace" data-space="3cm"></div></article> <div class="para" id="sec_warmups-2-4-5">Throughout this course we will be doing many of the same things you did in the previous questions, but we will do them in a more general setting that will allow us to solve <em class="emphasis">many</em> new and old problems.</div></section></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec_sandwiches.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch_what_is_proof.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
 </div>
 </body>
 </html>

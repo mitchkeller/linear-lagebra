@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Eigenvalues and Eigenvectors</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Linear Algebra">
+<meta property="book:author" content="Mitchel T. Keller">
+<meta property="book:author" content="Nicholas Long">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<style>
+#sec_solving_linear_systems-2-7-2 { counter-set: sec_solving_linear_systems-2-7-2 0; }
+#sec_solving_linear_systems-2-7-2 > li::marker { content: ""counter(sec_solving_linear_systems-2-7-2,decimal)"."; }
+#sec_solving_linear_systems-2-7-2 > li { counter-increment: sec_solving_linear_systems-2-7-2; }
+#sec_solving_linear_systems-2-28-1 { counter-set: sec_solving_linear_systems-2-28-1 0; }
+#sec_solving_linear_systems-2-28-1 > li::marker { content: ""counter(sec_solving_linear_systems-2-28-1,decimal)"."; }
+#sec_solving_linear_systems-2-28-1 > li { counter-increment: sec_solving_linear_systems-2-28-1; }
+#sec_solving_linear_systems-2-34-1-1-5 { counter-set: sec_solving_linear_systems-2-34-1-1-5 0; }
+#sec_solving_linear_systems-2-34-1-1-5 > li::marker { content: ""counter(sec_solving_linear_systems-2-34-1-1-5,decimal)"."; }
+#sec_solving_linear_systems-2-34-1-1-5 > li { counter-increment: sec_solving_linear_systems-2-34-1-1-5; }
+#sec_solving_linear_systems-2-35-1-1-5 { counter-set: sec_solving_linear_systems-2-35-1-1-5 0; }
+#sec_solving_linear_systems-2-35-1-1-5 > li::marker { content: ""counter(sec_solving_linear_systems-2-35-1-1-5,decimal)"."; }
+#sec_solving_linear_systems-2-35-1-1-5 > li { counter-increment: sec_solving_linear_systems-2-35-1-1-5; }
+#sec_solving_linear_systems-2-36-3-1-1 { counter-set: sec_solving_linear_systems-2-36-3-1-1 0; }
+#sec_solving_linear_systems-2-36-3-1-1 > li::marker { content: ""counter(sec_solving_linear_systems-2-36-3-1-1,decimal)"."; }
+#sec_solving_linear_systems-2-36-3-1-1 > li { counter-increment: sec_solving_linear_systems-2-36-3-1-1; }
+#ch_vector_spaces-2-3-1-1-6 { counter-set: ch_vector_spaces-2-3-1-1-6 0; }
+#ch_vector_spaces-2-3-1-1-6 > li::marker { content: ""counter(ch_vector_spaces-2-3-1-1-6,decimal)"."; }
+#ch_vector_spaces-2-3-1-1-6 > li { counter-increment: ch_vector_spaces-2-3-1-1-6; }
+#ch_vector_spaces-2-3-1-1-7 { counter-set: ch_vector_spaces-2-3-1-1-7 0; }
+#ch_vector_spaces-2-3-1-1-7 > li::marker { content: ""counter(ch_vector_spaces-2-3-1-1-7,decimal)"."; }
+#ch_vector_spaces-2-3-1-1-7 > li { counter-increment: ch_vector_spaces-2-3-1-1-7; }
+#ch_vector_spaces-2-13-1-1 { counter-set: ch_vector_spaces-2-13-1-1 0; }
+#ch_vector_spaces-2-13-1-1 > li::marker { content: ""counter(ch_vector_spaces-2-13-1-1,decimal)"."; }
+#ch_vector_spaces-2-13-1-1 > li { counter-increment: ch_vector_spaces-2-13-1-1; }
+#ch_vector_spaces-2-14-2-1-1-1 { counter-set: ch_vector_spaces-2-14-2-1-1-1 0; }
+#ch_vector_spaces-2-14-2-1-1-1 > li::marker { content: ""counter(ch_vector_spaces-2-14-2-1-1-1,decimal)"."; }
+#ch_vector_spaces-2-14-2-1-1-1 > li { counter-increment: ch_vector_spaces-2-14-2-1-1-1; }
+#ch_vector_spaces-3-3-1-1-3 { counter-set: ch_vector_spaces-3-3-1-1-3 0; }
+#ch_vector_spaces-3-3-1-1-3 > li::marker { content: "("counter(ch_vector_spaces-3-3-1-1-3,lower-alpha)")"; }
+#ch_vector_spaces-3-3-1-1-3 > li { counter-increment: ch_vector_spaces-3-3-1-1-3; }
+#ch_vector_spaces-3-3-2-2-2 { counter-set: ch_vector_spaces-3-3-2-2-2 0; }
+#ch_vector_spaces-3-3-2-2-2 > li::marker { content: ""counter(ch_vector_spaces-3-3-2-2-2,decimal)"."; }
+#ch_vector_spaces-3-3-2-2-2 > li { counter-increment: ch_vector_spaces-3-3-2-2-2; }
+#ch_vector_spaces-6-3-18-1-1-10 { counter-set: ch_vector_spaces-6-3-18-1-1-10 0; }
+#ch_vector_spaces-6-3-18-1-1-10 > li::marker { content: ""counter(ch_vector_spaces-6-3-18-1-1-10,decimal)"."; }
+#ch_vector_spaces-6-3-18-1-1-10 > li { counter-increment: ch_vector_spaces-6-3-18-1-1-10; }
+#imt-2-1-4 { counter-set: imt-2-1-4 0; }
+#imt-2-1-4 > li::marker { content: ""counter(imt-2-1-4,lower-alpha)")"; }
+#imt-2-1-4 > li { counter-increment: imt-2-1-4; }
+#ch_connecting_ideas-4-4-5-1-1-1 { counter-set: ch_connecting_ideas-4-4-5-1-1-1 0; }
+#ch_connecting_ideas-4-4-5-1-1-1 > li::marker { content: "("counter(ch_connecting_ideas-4-4-5-1-1-1,lower-alpha)")"; }
+#ch_connecting_ideas-4-4-5-1-1-1 > li { counter-increment: ch_connecting_ideas-4-4-5-1-1-1; }
+#ch_connecting_ideas-4-4-6-1-1-1 { counter-set: ch_connecting_ideas-4-4-6-1-1-1 0; }
+#ch_connecting_ideas-4-4-6-1-1-1 > li::marker { content: "("counter(ch_connecting_ideas-4-4-6-1-1-1,lower-alpha)")"; }
+#ch_connecting_ideas-4-4-6-1-1-1 > li { counter-increment: ch_connecting_ideas-4-4-6-1-1-1; }
+#ch_inner_products-2-4-1-1-10 { counter-set: ch_inner_products-2-4-1-1-10 0; }
+#ch_inner_products-2-4-1-1-10 > li::marker { content: ""counter(ch_inner_products-2-4-1-1-10,lower-alpha)"."; }
+#ch_inner_products-2-4-1-1-10 > li { counter-increment: ch_inner_products-2-4-1-1-10; }
+#ch_inner_products-2-5-1-1 { counter-set: ch_inner_products-2-5-1-1 0; }
+#ch_inner_products-2-5-1-1 > li::marker { content: ""counter(ch_inner_products-2-5-1-1,lower-alpha)"."; }
+#ch_inner_products-2-5-1-1 > li { counter-increment: ch_inner_products-2-5-1-1; }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Linear Algebra:</span> <span class="subtitle">Notes for MATH 341</span></a></h1>
+<p class="byline">Mitchel T. Keller, Nicholas Long</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch_connecting_ideas-4.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_connecting_ideas.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch_inner_products.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand\Rn{$\mathbb{R}^n$}
+\newcommand\Rm{$\mathbb{R}^m$}
+\newcommand\R{\mathbb{R}}
+\newcommand\colvec[1]{\begin{bmatrix}#1\end{bmatrix}}
+\DeclareMathOperator{\proj}{proj}
+\newlength{\workspacestrutwidth}
+\setlength{\workspacestrutwidth}{0pt}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="meta_frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="meta_frontmatter-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="meta_frontmatter-preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_starting.html" class="internal"><span class="codenumber">0</span> <span class="title">Getting Started</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_setting_stage.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Setting the Stage</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_sandwiches.html" class="internal"><span class="codenumber">0.2</span> <span class="title">What is a sandwich?</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_warmups.html" class="internal"><span class="codenumber">0.3</span> <span class="title">Warmup Problems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec_warmups.html#sec_warmups-2" class="internal"><span class="title">Warmup Problems</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_what_is_proof.html" class="internal"><span class="codenumber">1</span> <span class="title">Getting Started</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_reading.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Introduction to mathematical arguments</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_proof_practice.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Writing First Proofs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec_proof_practice.html#sec_proof_practice-3" class="internal"><span class="title">Practicing Writing Proofs</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_solving_sys.html" class="internal"><span class="codenumber">2</span> <span class="title">Solving Systems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_solving_linear_systems.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Solving Linear Systems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_solving_linear_systems.html#sec_solving_linear_systems-2" class="internal"><span class="title">Elementary Operations</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_vector_matrix_eqns.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Vector and Matrix Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec_soln_sets_lin_eqn.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Solution Sets of Linear Systems</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_matrix_ops.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Matrix Operations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix_ops.html#sec_matrix_ops-2" class="internal"><span class="title">Addition and Transposition</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix_ops.html#sec_matrix_ops-3" class="internal"><span class="title">Special Types of Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_matrix_ops.html#sec_matrix_ops-4" class="internal"><span class="title">Matrix Multiplication</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_vector_spaces.html" class="internal"><span class="codenumber">3</span> <span class="title">Vector Spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_vector_spaces-2.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_vector_spaces-3.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Subspaces</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_vector_spaces-4.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Span</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_vector_spaces-5.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Linear Independence</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch_vector_spaces-6.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Linear Transformations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch_vector_spaces-6.html#ch_vector_spaces-6-2" class="internal"><span class="title">A Digression Into Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch_vector_spaces-6.html#ch_vector_spaces-6-3" class="internal"><span class="title">Functions on vector spaces</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_connecting_ideas.html" class="internal"><span class="codenumber">4</span> <span class="title">Connecting Ideas</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_connecting_ideas-2.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Basis and Dimension</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch_connecting_ideas-3.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Invertible Matrices</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch_connecting_ideas-3.html#ch_connecting_ideas-3-3" class="internal"><span class="title">Elementary Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch_connecting_ideas-3.html#ch_connecting_ideas-3-4" class="internal"><span class="title">Computing Inverses</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch_connecting_ideas-3.html#ch_connecting_ideas-3-5" class="internal"><span class="title">Invertible Matrix Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch_connecting_ideas-4.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Determinants</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch_connecting_ideas-4.html#ch_connecting_ideas-4-3" class="internal"><span class="title">Computing Determinants</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch_connecting_ideas-4.html#ch_connecting_ideas-4-4" class="internal"><span class="title">Properties of Determinants</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="ch_connecting_ideas-5.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch_inner_products.html" class="internal"><span class="codenumber">5</span> <span class="title">Inner Product Spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_inner_products-2.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Inner Products</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_inner_products-3.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Orthogonal Complements</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch_inner_products-4.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Orthonormal Bases</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="ch_connecting_ideas-5"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.4</span><span class="space"> </span><span class="title">Eigenvalues and Eigenvectors</span>
+</h2>
+<article class="definition definition-like" id="ch_connecting_ideas-5-2"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.30</span><span class="period">.</span>
+</h3>
+<div class="para" id="ch_connecting_ideas-5-2-1-1">An <dfn class="terminology">eigenvector</dfn> of a matrix <span class="process-math">\(A\)</span> is a nonzero vector <span class="process-math">\(\vec{x}\)</span> such that <span class="process-math">\(A\vec{x}=\lambda \vec{x}\)</span> for some scalar <span class="process-math">\(\lambda\text{.}\)</span> The scalar <span class="process-math">\(\lambda\)</span> is called an <dfn class="terminology">eigenvalue</dfn> of <span class="process-math">\(A\)</span> if there exists a nonzero solution to <span class="process-math">\(A\vec{x}=\lambda \vec{x}\text{.}\)</span>
+</div></article><article class="investigation project-like" id="ch_connecting_ideas-5-3"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.35</span><span class="period">.</span>
+</h3>
+<div class="introduction" id="ch_connecting_ideas-5-3-1">
+<div class="para" id="ch_connecting_ideas-5-3-1-1">Which of the following vectors are an eigenvector of <span class="process-math">\(A=\begin{bmatrix} 2\amp 3\\3\amp 2
+\end{bmatrix}\text{?}\)</span> For any vectors that are eigenvectors of <span class="process-math">\(A\text{,}\)</span> give the eigenvalue. To speed things along, we are going to use SageMath cells embedded in the course notes. the code below sets up the computation that you need to do to answer the first part below. You may modify the code and click the button again (or type shift-return) to solve the other parts. If you mess up the code, just reload the page.</div> <pre id="ch_connecting_ideas-5-3-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">A = matrix(2,2,[2,3,3,2])
+v = matrix(2,1,[1,2])
+A*v
+</script></pre>
+</div>
+<article class="task exercise-like" id="ch_connecting_ideas-5-3-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="ch_connecting_ideas-5-3-2-1-1"><span class="process-math">\(\vec{v_1}=\colvec{1\\ 2}\)</span></div></article><article class="task exercise-like" id="ch_connecting_ideas-5-3-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="ch_connecting_ideas-5-3-3-1-1"><span class="process-math">\(\vec{v_2}=\colvec{-1\\ 1}\)</span></div></article><article class="task exercise-like" id="ch_connecting_ideas-5-3-4"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="ch_connecting_ideas-5-3-4-1-1"><span class="process-math">\(\vec{v_3}=\colvec{3\\ -1}\)</span></div></article><article class="task exercise-like" id="ch_connecting_ideas-5-3-5"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="ch_connecting_ideas-5-3-5-1-1"><span class="process-math">\(\vec{v_4}=\colvec{1\\ 1}\)</span></div></article><article class="task exercise-like" id="ch_connecting_ideas-5-3-6"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para" id="ch_connecting_ideas-5-3-6-1-1"><span class="process-math">\(\vec{v_5}=\colvec{0\\ 0}\)</span></div></article></article><div class="para" id="ch_connecting_ideas-5-4">As a hint for the following two problems, it will suffice to try to find an eigenvector of the form <span class="process-math">\(\colvec{1\\ a}\text{.}\)</span> You might first convince yourself that for these matrices, no eigenvector can have first component <span class="process-math">\(0\text{.}\)</span>
+</div>
+<article class="investigation project-like" id="ch_connecting_ideas-5-5"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.36</span><span class="period">.</span>
+</h3>
+<div class="para" id="ch_connecting_ideas-5-5-1-1">Let <span class="process-math">\(A=\begin{bmatrix} 2\amp 1\\-1\amp 3 \end{bmatrix}\text{.}\)</span> Try to find an eigenvector with eigenvalue <span class="process-math">\(3\text{.}\)</span> In other words, find a vector <span class="process-math">\(\vec{v}\)</span> such that <span class="process-math">\(A\vec{v}=3\vec{v}\text{.}\)</span>
+</div></article><article class="investigation project-like" id="ch_connecting_ideas-5-6"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.37</span><span class="period">.</span>
+</h3>
+<div class="para" id="ch_connecting_ideas-5-6-1-1">Let <span class="process-math">\(A=\begin{bmatrix} 3\amp 4\\3\amp -1 \end{bmatrix}\text{.}\)</span> Try to find an eigenvector with eigenvalue <span class="process-math">\(-3\text{.}\)</span> In other words, find a vector <span class="process-math">\(\vec{v}\)</span> such that <span class="process-math">\(A\vec{v}=-3\vec{v}\text{.}\)</span>
+</div></article><div class="para" id="ch_connecting_ideas-5-7">As a hint to proving this, look back to <a href="ch_connecting_ideas-4.html#ee" class="xref" data-knowl="./knowl/xref/ee.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.29">Theorem 4.29</a>
+</div>
+<article class="theorem theorem-like" id="ch_connecting_ideas-5-8"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.31</span><span class="period">.</span>
+</h3>
+<div class="para" id="ch_connecting_ideas-5-8-1-1">Let <span class="process-math">\(A\)</span> be a square matrix. We have that <span class="process-math">\(\det(A- \alpha Id)=0\)</span> iff <span class="process-math">\(\alpha\)</span> is an eigenvalue of <span class="process-math">\(A\text{.}\)</span>
+</div></article><div class="para" id="ch_connecting_ideas-5-9">If <span class="process-math">\(A\)</span> is a <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrix, then <span class="process-math">\(\det(A- t Id)\)</span> will be a <span class="process-math">\(n\)</span>-th degree polynomial in <span class="process-math">\(t\text{,}\)</span> which we call the <dfn class="terminology">characteristic polynomial of <span class="process-math">\(A\)</span></dfn>. The previous theorem shows that finding roots of the characteristic polynomial is the same as finding eigenvalues.</div>
+<article class="investigation project-like" id="ch_connecting_ideas-5-10"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.38</span><span class="period">.</span>
+</h3>
+<div class="introduction" id="ch_connecting_ideas-5-10-1"><div class="para" id="ch_connecting_ideas-5-10-1-1">For each of the following matrices: write out the characteristic polynomial, give all eigenvalues, and for each eigenvalue, find an eigenvector. You should do the first two by hand to get a feel for finding the characteristic polynomial. After that, I have provided a SageMath cell you can modify to get the characteristic polynomial quickly, but you will need to work from there to find eigenvalues and eigenvectors.</div></div>
+<article class="task exercise-like" id="ch_connecting_ideas-5-10-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="ch_connecting_ideas-5-10-2-1-1"><span class="process-math">\(\begin{bmatrix} 1\amp 1 \\1\amp 1 \end{bmatrix}\)</span></div></article><article class="task exercise-like" id="ch_connecting_ideas-5-10-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="ch_connecting_ideas-5-10-3-1-1"><span class="process-math">\(\begin{bmatrix} 1\amp -3 \\-3\amp 1 \end{bmatrix}\)</span></div></article><article class="task exercise-like" id="ch_connecting_ideas-5-10-4"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="ch_connecting_ideas-5-10-4-1-1"><span class="process-math">\(\begin{bmatrix} 1\amp 2 \\3\amp 4
+\end{bmatrix}\)</span></div> <pre id="ch_connecting_ideas-5-10-4-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">A = matrix(2,2,[1,2,3,4])
+# Getting the characteristic polynomial in factored
+# form is helpful. For that, change charpoly to
+# fcp below
+A.charpoly('t')
+</script></pre></article><article class="task exercise-like" id="ch_connecting_ideas-5-10-5"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="ch_connecting_ideas-5-10-5-1-1"><span class="process-math">\(\begin{bmatrix} 1\amp 2\amp 3 \\4\amp 5\amp 6\\7\amp 8\amp 9 \end{bmatrix}\)</span></div></article><article class="task exercise-like" id="ch_connecting_ideas-5-10-6"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para" id="ch_connecting_ideas-5-10-6-1-1"><span class="process-math">\(\begin{bmatrix} 4\amp -1\amp 6\\2\amp 1\amp 6\\2\amp -1\amp 8 \end{bmatrix}\)</span></div></article><article class="task exercise-like" id="ch_connecting_ideas-5-10-7"><h4 class="heading"><span class="codenumber">(f)</span></h4>
+<div class="para" id="ch_connecting_ideas-5-10-7-1-1"><span class="process-math">\(\begin{bmatrix} 1\amp 1\amp 0\amp 0\\1\amp
+1\amp 0\amp 0\\0\amp 0\amp 1\amp -3\\0\amp 0\amp -3\amp 1
+\end{bmatrix}\)</span></div>
+<div class="solutions"><details id="ch_connecting_ideas-5-10-7-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="ch_connecting_ideas-5-10-7-2-1">Work smarter, not harder, on this part!</div></div></details></div></article><div class="conclusion" id="ch_connecting_ideas-5-10-8"><div class="para" id="ch_connecting_ideas-5-10-8-1">A root <span class="process-math">\(\alpha\)</span> of a polynomial (in <span class="process-math">\(t\)</span>) has <dfn class="terminology">(algebraic) multiplicity</dfn> <span class="process-math">\(k\)</span> if <span class="process-math">\(k\)</span> is the largest integer such that <span class="process-math">\((t-\alpha)^k\)</span> is a factor. Which, if any, of the eigenvalues you found above have algebraic multiplicity greater than <span class="process-math">\(1\text{?}\)</span>
+</div></div></article><article class="investigation project-like" id="ch_connecting_ideas-5-11"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.39</span><span class="period">.</span>
+</h3>
+<div class="para" id="ch_connecting_ideas-5-11-1-1">Prove that a nonzero vector, <span class="process-math">\(\vec{v}\text{,}\)</span> is an eigenvector of <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(\lambda\)</span> if and only if <span class="process-math">\(\vec{v}\)</span> is in the null space of <span class="process-math">\(A-\lambda Id\text{.}\)</span>
+</div>
+<div class="solutions"><details id="ch_connecting_ideas-5-11-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ch_connecting_ideas-5-11-2-1">
+<span class="process-math">\((\Rightarrow)\)</span> If <span class="process-math">\(\vec{v}\)</span> is an eigenvector of <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> then <span class="process-math">\(A\vec{v} =
+\lambda\vec{v}\text{.}\)</span> By algebra, this means that <span class="process-math">\(A\vec{v} -
+\lambda\vec{v} = \vec{0}\text{,}\)</span> and hence <span class="process-math">\((A-\lambda
+Id)\vec{v}=\vec{0}\text{.}\)</span> Thus, <span class="process-math">\(\vec{v}\)</span> is in the null space of <span class="process-math">\(A-\lambda Id\text{.}\)</span>
+</div> <div class="para" id="ch_connecting_ideas-5-11-2-2">
+<span class="process-math">\((\Leftarrow)\)</span> If <span class="process-math">\(\vec{v}\in Null(A-\lambda Id)\text{,}\)</span> then <span class="process-math">\((A-\lambda Id)\vec{v} = 0\text{.}\)</span> Hence, <span class="process-math">\(A\vec{v}-\lambda
+\vec{v} = \vec{0}\text{,}\)</span> or <span class="process-math">\(A\vec{v} = \lambda\vec{v}\text{.}\)</span> Thus, <span class="process-math">\(\vec{v}\)</span> is an eigenvector of <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(\lambda\text{.}\)</span>
+</div>
+</div></details></div></article><article class="investigation project-like" id="ch_connecting_ideas-5-12"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.40</span><span class="period">.</span>
+</h3>
+<div class="para" id="ch_connecting_ideas-5-12-1-1">Prove that if <span class="process-math">\(\vec{v}\)</span> is an eigenvector of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\alpha \vec{v}\)</span> is also an eigenvector of <span class="process-math">\(A\)</span> (when <span class="process-math">\(\alpha \neq 0\)</span>).</div>
+<div class="solutions"><details id="ch_connecting_ideas-5-12-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="ch_connecting_ideas-5-12-2-1">
+<div class="para">Since <span class="process-math">\(\vec{v}\)</span> is an eigenvector of <span class="process-math">\(A\text{,}\)</span> there is a scalar <span class="process-math">\(\lambda\)</span> such that <span class="process-math">\(A\vec{v} = \lambda
+\vec{v}\text{.}\)</span> By properties of matrix multiplication, we thus have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A(\alpha\vec{v}) = \alpha A\vec{v} = \alpha\lambda\vec{v} =
+\lambda(\alpha\vec{v})\text{.}
+\end{equation*}
+</div>
+<div class="para">As <span class="process-math">\(\alpha\neq 0\text{,}\)</span> this shows that <span class="process-math">\(\alpha\vec{v}\)</span> is an eigenvector with the same eigenvalue.</div>
+</div></div></details></div></article><article class="investigation project-like" id="ch_connecting_ideas-5-13"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.41</span><span class="period">.</span>
+</h3>
+<div class="para" id="ch_connecting_ideas-5-13-1-1">Prove that if <span class="process-math">\(\vec{v_1}\)</span> and <span class="process-math">\(\vec{v_2}\)</span> are eigenvectors of <span class="process-math">\(A\)</span> with the same eigenvalue, then <span class="process-math">\(\vec{v_1}+\vec{v_2}\)</span> is also an eigenvector of <span class="process-math">\(A\text{.}\)</span> What is the eigenvalue of <span class="process-math">\(\vec{v_1}+\vec{v_2}\text{?}\)</span>
+</div>
+<div class="solutions"><details id="ch_connecting_ideas-5-13-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="ch_connecting_ideas-5-13-2-1">
+<div class="para">Let <span class="process-math">\(\lambda\)</span> be the associated eigenvalue. We have that <span class="process-math">\(A\vec{v}_1 = \lambda\vec{v}_1\)</span> and <span class="process-math">\(A\vec{v}_2 =
+\lambda\vec{v}_2\text{.}\)</span> Thus, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A(\vec{v}_1 + \vec{v}_2) =
+A\vec{v}_1 + A\vec{v}_2 = \lambda\vec{v}_1 + \lambda\vec{v}_2 =
+\lambda(\vec{v}_1 + \vec{v}_2)\text{.}
+\end{equation*}
+</div>
+<div class="para">Therefore, <span class="process-math">\(\vec{v}_1 +
+\vec{v}_2\)</span> is an eigenvector with the same eigenvalue.</div>
+</div></div></details></div></article><article class="definition definition-like" id="ch_connecting_ideas-5-14"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.32</span><span class="period">.</span>
+</h3>
+<div class="para" id="ch_connecting_ideas-5-14-1-1">If <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\text{,}\)</span> then the <dfn class="terminology">eigenspace of <span class="process-math">\(\lambda\)</span></dfn>, <span class="process-math">\(E_\lambda\text{,}\)</span> is the set of vectors <span class="process-math">\(\vec{x}\)</span> such that <span class="process-math">\((A-\lambda
+Id_n)\vec{x}=\vec{0}\text{.}\)</span>
+</div></article><div class="para" id="ch_connecting_ideas-5-15">The previous two questions along with the inclusion of <span class="process-math">\(\vec{0}\)</span> have proved the following theorem.</div>
+<article class="theorem theorem-like" id="ch_connecting_ideas-5-16"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.33</span><span class="period">.</span>
+</h3>
+<div class="para" id="ch_connecting_ideas-5-16-1-1">If <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A \in M_{n
+\times n}\text{,}\)</span> then <span class="process-math">\(E_\lambda\)</span> is a subspace of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span>
+</div></article><article class="investigation project-like" id="ch_connecting_ideas-5-17"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.42</span><span class="period">.</span>
+</h3>
+<div class="para" id="ch_connecting_ideas-5-17-1-1">Prove that <span class="process-math">\(dim(E_\lambda) \geq 1\)</span> for every eigenvalue <span class="process-math">\(\lambda\text{.}\)</span>
+</div>
+<div class="solutions"><details id="ch_connecting_ideas-5-17-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="ch_connecting_ideas-5-17-2-1">We prove this by contradiction. Suppose that there is an eigenspace with dimension <span class="process-math">\(0\text{.}\)</span> Then <span class="process-math">\(E_\lambda =
+\{\vec{0}\}\text{,}\)</span> since this is the only vector space of dimension <span class="process-math">\(0\text{.}\)</span> However, we now see that <span class="process-math">\(E_\lambda\)</span> does not contain any nonzero vectors, and thus cannot contain any eigenvectors and therefore is not an eigenspace.</div></div></details></div></article><article class="investigation project-like" id="q92"><h3 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.43</span><span class="period">.</span>
+</h3>
+<article class="task exercise-like" id="q92-1"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="q92-1-1-1">Let <span class="process-math">\(A =\begin{bmatrix} 2 \amp a\amp
+b\\0\amp 2\amp c\\0\amp 0\amp 2 \end{bmatrix}\text{.}\)</span> Show that <span class="process-math">\(A\)</span> only has an eigenvalue of 2. What is the algebraic multiplicity of the eigenvalue 2?</div></article><article class="task exercise-like" id="q92-2"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="q92-2-1-1">Can you pick <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\text{,}\)</span> so that the eigenspace of 2 has dimension 3? If so, give a choice of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> that does so.</div></article><article class="task exercise-like" id="q92-3"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="q92-3-1-1">Can you pick <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\text{,}\)</span> so that the eigenspace of 2 has dimension 2? If so, give a choice of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> that does so.</div></article><article class="task exercise-like" id="q92-4"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="q92-4-1-1">Can you pick <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\text{,}\)</span> so that the eigenspace of 2 has dimension 1? If so, give a choice of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> that does so.</div></article></article><section class="paragraphs" id="ch_connecting_ideas-5-19"><h3 class="heading"><span class="title">Diagonalizability.</span></h3> <article class="definition definition-like" id="ch_connecting_ideas-5-19-2"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.34</span><span class="period">.</span>
+</h4>
+<div class="para" id="ch_connecting_ideas-5-19-2-1-1">A matrix <span class="process-math">\(A\)</span> is <dfn class="terminology">diagonalizable</dfn> if there exists an invertible matrix <span class="process-math">\(Q\)</span> such that <span class="process-math">\(A=QDQ^{-1}\)</span> where <span class="process-math">\(D\)</span> is a diagonal matrix.</div></article> <div class="para" id="ch_connecting_ideas-5-19-3">We will not prove this theorem, but we will make use of it:</div> <article class="theorem theorem-like" id="ch_connecting_ideas-5-19-4"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.35</span><span class="period">.</span>
+</h4>
+<div class="para" id="ch_connecting_ideas-5-19-4-1-1">A matrix <span class="process-math">\(A \in M_{n \times n}\)</span> is diagonalizable iff <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> linearly independent eigenvectors. In fact, the matrix <span class="process-math">\(Q\)</span> that will diagonalize <span class="process-math">\(A\)</span> will have the <span class="process-math">\(n\)</span> linearly independent eigenvectors as its columns.</div></article> <div class="para" id="ch_connecting_ideas-5-19-5">The question becomes when can we find <span class="process-math">\(n\)</span> linearly independent eigenvectors for a matrix <span class="process-math">\(A\text{.}\)</span> It turns out that <em class="emphasis">if you can</em> find <span class="process-math">\(n\)</span> linearly independent eigenvectors for <span class="process-math">\(A\text{,}\)</span> then the matrix <span class="process-math">\(Q\)</span> has columns given by these eigenvectors and the diagonal matrix will have the eigenvalues on the diagonal. In particular, if the <span class="process-math">\(i\)</span>-th column of <span class="process-math">\(Q\)</span> has eigenvalue <span class="process-math">\(\lambda_i\text{,}\)</span> then <span class="process-math">\(D_{i,i} = \lambda_i\text{.}\)</span>
+</div> <article class="investigation project-like" id="ch_connecting_ideas-5-19-6"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.44</span><span class="period">.</span>
+</h4>
+<div class="para" id="ch_connecting_ideas-5-19-6-1-1">Can you diagonalize <span class="process-math">\(A=\begin{bmatrix} -1\amp 2\\-2\amp 4 \end{bmatrix}\text{?}\)</span> If so, give a basis of eigenvectors, give corresponding choices for <span class="process-math">\(Q\text{,}\)</span> <span class="process-math">\(Q^{-1}\text{,}\)</span> and <span class="process-math">\(D\text{,}\)</span> then use these to demonstrate how <span class="process-math">\(A=QDQ^{-1}\text{.}\)</span>
+</div></article> <article class="investigation project-like" id="q14"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.45</span><span class="period">.</span>
+</h4>
+<div class="para" id="q14-1-1">Can you diagonalize <span class="process-math">\(A=\begin{bmatrix} 1\amp -1\\1\amp 1 \end{bmatrix}\text{?}\)</span> If so, give a basis of eigenvectors, give corresponding choices for <span class="process-math">\(Q\text{,}\)</span> <span class="process-math">\(Q^{-1}\text{,}\)</span> and <span class="process-math">\(D\text{,}\)</span> then use these to demonstrate how <span class="process-math">\(A=QDQ^{-1}\text{.}\)</span>
+</div></article> <article class="lemma theorem-like" id="ch_connecting_ideas-5-19-8"><h4 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.36</span><span class="period">.</span>
+</h4>
+<div class="para" id="ch_connecting_ideas-5-19-8-1-1">If <span class="process-math">\(\vec{v_1}\)</span> is an eigenvector with eigenvalue <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\vec{v_2}\)</span> is an eigenvector with eigenvalue <span class="process-math">\(\lambda_2 \neq \lambda_1\text{,}\)</span> then <span class="process-math">\(\{ \vec{v_1},\vec{v_2} \}\)</span> is linearly independent.</div></article> <div class="para" id="ch_connecting_ideas-5-19-9">The following theorem relies on the preceding lemma and the fact that the dimension of every eigenspace is at least 1.</div> <article class="theorem theorem-like" id="ch_connecting_ideas-5-19-10"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.37</span><span class="period">.</span>
+</h4>
+<div class="para" id="ch_connecting_ideas-5-19-10-1-1">If a <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrix <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> distinct eigenvalues, then <span class="process-math">\(A\)</span> is diagonalizable.</div></article> <article class="investigation project-like" id="ch_connecting_ideas-5-19-11"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.46</span><span class="period">.</span>
+</h4>
+<div class="para" id="ch_connecting_ideas-5-19-11-1-1">The converse of this theorem is not true in that there diagonalizable matrices that do not have distinct eigenvalues. Give an example of a matrix that is diagonalizable but does not have distinct eigenvalues. Remember that diagonal matrices are diagonalizable.</div></article> <article class="theorem theorem-like" id="ch_connecting_ideas-5-19-12"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.38</span><span class="period">.</span>
+</h4>
+<div class="para" id="ch_connecting_ideas-5-19-12-1-1">A <span class="process-math">\(n\)</span> by <span class="process-math">\(n\)</span> matrix <span class="process-math">\(A\)</span> is diagonalizable if and only if the sums of the dimensions of its eigenspaces is <span class="process-math">\(n\text{.}\)</span>
+</div></article> <article class="investigation project-like" id="ch_connecting_ideas-5-19-13"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.47</span><span class="period">.</span>
+</h4>
+<div class="para" id="ch_connecting_ideas-5-19-13-1-1">Give an example of a matrix (with real eigenvalues) that is not diagonalizable. Justify your claim.</div></article> <article class="investigation project-like" id="ch_connecting_ideas-5-19-14"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.48</span><span class="period">.</span>
+</h4>
+<div class="introduction" id="ch_connecting_ideas-5-19-14-1"><div class="para" id="ch_connecting_ideas-5-19-14-1-1">Let <span class="process-math">\(A\)</span> be a <span class="process-math">\(4\)</span> by <span class="process-math">\(4\)</span> matrix.</div></div>
+<article class="task exercise-like" id="ch_connecting_ideas-5-19-14-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="ch_connecting_ideas-5-19-14-2-1-1">How many eigenvalues can <span class="process-math">\(A\)</span> have?</div></article><article class="task exercise-like" id="ch_connecting_ideas-5-19-14-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="ch_connecting_ideas-5-19-14-3-1-1">For each of the possible number of eigenvalues in the previous part, write out all of the possible dimensions of each of the eigenspaces. For instance: if <span class="process-math">\(A\)</span> has 4 distinct eigenvalues, then the only possibility is that each eigenspace has dimension 1 (why is that?).</div></article><article class="task exercise-like" id="ch_connecting_ideas-5-19-14-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="ch_connecting_ideas-5-19-14-4-1-1">Which of the cases from the previous problem correspond to <span class="process-math">\(A\)</span> being diagonalizable?</div></article></article> <article class="investigation project-like" id="ch_connecting_ideas-5-19-15"><h4 class="heading">
+<span class="type">Question</span><span class="space"> </span><span class="codenumber">4.49</span><span class="period">.</span>
+</h4>
+<div class="para" id="ch_connecting_ideas-5-19-15-1-1">Let <span class="process-math">\(A=\begin{bmatrix} 7 \amp -5 \amp 25\\ 10 \amp -8 \amp
+35\\ 0 \amp 0 \amp -1\end{bmatrix}\text{.}\)</span> Diagonalize <span class="process-math">\(A\)</span> and use your diagonalization to compute <span class="process-math">\(A^{10}\text{.}\)</span>
+</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="ch_connecting_ideas-4.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch_inner_products.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
